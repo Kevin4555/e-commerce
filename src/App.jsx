@@ -1,16 +1,18 @@
 import "./App.css";
-import Home from "./components/pages/Home/Home.jsx";
-import Product from "./components/pages/Product/Product.jsx";
 import { Routes, Route } from "react-router-dom";
+
+import SobreEsteProyecto from "./components/pages/SobreEsteProyecto";
+import Product from "./components/pages/Product/Product";
+//import PageNavbar from "./components/navbar/PageNavbar";
+import Home from "./components/pages/Home/Home";
 
 function App() {
   return (
-    <div className="App">
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/product" element={<Product />} />
-      </Routes>
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/products/:id" element={<Product />} />
+      <Route path="/about-us" element={<SobreEsteProyecto />} />
+    </Routes>
   );
 }
 
