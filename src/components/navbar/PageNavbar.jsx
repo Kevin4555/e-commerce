@@ -28,10 +28,10 @@ function PageNavbar() {
           </Form>
           <Nav className="ms-auto fs-4">
             <Nav.Link href="#home">
-              <i class="bi bi-person-circle"></i>
+              <i className="bi bi-person-circle"></i>
             </Nav.Link>
             <Nav.Link href="#pricing">
-              <i class="bi bi-cart"></i>
+              <i className="bi bi-cart"></i>
             </Nav.Link>
           </Nav>
         </Container>
