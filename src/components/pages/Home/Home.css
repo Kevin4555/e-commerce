@@ -1,0 +1,24 @@
+.categorys-img {
+  object-fit: cover;
+  height: 114px;
+  width: 114px;
+}
+.destacados-img {
+  object-fit: cover;
+  height: 200px;
+}
+.bg-verdeagua {
+  background: #a7f1dc;
+}
+.h-100px {
+  height: 100px;
+}
+#h1::after {
+  content: " ";
+  display: block;
+  height: 100px; /* altura de la franja */
+  width: 100%; /* ancho de la franja */
+  background-color: #a7f1dc; /* color de la franja */
+  position: absolute;
+  z-index: 1;
+}
