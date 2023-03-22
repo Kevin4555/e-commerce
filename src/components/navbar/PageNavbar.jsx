@@ -8,7 +8,12 @@ import "./PageNavbar.css";
 function PageNavbar() {
   return (
     <>
-      <Navbar bg="white" variant="light" className="flex-column border-bottom">
+      <Navbar
+        bg="white"
+        variant="light"
+        className="flex-column border-bottom"
+        sticky="top"
+      >
         <Container id="mainBar">
           <Navbar.Brand href="#home">
             <img src="logo.png" alt="logo Manos Creativas" width="100" />
