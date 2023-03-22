@@ -11,8 +11,8 @@ function PageNavbar() {
 			<Navbar
 				bg="white"
 				variant="light"
-				fixed="top"
 				className="flex-column border-bottom"
+				sticky="top"
 			>
 				<Container id="mainBar">
 					<Navbar.Brand href="#home">
