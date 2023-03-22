@@ -1,0 +1,10 @@
+#mainBar {
+	height: 3rem;
+}
+#categoryBar {
+	height: 2rem;
+}
+
+#categoryBar > div {
+	justify-content: space-evenly !important;
+}

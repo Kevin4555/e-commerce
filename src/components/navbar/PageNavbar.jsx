@@ -3,21 +3,32 @@ import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import "./PageNavbar.css";
 
 function PageNavbar() {
 	return (
 		<>
-			<Navbar bg="light" variant="light" fixed="top">
-				<Container>
-					<Navbar.Brand href="#home">Manos Creativas</Navbar.Brand>
-					<Form className="d-flex flex-grow-1 px-5">
+			<Navbar
+				bg="white"
+				variant="light"
+				fixed="top"
+				className="flex-column border-bottom"
+			>
+				<Container id="mainBar">
+					<Navbar.Brand href="#home">
+						<img
+							src="logo.png"
+							alt="logo Manos Creativas"
+							width="100"
+						/>
+					</Navbar.Brand>
+					<Form className="d-flex flex-grow-1 px-2">
 						<Form.Control
 							type="search"
 							placeholder="Search"
 							className="me-2 flex-grow-1"
 							aria-label="Search"
 						/>
-						<Button variant="outline-primary">Search</Button>
 					</Form>
 					<Nav className="ms-auto fs-4">
 						<Nav.Link href="#home">
@@ -28,14 +39,13 @@ function PageNavbar() {
 						</Nav.Link>
 					</Nav>
 				</Container>
-			</Navbar>
-			<Navbar bg="light" variant="light">
-				<Container>
-					<Navbar.Brand href="#home">Navbar</Navbar.Brand>
-					<Nav className="me-auto">
-						<Nav.Link href="#home">Home</Nav.Link>
-						<Nav.Link href="#features">Features</Nav.Link>
-						<Nav.Link href="#pricing">Pricing</Nav.Link>
+				<Container id="categoryBar">
+					<Nav className="fs-6 flex-grow-1">
+						<Nav.Link href="#home">Hogar</Nav.Link>
+						<Nav.Link href="#home">Joyería & Accesorios</Nav.Link>
+						<Nav.Link href="#home">Vestimenta</Nav.Link>
+						<Nav.Link href="#home">Arte</Nav.Link>
+						<Nav.Link href="#home">Juguetes</Nav.Link>
 					</Nav>
 				</Container>
 			</Navbar>
