@@ -1,12 +1,12 @@
 import "./App.css";
-import Home from "./components/Home";
+import SobreEsteProyecto from "./components/pages/SobreEsteProyecto";
 import PageNavbar from "./components/navbar/PageNavbar";
 
 function App() {
 	return (
 		<div className="App container">
 			<PageNavbar></PageNavbar>
-			<Home></Home>
+			<SobreEsteProyecto></SobreEsteProyecto>
 		</div>
 	);
 }
