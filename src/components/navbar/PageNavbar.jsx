@@ -2,7 +2,6 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
 import "./PageNavbar.css";
 
 function PageNavbar() {
@@ -14,9 +13,9 @@ function PageNavbar() {
 				className="flex-column border-bottom"
 				sticky="top"
 			>
-				<div class="position-fixed top-0 end-0">
+				<div class="position-fixed bottom-0 end-0">
 					<button id="sobreEsteProyecto" className="btn">
-						<i class="bi bi-patch-question fs-3"></i>
+						Sobre Este Proyecto
 					</button>
 				</div>
 				<Container id="mainBar">
