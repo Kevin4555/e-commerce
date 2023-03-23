@@ -8,3 +8,9 @@
 #categoryBar > div {
 	justify-content: space-evenly !important;
 }
+
+#sobreEsteProyecto {
+	border-radius: 0px 0px 0px 2rem;
+	background-color: var(--salmon);
+	color: white !important;
+}
