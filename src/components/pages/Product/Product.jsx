@@ -52,20 +52,6 @@ function Product() {
                   </p>
                 </Carousel.Caption>
               </Carousel.Item>
-              <Carousel.Item>
-                <img
-                  className="d-block w-100"
-                  src="/img/pexels-los-muertos-crew-8066050.jpg"
-                  alt="Second slide"
-                />
-
-                <Carousel.Caption>
-                  <h3>Second slide label</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </p>
-                </Carousel.Caption>
-              </Carousel.Item>
             </Carousel>
           </div>
 
