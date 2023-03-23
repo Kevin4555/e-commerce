@@ -4,7 +4,7 @@ import PageNavbar from "./components/navbar/PageNavbar";
 
 function App() {
 	return (
-		<div className="App container">
+		<div className="App container-fluid">
 			<PageNavbar></PageNavbar>
 			<SobreEsteProyecto></SobreEsteProyecto>
 		</div>
