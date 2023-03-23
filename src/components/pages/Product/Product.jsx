@@ -78,7 +78,7 @@ function Product() {
           <div className="d-flex justify-content-between">
             <button>Add to cart</button>{" "}
             <button className="border-0 bg-white">
-              <i class="bi bi-heart"></i>
+              <i className="bi bi-heart"></i>
             </button>
           </div>
         </div>
