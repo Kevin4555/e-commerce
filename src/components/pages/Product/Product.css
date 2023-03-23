@@ -1,3 +1,24 @@
-.carousel .slide {
-  max-height: view;
+:root {
+  --dark: #2b2d42;
+  --platinum: #eaeaea;
+  --white: #ffffff;
+  --gray: #8d99ae;
+  --green: #a7f1dc;
+  --salmon: #ff858d;
+  --orange: #e9c46a;
+}
+
+* {
+  color: #2b2d42;
+}
+.carousel-inner,
+.carousel-div {
+  height: 400px;
+  width: 400px;
+}
+#btn {
+  background-color: #e9c46a;
+}
+#btn:hover {
+  background-color: #e6b740;
 }

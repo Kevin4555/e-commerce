@@ -1,3 +1,16 @@
+:root {
+  --dark: #2b2d42;
+  --platinum: #eaeaea;
+  --white: #ffffff;
+  --gray: #8d99ae;
+  --green: #a7f1dc;
+  --salmon: #ff858d;
+  --orange: #e9c46a;
+}
+* {
+  color: var(--dark);
+}
+
 .categorys-img {
   object-fit: cover;
   height: 114px;
@@ -8,7 +21,7 @@
   height: 200px;
 }
 .bg-verdeagua {
-  background: #a7f1dc;
+  background: var(--green);
 }
 .h-100px {
   height: 100px;
@@ -18,7 +31,7 @@
   display: block;
   height: 100px; /* altura de la franja */
   width: 100%; /* ancho de la franja */
-  background-color: #a7f1dc; /* color de la franja */
+  background-color: var(--green); /* color de la franja */
   position: absolute;
   z-index: 1;
 }
