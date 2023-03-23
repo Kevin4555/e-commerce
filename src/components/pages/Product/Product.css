@@ -17,8 +17,15 @@
   width: 400px;
 }
 #btn {
-  background-color: #e9c46a;
+  background-color: var(--orange);
 }
 #btn:hover {
   background-color: #e6b740;
+}
+#reviews-container {
+  width: 500px;
+}
+.user-avatar {
+  width: 40px;
+  height: 40px;
 }
