@@ -15,8 +15,9 @@
 .carousel-inner,
 .carousel-div {
   height: 400px;
-  width: 400px;
+  width: 100%;
 }
+
 #btn {
   background-color: var(--orange);
 }
@@ -29,4 +30,8 @@
 .user-avatar {
   width: 40px;
   height: 40px;
+}
+.loding {
+  width: 10px;
+  height: 10px;
 }

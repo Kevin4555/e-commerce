@@ -14,7 +14,7 @@ function PageNavbar() {
         className="flex-column border-bottom"
         sticky="top"
       >
-        <div class="position-fixed bottom-0 end-0">
+        <div className="position-fixed bottom-0 end-0">
           <Link id="sobreEsteProyecto" to={"/about-us"} className="btn">
             Sobre Este Proyecto
           </Link>
