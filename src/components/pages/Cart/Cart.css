@@ -8,25 +8,17 @@
   --orange: #e9c46a;
   --orange-hover: #e6b740;
 }
-
 * {
-  color: #2b2d42;
+  font-size: 14px;
 }
-.carousel-inner,
-.carousel-div {
-  height: 400px;
-  width: 400px;
+.product-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
 }
-#btn {
+.btn.border {
   background-color: var(--orange);
 }
-#btn:hover {
+.btn.border:hover {
   background-color: var(--orange-hover);
-}
-#reviews-container {
-  width: 500px;
-}
-.user-avatar {
-  width: 40px;
-  height: 40px;
 }
