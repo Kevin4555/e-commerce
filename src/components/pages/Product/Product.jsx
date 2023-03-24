@@ -16,7 +16,6 @@ function Product() {
           method: "get",
           url: `http://localhost:8000/products/${id}`,
         });
-        console.log(response.data);
         setProduct(response.data);
       } catch (error) {
         console.log(error);
@@ -27,7 +26,7 @@ function Product() {
   return (
     <>
       <PageNavbar />
-      <body>
+      <main>
         <div className="d-flex justify-content-center mt-5">
           <div className="carousel-div me-5">
             <Carousel>
@@ -87,7 +86,7 @@ function Product() {
               </h1>
               <small className="d-block mb-3 mt-5">
                 {product ? (
-                  product.price
+                  "Price: " + product.price
                 ) : (
                   <img src="/img/Spinner-1s-200px.svg" alt="" />
                 )}{" "}
@@ -95,11 +94,11 @@ function Product() {
               </small>
               <small className="d-block my-3">
                 {" "}
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
-                <i class="bi bi-star-fill"></i>
+                <i className="bi bi-star-fill"></i>
+                <i className="bi bi-star-fill"></i>
+                <i className="bi bi-star-fill"></i>
+                <i className="bi bi-star-fill"></i>
+                <i className="bi bi-star-fill"></i>
               </small>
               <small className="d-block my-3">
                 Stock:{" "}
@@ -134,11 +133,11 @@ function Product() {
           <h3>Comentarios</h3>
           <div className="mb-4">
             <small>
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i>
+              <i className="bi bi-star-fill"></i>
+              <i className="bi bi-star-fill"></i>
+              <i className="bi bi-star-fill"></i>
+              <i className="bi bi-star-fill"></i>
+              <i className="bi bi-star-fill"></i>
             </small>
             <p>
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad
@@ -161,11 +160,11 @@ function Product() {
 
           <div className="mb-4">
             <small>
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i>
+              <i className="bi bi-star-fill"></i>
+              <i className="bi bi-star-fill"></i>
+              <i className="bi bi-star-fill"></i>
+              <i className="bi bi-star-fill"></i>
+              <i className="bi bi-star-fill"></i>
             </small>
             <p>
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad
@@ -188,11 +187,11 @@ function Product() {
 
           <div className="mb-4">
             <small>
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i>
-              <i class="bi bi-star-fill"></i>
+              <i className="bi bi-star-fill"></i>
+              <i className="bi bi-star-fill"></i>
+              <i className="bi bi-star-fill"></i>
+              <i className="bi bi-star-fill"></i>
+              <i className="bi bi-star-fill"></i>
             </small>
             <p>
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad
@@ -213,7 +212,7 @@ function Product() {
             </div>
           </div>
         </div>
-      </body>
+      </main>
     </>
   );
 }
