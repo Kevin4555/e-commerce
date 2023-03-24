@@ -80,25 +80,27 @@ function Home() {
             {products.map((product) => {
               return (
                 <div className="col-3 mb-5 p-relative" key={product.id}>
-                  <div className="">
-                    <img
-                      /* src={`/img/${product.img.img1}`} */
-                      src="/img/pexels-los-muertos-crew-8066050.jpg"
-                      alt=""
-                      className="destacados-img w-100 rounded-top"
-                    />
-                  </div>
-                  <div className="border px-2 rounded-bottom">
-                    <div className="row">
-                      <small className="fw-semibold col-12 mb-2">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing.
-                      </small>
-                      <small className="fw-bold col-6">
-                        {product.price} USD
-                      </small>
-                      <small className="col-6 text-end">
-                        <i className="bi bi-star-fill text-warning"></i> 5
-                      </small>
+                  <div className="shadow rounded">
+                    <div className="">
+                      <img
+                        /* src={`/img/${product.img.img1}`} */
+                        src="/img/pexels-los-muertos-crew-8066050.jpg"
+                        alt=""
+                        className="destacados-img w-100 rounded-top"
+                      />
+                    </div>
+                    <div className="border px-2 rounded-bottom">
+                      <div className="row">
+                        <small className="fw-semibold col-12 mb-2">
+                          Lorem ipsum dolor sit, amet consectetur adipisicing.
+                        </small>
+                        <small className="fw-bold col-6">
+                          {product.price} USD
+                        </small>
+                        <small className="col-6 text-end">
+                          <i className="bi bi-star-fill text-warning"></i> 5
+                        </small>
+                      </div>
                     </div>
                   </div>
                 </div>
