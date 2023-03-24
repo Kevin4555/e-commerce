@@ -8,3 +8,16 @@
 #categoryBar > div {
 	justify-content: space-evenly !important;
 }
+
+#sobreEsteProyecto {
+	border-radius: 2rem 0px 0px 0px;
+	background-color: var(--salmon);
+	color: white !important;
+	font-size: large;
+}
+
+#sobreEsteProyecto:hover {
+	transition: all 0.4s ease-in;
+	transform: scale(1.05);
+	filter: brightness(95%);
+}
