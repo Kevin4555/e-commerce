@@ -9,6 +9,10 @@ import Cart from "./components/pages/Cart/Cart";
 import Profile from "./components/pages/Profile/Profile";
 import Admin from "./components/pages/Admin/Admin";
 import SingUp from "./components/pages/SignUp/SignUp";
+import React from "react";
+import { GoogleLogin } from "@react-oauth/google";
+
+
 
 function App() {
   return (
@@ -21,7 +25,23 @@ function App() {
       <Route path="/profile" element={<Profile />} />
       <Route path="/admin" element={<Admin />} />
     </Routes>
-  );
+
+,
+
+const responseMessage = (response) => {
+  console.log(response);
+};
+const errorMessage = (error) => {
+  console.log(error);
+};
+
+  <div>
+    <h2>React Google Login</h2>
+    <br />
+    <br />
+    <GoogleLogin onSuccess={responseMessage} onError={errorMessage} />
+  </div>
+  )
 }
 
 export default App;

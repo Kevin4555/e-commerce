@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { Col, Button, Row, Container, Card, Form } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.css"; // or include from a CDN
+import React from "react";
+import ReactDOM from "react-dom";
+import { GoogleOAuthProvider } from "@react-oauth/google";
+import App from "./App";
 
 export default function Login() {
   const [email, setEmail] = useState();
@@ -34,6 +38,15 @@ export default function Login() {
                     <div className="mt-3">
                       <p className="mb-0  text-center">
                         Sign up with Google{" "}
+                        <div>
+                          ReactDOM.render(
+                          <GoogleOAuthProvider clientId="386932037035-k8v833noqjk7m4***********.apps.googleusercontent.com">
+                            <React.StrictMode>
+                              <App />
+                            </React.StrictMode>
+                          </GoogleOAuthProvider>
+                          , document.getElementById('root') );
+                        </div>
                         <a href="{''}" className="text-primary fw-bold">
                           Sign In
                         </a>
