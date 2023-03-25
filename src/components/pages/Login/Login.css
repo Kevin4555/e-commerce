@@ -1,0 +1,13 @@
+Container {
+  background-color: hotpink;
+}
+
+.caja {
+  background-color: gray;
+  border-style: solid;
+  border-color: palevioletred;
+}
+
+.titulo {
+  color: palevioletred;
+}
