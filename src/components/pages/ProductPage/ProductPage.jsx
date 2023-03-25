@@ -1,9 +1,10 @@
+import "./ProductPage.css";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Carousel from "react-bootstrap/Carousel";
 import PageNavbar from "../../navbar/PageNavbar";
-import "./ProductPage.css";
+import Rating from "react-rating";
 
 function ProductPage() {
   const { id } = useParams();
@@ -116,14 +117,24 @@ function ProductPage() {
               )}{" "}
               USD
             </small>
-            <small className="d-block my-3">
-              {" "}
-              <i className="bi bi-star-fill"></i>
-              <i className="bi bi-star-fill"></i>
-              <i className="bi bi-star-fill"></i>
-              <i className="bi bi-star-fill"></i>
-              <i className="bi bi-star-fill"></i>
-            </small>
+
+            {product ? (
+              <Rating
+                className="d-block my-3"
+                emptySymbol="bi bi-star"
+                fullSymbol="bi bi-star-fill"
+                initialRating={product.rating}
+              />
+            ) : (
+              <div className="loading">
+                <img
+                  src="/img/Spinner-1s-200px.svg"
+                  className="loading"
+                  alt=""
+                />
+              </div>
+            )}
+
             <small className="d-block my-3">
               Stock:{" "}
               {product ? (
@@ -168,13 +179,13 @@ function ProductPage() {
       <div className="mt-5 mx-auto p-3" id="reviews-container">
         <h3>Comentarios</h3>
         <div className="mb-4 shadow p-3">
-          <small>
-            <i className="bi bi-star-fill"></i>
-            <i className="bi bi-star-fill"></i>
-            <i className="bi bi-star-fill"></i>
-            <i className="bi bi-star-fill"></i>
-            <i className="bi bi-star-fill"></i>
-          </small>
+          <Rating
+            className="d-block my-3"
+            emptySymbol="bi bi-star"
+            fullSymbol="bi bi-star-fill"
+            readonly="true"
+            initialRating="5"
+          />
           <p>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad ducimus
             illum nulla placeat ab, rem excepturi quibusdam distinctio earum.
@@ -195,13 +206,13 @@ function ProductPage() {
         </div>
 
         <div className="mb-4 shadow p-3">
-          <small>
-            <i className="bi bi-star-fill"></i>
-            <i className="bi bi-star-fill"></i>
-            <i className="bi bi-star-fill"></i>
-            <i className="bi bi-star-fill"></i>
-            <i className="bi bi-star-fill"></i>
-          </small>
+          <Rating
+            className="d-block my-3"
+            emptySymbol="bi bi-star"
+            fullSymbol="bi bi-star-fill"
+            readonly="true"
+            initialRating="4.5"
+          />
           <p>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad ducimus
             illum nulla placeat ab, rem excepturi quibusdam distinctio earum.
@@ -222,13 +233,13 @@ function ProductPage() {
         </div>
 
         <div className="mb-4 shadow p-3">
-          <small>
-            <i className="bi bi-star-fill"></i>
-            <i className="bi bi-star-fill"></i>
-            <i className="bi bi-star-fill"></i>
-            <i className="bi bi-star-fill"></i>
-            <i className="bi bi-star-fill"></i>
-          </small>
+          <Rating
+            className="d-block my-3"
+            emptySymbol="bi bi-star"
+            fullSymbol="bi bi-star-fill"
+            readonly="true"
+            initialRating="4"
+          />
           <p>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad ducimus
             illum nulla placeat ab, rem excepturi quibusdam distinctio earum.

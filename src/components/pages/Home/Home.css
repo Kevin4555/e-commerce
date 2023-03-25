@@ -51,3 +51,6 @@
 .heart-icon {
   font-size: 20px;
 }
+.d-block.fs-5.fw-semibold.btn:hover {
+  background-color: var(--gray);
+}

@@ -57,7 +57,7 @@ function Home() {
               <img
                 src="/img/pexels-los-muertos-crew-8066050.jpg"
                 alt=""
-                className=" home-img rounded-pill categorys-img "
+                className=" home-img rounded-pill categorys-img mb-2"
               />
 
               <small
@@ -71,7 +71,7 @@ function Home() {
               <img
                 src="/img/pexels-rodnae-productions-6806697.jpg"
                 alt=""
-                className=" home-img rounded-pill categorys-img"
+                className=" home-img rounded-pill categorys-img mb-2"
               />
               <small
                 className="d-block fs-5 fw-semibold btn"
@@ -85,7 +85,7 @@ function Home() {
               <img
                 src="/img/pexels-vlada-karpovich-5602996.jpg"
                 alt=""
-                className=" home-img rounded-pill categorys-img"
+                className=" home-img rounded-pill categorys-img mb-2"
               />
               <small
                 className="d-block fs-5 fw-semibold btn"
@@ -135,7 +135,8 @@ function Home() {
                             {product.price} USD
                           </small>
                           <small className="col-6 text-end">
-                            <i className="bi bi-star-fill text-warning"></i> 5
+                            <i className="bi bi-star-fill text-warning"></i>{" "}
+                            {product.rating}
                           </small>
                         </div>
                       </div>
@@ -186,7 +187,8 @@ function Home() {
                             {product.price} USD
                           </small>
                           <small className="col-6 text-end">
-                            <i className="bi bi-star-fill text-warning"></i> 5
+                            <i className="bi bi-star-fill text-warning"></i>{" "}
+                            {product.rating}
                           </small>
                         </div>
                       </div>
@@ -238,7 +240,8 @@ function Home() {
                             {product.price} USD
                           </small>
                           <small className="col-6 text-end">
-                            <i className="bi bi-star-fill text-warning"></i> 5
+                            <i className="bi bi-star-fill text-warning"></i>{" "}
+                            {product.rating}
                           </small>
                         </div>
                       </div>
@@ -290,7 +293,8 @@ function Home() {
                             {product.price} USD
                           </small>
                           <small className="col-6 text-end">
-                            <i className="bi bi-star-fill text-warning"></i> 5
+                            <i className="bi bi-star-fill text-warning"></i>{" "}
+                            {product.rating}
                           </small>
                         </div>
                       </div>
