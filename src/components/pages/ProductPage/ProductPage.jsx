@@ -16,7 +16,6 @@ function ProductPage() {
           method: "get",
           url: `http://localhost:8000/products/${id}`,
         });
-        console.log(response.data);
         setProduct(response.data);
       } catch (error) {
         console.log(error);
@@ -31,50 +30,61 @@ function ProductPage() {
         <div className="row">
           <div className="col-6" id="producto">
             <div className="carousel-div me-5 text-end">
-              <Carousel>
-                <Carousel.Item>
-                  <img
-                    className="d-block w-100"
-                    src="/img/pexels-los-muertos-crew-8066050.jpg"
-                    alt="First slide"
-                  />
-                  <Carousel.Caption>
-                    <h3>First slide label</h3>
-                    <p>
-                      Nulla vitae elit libero, a pharetra augue mollis interdum.
-                    </p>
-                  </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
-                  <img
-                    className="d-block w-100"
-                    src="/img/pexels-los-muertos-crew-8066050.jpg"
-                    alt="Second slide"
-                  />
+              {product ? (
+                <Carousel>
+                  <Carousel.Item>
+                    <img
+                      className="d-block w-100"
+                      src="/img/pexels-los-muertos-crew-8066050.jpg"
+                      alt="First slide"
+                    />
+                    <Carousel.Caption>
+                      <h3>First slide label</h3>
+                      <p>
+                        Nulla vitae elit libero, a pharetra augue mollis
+                        interdum.
+                      </p>
+                    </Carousel.Caption>
+                  </Carousel.Item>
+                  <Carousel.Item>
+                    <img
+                      className="d-block w-100"
+                      src="/img/pexels-los-muertos-crew-8066050.jpg"
+                      alt="Second slide"
+                    />
 
-                  <Carousel.Caption>
-                    <h3>Second slide label</h3>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    </p>
-                  </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
-                  <img
-                    className="d-block w-100"
-                    src="/img/pexels-los-muertos-crew-8066050.jpg"
-                    alt="Third slide"
-                  />
+                    <Carousel.Caption>
+                      <h3>Second slide label</h3>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      </p>
+                    </Carousel.Caption>
+                  </Carousel.Item>
+                  <Carousel.Item>
+                    <img
+                      className="d-block w-100"
+                      src="/img/pexels-los-muertos-crew-8066050.jpg"
+                      alt="Third slide"
+                    />
 
-                  <Carousel.Caption>
-                    <h3>Third slide label</h3>
-                    <p>
-                      Praesent commodo cursus magna, vel scelerisque nisl
-                      consectetur.
-                    </p>
-                  </Carousel.Caption>
-                </Carousel.Item>
-              </Carousel>
+                    <Carousel.Caption>
+                      <h3>Third slide label</h3>
+                      <p>
+                        Praesent commodo cursus magna, vel scelerisque nisl
+                        consectetur.
+                      </p>
+                    </Carousel.Caption>
+                  </Carousel.Item>
+                </Carousel>
+              ) : (
+                <div className="carousel-div d-flex align-items-center justify-content-center">
+                  <img
+                    src="/img/Spinner-1s-200px.svg"
+                    className="loading"
+                    alt=""
+                  />
+                </div>
+              )}
             </div>
           </div>
 
@@ -142,13 +152,13 @@ function ProductPage() {
                 </div>
               )}
             </p>
-            <div className="">
+            <div className="d-flex align-items-center">
               <button className="btn fw-semibold" id="btn">
-                Add to cart
+                Añadir al carrito
               </button>
 
-              <button className="border-0 bg-white ms-3">
-                <i className="bi bi-heart"></i>
+              <button className="border-0 bg-white">
+                <i className="bi bi-heart fs-5"></i>
               </button>
             </div>
           </div>

@@ -13,10 +13,10 @@ function Cart() {
               <div className="d-flex justify-content-between mb-3">
                 <div>
                   <i className="bi bi-cart4 fs-4"></i>
-                  <h4 className="d-inline ms-2">Order summary</h4>
+                  <h4 className="d-inline ms-2">Resumen de pedido</h4>
                 </div>
                 <button className="border-0 bg-white my-auto">
-                  Remove all
+                  Eliminar todos
                 </button>
               </div>
 
@@ -27,7 +27,7 @@ function Cart() {
                     alt=""
                     className="product-img rounded d-inline"
                   />
-                  <small className="ms-2 fs-6 ">Item name here</small>
+                  <small className="ms-2 fs-6 ">Nombre de producto</small>
                 </div>
 
                 <div className="col-6 text-end my-auto">
@@ -52,7 +52,7 @@ function Cart() {
                     alt=""
                     className="product-img rounded d-inline"
                   />
-                  <small className="ms-2 fs-6 ">Item name here</small>
+                  <small className="ms-2 fs-6 ">Nombre de producto</small>
                 </div>
 
                 <div className="col-6 text-end my-auto">
@@ -78,7 +78,7 @@ function Cart() {
                     className="product-img rounded d-inline"
                   />
 
-                  <small className="ms-2 fs-6 ">Item name here</small>
+                  <small className="ms-2 fs-6 ">Nombre de producto</small>
                 </div>
 
                 <div className="col-6 text-end my-auto">
@@ -106,7 +106,7 @@ function Cart() {
                   <small className="">29,53 USD</small>
                 </div>
                 <div className="d-flex justify-content-between">
-                  <small className="fs-6">Total(including tax)</small>
+                  <small className="fs-6">Total(tax incluido)</small>
                   <small className="">163,74 USD</small>
                 </div>
               </div>
@@ -114,32 +114,41 @@ function Cart() {
           </div>
 
           <div className="col-6">
-            <h2 className="mt-5 fs-4">Contact information</h2>
+            <h2 className="mt-5 fs-4">Información de contacto</h2>
             <Form>
-              <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" placeholder="Enter email" />
-              </Form.Group>
+              <div className="row">
+                <Form.Group className="mb-3 col-6" controlId="formBasicEmail">
+                  <Form.Label>Dirección de correo electrónico</Form.Label>
+                  <Form.Control type="email" placeholder="Enter email" />
+                </Form.Group>
+                <Form.Group
+                  className="mb-3 col-6"
+                  controlId="formBasicPassword"
+                >
+                  <Form.Label>Teléfono</Form.Label>
+                  <Form.Control type="text" />
+                </Form.Group>
+              </div>
               <hr />
-              <h2 className="my-3 fs-4">Shipping information</h2>
+              <h2 className="my-3 fs-4">Información de envío</h2>
               <div className="row">
                 <Form.Group
                   className="mb-3 col-6"
                   controlId="formBasicPassword"
                 >
-                  <Form.Label>First name</Form.Label>
+                  <Form.Label>Nombre</Form.Label>
                   <Form.Control type="text" />
                 </Form.Group>
                 <Form.Group
                   className="mb-3 col-6"
                   controlId="formBasicPassword"
                 >
-                  <Form.Label>Last name</Form.Label>
+                  <Form.Label>Apellido</Form.Label>
                   <Form.Control type="text" />
                 </Form.Group>
               </div>
               <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Address</Form.Label>
+                <Form.Label>Dirección</Form.Label>
                 <Form.Control type="text" />
               </Form.Group>
               <div className="row">
@@ -147,37 +156,33 @@ function Cart() {
                   className="mb-3 col-6"
                   controlId="formBasicPassword"
                 >
-                  <Form.Label>City</Form.Label>
+                  <Form.Label>Ciudad</Form.Label>
                   <Form.Control type="text" />
                 </Form.Group>
                 <Form.Group
                   className="mb-3 col-6"
                   controlId="formBasicPassword"
                 >
-                  <Form.Label>Country</Form.Label>
+                  <Form.Label>Pais</Form.Label>
                   <Form.Control type="text" />
                 </Form.Group>
                 <Form.Group
                   className="mb-3 col-6"
                   controlId="formBasicPassword"
                 >
-                  <Form.Label>State/Province</Form.Label>
+                  <Form.Label>Estado/Provincia</Form.Label>
                   <Form.Control type="text" />
                 </Form.Group>
                 <Form.Group
                   className="mb-3 col-6"
                   controlId="formBasicPassword"
                 >
-                  <Form.Label>Postal code</Form.Label>
+                  <Form.Label>Código postal</Form.Label>
                   <Form.Control type="text" />
                 </Form.Group>
               </div>
-              <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Phone</Form.Label>
-                <Form.Control type="text" />
-              </Form.Group>
               <hr />
-              <h2 className="my-3 fs-4">Payment</h2>
+              <h2 className="my-3 fs-4">Método de pago</h2>
               <div className="mb-3">
                 <Form.Check
                   inline
@@ -200,12 +205,12 @@ function Cart() {
                   type="radio"
                   id="inline-radio-3"
                 />
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                  <Form.Label>Card number</Form.Label>
+                <Form.Group className="my-3" controlId="formBasicPassword">
+                  <Form.Label>Número de tarjeta</Form.Label>
                   <Form.Control type="text" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicPassword">
-                  <Form.Label>Name on card</Form.Label>
+                  <Form.Label>Nombre del titular</Form.Label>
                   <Form.Control type="text" />
                 </Form.Group>
                 <div className="row">
@@ -213,7 +218,7 @@ function Cart() {
                     className="mb-3 col-8"
                     controlId="formBasicPassword"
                   >
-                    <Form.Label>Expiration date (MM/YY)</Form.Label>
+                    <Form.Label>Fecha de expiración (MM/YY)</Form.Label>
                     <Form.Control type="text" />
                   </Form.Group>
                   <Form.Group
@@ -228,11 +233,11 @@ function Cart() {
               <div className="row mb-4">
                 <div className="col-6">
                   <button className="btn border w-100 fw-bold">
-                    Make Payment
+                    Realizar pago
                   </button>
                 </div>
                 <div className="col-6">
-                  <button className="btn border w-100 fw-bold">Cancel</button>
+                  <button className="btn border w-100 fw-bold">Cancelar</button>
                 </div>
               </div>
             </Form>
