@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import PageNavbar from "../../navbar/PageNavbar";
 //import MultiItemCarousel from "../../Carousel/MultiItemCarousel";
-//import ProductMini from "../../ProductMini/ProductMini";
+import ProductMini from "../../ProductMini/ProductMini";
 
 function Home() {
   const [products, setProducts] = useState([]);
@@ -34,10 +34,21 @@ function Home() {
     (product) => product.categoryId === 3
   );
 
+  function showProducts(arrayProducts) {
+    return (
+      arrayProducts && (
+        <div className="row">
+          {arrayProducts.map((product) => {
+            return <ProductMini product={product} />;
+          })}
+        </div>
+      )
+    );
+  }
+
   function scrollToCategory(id) {
     const elemento = document.getElementById(id);
     const posicion = elemento.getBoundingClientRect();
-
     window.scrollTo({
       top: posicion.top + window.pageYOffset,
       behavior: "smooth",
@@ -99,40 +110,19 @@ function Home() {
           {/* <MultiItemCarousel products={products}></MultiItemCarousel> */}
 
           <h2 className="pt-5 pb-4">Nuestros productos</h2>
-          <div className="row">
-            {products.map((product) => {
-              return <ProductMini product={product} />;
-            })}
-          </div>
+          {showProducts(products)}
           <h3 className="pt-5 pb-4" id="pinturas">
             Pinturas
           </h3>
-
-          <div className="row">
-            {productsFromCategory1.map((product) => {
-              return <ProductMini product={product} />;
-            })}
-          </div>
-
+          {showProducts(productsFromCategory1)}
           <h3 className="pt-5 pb-4" id="ceramicas">
             Cerámicas & Decoraciones
           </h3>
-
-          <div className="row">
-            {productsFromCategory2.map((product) => {
-              return <ProductMini product={product} />;
-            })}
-          </div>
-
+          {showProducts(productsFromCategory2)}
           <h3 className="pt-5 pb-4" id="muebles">
             Muebles & Carpintería
           </h3>
-
-          <div className="row">
-            {productsFromCategory3.map((product) => {
-              return <ProductMini product={product} />;
-            })}
-          </div>
+          {showProducts(productsFromCategory3)}
         </div>
       </main>
     </>
