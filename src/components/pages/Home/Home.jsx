@@ -95,7 +95,7 @@ function Home() {
               </small>
             </div>
           </div>
-          <h2 className="pt-5 pb-4">Destacados</h2>
+          {/* <h2 className="pt-5 pb-4">Destacados</h2> */}
           {/* <MultiItemCarousel products={products}></MultiItemCarousel> */}
 
           <h2 className="pt-5 pb-4">Nuestros productos</h2>

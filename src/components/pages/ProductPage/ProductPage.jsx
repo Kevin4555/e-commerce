@@ -53,7 +53,6 @@ function ProductPage() {
                       src="/img/pexels-los-muertos-crew-8066050.jpg"
                       alt="Second slide"
                     />
-
                     <Carousel.Caption>
                       <h3>Second slide label</h3>
                       <p>
