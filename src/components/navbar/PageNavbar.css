@@ -10,7 +10,11 @@
 }
 
 #sobreEsteProyecto {
-	border-radius: 2rem 0px 0px 0px;
+	font-weight: bold;
+	position: fixed;
+	z-index: 2;
+	border-radius: 0px 0px 2rem 0px;
+	padding-left: 0.5rem;
 	background-color: var(--salmon);
 	color: white !important;
 	font-size: large;

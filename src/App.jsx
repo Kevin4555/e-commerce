@@ -7,24 +7,24 @@ import ProductPage from "./components/pages/ProductPage/ProductPage";
 import Home from "./components/pages/Home/Home";
 import Cart from "./components/pages/Cart/Cart";
 import Profile from "./components/pages/Profile/Profile";
-import Admin from "./components/pages/Admin/Admin";
+// import Admin from "./components/pages/Admin/Admin";
 import SingUp from "./components/pages/SignUp/SignUp";
 import React from "react";
 import { GoogleLogin } from "@react-oauth/google";
 
 function App() {
-  return (
-    <Routes>
-      <Route path="/SingUp" element={<SingUp />} />
-      <Route path="/" element={<Home />} />
-      <Route path="/product/:id" element={<ProductPage />} />
-      <Route path="/about-us" element={<SobreEsteProyecto />} />
-      <Route path="/cart" element={<Cart />} />
-      <Route path="/profile" element={<Profile />} />
-      <Route path="/admin" element={<Admin />} />
-    </Routes>
+	return (
+		<Routes>
+			<Route path="/SingUp" element={<SingUp />} />
+			<Route path="/" element={<Home />} />
+			<Route path="/product/:id" element={<ProductPage />} />
+			<Route path="/about-us" element={<SobreEsteProyecto />} />
+			<Route path="/cart" element={<Cart />} />
+			<Route path="/profile" element={<Profile />} />
+			{/* <Route path="/admin" element={<Admin />} /> */}
+		</Routes>
 
-    /* ,
+		/* ,
 
 const responseMessage = (response) => {
   console.log(response);
@@ -39,7 +39,7 @@ const errorMessage = (error) => {
     <br />
     <GoogleLogin onSuccess={responseMessage} onError={errorMessage} />
   </div> */
-  );
+	);
 }
 
 export default App;
