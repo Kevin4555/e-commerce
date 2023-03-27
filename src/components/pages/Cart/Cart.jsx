@@ -8,7 +8,7 @@ function Cart() {
       <PageNavbar />
       <div className="container">
         <div className="row">
-          <div className="col-6">
+          <div className="col-12 col-md-6">
             <div className="border rounded p-3 bg-white mt-5">
               <div className="d-flex justify-content-between mb-3">
                 <div>
@@ -27,7 +27,7 @@ function Cart() {
                     alt=""
                     className="product-img rounded d-inline"
                   />
-                  <small className="ms-2 fs-6 ">Nombre de producto</small>
+                  <small className="fs-6 d-block">Nombre de producto</small>
                 </div>
 
                 <div className="col-6 text-end my-auto">
@@ -37,7 +37,9 @@ function Cart() {
                     <button className="btn rounded-pill">+</button>
                   </div>
                   <div className="d-inline">
-                    <small className="">19,32 USD</small>
+                    <small className="">
+                      19,32<span className="ms-1">USD</span>
+                    </small>
                   </div>
                   <div className="d-inline ms-2">
                     <i className="bi bi-trash3"></i>
@@ -52,7 +54,7 @@ function Cart() {
                     alt=""
                     className="product-img rounded d-inline"
                   />
-                  <small className="ms-2 fs-6 ">Nombre de producto</small>
+                  <small className="fs-6 d-block">Nombre de producto</small>
                 </div>
 
                 <div className="col-6 text-end my-auto">
@@ -62,7 +64,7 @@ function Cart() {
                     <button className="btn rounded-pill">+</button>
                   </div>
                   <div className="d-inline">
-                    <small className="">19,32 USD</small>
+                    19,32<span className="ms-1">USD</span>
                   </div>
                   <div className="d-inline ms-2">
                     <i className="bi bi-trash3"></i>
@@ -78,7 +80,7 @@ function Cart() {
                     className="product-img rounded d-inline"
                   />
 
-                  <small className="ms-2 fs-6 ">Nombre de producto</small>
+                  <small className="fs-6 d-block">Nombre de producto</small>
                 </div>
 
                 <div className="col-6 text-end my-auto">
@@ -88,7 +90,7 @@ function Cart() {
                     <button className="btn rounded-pill">+</button>
                   </div>
                   <div className="d-inline">
-                    <small className="">19,32 USD</small>
+                    19,32<span className="ms-1">USD</span>
                   </div>
                   <div className="d-inline ms-2">
                     <i className="bi bi-trash3"></i>
@@ -113,16 +115,19 @@ function Cart() {
             </div>
           </div>
 
-          <div className="col-6">
+          <div className="col-12 col-md-6">
             <h2 className="mt-5 fs-4">Información de contacto</h2>
             <Form>
               <div className="row">
-                <Form.Group className="mb-3 col-6" controlId="formBasicEmail">
+                <Form.Group
+                  className="mb-3 col-12 col-lg-6"
+                  controlId="formBasicEmail"
+                >
                   <Form.Label>Dirección de correo electrónico</Form.Label>
                   <Form.Control type="email" placeholder="Enter email" />
                 </Form.Group>
                 <Form.Group
-                  className="mb-3 col-6"
+                  className="mb-3 col-12 col-lg-6"
                   controlId="formBasicPassword"
                 >
                   <Form.Label>Teléfono</Form.Label>
@@ -184,27 +189,29 @@ function Cart() {
               <hr />
               <h2 className="my-3 fs-4">Método de pago</h2>
               <div className="mb-3">
-                <Form.Check
-                  inline
-                  label="Tarjeta de crédito"
-                  name="group1"
-                  type="radio"
-                  id="inline-radio-1"
-                />
-                <Form.Check
-                  inline
-                  label="MercadoPago"
-                  name="group1"
-                  type="radio"
-                  id="inline-radio-2"
-                />
-                <Form.Check
-                  inline
-                  name="group1"
-                  label="PayPal"
-                  type="radio"
-                  id="inline-radio-3"
-                />
+                <div className="d-flex flex-lg-row flex-column">
+                  <Form.Check
+                    inline
+                    label="Tarjeta de crédito"
+                    name="group1"
+                    type="radio"
+                    id="inline-radio-1"
+                  />
+                  <Form.Check
+                    inline
+                    label="MercadoPago"
+                    name="group1"
+                    type="radio"
+                    id="inline-radio-2"
+                  />
+                  <Form.Check
+                    inline
+                    name="group1"
+                    label="PayPal"
+                    type="radio"
+                    id="inline-radio-3"
+                  />
+                </div>
                 <Form.Group className="my-3" controlId="formBasicPassword">
                   <Form.Label>Número de tarjeta</Form.Label>
                   <Form.Control type="text" />
@@ -222,7 +229,7 @@ function Cart() {
                     <Form.Control type="text" />
                   </Form.Group>
                   <Form.Group
-                    className="mb-3 col-4"
+                    className="mb-3 col-8 col-sm-4"
                     controlId="formBasicPassword"
                   >
                     <Form.Label>CVC</Form.Label>
