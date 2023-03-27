@@ -172,6 +172,7 @@ function Home() {
                       </Link>
                       <button className="icono-btn">
                         <i className="bi bi-heart heart-icon"></i>
+                        <i className="bi bi-heart heart-icon"></i>
                       </button>
                     </div>
                     <Link
