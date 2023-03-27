@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import PageNavbar from "../../navbar/PageNavbar";
-import MultiItemCarousel from "../../Carousel/MultiItemCarousel";
-import ProductMini from "../../ProductMini/ProductMini";
+//import MultiItemCarousel from "../../Carousel/MultiItemCarousel";
+//import ProductMini from "../../ProductMini/ProductMini";
 
 function Home() {
   const [products, setProducts] = useState([]);
@@ -164,7 +164,6 @@ function Home() {
                         className="text-decoration-none"
                       >
                         <img
-                          /* src={`/img/${product.img.img1}`} */
                           src="/img/pexels-los-muertos-crew-8066050.jpg"
                           alt=""
                           className="destacados-img w-100 rounded-top"
