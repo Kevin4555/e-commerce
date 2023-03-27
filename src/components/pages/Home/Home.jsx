@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import PageNavbar from "../../navbar/PageNavbar";
+import MultiItemCarousel from "../../Carousel/MultiItemCarousel";
 import ProductMini from "../../ProductMini/ProductMini";
 
 function Home() {
@@ -34,7 +35,6 @@ function Home() {
   );
 
   function scrollToCategory(id) {
-    console.log("id", id);
     const elemento = document.getElementById(id);
     const posicion = elemento.getBoundingClientRect();
 
@@ -96,6 +96,7 @@ function Home() {
             </div>
           </div>
           <h2 className="pt-5 pb-4">Destacados</h2>
+          {/* <MultiItemCarousel products={products}></MultiItemCarousel> */}
 
           <h2 className="pt-5 pb-4">Nuestros productos</h2>
           <div className="row">
@@ -125,8 +126,10 @@ function Home() {
                     >
                       <div className="border px-2 rounded-bottom">
                         <div className="row">
-                          <small className="fw-semibold col-12 mb-2">
-                            {console.log(product.description.length)}
+                          <small
+                            className="fw-semibold col-12 mb-2"
+                            id="product"
+                          >
                             {product.description.length >= 100
                               ? product.description.substring(0, 100) + "..."
                               : product.description}
@@ -177,8 +180,10 @@ function Home() {
                     >
                       <div className="border px-2 rounded-bottom">
                         <div className="row">
-                          <small className="fw-semibold col-12 mb-2">
-                            {console.log(product.description.length)}
+                          <small
+                            className="fw-semibold col-12 mb-2"
+                            id="product"
+                          >
                             {product.description.length >= 100
                               ? product.description.substring(0, 100) + "..."
                               : product.description}
@@ -230,8 +235,10 @@ function Home() {
                     >
                       <div className="border px-2 rounded-bottom">
                         <div className="row">
-                          <small className="fw-semibold col-12 mb-2">
-                            {console.log(product.description.length)}
+                          <small
+                            className="fw-semibold col-12 mb-2"
+                            id="product"
+                          >
                             {product.description.length >= 100
                               ? product.description.substring(0, 100) + "..."
                               : product.description}
@@ -283,8 +290,10 @@ function Home() {
                     >
                       <div className="border px-2 rounded-bottom">
                         <div className="row">
-                          <small className="fw-semibold col-12 mb-2">
-                            {console.log(product.description.length)}
+                          <small
+                            className="fw-semibold col-12 mb-2"
+                            id="product"
+                          >
                             {product.description.length >= 100
                               ? product.description.substring(0, 100) + "..."
                               : product.description}

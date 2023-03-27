@@ -12,8 +12,6 @@ import SingUp from "./components/pages/SignUp/SignUp";
 import React from "react";
 import { GoogleLogin } from "@react-oauth/google";
 
-
-
 function App() {
   return (
     <Routes>
@@ -26,7 +24,7 @@ function App() {
       <Route path="/admin" element={<Admin />} />
     </Routes>
 
-,
+    /* ,
 
 const responseMessage = (response) => {
   console.log(response);
@@ -40,8 +38,8 @@ const errorMessage = (error) => {
     <br />
     <br />
     <GoogleLogin onSuccess={responseMessage} onError={errorMessage} />
-  </div>
-  )
+  </div> */
+  );
 }
 
 export default App;
