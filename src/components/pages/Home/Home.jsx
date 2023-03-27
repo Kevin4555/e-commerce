@@ -64,7 +64,7 @@ function Home() {
 				</div>
 				<div className="container">
 					<div
-						className="d-flex justify-content-around"
+						className="d-flex justify-content-around col-11"
 						id="categoryDisplay"
 					>
 						<div className="z-1 text-center">
@@ -109,7 +109,7 @@ function Home() {
 							</small>
 						</div>
 					</div>
-					<h2 className="mt-5 pt-5 pb-4">Destacados</h2>
+					<h2 className="pb-4">Destacados</h2>
 					{/* <MultiItemCarousel products={products}></MultiItemCarousel> */}
 
 					<h2 className="pt-5 pb-4">Nuestros productos</h2>
