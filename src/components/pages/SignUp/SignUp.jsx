@@ -51,9 +51,7 @@ export default function SignUp() {
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="FirstName">
-                      <Form.Label className="text-center">
-                        First Name
-                      </Form.Label>
+                      <Form.Label className="text-center">First Name</Form.Label>
                       <Form.Control
                         type="text"
                         onChange={(event) => setFirstName(event.target.value)}
@@ -75,9 +73,7 @@ export default function SignUp() {
                       ></Form.Group> */}
 
                     <Form.Group className="mb-3" controlId="formBasicEmail">
-                      <Form.Label className="text-center">
-                        Email address
-                      </Form.Label>
+                      <Form.Label className="text-center">Email address</Form.Label>
                       <Form.Control
                         type="email"
                         onChange={(event) => setEmail(event.target.value)}
@@ -85,24 +81,12 @@ export default function SignUp() {
                       />
                     </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="formBasicStreet">
-                      <Form.Label className="text-center">
-                        Street address
-                      </Form.Label>
+                    <Form.Group className="mb-3" controlId="formBasicNumber">
+                      <Form.Label className="text-center">Phone</Form.Label>
                       <Form.Control
                         type="text"
-                        onChange={(event) => setAddress(event.target.value)}
-                        placeholder="Enter Adress"
-                      />
-                    </Form.Group>
-
-                    <Form.Group className="mb-3" controlId="formBasicCity">
-                      <Form.Label className="text-center">City</Form.Label>
-
-                      <Form.Control
-                        type="text"
-                        onChange={(event) => setCity(event.target.value)}
-                        placeholder="Enter City"
+                        onChange={(event) => setPhone(event.target.value)}
+                        placeholder="Enter Phone"
                       />
                     </Form.Group>
 
@@ -120,10 +104,27 @@ export default function SignUp() {
                       </select>
                     </Form.Group>
 
+                    <Form.Group className="mb-3" controlId="formBasicCity">
+                      <Form.Label className="text-center">City</Form.Label>
+
+                      <Form.Control
+                        type="text"
+                        onChange={(event) => setCity(event.target.value)}
+                        placeholder="Enter City"
+                      />
+                    </Form.Group>
+
+                    <Form.Group className="mb-3" controlId="formBasicStreet">
+                      <Form.Label className="text-center">Street address</Form.Label>
+                      <Form.Control
+                        type="text"
+                        onChange={(event) => setAddress(event.target.value)}
+                        placeholder="Enter Adress"
+                      />
+                    </Form.Group>
+
                     <Form.Group className="mb-3" controlId="formBasicState">
-                      <Form.Label className="text-center">
-                        State / Province
-                      </Form.Label>
+                      <Form.Label className="text-center">State / Province</Form.Label>
                       <Form.Control
                         type="text"
                         onChange={(event) => setState(event.target.value)}
@@ -132,38 +133,14 @@ export default function SignUp() {
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicZip">
-                      <Form.Label className="text-center">
-                        Zip / Postal Code
-                      </Form.Label>
+                      <Form.Label className="text-center">Zip / Postal Code</Form.Label>
                       <Form.Control
                         type="text"
                         onChange={(event) => setZip(event.target.value)}
                         placeholder="Enter Zip"
                       />
                     </Form.Group>
-
-                    <Form.Group className="mb-3" controlId="formBasicNumber">
-                      <Form.Label className="text-center">Phone</Form.Label>
-                      <Form.Control
-                        type="text"
-                        onChange={(event) => setPhone(event.target.value)}
-                        placeholder="Enter Phone"
-                      />
-                    </Form.Group>
-                    <Form.Group className="mb-3" controlId="formBasicZip">
-                      <Form.Label className="text-center">
-                        Zip / Postal Code
-                      </Form.Label>
-                      <Form.Control
-                        type="text"
-                        onChange={(event) => setZip(event.target.value)}
-                        placeholder="Enter Zip"
-                      />
-                    </Form.Group>
-                    <Form.Group
-                      className="mb-3"
-                      controlId="formPlaintextPassword"
-                    >
+                    <Form.Group className="mb-3" controlId="formPlaintextPassword">
                       <br />
                       <Form.Label cclassName="text-center">Password</Form.Label>
                       <Form.Control
@@ -172,13 +149,8 @@ export default function SignUp() {
                         placeholder="Set Password"
                       />
                     </Form.Group>
-                    <Form.Group
-                      className="mb-3"
-                      controlId="formPlaintextPassword"
-                    >
-                      <Form.Label cclassName="text-center">
-                        Repeat Password
-                      </Form.Label>
+                    <Form.Group className="mb-3" controlId="formPlaintextPassword">
+                      <Form.Label cclassName="text-center">Repeat Password</Form.Label>
                       <Form.Control
                         type="password"
                         onChange={(event) => setPassword(event.target.value)}
