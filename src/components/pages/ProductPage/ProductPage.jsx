@@ -167,7 +167,7 @@ function ProductPage() {
               <button className="btn fw-semibold" id="btn">
                 Añadir al carrito
               </button>
-
+              {/* a */}
               <button className="border-0 bg-white">
                 <i className="bi bi-heart fs-5"></i>
               </button>
