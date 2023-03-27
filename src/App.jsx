@@ -13,19 +13,19 @@ import React from "react";
 //import { GoogleLogin } from "@react-oauth/google";
 
 function App() {
-  return (
-    <Routes>
-      <Route path="/login" element={<Login />} />
-      <Route path="/SignUp" element={<SingUp />} />
-      <Route path="/" element={<Home />} />
-      <Route path="/product/:id" element={<ProductPage />} />
-      <Route path="/about-us" element={<SobreEsteProyecto />} />
-      <Route path="/cart" element={<Cart />} />
-      <Route path="/profile" element={<Profile />} />
-      {/* <Route path="/admin" element={<Admin />} /> */}
-    </Routes>
+	return (
+		<Routes>
+			<Route path="/login" element={<Login />} />
+			<Route path="/SignUp" element={<SingUp />} />
+			<Route path="/" element={<Home />} />
+			<Route path="/product/:id" element={<ProductPage />} />
+			<Route path="/about-us" element={<SobreEsteProyecto />} />
+			<Route path="/cart" element={<Cart />} />
+			<Route path="/profile" element={<Profile />} />
+			{/* <Route path="/admin" element={<Admin />} /> */}
+		</Routes>
 
-    /* ,
+		/* ,
 
 const responseMessage = (response) => {
   console.log(response);
@@ -40,7 +40,7 @@ const errorMessage = (error) => {
     <br />
     <GoogleLogin onSuccess={responseMessage} onError={errorMessage} />
   </div> */
-  );
+	);
 }
 
 export default App;
