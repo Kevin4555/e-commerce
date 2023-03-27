@@ -7,6 +7,7 @@ import Home from "./components/pages/Home/Home";
 import Cart from "./components/pages/Cart/Cart";
 import Profile from "./components/pages/Profile/Profile";
 //import Admin from "./components/pages/Admin/Admin";
+import Login from "./components/pages/Login/Login";
 import SingUp from "./components/pages/SignUp/SignUp";
 import React from "react";
 //import { GoogleLogin } from "@react-oauth/google";
@@ -14,7 +15,8 @@ import React from "react";
 function App() {
   return (
     <Routes>
-      <Route path="/SingUp" element={<SingUp />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/SignUp" element={<SingUp />} />
       <Route path="/" element={<Home />} />
       <Route path="/product/:id" element={<ProductPage />} />
       <Route path="/about-us" element={<SobreEsteProyecto />} />
