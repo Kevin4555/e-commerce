@@ -48,7 +48,7 @@ function ProductMini({ product }) {
 								<small id="priceBefore">
 									{Math.floor(product.price * 1.2)} USD
 								</small>
-								<small> 10% OFF</small>
+								<small> 20% OFF</small>
 							</span>
 							<small id="price" className="fw-bold">
 								{product.price} USD

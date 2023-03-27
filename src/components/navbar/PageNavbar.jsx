@@ -35,7 +35,7 @@ function PageNavbar() {
 						<Nav.Link as={Link} to={"/"}>
 							<i className="bi bi-person-circle"></i>
 						</Nav.Link>
-						<Nav.Link as={Link} to={"/"}>
+						<Nav.Link as={Link} to={"/cart"}>
 							<i className="bi bi-cart"></i>
 						</Nav.Link>
 					</Nav>
