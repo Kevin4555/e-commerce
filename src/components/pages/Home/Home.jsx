@@ -117,7 +117,7 @@ function Home() {
                         />
                       </Link>
                       <button className="icono-btn">
-                        <i class="bi bi-heart heart-icon"></i>
+                        <i className="bi bi-heart heart-icon"></i>
                       </button>
                     </div>
                     <Link
@@ -170,7 +170,7 @@ function Home() {
                         />
                       </Link>
                       <button className="icono-btn">
-                        <i class="bi bi-heart heart-icon"></i>
+                        <i className="bi bi-heart heart-icon"></i>
                       </button>
                     </div>
                     <Link
@@ -225,7 +225,7 @@ function Home() {
                         />
                       </Link>
                       <button className="icono-btn">
-                        <i class="bi bi-heart heart-icon"></i>
+                        <i className="bi bi-heart heart-icon"></i>
                       </button>
                     </div>
                     <Link
@@ -280,7 +280,7 @@ function Home() {
                         />
                       </Link>
                       <button className="icono-btn">
-                        <i class="bi bi-heart heart-icon"></i>
+                        <i className="bi bi-heart heart-icon"></i>
                       </button>
                     </div>
                     <Link
