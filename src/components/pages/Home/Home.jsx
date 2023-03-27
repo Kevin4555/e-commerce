@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import PageNavbar from "../../navbar/PageNavbar";
-import MultiItemCarousel from "../../Carousel/MultiItemCarousel";
-import ProductMini from "../../ProductMini/ProductMini";
+//import MultiItemCarousel from "../../Carousel/MultiItemCarousel";
+//import ProductMini from "../../ProductMini/ProductMini";
 
 function Home() {
 	const [products, setProducts] = useState([]);

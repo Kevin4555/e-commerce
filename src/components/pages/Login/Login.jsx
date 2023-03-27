@@ -1,10 +1,7 @@
-import React, { useState } from "react";
+import { React, useState } from "react";
 import { Col, Button, Row, Container, Card, Form } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.css"; // or include from a CDN
-import React from "react";
-import ReactDOM from "react-dom";
 import { GoogleOAuthProvider } from "@react-oauth/google";
-import App from "./App";
 
 export default function Login() {
   const [email, setEmail] = useState();
@@ -18,10 +15,14 @@ export default function Login() {
             <Card className="shadow px-4">
               <Card.Body>
                 <div className="mb-3 mt-md-4">
-                  <h2 className="fw-bold mb-2 text-center text-uppercase ">Login!</h2>
+                  <h2 className="fw-bold mb-2 text-center text-uppercase ">
+                    Login!
+                  </h2>
                   <div className="mb-3">
                     <Form.Group className="mb-3" controlId="formBasicEmail">
-                      <Form.Label className="text-center">Email address</Form.Label>
+                      <Form.Label className="text-center">
+                        Email address
+                      </Form.Label>
                       <Form.Control
                         type="email"
                         onChange={(event) => setEmail(event.target.value)}
@@ -38,7 +39,7 @@ export default function Login() {
                     <div className="mt-3">
                       <p className="mb-0  text-center">
                         Sign up with Google{" "}
-                        <div>
+                        {/*                         <div>
                           ReactDOM.render(
                           <GoogleOAuthProvider clientId="386932037035-k8v833noqjk7m4***********.apps.googleusercontent.com">
                             <React.StrictMode>
@@ -46,7 +47,7 @@ export default function Login() {
                             </React.StrictMode>
                           </GoogleOAuthProvider>
                           , document.getElementById('root') );
-                        </div>
+                        </div> */}
                         <a href="{''}" className="text-primary fw-bold">
                           Sign In
                         </a>
