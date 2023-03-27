@@ -34,6 +34,60 @@ function Home() {
     (product) => product.categoryId === 3
   );
 
+  function showCategory(catProducts) {
+    return (
+      catProducts && (
+        <div className="row">
+          {catProducts.map((product) => {
+            return (
+              <div className="col-3 mb-5 p-relative" key={product.id}>
+                <div className="shadow rounded">
+                  <div className="img-container">
+                    <Link
+                      to={`/product/${product.id}`}
+                      className="text-decoration-none"
+                    >
+                      <img
+                        src="/img/pexels-los-muertos-crew-8066050.jpg"
+                        alt=""
+                        className="destacados-img w-100 rounded-top"
+                      />
+                    </Link>
+                    <button className="icono-btn">
+                      <i className="bi bi-heart heart-icon"></i>
+                    </button>
+                  </div>
+                  <Link
+                    to={`/product/${product.id}`}
+                    className="text-decoration-none"
+                  >
+                    <div className="border px-2 rounded-bottom">
+                      <div className="row">
+                        <p className="fw-bold mb-0">{product.title}</p>
+                        <small className=" col-12 mb-2" id="product">
+                          {product.description.length >= 100
+                            ? product.description.substring(0, 100) + "..."
+                            : product.description}
+                        </small>
+                        <small className="fw-bold col-6">
+                          {product.price} USD
+                        </small>
+                        <small className="col-6 text-end">
+                          <i className="bi bi-star-fill text-warning"></i>{" "}
+                          {product.rating}
+                        </small>
+                      </div>
+                    </div>
+                  </Link>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      )
+    );
+  }
+
   function scrollToCategory(id) {
     const elemento = document.getElementById(id);
     const posicion = elemento.getBoundingClientRect();
@@ -126,10 +180,8 @@ function Home() {
                     >
                       <div className="border px-2 rounded-bottom">
                         <div className="row">
-                          <small
-                            className="fw-semibold col-12 mb-2"
-                            id="product"
-                          >
+                          <p className="fw-bold mb-0">{product.title}</p>
+                          <small className=" col-12 mb-2" id="product">
                             {product.description.length >= 100
                               ? product.description.substring(0, 100) + "..."
                               : product.description}
@@ -152,166 +204,18 @@ function Home() {
           <h3 className="pt-5 pb-4" id="pinturas">
             Pinturas
           </h3>
-
-          <div className="row">
-            {productsFromCategory1.map((product) => {
-              return (
-                <div className="col-3 mb-5 p-relative" key={product.id}>
-                  <div className="shadow rounded">
-                    <div className="img-container">
-                      <Link
-                        to={`/product/${product.id}`}
-                        className="text-decoration-none"
-                      >
-                        <img
-                          src="/img/pexels-los-muertos-crew-8066050.jpg"
-                          alt=""
-                          className="destacados-img w-100 rounded-top"
-                        />
-                      </Link>
-                      <button className="icono-btn">
-                        <i className="bi bi-heart heart-icon"></i>
-                      </button>
-                    </div>
-                    <Link
-                      to={`/product/${product.id}`}
-                      className="text-decoration-none"
-                    >
-                      <div className="border px-2 rounded-bottom">
-                        <div className="row">
-                          <small
-                            className="fw-semibold col-12 mb-2"
-                            id="product"
-                          >
-                            {product.description.length >= 100
-                              ? product.description.substring(0, 100) + "..."
-                              : product.description}
-                          </small>
-                          <small className="fw-bold col-6">
-                            {product.price} USD
-                          </small>
-                          <small className="col-6 text-end">
-                            <i className="bi bi-star-fill text-warning"></i>{" "}
-                            {product.rating}
-                          </small>
-                        </div>
-                      </div>
-                    </Link>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
+          {showCategory(productsFromCategory1)}
           <h3 className="pt-5 pb-4" id="ceramicas">
             Cerámicas & Decoraciones
           </h3>
 
-          <div className="row">
-            {productsFromCategory2.map((product) => {
-              return (
-                <div className="col-3 mb-5 p-relative" key={product.id}>
-                  <div className="shadow rounded">
-                    <div className="img-container">
-                      <Link
-                        to={`/product/${product.id}`}
-                        className="text-decoration-none"
-                      >
-                        <img
-                          /* src={`/img/${product.img.img1}`} */
-                          src="/img/pexels-los-muertos-crew-8066050.jpg"
-                          alt=""
-                          className="destacados-img w-100 rounded-top"
-                        />
-                      </Link>
-                      <button className="icono-btn">
-                        <i className="bi bi-heart heart-icon"></i>
-                      </button>
-                    </div>
-                    <Link
-                      to={`/product/${product.id}`}
-                      className="text-decoration-none"
-                    >
-                      <div className="border px-2 rounded-bottom">
-                        <div className="row">
-                          <small
-                            className="fw-semibold col-12 mb-2"
-                            id="product"
-                          >
-                            {product.description.length >= 100
-                              ? product.description.substring(0, 100) + "..."
-                              : product.description}
-                          </small>
-                          <small className="fw-bold col-6">
-                            {product.price} USD
-                          </small>
-                          <small className="col-6 text-end">
-                            <i className="bi bi-star-fill text-warning"></i>{" "}
-                            {product.rating}
-                          </small>
-                        </div>
-                      </div>
-                    </Link>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+          {showCategory(productsFromCategory2)}
 
           <h3 className="pt-5 pb-4" id="muebles">
             Muebles & Carpintería
           </h3>
 
-          <div className="row">
-            {productsFromCategory3.map((product) => {
-              return (
-                <div className="col-3 mb-5 p-relative" key={product.id}>
-                  <div className="shadow rounded">
-                    <div className="img-container">
-                      <Link
-                        to={`/product/${product.id}`}
-                        className="text-decoration-none"
-                      >
-                        <img
-                          /* src={`/img/${product.img.img1}`} */
-                          src="/img/pexels-los-muertos-crew-8066050.jpg"
-                          alt=""
-                          className="destacados-img w-100 rounded-top"
-                        />
-                      </Link>
-                      <button className="icono-btn">
-                        <i className="bi bi-heart heart-icon"></i>
-                      </button>
-                    </div>
-                    <Link
-                      to={`/product/${product.id}`}
-                      className="text-decoration-none"
-                    >
-                      <div className="border px-2 rounded-bottom">
-                        <div className="row">
-                          <small
-                            className="fw-semibold col-12 mb-2"
-                            id="product"
-                          >
-                            {product.description.length >= 100
-                              ? product.description.substring(0, 100) + "..."
-                              : product.description}
-                          </small>
-                          <small className="fw-bold col-6">
-                            {product.price} USD
-                          </small>
-                          <small className="col-6 text-end">
-                            <i className="bi bi-star-fill text-warning"></i>{" "}
-                            {product.rating}
-                          </small>
-                        </div>
-                      </div>
-                    </Link>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+          {showCategory(productsFromCategory3)}
         </div>
       </main>
     </>
