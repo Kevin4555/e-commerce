@@ -1,202 +1,58 @@
-import { Carousel } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import ProductMini from "../../components/ProductMini/ProductMini";
 
-const MultiItemCarousel = ({ products }) => {
-  const items = [
-    { id: 1, image: "/img/default-avatar.jpg", title: "Item 1" },
-    {
-      id: 2,
-      image: "/img/pexels-los-muertos-crew-8066050.jpg",
-      title: "Item 2",
-    },
-    {
-      id: 3,
-      image: "/img/pexels-rodnae-productions-6806697.jpg",
-      title: "Item 3",
-    },
-    { id: 4, image: "/img/default-avatar.jpg", title: "Item 4" },
-    {
-      id: 5,
-      image: "/img/pexels-vlada-karpovich-5602996.jpg",
-      title: "Item 5",
-    },
-  ];
-  const featuredProducts = products.filter((product) => product.featured === 1);
+import "./MultiItemCarousel.css";
+
+const Carousel = ({ products, productsPerPage }) => {
+  const [activePage, setActivePage] = useState(1);
+
+  const totalPages = Math.ceil(products.length / productsPerPage);
+  const startIndex = (activePage - 1) * productsPerPage;
+  const endIndex = startIndex + productsPerPage;
+
+  const handlePrevClick = () => {
+    if (activePage > 1) {
+      setActivePage(activePage - 1);
+    }
+  };
+
+  const handleNextClick = () => {
+    if (activePage < totalPages) {
+      setActivePage(activePage + 1);
+    }
+  };
 
   return (
-    <Carousel className="container">
-      {featuredProducts.map((product) => (
-        <Carousel.Item key={product.id}>
-          <div className="row">
-            <div className="col-3">
-              <div className="shadow rounded">
-                <div className="img-container">
-                  <Link
-                    to={`/product/${product.id}`}
-                    className="text-decoration-none"
-                  >
-                    <img
-                      /* src={`/img/${product.img.img1}`} */
-                      src="/img/pexels-los-muertos-crew-8066050.jpg"
-                      alt=""
-                      className="destacados-img w-100 rounded-top"
-                    />
-                  </Link>
-                  <button className="icono-btn">
-                    <i class="bi bi-heart heart-icon"></i>
-                  </button>
-                </div>
-                <Link
-                  to={`/product/${product.id}`}
-                  className="text-decoration-none"
-                >
-                  <div className="border px-2 rounded-bottom">
-                    <div className="row">
-                      <small className="fw-semibold col-12 mb-2" id="product">
-                        {product.description.length >= 100
-                          ? product.description.substring(0, 100) + "..."
-                          : product.description}
-                      </small>
-                      <small className="fw-bold col-6">
-                        {product.price} USD
-                      </small>
-                      <small className="col-6 text-end">
-                        <i className="bi bi-star-fill text-warning"></i>{" "}
-                        {product.rating}
-                      </small>
-                    </div>
-                  </div>
-                </Link>
-              </div>
-            </div>
-            <div className="col-3">
-              <div className="shadow rounded">
-                <div className="img-container">
-                  <Link
-                    to={`/product/${product.id}`}
-                    className="text-decoration-none"
-                  >
-                    <img
-                      /* src={`/img/${product.img.img1}`} */
-                      src="/img/pexels-los-muertos-crew-8066050.jpg"
-                      alt=""
-                      className="destacados-img w-100 rounded-top"
-                    />
-                  </Link>
-                  <button className="icono-btn">
-                    <i class="bi bi-heart heart-icon"></i>
-                  </button>
-                </div>
-                <Link
-                  to={`/product/${product.id}`}
-                  className="text-decoration-none"
-                >
-                  <div className="border px-2 rounded-bottom">
-                    <div className="row">
-                      <small className="fw-semibold col-12 mb-2" id="product">
-                        {product.description.length >= 100
-                          ? product.description.substring(0, 100) + "..."
-                          : product.description}
-                      </small>
-                      <small className="fw-bold col-6">
-                        {product.price} USD
-                      </small>
-                      <small className="col-6 text-end">
-                        <i className="bi bi-star-fill text-warning"></i>{" "}
-                        {product.rating}
-                      </small>
-                    </div>
-                  </div>
-                </Link>
-              </div>
-            </div>
-            <div className="col-3">
-              <div className="shadow rounded">
-                <div className="img-container">
-                  <Link
-                    to={`/product/${product.id}`}
-                    className="text-decoration-none"
-                  >
-                    <img
-                      /* src={`/img/${product.img.img1}`} */
-                      src="/img/pexels-los-muertos-crew-8066050.jpg"
-                      alt=""
-                      className="destacados-img w-100 rounded-top"
-                    />
-                  </Link>
-                  <button className="icono-btn">
-                    <i class="bi bi-heart heart-icon"></i>
-                  </button>
-                </div>
-                <Link
-                  to={`/product/${product.id}`}
-                  className="text-decoration-none"
-                >
-                  <div className="border px-2 rounded-bottom">
-                    <div className="row">
-                      <small className="fw-semibold col-12 mb-2" id="product">
-                        {product.description.length >= 100
-                          ? product.description.substring(0, 100) + "..."
-                          : product.description}
-                      </small>
-                      <small className="fw-bold col-6">
-                        {product.price} USD
-                      </small>
-                      <small className="col-6 text-end">
-                        <i className="bi bi-star-fill text-warning"></i>{" "}
-                        {product.rating}
-                      </small>
-                    </div>
-                  </div>
-                </Link>
-              </div>
-            </div>
-            <div className="col-3">
-              <div className="shadow rounded">
-                <div className="img-container">
-                  <Link
-                    to={`/product/${product.id}`}
-                    className="text-decoration-none"
-                  >
-                    <img
-                      /* src={`/img/${product.img.img1}`} */
-                      src="/img/pexels-los-muertos-crew-8066050.jpg"
-                      alt=""
-                      className="destacados-img w-100 rounded-top"
-                    />
-                  </Link>
-                  <button className="icono-btn">
-                    <i class="bi bi-heart heart-icon"></i>
-                  </button>
-                </div>
-                <Link
-                  to={`/product/${product.id}`}
-                  className="text-decoration-none"
-                >
-                  <div className="border px-2 rounded-bottom">
-                    <div className="row">
-                      <small className="fw-semibold col-12 mb-2" id="product">
-                        {product.description.length >= 100
-                          ? product.description.substring(0, 100) + "..."
-                          : product.description}
-                      </small>
-                      <small className="fw-bold col-6">
-                        {product.price} USD
-                      </small>
-                      <small className="col-6 text-end">
-                        <i className="bi bi-star-fill text-warning"></i>{" "}
-                        {product.rating}
-                      </small>
-                    </div>
-                  </div>
-                </Link>
-              </div>
-            </div>
+    <div>
+      <div className="carousel justify-content-center">
+        <div className="row ">
+          {products.slice(startIndex, endIndex).map((product) => (
+            <ProductMini product={product} key={product.id} />
+          ))}
+        </div>
+      </div>
+      <div className="row justify-content-center">
+        <div className="col-3 row justify-content-center">
+          <div className="btn-group " role="group" aria-label="Basic example">
+            <button
+              type="button"
+              onClick={handlePrevClick}
+              className="btn btn-primary"
+            >
+              <i className="bi bi-arrow-left text-white"></i>
+            </button>
+            <button
+              type="button"
+              onClick={handleNextClick}
+              className="btn btn-primary"
+            >
+              <i className="bi bi-arrow-right text-white"></i>
+            </button>
           </div>
-          <Carousel.Caption>{/* <h3>{item.title}</h3> */}</Carousel.Caption>
-        </Carousel.Item>
-      ))}
-    </Carousel>
+        </div>
+      </div>
+    </div>
   );
 };
-export default MultiItemCarousel;
+
+export default Carousel;
