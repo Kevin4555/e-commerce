@@ -30,26 +30,26 @@ function ProductPage() {
         <PageNavbar />
         <div className="container mt-5 shadow-lg p-3">
           <div className="row">
-            <div className="col-6" id="producto">
+            <div className="col-12 col-md-6" id="producto">
               <div className="carousel-div me-5 text-end">
                 <Carousel>
                   <Carousel.Item className="h-100">
                     <img
-                      className="d-block w-100 h-100"
+                      className="d-block w-100 h-100 object-fit-cover"
                       src="/img/pexels-los-muertos-crew-8066050.jpg"
                       alt="First slide"
                     />
                   </Carousel.Item>
                   <Carousel.Item className="h-100">
                     <img
-                      className="d-block w-100 h-100"
+                      className="d-block w-100 h-100 object-fit-cover"
                       src="/img/pexels-los-muertos-crew-8066050.jpg"
                       alt="Second slide"
                     />
                   </Carousel.Item>
                   <Carousel.Item className="h-100">
                     <img
-                      className="d-block w-100 h-100"
+                      className="d-block w-100 h-100 object-fit-cover"
                       src="/img/pexels-los-muertos-crew-8066050.jpg"
                       alt="Third slide"
                     />
@@ -58,7 +58,7 @@ function ProductPage() {
               </div>
             </div>
 
-            <div className="col-6 p-3">
+            <div className="col-12 col-md-6 p-3">
               <h1 className="">{product.title}</h1>
               <small className="d-block mb-3 mt-5">
                 Precio: {product.price} USD
