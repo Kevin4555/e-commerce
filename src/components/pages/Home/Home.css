@@ -37,26 +37,20 @@
 	font-size: large !important;
 }
 
-#categoryDisplay {
-	position: absolute;
-	bottom: 22rem;
+.bannerBtn:hover {
+	background-color: var(--accent) !important;
 }
 
 .categories-img {
 	object-fit: cover;
-	height: 114px;
-	width: 114px;
+	height: 15rem;
+	width: 15rem;
+	border-radius: 3rem;
 }
+
 .destacados-img {
 	object-fit: cover;
 	height: 200px;
-}
-
-.bg-verdeagua {
-	background-image: url(backgroundGreen.png);
-	height: 15rem;
-	width: 100%;
-	margin-bottom: 10rem;
 }
 
 .h-100px {
@@ -97,4 +91,46 @@
 .categoryLink:hover {
 	text-decoration: none;
 	color: var(--primary);
+}
+
+#display {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin: 3rem 0px;
+}
+
+.displayOffer {
+	position: relative;
+}
+
+.displayOffer:hover {
+	transition: all 0.5s ease;
+	transform: scale(1.05);
+}
+
+.displayOffer > img {
+	border-radius: 1rem;
+}
+
+.displayOffer > div {
+	position: absolute;
+	left: 2rem;
+	top: 5rem;
+}
+
+#categoryDisplay {
+	padding: 2rem 0px;
+}
+
+#categoryDisplay > div {
+	display: flex !important;
+	flex-direction: column !important;
+	align-items: center !important;
+	justify-content: center !important;
+	transition: all 0.3s ease;
+}
+
+#categoryDisplay > div:hover {
+	transform: scale(1.05);
 }
