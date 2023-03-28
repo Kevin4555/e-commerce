@@ -1,117 +1,92 @@
 .row {
-	margin: 0 !important;
+  margin: 0 !important;
 }
 
 .darkSection {
-	background-color: var(--dark);
-	padding: 3rem 0;
-	/* display: flex; */
-	justify-content: space-evenly;
-	align-items: center;
-	min-height: 6rem;
-	margin: 0;
+  background-color: var(--primary);
+  padding: 3rem 0;
+  /* display: flex; */
+  justify-content: space-evenly;
+  align-items: center;
+  min-height: 6rem;
+  margin: 0;
 }
 
 .darkSection > * {
-	color: white;
-	text-align: center;
+  color: white;
+  text-align: center;
 }
 
 .icons > a > i {
-	color: white;
-	text-decoration: none;
+  color: white;
+  text-decoration: none;
 }
 
 .profile {
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .profileIcon {
-	font-size: 1.5rem;
-	padding: 0 0.5rem;
-	transition: all 0.2s ease-in-out;
+  font-size: 1.5rem;
+  padding: 0 0.5rem;
+  transition: all 0.2s ease-in-out;
 }
 
 .profileIcon:hover {
-	font-size: 1.7rem;
+  font-size: 1.7rem;
 }
 
 .greenSection {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	text-align: center;
-	padding: 2rem;
-	height: 15rem;
-	box-shadow: 0px 6px 25px 0px rgba(0, 0, 0, 0.164);
-	background: #23e4ae;
-	background: -webkit-linear-gradient(
-		176deg,
-		#23e4ae 0%,
-		#a7f1dc 50%,
-		#a7f1dc 100%
-	);
-	background: linear-gradient(176deg, #23e4ae 0%, #a7f1dc 50%, #a7f1dc 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  height: 15rem;
+  box-shadow: 0px 6px 25px 0px rgba(0, 0, 0, 0.164);
+  background: var(--accent);
+  background: -webkit-linear-gradient(176deg, var(--accent) 0%, #1c2e29 50%, var(--primary) 100%);
+  background: linear-gradient(176deg, var(--accent) 0%, var(--tertiary) 100%);
 }
 
 .greenSection > h1 {
-	font-weight: bold;
+  font-weight: bold;
 }
 
 .platinumSection {
-	background-color: var(--platinum);
-	height: 25rem;
-	margin-top: 0;
-	text-align: center;
-	padding: 2rem;
+  background-color: var(--platinum);
+  height: 25rem;
+  margin-top: 0;
+  text-align: center;
+  padding: 2rem;
 }
 
 #infoSection {
-	background-image: url("backgroundWhite.jpg");
-	background-size: cover;
+  background-image: url("/public/img/mainBanner.webp");
+  background-size: cover;
 }
 
 #infoProyecto {
-	padding: 1rem;
-	box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.1);
-	border-radius: 2rem;
-	height: 20rem;
-	background: rgba(255, 255, 255, 0.1);
-	backdrop-filter: blur(8px);
-	-webkit-backdrop-filter: blur(8px);
-	border-radius: 10px;
-	border: 1px solid rgba(255, 255, 255, 0.18);
-}
-
-.custom-shape-divider-top-1679573669 {
-	position: absolute;
-	top: 190;
-	left: 0;
-	width: 100%;
-	overflow: hidden;
-	line-height: 0;
-}
-
-.custom-shape-divider-top-1679573669 svg {
-	position: relative;
-	display: block;
-	width: calc(100% + 1.3px);
-	height: 110px;
-}
-
-.custom-shape-divider-top-1679573669 .shape-fill {
-	fill: var(--dark);
+  padding: 1rem;
+  box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 2rem;
+  height: 20rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 #iconList > div > div {
-	justify-content: center;
-	display: flex;
-	padding: 2rem;
-	align-items: center;
-	gap: 0.5rem;
+  justify-content: center;
+  display: flex;
+  padding: 2rem;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 Container {
-	padding: 0;
+  padding: 0;
 }
