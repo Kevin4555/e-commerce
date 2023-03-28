@@ -1,8 +1,10 @@
 #mainBar {
 	height: 3rem;
 }
+
 #categoryBar {
 	height: 2rem;
+	width: 60vw;
 }
 
 #categoryBar > div {
@@ -10,12 +12,11 @@
 }
 
 #sobreEsteProyecto {
-	font-weight: bold;
 	position: fixed;
 	z-index: 2;
 	border-radius: 0px 0px 2rem 0px;
 	padding-left: 0.5rem;
-	background-color: var(--salmon);
+	background-color: var(--accent);
 	color: white !important;
 	font-size: large;
 }
@@ -24,4 +25,20 @@
 	transition: all 0.4s ease-in;
 	transform: scale(1.05);
 	filter: brightness(95%);
+}
+
+#search {
+	margin-right: 5rem;
+	width: 60vw !important;
+}
+
+#search:active,
+#search:focus {
+	box-shadow: none;
+	border: 1px solid gray;
+}
+
+.bi-search {
+	right: 7rem;
+	bottom: 0.5rem;
 }

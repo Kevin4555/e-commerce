@@ -5,136 +5,233 @@ import axios from "axios";
 import PageNavbar from "../../navbar/PageNavbar";
 import MultiItemCarousel from "../../Carousel/MultiItemCarousel";
 import ProductMini from "../../ProductMini/ProductMini";
+import Carousel from "react-bootstrap/Carousel";
 
 function Home() {
-  const [products, setProducts] = useState([]);
+	const [products, setProducts] = useState([]);
+	const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    const getProducts = async () => {
-      try {
-        const response = await axios({
-          method: "get",
-          url: `http://localhost:8000/products`,
-        });
-        setProducts(response.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getProducts();
-  }, []);
+	useEffect(() => {
+		// Simulate loading time
+		setTimeout(() => {
+			setIsLoading(false);
+		}, 750);
+	}, []);
 
-  const productsFromCategory1 = products.filter(
-    (product) => product.categoryId === 1
-  );
-  const productsFromCategory2 = products.filter(
-    (product) => product.categoryId === 2
-  );
-  const productsFromCategory3 = products.filter(
-    (product) => product.categoryId === 3
-  );
+	useEffect(() => {
+		const getProducts = async () => {
+			try {
+				const response = await axios({
+					method: "get",
+					url: `http://localhost:8000/products`,
+				});
+				setProducts(response.data);
+			} catch (error) {
+				console.log(error);
+			}
+		};
+		getProducts();
+	}, []);
 
-  function showProducts(arrayProducts) {
-    return (
-      arrayProducts && (
-        <div className="row">
-          {arrayProducts.map((product) => {
-            return <ProductMini product={product} />;
-          })}
-        </div>
-      )
-    );
-  }
+	const productsFromCategory1 = products.filter(
+		(product) => product.categoryId === 1
+	);
+	const productsFromCategory2 = products.filter(
+		(product) => product.categoryId === 2
+	);
+	const productsFromCategory3 = products.filter(
+		(product) => product.categoryId === 3
+	);
 
-  function scrollToCategory(id) {
-    const elemento = document.getElementById(id);
-    const posicion = elemento.getBoundingClientRect();
-    window.scrollTo({
-      top: posicion.top + window.pageYOffset,
-      behavior: "smooth",
-    });
-  }
+	function showProducts(arrayProducts) {
+		return (
+			arrayProducts && (
+				<div className="row">
+					{arrayProducts.slice(0, 4).map((product) => {
+						return <ProductMini product={product} />;
+					})}
+				</div>
+			)
+		);
+	}
 
-  return (
-    <>
-      <PageNavbar />
-      <main>
-        <div className="bg-verdeagua">
-          <h1 className="text-center py-5">Bienvenido Pepe!</h1>
-        </div>
-        <div className="container">
-          <div
-            className="d-flex justify-content-around col-11"
-            id="categoryDisplay"
-          >
-            <div className="z-1 text-center">
-              <img
-                src="/img/pexels-los-muertos-crew-8066050.jpg"
-                alt=""
-                className=" home-img rounded-pill categories-img mb-2"
-              />
+	// function scrollToCategory(id) {
+	// 	const elemento = document.getElementById(id);
+	// 	const posicion = elemento.getBoundingClientRect();
+	// 	window.scrollTo({
+	// 		top: posicion.top + window.pageYOffset,
+	// 		behavior: "smooth",
+	// 	});
+	// }
 
-              <small
-                className="d-block fs-5 fw-semibold btn"
-                onClick={() => scrollToCategory("pinturas")}
-              >
-                Pinturas
-              </small>
-            </div>
-            <div className="z-1 text-center">
-              <img
-                src="/img/pexels-rodnae-productions-6806697.jpg"
-                alt=""
-                className=" home-img rounded-pill categories-img mb-2"
-              />
-              <small
-                className="d-block fs-5 fw-semibold btn"
-                onClick={() => scrollToCategory("ceramicas")}
-              >
-                Cerámicas & Decoraciones
-              </small>
-            </div>
+	if (isLoading)
+		return (
+			<div className="screen">
+				<div className="spinner"></div>
+			</div>
+		);
+	else
+		return (
+			<>
+				<PageNavbar />
+				<main>
+					<Carousel className="carousel">
+						<Carousel.Item>
+							<img
+								className="d-block w-100"
+								src="/img/mainBanner.webp"
+								alt="First slide"
+								draggable="false"
+							/>
+							<Carousel.Caption className="carouselCaption">
+								<p>Lo más vendido</p>
+								<h2>Colección Madera Moderna</h2>
+								<button className="btn bannerBtn">
+									Comprar ahora
+								</button>
+							</Carousel.Caption>
+						</Carousel.Item>
+						<Carousel.Item>
+							<img
+								className="d-block w-100"
+								src="/img/mainBanner2.webp"
+								alt="Second slide"
+								draggable="false"
+							/>
 
-            <div className="z-1 text-center">
-              <img
-                src="/img/pexels-vlada-karpovich-5602996.jpg"
-                alt=""
-                className=" home-img rounded-pill categories-img mb-2"
-              />
-              <small
-                className="d-block fs-5 fw-semibold btn"
-                onClick={() => scrollToCategory("muebles")}
-              >
-                Muebles & Carpintería
-              </small>
-            </div>
-          </div>
-          <h2 className="pb-4">Destacados</h2>
-          {products && (
-            <MultiItemCarousel
-              products={products.filter((product) => (product.rating = 5))}
-              productsPerPage={4}
-            ></MultiItemCarousel>
-          )}
+							<Carousel.Caption className="carouselCaption">
+								<p>Los mejores productos hechos a mano</p>
+								<h2>Nueva Colección Handmade</h2>
+								<button className="btn bannerBtn">
+									Comprar ahora
+								</button>
+							</Carousel.Caption>
+						</Carousel.Item>
+					</Carousel>
+					<div className="container">
+						<h3 className="fs-2 mt-5 text-center">Categorías</h3>
+						<div className="row rounded" id="categoryDisplay">
+							<div className="col-3">
+								<img
+									src={
+										process.env.REACT_APP_API_BASE_URL +
+										`/img/${productsFromCategory1[0].img.img1}`
+									}
+									alt=""
+									className="categories-img"
+								/>
+								<h5 className="mt-3">Pinturas</h5>
+							</div>
+							<div className="col-3">
+								<img
+									src={
+										process.env.REACT_APP_API_BASE_URL +
+										`/img/${productsFromCategory2[0].img.img1}`
+									}
+									alt=""
+									className="categories-img"
+								/>
+								<h5 className="mt-3">Cerámicas</h5>
+							</div>
+							<div className="col-3">
+								<img
+									src={
+										process.env.REACT_APP_API_BASE_URL +
+										`/img/${productsFromCategory3[0].img.img1}`
+									}
+									className="categories-img"
+									alt=""
+								/>
+								<h5 className="mt-3">Maderas</h5>
+							</div>
+							<div className="col-3">
+								<img
+									src={
+										process.env.REACT_APP_API_BASE_URL +
+										`/img/${productsFromCategory1[0].img.img1}`
+									}
+									className="categories-img"
+									alt=""
+								/>
+								<h5 className="mt-3">Otra</h5>
+							</div>
+						</div>
 
-          <h2 className="pt-5 pb-4">Nuestros productos</h2>
-          {showProducts(products)}
-          <h3 className="pt-5 pb-4" id="pinturas">
-            Pinturas
-          </h3>
-          {showProducts(productsFromCategory1)}
-          <h3 className="pt-5 pb-4" id="ceramicas">
-            Cerámicas & Decoraciones
-          </h3>
-          {showProducts(productsFromCategory2)}
-          <h3 className="pt-5 pb-4" id="muebles">
-            Muebles & Carpintería
-          </h3>
-          {showProducts(productsFromCategory3)}
-        </div>
-      </main>
-    </>
-  );
+						<section id="display">
+							<div className="displayOffer">
+								<img src="/img/subBanner.webp" alt="" />
+								<div>
+									<p className="fs-5 mb-2">35% off</p>
+									<h3>Especial Nórdico Matte</h3>
+									<button className="btn bannerBtn">
+										Comprar ahora
+									</button>
+								</div>
+							</div>
+							<div className="displayOffer">
+								<img src="/img/subBanner2.webp" alt="" />
+								<div>
+									<p className="fs-5 mb-2">25% off</p>
+									<h3>Terra Punto Cotta</h3>
+									<button className="btn bannerBtn">
+										Comprar ahora
+									</button>
+								</div>
+							</div>
+						</section>
+						<h2 className="pb-4">Destacados</h2>
+						{products && (
+							<MultiItemCarousel
+								products={products.filter(
+									(product) => (product.rating = 5)
+								)}
+								productsPerPage={4}
+							></MultiItemCarousel>
+						)}
+
+						<div className="mt-5 mb-5 ms-2">
+							<h3
+								className="pt-5 pb-4 d-inline fs-2"
+								id="pinturas"
+							>
+								Pinturas
+							</h3>
+							<Link to={"/"} className="categoryLink">
+								ver todos{" "}
+								<i className="bi bi-arrow-right-short"></i>
+							</Link>
+						</div>
+						{showProducts(productsFromCategory1)}
+						<div className="mt-5 mb-5 ms-2">
+							<h3
+								className="pt-5 pb-4 d-inline fs-2"
+								id="ceramicas"
+							>
+								Cerámicas & Decoraciones
+							</h3>
+							<Link to={"/"} className="categoryLink">
+								ver todos{" "}
+								<i className="bi bi-arrow-right-short"></i>
+							</Link>
+						</div>
+						{showProducts(productsFromCategory2)}
+						<div className="mt-5 mb-5 ms-2">
+							<h3
+								className="pt-5 pb-4 d-inline fs-2"
+								id="muebles"
+							>
+								Muebles & Carpintería
+							</h3>
+							<Link to={"/"} className="categoryLink">
+								ver todos{" "}
+								<i className="bi bi-arrow-right-short"></i>
+							</Link>
+						</div>
+						{showProducts(productsFromCategory3)}
+					</div>
+				</main>
+			</>
+		);
 }
 
 export default Home;

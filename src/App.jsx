@@ -2,7 +2,7 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 
 import SobreEsteProyecto from "./components/pages/SobreEsteProyecto/SobreEsteProyecto";
-import ProductPage from "./components/pages/ProductPage/ProductPage";
+import Product from "./components/pages/Product/Product";
 import Home from "./components/pages/Home/Home";
 import Cart from "./components/pages/Cart/Cart";
 import CartShipping from "./components/pages/Cart/CartShipping/CartShipping";

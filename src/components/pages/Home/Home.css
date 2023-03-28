@@ -1,36 +1,56 @@
-:root {
-	--dark: #2b2d42;
-	--platinum: #eaeaea;
-	--white: #ffffff;
-	--gray: #8d99ae;
-	--green: #a7f1dc;
-	--salmon: #ff858d;
-	--orange: #e9c46a;
-}
 * {
 	color: var(--dark);
 }
 
-#categoryDisplay {
+.carousel,
+.carousel-inner,
+.carousel-item {
+	height: 70vh !important;
+}
+
+.carousel-item > * > img {
+	object-fit: cover;
+}
+
+.carouselCaption {
+	width: 35rem;
+	text-align: left !important;
+	color: black !important;
 	position: absolute;
-	bottom: 22rem;
+	top: 28%;
+	left: 13%;
+}
+
+.carouselCaption > h2 {
+	font-size: 3rem;
+}
+.carouselCaption > p {
+	font-size: 1.5rem;
+	font-weight: light !important;
+}
+
+.bannerBtn {
+	background-color: var(--tertiary) !important;
+	color: white !important;
+	padding: 0.5rem 1.5rem !important;
+	margin-top: 2rem;
+	font-size: large !important;
+}
+
+.bannerBtn:hover {
+	background-color: var(--accent) !important;
 }
 
 .categories-img {
 	object-fit: cover;
-	height: 114px;
-	width: 114px;
+	height: 15rem;
+	width: 15rem;
+	border-radius: 3rem;
 }
+
 .destacados-img {
 	object-fit: cover;
 	height: 200px;
-}
-
-.bg-verdeagua {
-	background-image: url(backgroundGreen.png);
-	height: 15rem;
-	width: 100%;
-	margin-bottom: 10rem;
 }
 
 .h-100px {
@@ -58,4 +78,59 @@
 
 #product {
 	height: 50px;
+}
+
+.categoryLink {
+	font-size: large;
+	margin-left: 2rem;
+	text-decoration: none;
+	color: var(--accent);
+	margin-bottom: 1rem;
+}
+
+.categoryLink:hover {
+	text-decoration: none;
+	color: var(--primary);
+}
+
+#display {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin: 3rem 0px;
+}
+
+.displayOffer {
+	position: relative;
+}
+
+.displayOffer:hover {
+	transition: all 0.5s ease;
+	transform: scale(1.05);
+}
+
+.displayOffer > img {
+	border-radius: 1rem;
+}
+
+.displayOffer > div {
+	position: absolute;
+	left: 2rem;
+	top: 5rem;
+}
+
+#categoryDisplay {
+	padding: 2rem 0px;
+}
+
+#categoryDisplay > div {
+	display: flex !important;
+	flex-direction: column !important;
+	align-items: center !important;
+	justify-content: center !important;
+	transition: all 0.3s ease;
+}
+
+#categoryDisplay > div:hover {
+	transform: scale(1.05);
 }

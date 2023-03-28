@@ -13,42 +13,46 @@ const Carousel = ({ products, productsPerPage }) => {
   const handlePrevClick = () => {
     if (activePage > 1) {
       setActivePage(activePage - 1);
+      /* const carouselItems = document.querySelectorAll("ProductMini");
+      carouselItems.forEach((item) => {
+        item.style.transform = `translateX(${100 / productsPerPage}%)`;
+      }); */
     }
   };
 
   const handleNextClick = () => {
     if (activePage < totalPages) {
       setActivePage(activePage + 1);
+      /* const carouselItems = document.querySelectorAll("ProductMini");
+      carouselItems.forEach((item) => {
+        item.style.transform = `translateX(-${100 / productsPerPage}%)`;
+      }); */
     }
   };
 
   return (
     <div>
-      <div className="carousel justify-content-center">
+      <div className=" justify-content-center position-relative">
         <div className="row ">
           {products.slice(startIndex, endIndex).map((product) => (
             <ProductMini product={product} key={product.id} />
           ))}
         </div>
-      </div>
-      <div className="row justify-content-center">
-        <div className="col-3 row justify-content-center">
-          <div className="btn-group " role="group" aria-label="Basic example">
-            <button
-              type="button"
-              onClick={handlePrevClick}
-              className="btn btn-primary"
-            >
-              <i className="bi bi-arrow-left text-white"></i>
-            </button>
-            <button
-              type="button"
-              onClick={handleNextClick}
-              className="btn btn-primary"
-            >
-              <i className="bi bi-arrow-right text-white"></i>
-            </button>
-          </div>
+        <div>
+          <button
+            type="button"
+            onClick={handlePrevClick}
+            className="btn btn-outline-dark position-absolute top-50 start-0 translate-middle rounded-circle bg-light"
+          >
+            <i className="bi bi-arrow-left h1"></i>
+          </button>
+          <button
+            type="button"
+            onClick={handleNextClick}
+            className="btn btn-outline-dark position-absolute top-50 start-100 translate-middle rounded-circle bg-light"
+          >
+            <i className="bi bi-arrow-right h1"></i>
+          </button>
         </div>
       </div>
     </div>

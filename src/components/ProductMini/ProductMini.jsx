@@ -15,14 +15,17 @@ function ProductMini({ product }) {
 						className="text-decoration-none"
 					>
 						<img
-							/* src={`/img/${product.img.img1}`} */
-							src="/img/pexels-los-muertos-crew-8066050.jpg"
+							src={
+								process.env.REACT_APP_API_BASE_URL +
+								`/img/${product.img.img1}`
+							}
 							alt=""
 							className="destacados-img w-100 rounded-top"
+							draggable="false"
 						/>
 					</Link>
 					<button className="icono-btn">
-						<i class="bi bi-heart heart-icon"></i>
+						<i className="bi bi-heart heart-icon"></i>
 					</button>
 				</div>
 				<Link
@@ -39,8 +42,8 @@ function ProductMini({ product }) {
 								className="fw-light col-12 mb-2"
 								id="product"
 							>
-								{product.description.length >= 100
-									? product.description.substring(0, 100) +
+								{product.description.length >= 80
+									? product.description.substring(0, 80) +
 									  "..."
 									: product.description}
 							</small>
