@@ -26,7 +26,7 @@ function Profile() {
               <div className="text-center bg-secondary-subtle p-4 rounded">
                 <img
                   src="/img/default-avatar.jpg"
-                  alt="Profile photo"
+                  alt="Profile"
                   className="profile-img rounded-pill"
                 />
                 <h2 className="mb-0 mt-3">Pepe Rodriguez</h2>
