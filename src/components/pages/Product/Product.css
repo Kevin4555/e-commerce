@@ -1,54 +1,60 @@
-:root {
-	--dark: #2b2d42;
-	--platinum: #eaeaea;
-	--white: #ffffff;
-	--gray: #8d99ae;
-	--green: #a7f1dc;
-	--salmon: #ff858d;
-	--orange: #e9c46a;
-	--orange-hover: #e6b740;
+* {
+  color: #2b2d42;
 }
 
-* {
-	color: #2b2d42;
-}
+.carousel,
 .carousel-inner,
-.carousel-div {
-	height: 400px;
-	width: 100%;
+.carousel-item {
+  height: 70vh !important;
 }
 
 #btn {
-	background-color: var(--orange);
+  background-color: var(--primary);
+  font-weight: 200 !important;
+  color: white;
 }
 #btn:hover {
-	background-color: var(--orange-hover);
+  background-color: var(--secondary);
 }
 #reviews-container {
-	width: 500px;
+  width: 500px;
 }
 .user-avatar {
-	width: 40px;
-	height: 40px;
+  width: 40px;
+  height: 40px;
 }
 .loading {
-	width: 30px;
-	height: 30px;
+  width: 30px;
+  height: 30px;
 }
 
 .big-loading {
-	margin: 0 auto;
-	width: 30px;
-	height: 30px;
+  margin: 0 auto;
+  width: 30px;
+  height: 30px;
 }
 .object-fit-cover {
-	object-fit: cover;
+  object-fit: cover;
 }
 
 .carousel-image {
-	border-radius: 2rem;
+  border-radius: 2rem;
 }
 
 .stars {
-	color: var(--accent);
+  color: var(--accent);
+}
+
+.priceBefore {
+  color: var(--primary);
+  font-weight: 300;
+  text-decoration: line-through;
+}
+
+.badge {
+  width: 10rem;
+  font-size: small !important;
+  font-weight: 300 !important;
+  background-color: var(--tertiary);
+  color: var(--dark) !important;
 }
