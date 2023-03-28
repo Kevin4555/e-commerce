@@ -1,8 +1,10 @@
 #mainBar {
 	height: 3rem;
 }
+
 #categoryBar {
 	height: 2rem;
+	width: 60vw;
 }
 
 #categoryBar > div {
@@ -27,6 +29,7 @@
 
 #search {
 	margin-right: 5rem;
+	width: 60vw !important;
 }
 
 #search:active,

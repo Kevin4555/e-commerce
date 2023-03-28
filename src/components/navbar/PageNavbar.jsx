@@ -23,7 +23,7 @@ function PageNavbar() {
 							className="mt-2"
 						/>
 					</Navbar.Brand>
-					<Form className="d-flex flex-grow-1 px-2 position-relative">
+					<Form id="form" className="d-flex px-2 position-relative">
 						<i class="bi bi-search position-absolute"></i>
 						<Form.Control
 							type="search"
@@ -48,10 +48,16 @@ function PageNavbar() {
 							Pinturas
 						</Nav.Link>
 						<Nav.Link as={Link} to={"/"}>
-							Cerámicas & Decoraciones
+							Cerámicas
 						</Nav.Link>
 						<Nav.Link as={Link} to={"/"}>
-							Muebles & Carpintería
+							Maderas
+						</Nav.Link>
+						<Nav.Link as={Link} to={"/"}>
+							Tejidos
+						</Nav.Link>
+						<Nav.Link as={Link} to={"/"}>
+							Decoraciones
 						</Nav.Link>
 					</Nav>
 				</Container>

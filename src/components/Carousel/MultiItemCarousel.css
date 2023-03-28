@@ -1,7 +1,7 @@
 .btn.btn-outline-dark.position-absolute.top-50.translate-middle:hover {
-  background-color: black !important;
-  color: white;
+	background-color: var(--primary) !important;
+	color: white;
 }
 .carousel-item {
-  transition: transform 0.3s ease-in-out;
+	transition: transform 0.3s ease-in-out;
 }

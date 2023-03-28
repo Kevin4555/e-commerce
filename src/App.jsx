@@ -2,7 +2,7 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 
 import SobreEsteProyecto from "./components/pages/SobreEsteProyecto/SobreEsteProyecto";
-import ProductPage from "./components/pages/ProductPage/ProductPage";
+import Product from "./components/pages/Product/Product";
 import Home from "./components/pages/Home/Home";
 import Cart from "./components/pages/Cart/Cart";
 import Profile from "./components/pages/Profile/Profile";
@@ -18,7 +18,7 @@ function App() {
 			<Route path="/login" element={<Login />} />
 			<Route path="/SignUp" element={<SingUp />} />
 			<Route path="/" element={<Home />} />
-			<Route path="/product/:id" element={<ProductPage />} />
+			<Route path="/product/:id" element={<Product />} />
 			<Route path="/about-us" element={<SobreEsteProyecto />} />
 			<Route path="/cart" element={<Cart />} />
 			<Route path="/profile" element={<Profile />} />
