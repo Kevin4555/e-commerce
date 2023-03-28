@@ -22,3 +22,16 @@
 .btn.border:hover {
   background-color: var(--orange-hover);
 }
+#btn-continue-buying {
+  background-color: #9ea190;
+}
+#btn-continue-buying:hover {
+  background-color: #8d927a;
+}
+.container-fluid.py-5.align-item-center.justify-content-center {
+  background-image: url(tom-crew-YA2E3d7a9Wo-unsplash.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 13rem;
+}
