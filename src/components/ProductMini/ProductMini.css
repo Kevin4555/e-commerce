@@ -27,7 +27,7 @@
 #rating {
 	width: 4rem;
 	height: 2rem;
-	background-color: var(--salmon);
+	background-color: var(--accent);
 	position: absolute;
 	bottom: 1rem;
 	right: -2rem;
@@ -55,7 +55,7 @@
 	left: 0;
 	font-size: small;
 	font-weight: light;
-	color: red;
+	color: var(--secondary);
 	text-decoration: line-through;
 }
 
