@@ -6,89 +6,76 @@ import PageNavbar from "../../navbar/PageNavbar";
 import MultiItemCarousel from "../../Carousel/MultiItemCarousel";
 import ProductMini from "../../ProductMini/ProductMini";
 import Carousel from "react-bootstrap/Carousel";
+import PageFooter from "../../footer/PageFooter";
 
 function Home() {
-	const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState([]);
 
-	useEffect(() => {
-		const getProducts = async () => {
-			try {
-				const response = await axios({
-					method: "get",
-					url: `http://localhost:8000/products`,
-				});
-				setProducts(response.data);
-			} catch (error) {
-				console.log(error);
-			}
-		};
-		getProducts();
-	}, []);
+  useEffect(() => {
+    const getProducts = async () => {
+      try {
+        const response = await axios({
+          method: "get",
+          url: `http://localhost:8000/products`,
+        });
+        setProducts(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getProducts();
+  }, []);
 
-	const productsFromCategory1 = products.filter(
-		(product) => product.categoryId === 1
-	);
-	const productsFromCategory2 = products.filter(
-		(product) => product.categoryId === 2
-	);
-	const productsFromCategory3 = products.filter(
-		(product) => product.categoryId === 3
-	);
+  const productsFromCategory1 = products.filter((product) => product.categoryId === 1);
+  const productsFromCategory2 = products.filter((product) => product.categoryId === 2);
+  const productsFromCategory3 = products.filter((product) => product.categoryId === 3);
 
-	function showProducts(arrayProducts) {
-		return (
-			arrayProducts && (
-				<div className="row">
-					{arrayProducts.map((product) => {
-						return <ProductMini product={product} />;
-					})}
-				</div>
-			)
-		);
-	}
+  function showProducts(arrayProducts) {
+    return (
+      arrayProducts && (
+        <div className="row">
+          {arrayProducts.map((product) => {
+            return <ProductMini product={product} />;
+          })}
+        </div>
+      )
+    );
+  }
 
-	function scrollToCategory(id) {
-		const elemento = document.getElementById(id);
-		const posicion = elemento.getBoundingClientRect();
-		window.scrollTo({
-			top: posicion.top + window.pageYOffset,
-			behavior: "smooth",
-		});
-	}
+  function scrollToCategory(id) {
+    const elemento = document.getElementById(id);
+    const posicion = elemento.getBoundingClientRect();
+    window.scrollTo({
+      top: posicion.top + window.pageYOffset,
+      behavior: "smooth",
+    });
+  }
 
-	return (
-		<>
-			<PageNavbar />
-			<main>
-				<Carousel className="carousel">
-					<Carousel.Item>
-						<img
-							className="d-block w-100"
-							src="/img/mainBanner.webp"
-							alt="First slide"
-						/>
-						<Carousel.Caption className="carouselCaption">
-							<p>Top Trending Products</p>
-							<h2>Best Modern Wood Collection</h2>
-							<button className="btn bannerBtn">Shop now</button>
-						</Carousel.Caption>
-					</Carousel.Item>
-					<Carousel.Item>
-						<img
-							className="d-block w-100"
-							src="/img/mainBanner2.webp"
-							alt="Second slide"
-						/>
+  return (
+    <>
+      <PageNavbar />
+      <main>
+        <Carousel className="carousel">
+          <Carousel.Item>
+            <img className="d-block w-100" src="/img/mainBanner.webp" alt="First slide" />
+            <Carousel.Caption className="carouselCaption">
+              <p>Top Trending Products</p>
+              <h2>Best Modern Wood Collection</h2>
+              <button className="btn bannerBtn">Shop now</button>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img className="d-block w-100" src="/img/mainBanner2.webp" alt="Second slide" />
 
-						<Carousel.Caption className="carouselCaption">
-							<p>Best Wooden Products</p>
-							<h2>New Handmade Collection</h2>
-							<button className="btn bannerBtn">Shop now</button>
-						</Carousel.Caption>
-					</Carousel.Item>
-				</Carousel>
-				<div className="container">
-					{/* <div
+            <Carousel.Caption className="carouselCaption">
+              <p>Best Wooden Products</p>
+              <h2>New Handmade Collection</h2>
+              <button className="btn bannerBtn">Shop now</button>
+            </Carousel.Caption>
+          </Carousel.Item>
+        </Carousel>
+        <div className="container">
+          {/* <div
 						className="d-flex justify-content-around col-11"
 						id="categoryDisplay"
 					>
@@ -134,34 +121,34 @@ function Home() {
 							</small>
 						</div>
 					</div> */}
-					<h2 className="pb-4">Destacados</h2>
-					{products && (
-						<MultiItemCarousel
-							products={products.filter(
-								(product) => (product.rating = 5)
-							)}
-							productsPerPage={4}
-						></MultiItemCarousel>
-					)}
+          <h2 className="pb-4">Destacados</h2>
+          {products && (
+            <MultiItemCarousel
+              products={products.filter((product) => (product.rating = 5))}
+              productsPerPage={4}
+            ></MultiItemCarousel>
+          )}
 
-					<h2 className="pt-5 pb-4">Nuestros productos</h2>
-					{showProducts(products)}
-					<h3 className="pt-5 pb-4" id="pinturas">
-						Pinturas
-					</h3>
-					{showProducts(productsFromCategory1)}
-					<h3 className="pt-5 pb-4" id="ceramicas">
-						Cerámicas & Decoraciones
-					</h3>
-					{showProducts(productsFromCategory2)}
-					<h3 className="pt-5 pb-4" id="muebles">
-						Muebles & Carpintería
-					</h3>
-					{showProducts(productsFromCategory3)}
-				</div>
-			</main>
-		</>
-	);
+          <h2 className="pt-5 pb-4">Nuestros productos</h2>
+          {showProducts(products)}
+          <h3 className="pt-5 pb-4" id="pinturas">
+            Pinturas
+          </h3>
+          {showProducts(productsFromCategory1)}
+          <h3 className="pt-5 pb-4" id="ceramicas">
+            Cerámicas & Decoraciones
+          </h3>
+          {showProducts(productsFromCategory2)}
+          <h3 className="pt-5 pb-4" id="muebles">
+            Muebles & Carpintería
+          </h3>
+          {showProducts(productsFromCategory3)}
+        </div>
+      </main>
+
+      <PageFooter />
+    </>
+  );
 }
 
 export default Home;
