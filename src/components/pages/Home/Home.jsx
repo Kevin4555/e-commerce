@@ -66,6 +66,7 @@ function Home() {
 							className="d-block w-100"
 							src="/img/mainBanner.webp"
 							alt="First slide"
+							draggable="false"
 						/>
 						<Carousel.Caption className="carouselCaption">
 							<p>Top Trending Products</p>
@@ -78,6 +79,7 @@ function Home() {
 							className="d-block w-100"
 							src="/img/mainBanner2.webp"
 							alt="Second slide"
+							draggable="false"
 						/>
 
 						<Carousel.Caption className="carouselCaption">
@@ -144,19 +146,35 @@ function Home() {
 						></MultiItemCarousel>
 					)}
 
-					<h2 className="pt-5 pb-4">Nuestros productos</h2>
-					{showProducts(products)}
-					<h3 className="pt-5 pb-4" id="pinturas">
-						Pinturas
-					</h3>
+					<div className="mt-5 mb-5 ms-2">
+						<h3 className="pt-5 pb-4 d-inline fs-2" id="pinturas">
+							Pinturas
+						</h3>
+						<Link to={"/"} className="categoryLink">
+							ver todos{" "}
+							<i className="bi bi-arrow-right-short"></i>
+						</Link>
+					</div>
 					{showProducts(productsFromCategory1)}
-					<h3 className="pt-5 pb-4" id="ceramicas">
-						Cerámicas & Decoraciones
-					</h3>
+					<div className="mt-5 mb-5 ms-2">
+						<h3 className="pt-5 pb-4 d-inline fs-2" id="ceramicas">
+							Cerámicas & Decoraciones
+						</h3>
+						<Link to={"/"} className="categoryLink">
+							ver todos{" "}
+							<i className="bi bi-arrow-right-short"></i>
+						</Link>
+					</div>
 					{showProducts(productsFromCategory2)}
-					<h3 className="pt-5 pb-4" id="muebles">
-						Muebles & Carpintería
-					</h3>
+					<div className="mt-5 mb-5 ms-2">
+						<h3 className="pt-5 pb-4 d-inline fs-2" id="muebles">
+							Muebles & Carpintería
+						</h3>
+						<Link to={"/"} className="categoryLink">
+							ver todos{" "}
+							<i className="bi bi-arrow-right-short"></i>
+						</Link>
+					</div>
 					{showProducts(productsFromCategory3)}
 				</div>
 			</main>
