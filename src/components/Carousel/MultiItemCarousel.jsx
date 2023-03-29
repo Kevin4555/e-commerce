@@ -34,8 +34,8 @@ const Carousel = ({ products, productsPerPage }) => {
     <div>
       <div className=" justify-content-center position-relative">
         <div className="row ">
-          {products.slice(startIndex, endIndex).map((product) => (
-            <ProductMini product={product} key={product.id} />
+          {products.slice(startIndex, endIndex).map((product, index) => (
+            <ProductMini product={product} key={index} />
           ))}
         </div>
         <div>
