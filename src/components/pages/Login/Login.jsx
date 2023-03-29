@@ -1,5 +1,5 @@
 import { React, useState } from "react";
-import { Col, Button, Row, Container, Card, Form } from "react-bootstrap";
+import { Col, Button, Row, Container, Card, Form, Alert } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -44,6 +44,11 @@ export default function Login() {
         <Row id="content" className="d-flex justify-content-center align-items-center">
           <Col xs={11} sm={8} md={6} xl={4}>
             <Card className=" px-4">
+              {error && (
+                <Alert variant="danger" onClose={() => setError(false)} dismissible>
+                  <p>Email o contraseña incorrectos</p>
+                </Alert>
+              )}
               <Card.Body>
                 <div>
                   <h2 className="mb-3 text-center ">Iniciar Sesión</h2>
