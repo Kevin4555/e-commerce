@@ -8,6 +8,9 @@ import Container from "react-bootstrap/Container";
 import PageNavbar from "../../navbar/PageNavbar";
 import Rating from "react-rating";
 
+import { useDispatch } from "react-redux";
+import { addItemToCart } from "../..//..//slices/cartSlice.js";
+
 function Product() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
@@ -42,6 +45,12 @@ function Product() {
     };
     getProduct();
   }, [id]);
+
+  const dispatch = useDispatch();
+
+  const handleAddToCart = () => {
+    dispatch(addItemToCart(product));
+  };
 
   if (product) {
     return (
@@ -89,7 +98,7 @@ function Product() {
               )}
               <p className="mt-4 w-75">{product.description}</p>
               <div className="d-flex align-items-center mt-5">
-                <button className="btn fw-semibold" id="btn">
+                <button className="btn fw-semibold" id="btn" onClick={handleAddToCart}>
                   Añadir al carrito
                 </button>
 
