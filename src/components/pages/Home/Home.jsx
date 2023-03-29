@@ -35,6 +35,7 @@ function Home() {
   const productsFromCategory1 = products.filter((product) => product.categoryId === 1);
   const productsFromCategory2 = products.filter((product) => product.categoryId === 2);
   const productsFromCategory3 = products.filter((product) => product.categoryId === 3);
+  const productsFromCategory4 = products.filter((product) => product.categoryId === 4);
 
   function showProducts(arrayProducts) {
     return (
@@ -47,6 +48,16 @@ function Home() {
       )
     );
   }
+
+  function scrollToCategory(id) {
+    const elemento = document.getElementById(id);
+    const posicion = elemento.getBoundingClientRect();
+    window.scrollTo({
+      top: posicion.top + window.pageYOffset,
+      behavior: "smooth",
+    });
+  }
+
   if (isLoading)
     return (
       <div className="screen">
@@ -90,27 +101,27 @@ function Home() {
           <div className="container">
             <h3 className="fs-2 mt-5 text-center">Categorías</h3>
             <div className="row rounded" id="categoryDisplay">
-              <div className="col-3">
+              <div className="col-2" onClick={() => scrollToCategory("maderas")}>
                 <img
                   src={
-                    process.env.REACT_APP_API_BASE_URL + `/img/${productsFromCategory1[0].img.img1}`
+                    process.env.REACT_APP_API_BASE_URL + `/img/${productsFromCategory1[2].img.img1}`
                   }
                   alt=""
                   className="categories-img"
                 />
                 <h5 className="mt-3">Pinturas</h5>
               </div>
-              <div className="col-3">
+              <div className="col-2">
                 <img
                   src={
-                    process.env.REACT_APP_API_BASE_URL + `/img/${productsFromCategory2[0].img.img1}`
+                    process.env.REACT_APP_API_BASE_URL + `/img/${productsFromCategory2[1].img.img1}`
                   }
                   alt=""
                   className="categories-img"
                 />
                 <h5 className="mt-3">Cerámicas</h5>
               </div>
-              <div className="col-3">
+              <div className="col-2">
                 <img
                   src={
                     process.env.REACT_APP_API_BASE_URL + `/img/${productsFromCategory3[0].img.img1}`
@@ -120,15 +131,25 @@ function Home() {
                 />
                 <h5 className="mt-3">Maderas</h5>
               </div>
-              <div className="col-3">
+              <div className="col-2">
                 <img
                   src={
-                    process.env.REACT_APP_API_BASE_URL + `/img/${productsFromCategory1[0].img.img1}`
+                    process.env.REACT_APP_API_BASE_URL + `/img/${productsFromCategory4[0].img.img1}`
                   }
                   className="categories-img"
                   alt=""
                 />
-                <h5 className="mt-3">Otra</h5>
+                <h5 className="mt-3">Tejidos</h5>
+              </div>
+              <div className="col-2">
+                <img
+                  src={
+                    process.env.REACT_APP_API_BASE_URL + `/img/${productsFromCategory2[3].img.img1}`
+                  }
+                  className="categories-img"
+                  alt=""
+                />
+                <h5 className="mt-3">Decoraciones</h5>
               </div>
             </div>
 
