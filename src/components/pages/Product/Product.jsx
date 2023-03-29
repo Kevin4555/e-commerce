@@ -79,7 +79,7 @@ function Product() {
               />
               <h1 className="">{product.title}</h1>
               <h3 className="d-inline">${product.price} USD</h3>
-              <span className="priceBefore ms-2">${product.price * 1.2} USD</span>
+              <span className="priceBefore ms-2">${Math.floor(product.price * 1.2)} USD</span>
               {product.stock === 0 ? (
                 <span className="badge ms-3 bg-red">FUERA DE STOCK</span>
               ) : (
