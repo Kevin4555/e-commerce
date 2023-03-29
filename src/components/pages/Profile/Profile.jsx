@@ -1,26 +1,47 @@
 import "./Profile.css";
 import PageNavbar from "../../navbar/PageNavbar";
-import Nav from "react-bootstrap/Nav";
+import ProductMini from "../../ProductMini/ProductMini";
+import MultiItemCarousel from "../../Carousel/MultiItemCarousel";
+import Order from "../../Order/Order";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 function Profile() {
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    const getProducts = async () => {
+      try {
+        const response = await axios({
+          method: "get",
+          url: `${process.env.REACT_APP_API_BASE_URL}/products`,
+        });
+        setProducts(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getProducts();
+  }, []);
+
   return (
     <>
       <PageNavbar />
       <main>
-        <div className="container mt-4">
+        <div className="container-fluid py-5 d-flex align-item-center justify-content-center flex-column">
+          <h1 className="fs-2 fw-bold text-light text-center">Mi Perfil</h1>
+          <small className="fs-6 fw-semibold text-light text-center">Home</small>
+        </div>
+        <div className="container mt-5">
           <div className="row">
-            <div className="col-1 g-0">
-              <Nav defaultActiveKey="/home" className="flex-column mt-5">
-                <Nav.Link href="/profile" className="px-0">
-                  <i className="bi bi-person d-inline me-1"></i>Profile
-                </Nav.Link>
-                <Nav.Link eventKey="/orders" className="px-0">
-                  <i className="bi bi-box-seam d-inline me-1"></i>Orders
-                </Nav.Link>
-              </Nav>
-            </div>
-            <div className="col-7">
-              <h1>Profile</h1>
+            <div className="col-8">
+              <h2 className="fs-4">Favoritos</h2>
+              {products && (
+                <MultiItemCarousel
+                  products={products.filter((product) => (product.rating = 5))}
+                  productsPerPage={2}
+                  className=""
+                />
+              )}
             </div>
             <div className="col-4">
               <div className="text-center bg-secondary-subtle p-4 rounded">
@@ -63,6 +84,8 @@ function Profile() {
                 </div>
               </div>
             </div>
+            <h2 className="fs-3 mt-5">Historial de pedidos</h2>
+            <Order />
           </div>
         </div>
       </main>

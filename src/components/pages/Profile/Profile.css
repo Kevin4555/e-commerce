@@ -3,3 +3,10 @@
   height: 150px;
   object-fit: cover;
 }
+.container-fluid.py-5.align-item-center.justify-content-center {
+  background-image: url(tom-crew-YA2E3d7a9Wo-unsplash.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 13rem;
+}

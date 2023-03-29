@@ -101,33 +101,43 @@ function Home() {
                 <h5 className="mt-3">Pinturas</h5>
               </div>
               <div className="col-3">
-                <img
-                  src={
-                    process.env.REACT_APP_API_BASE_URL + `/img/${productsFromCategory2[0].img.img1}`
-                  }
-                  alt=""
-                  className="categories-img"
-                />
+                {
+                  <img
+                    src={
+                      process.env.REACT_APP_API_BASE_URL +
+                      `/img/${productsFromCategory2[0].img.img1}`
+                    }
+                    alt=""
+                    className="categories-img"
+                  />
+                }
                 <h5 className="mt-3">Cerámicas</h5>
               </div>
               <div className="col-3">
-                <img
-                  src={
-                    process.env.REACT_APP_API_BASE_URL + `/img/${productsFromCategory3[0].img.img1}`
-                  }
-                  className="categories-img"
-                  alt=""
-                />
+                {
+                  <img
+                    src={
+                      process.env.REACT_APP_API_BASE_URL +
+                      `/img/${productsFromCategory3[0].img.img1}`
+                    }
+                    className="categories-img"
+                    alt=""
+                  />
+                }
+
                 <h5 className="mt-3">Maderas</h5>
               </div>
               <div className="col-3">
-                <img
-                  src={
-                    process.env.REACT_APP_API_BASE_URL + `/img/${productsFromCategory1[0].img.img1}`
-                  }
-                  className="categories-img"
-                  alt=""
-                />
+                {
+                  <img
+                    src={
+                      process.env.REACT_APP_API_BASE_URL +
+                      `/img/${productsFromCategory1[0].img.img1}`
+                    }
+                    className="categories-img"
+                    alt=""
+                  />
+                }
                 <h5 className="mt-3">Otra</h5>
               </div>
             </div>

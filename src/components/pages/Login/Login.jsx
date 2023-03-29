@@ -11,8 +11,8 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+  /*   const dispatch = useDispatch();
+  const navigate = useNavigate(); */
 
   function handlelogin(event) {
     event.preventDefault();
@@ -26,7 +26,7 @@ export default function Login() {
         },
       });
       //dispatch(setUser(response.data));
-      navigate("/");
+      /* navigate("/"); */
     } catch (err) {
       console.log(err);
       setError(true);
