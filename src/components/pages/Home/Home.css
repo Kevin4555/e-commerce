@@ -1,136 +1,137 @@
 * {
-	color: var(--dark);
+  color: var(--dark);
 }
 
 .carousel,
 .carousel-inner,
 .carousel-item {
-	height: 70vh !important;
+  height: 70vh !important;
 }
 
 .carousel-item > * > img {
-	object-fit: cover;
+  object-fit: cover;
 }
 
 .carouselCaption {
-	width: 35rem;
-	text-align: left !important;
-	color: black !important;
-	position: absolute;
-	top: 28%;
-	left: 13%;
+  width: 35rem;
+  text-align: left !important;
+  color: black !important;
+  position: absolute;
+  top: 28%;
+  left: 13%;
 }
 
 .carouselCaption > h2 {
-	font-size: 3rem;
+  font-size: 3rem;
 }
 .carouselCaption > p {
-	font-size: 1.5rem;
-	font-weight: light !important;
+  font-size: 1.5rem;
+  font-weight: light !important;
 }
 
 .bannerBtn {
-	background-color: var(--tertiary) !important;
-	color: white !important;
-	padding: 0.5rem 1.5rem !important;
-	margin-top: 2rem;
-	font-size: large !important;
+  background-color: var(--tertiary) !important;
+  color: white !important;
+  padding: 0.5rem 1.5rem !important;
+  margin-top: 2rem;
+  font-size: large !important;
 }
 
 .bannerBtn:hover {
-	background-color: var(--accent) !important;
+  background-color: var(--accent) !important;
 }
 
 .categories-img {
-	object-fit: cover;
-	height: 15rem;
-	width: 15rem;
-	border-radius: 3rem;
+  object-fit: cover;
+  height: 15rem;
+  width: 15rem;
+  border-radius: 3rem;
 }
 
 .destacados-img {
-	object-fit: cover;
-	height: 200px;
+  object-fit: cover;
+  height: 200px;
 }
 
 .h-100px {
-	height: 100px;
+  height: 100px;
 }
 
 .img-container {
-	position: relative;
+  position: relative;
 }
 
 .icono-btn {
-	position: absolute;
-	top: 0;
-	right: 0;
-	padding: 5px;
-	border: none;
-	background-color: transparent;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 5px;
+  border: none;
+  background-color: transparent;
 }
 .heart-icon {
-	font-size: 20px;
+  font-size: 20px;
 }
 .d-block.fs-5.fw-semibold.btn:hover {
-	background-color: var(--gray);
+  background-color: var(--gray);
 }
 
 #product {
-	height: 50px;
+  height: 50px;
 }
 
 .categoryLink {
-	font-size: large;
-	margin-left: 2rem;
-	text-decoration: none;
-	color: var(--accent);
-	margin-bottom: 1rem;
+  font-size: large;
+  margin-left: 2rem;
+  text-decoration: none;
+  color: var(--accent);
+  margin-bottom: 1rem;
 }
 
 .categoryLink:hover {
-	text-decoration: none;
-	color: var(--primary);
+  text-decoration: none;
+  color: var(--primary);
 }
 
 #display {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	margin: 3rem 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 3rem 0px;
 }
 
 .displayOffer {
-	position: relative;
+  position: relative;
 }
 
 .displayOffer:hover {
-	transition: all 0.5s ease;
-	transform: scale(1.05);
+  transition: all 0.5s ease;
+  transform: scale(1.05);
 }
 
 .displayOffer > img {
-	border-radius: 1rem;
+  border-radius: 1rem;
 }
 
 .displayOffer > div {
-	position: absolute;
-	left: 2rem;
-	top: 5rem;
+  position: absolute;
+  left: 2rem;
+  top: 5rem;
 }
 
 #categoryDisplay {
-	padding: 2rem 0px;
+  padding: 2rem 0px;
+  justify-content: space-between;
 }
 
 #categoryDisplay > div {
-	display: flex !important;
-	flex-direction: column !important;
-	align-items: center !important;
-	justify-content: center !important;
-	transition: all 0.3s ease;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.3s ease;
 }
 
 #categoryDisplay > div:hover {
-	transform: scale(1.05);
+  transform: scale(1.05);
 }

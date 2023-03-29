@@ -8,13 +8,13 @@ import "./PageNavbar.css";
 function PageNavbar() {
   return (
     <>
-      <Navbar bg="white" variant="light" className="flex-column border-bottom" sticky="top">
+      <Navbar bg="white" variant="light" className="flex-column border-bottom shadow" sticky="top">
         <Container id="mainBar">
           <Navbar.Brand as={Link} to={"/"}>
             <img src="../logo.png" alt="logo Manos Creativas" width="200" className="mt-2" />
           </Navbar.Brand>
           <Form id="form" className="d-flex px-2 position-relative">
-            <i class="bi bi-search position-absolute"></i>
+            <i className="bi bi-search position-absolute"></i>
             <Form.Control
               type="search"
               placeholder="Search"

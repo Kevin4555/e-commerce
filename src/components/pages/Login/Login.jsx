@@ -3,7 +3,10 @@ import { Col, Button, Row, Container, Card, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { setUser } from "../../../slices/usersSlice";
 import axios from "axios";
+import PageNavbar from "../../navbar/PageNavbar";
+import "./Login.css";
 
 //import { GoogleOAuthProvider } from "@react-oauth/google";
 
@@ -14,36 +17,37 @@ export default function Login() {
   /*   const dispatch = useDispatch();
   const navigate = useNavigate(); */
 
-  function handlelogin(event) {
+  const handleLogin = async (event) => {
     event.preventDefault();
     try {
-      const response = axios({
+      const response = await axios({
         method: "post",
-        url: `${process.env.REACT_APP_URL}/users/tokens`,
+        url: `${process.env.REACT_APP_API_BASE_URL}/users/tokens`,
         data: {
           email,
           password,
         },
       });
-      //dispatch(setUser(response.data));
-      /* navigate("/"); */
+      console.log(response.data);
+      dispatch(setUser(response.data));
+      navigate("/");
     } catch (err) {
       console.log(err);
       setError(true);
     }
-  }
+  };
 
   return (
-    <Container>
-      <div>
-        <Row className="vh-100 d-flex justify-content-center align-items-center">
-          <Col md={8} lg={6} xs={12}>
-            <div className="border border-2 border-primary"></div>
-            <Card className="shadow px-4">
+    <>
+      <PageNavbar />
+      <Container fluid id="background">
+        <Row id="content" className="d-flex justify-content-center align-items-center">
+          <Col xs={11} sm={8} md={6} xl={4}>
+            <Card className=" px-4">
               <Card.Body>
-                <div className="mb-3 mt-md-4">
-                  <h2 className="fw-bold mb-2 text-center text-uppercase ">Login</h2>
-                  <form className="mb-3" onSubmit={handlelogin}>
+                <div>
+                  <h2 className="mb-3 text-center ">Iniciar Sesión</h2>
+                  <form className="mb-3" onSubmit={handleLogin}>
                     <Form.Group className="mb-3">
                       <Form.Label className="text-center">Correo electrónico</Form.Label>
                       <Form.Control
@@ -61,17 +65,17 @@ export default function Login() {
                       />
                     </Form.Group>
 
-                    <div className="d-grid">
-                      <Button variant="primary" type="submit">
+                    <div className="mt-3 d-grid">
+                      <Button id="button" type="submit">
                         Login
                       </Button>
                     </div>
                   </form>
                   <div className="mt-3">
                     <p className="mb-0  text-center">
-                      Todavia no tienes una cuenta?
-                      <Link to="/signup" className="text-primary fw-bold">
-                        Crea una
+                      Todavía no tienes una cuenta?
+                      <Link to="/signup" className="link">
+                        Regístrate
                       </Link>
                     </p>
                   </div>
@@ -80,7 +84,7 @@ export default function Login() {
             </Card>
           </Col>
         </Row>
-      </div>
-    </Container>
+      </Container>
+    </>
   );
 }
