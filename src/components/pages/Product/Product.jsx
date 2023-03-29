@@ -83,7 +83,9 @@ function Product() {
               {product.stock === 0 ? (
                 <span className="badge ms-3 bg-red">FUERA DE STOCK</span>
               ) : (
-                <span className="badge ms-3">Quedan {product.stock} unidades!</span>
+                <span className="badge ms-3">
+                  {product.stock === 1 ? `Queda una unidad` : `Quedan ${product.stock} unidades!`}
+                </span>
               )}
               <p className="mt-4 w-75">{product.description}</p>
               <div className="d-flex align-items-center mt-5">
