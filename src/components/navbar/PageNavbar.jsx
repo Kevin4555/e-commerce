@@ -14,7 +14,7 @@ function PageNavbar() {
             <img src="../logo.png" alt="logo Manos Creativas" width="200" className="mt-2" />
           </Navbar.Brand>
           <Form id="form" className="d-flex px-2 position-relative">
-            <i class="bi bi-search position-absolute"></i>
+            <i className="bi bi-search position-absolute"></i>
             <Form.Control
               type="search"
               placeholder="Search"
