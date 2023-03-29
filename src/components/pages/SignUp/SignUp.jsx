@@ -5,12 +5,12 @@ import PageNavbar from "../../navbar/PageNavbar";
 import "./SignUp.css";
 
 export default function SignUp() {
-  const [firstName, setFirstName] = useState();
-  const [lastName, setLastName] = useState();
-  const [email, setEmail] = useState();
-  const [address, setAddress] = useState();
-  const [state, setState] = useState();
-  const [password, setPassword] = useState();
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [address, setAddress] = useState("");
+  const [state, setState] = useState("");
+  const [password, setPassword] = useState("");
 
   return (
     <>
@@ -32,6 +32,7 @@ export default function SignUp() {
                       <Form.Group className="mb-3" controlId="FirstName">
                         <Form.Label className="text-center">Nombre</Form.Label>
                         <Form.Control
+                          value={firstName}
                           type="text"
                           onChange={(event) => setFirstName(event.target.value)}
                           placeholder="Juan"

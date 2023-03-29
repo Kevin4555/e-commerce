@@ -14,8 +14,8 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
-  /*   const dispatch = useDispatch();
-  const navigate = useNavigate(); */
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleLogin = async (event) => {
     event.preventDefault();
