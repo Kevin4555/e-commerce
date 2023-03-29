@@ -13,6 +13,7 @@ import Profile from "./components/pages/Profile/Profile";
 import Login from "./components/pages/Login/Login";
 import SignUp from "./components/pages/SignUp/SignUp";
 import React from "react";
+import Products from "./components/pages/Products/Products";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <Route path="/signup" element={<SignUp />} />
       <Route path="/" element={<Home />} />
       <Route path="/product/:id" element={<Product />} />
+      <Route path="/products" element={<Products />} />
       <Route path="/about-us" element={<SobreEsteProyecto />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="/cart/information" element={<CartInformation />} />
