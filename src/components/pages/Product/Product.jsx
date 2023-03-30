@@ -4,12 +4,14 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Carousel from "react-bootstrap/Carousel";
 import Container from "react-bootstrap/Container";
+import Footer from "../../Footer/Footer";
 
 import PageNavbar from "../../navbar/PageNavbar";
 import Rating from "react-rating";
 
 import { useDispatch } from "react-redux";
 import { addItemToCart } from "../..//..//slices/cartSlice.js";
+import Newsletter from "../../Newsletter/Newsletter";
 
 function Product() {
   const { id } = useParams();
@@ -138,6 +140,8 @@ function Product() {
             </p>
           </div>
         </Container>
+        <Newsletter />
+        <Footer />
       </>
     );
   } else {

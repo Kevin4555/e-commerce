@@ -1,0 +1,13 @@
+#text-footer {
+  background-color: white;
+}
+
+.socials {
+  margin-top: 1rem;
+}
+
+.socials > .bi {
+  margin-right: 2rem;
+  color: var(--accent);
+  font-size: large;
+}

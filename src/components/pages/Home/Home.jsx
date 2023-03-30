@@ -6,6 +6,8 @@ import PageNavbar from "../../navbar/PageNavbar";
 import MultiItemCarousel from "../../Carousel/MultiItemCarousel";
 import ProductMini from "../../ProductMini/ProductMini";
 import Carousel from "react-bootstrap/Carousel";
+import Footer from "../../Footer/Footer";
+import Newsletter from "../../Newsletter/Newsletter";
 
 function Home() {
   const [products, setProducts] = useState([]);
@@ -208,6 +210,8 @@ function Home() {
             {showProducts(productsFromCategory3)}
           </div>
         </main>
+        <Newsletter />
+        <Footer />
       </>
     );
 }

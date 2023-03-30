@@ -1,0 +1,9 @@
+.newsletter {
+  height: 15rem;
+  background-image: url(/public/img/newsletter.webp);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  backdrop-filter: blur(5px);
+  background-attachment: fixed;
+}
