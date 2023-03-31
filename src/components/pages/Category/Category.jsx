@@ -75,7 +75,7 @@ function Category() {
               >
                 <img
                   src={
-                    process.env.REACT_APP_API_BASE_URL + `/img/${productsFromCategory1[2].img.img1}`
+                    process.env.REACT_APP_API_BASE_IMG_URL + `/${productsFromCategory1[2].img.img1}`
                   }
                   alt=""
                   className="categories-img"
@@ -92,7 +92,7 @@ function Category() {
               >
                 <img
                   src={
-                    process.env.REACT_APP_API_BASE_URL + `/img/${productsFromCategory2[1].img.img1}`
+                    process.env.REACT_APP_API_BASE_IMG_URL + `/${productsFromCategory2[1].img.img1}`
                   }
                   alt=""
                   className="categories-img"
@@ -109,7 +109,7 @@ function Category() {
               >
                 <img
                   src={
-                    process.env.REACT_APP_API_BASE_URL + `/img/${productsFromCategory3[0].img.img1}`
+                    process.env.REACT_APP_API_BASE_IMG_URL + `/${productsFromCategory3[0].img.img1}`
                   }
                   className="categories-img"
                   alt=""
@@ -126,7 +126,7 @@ function Category() {
               >
                 <img
                   src={
-                    process.env.REACT_APP_API_BASE_URL + `/img/${productsFromCategory4[0].img.img1}`
+                    process.env.REACT_APP_API_BASE_IMG_URL + `/${productsFromCategory4[0].img.img1}`
                   }
                   className="categories-img"
                   alt=""
@@ -143,7 +143,7 @@ function Category() {
               >
                 <img
                   src={
-                    process.env.REACT_APP_API_BASE_URL + `/img/${productsFromCategory2[3].img.img1}`
+                    process.env.REACT_APP_API_BASE_IMG_URL + `/${productsFromCategory2[3].img.img1}`
                   }
                   className="categories-img"
                   alt=""
