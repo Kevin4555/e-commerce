@@ -8,17 +8,10 @@ import ProductMini from "../../ProductMini/ProductMini";
 import Carousel from "react-bootstrap/Carousel";
 import Footer from "../../Footer/Footer";
 import Newsletter from "../../Newsletter/Newsletter";
+import Loading from "../../Loading/Loading";
 
 function Home() {
   const [products, setProducts] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    // Simulate loading time
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 750);
-  }, []);
 
   useEffect(() => {
     const getProducts = async () => {
@@ -60,13 +53,7 @@ function Home() {
     });
   }
 
-  if (isLoading)
-    return (
-      <div className="screen">
-        <div className="spinner"></div>
-      </div>
-    );
-  else
+  if (products[0])
     return (
       <>
         <PageNavbar />
@@ -74,7 +61,7 @@ function Home() {
           <Carousel className="carousel">
             <Carousel.Item>
               <img
-                className="d-block w-100"
+                className="d-block"
                 src="/img/mainBanner.webp"
                 alt="First slide"
                 draggable="false"
@@ -87,7 +74,7 @@ function Home() {
             </Carousel.Item>
             <Carousel.Item>
               <img
-                className="d-block w-100"
+                className="d-block"
                 src="/img/mainBanner2.webp"
                 alt="Second slide"
                 draggable="false"
@@ -103,7 +90,10 @@ function Home() {
           <div className="container">
             <h3 className="fs-2 mt-5 text-center">Categorías</h3>
             <div className="row rounded" id="categoryDisplay">
-              <div className="col-2" onClick={() => scrollToCategory("maderas")}>
+              <div
+                className="col-12 col-sm-6 col-md-4 col-xl-2"
+                onClick={() => scrollToCategory("maderas")}
+              >
                 <img
                   src={
                     process.env.REACT_APP_API_BASE_URL + `/img/${productsFromCategory1[2].img.img1}`
@@ -113,7 +103,7 @@ function Home() {
                 />
                 <h5 className="mt-3">Pinturas</h5>
               </div>
-              <div className="col-2">
+              <div className="col-12 col-sm-6 col-md-4 col-xl-2">
                 <img
                   src={
                     process.env.REACT_APP_API_BASE_URL + `/img/${productsFromCategory2[1].img.img1}`
@@ -123,7 +113,7 @@ function Home() {
                 />
                 <h5 className="mt-3">Cerámicas</h5>
               </div>
-              <div className="col-2">
+              <div className="col-12 col-sm-6 col-md-4 col-xl-2">
                 <img
                   src={
                     process.env.REACT_APP_API_BASE_URL + `/img/${productsFromCategory3[0].img.img1}`
@@ -133,7 +123,7 @@ function Home() {
                 />
                 <h5 className="mt-3">Maderas</h5>
               </div>
-              <div className="col-2">
+              <div className="col-12 col-sm-6 col-md-4 col-xl-2">
                 <img
                   src={
                     process.env.REACT_APP_API_BASE_URL + `/img/${productsFromCategory4[0].img.img1}`
@@ -143,7 +133,7 @@ function Home() {
                 />
                 <h5 className="mt-3">Tejidos</h5>
               </div>
-              <div className="col-2">
+              <div className="col-12 col-sm-6 col-md-4 col-xl-2">
                 <img
                   src={
                     process.env.REACT_APP_API_BASE_URL + `/img/${productsFromCategory2[3].img.img1}`
@@ -214,6 +204,7 @@ function Home() {
         <Footer />
       </>
     );
+  else return <Loading />;
 }
 
 export default Home;

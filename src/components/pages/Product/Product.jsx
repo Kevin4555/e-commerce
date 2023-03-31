@@ -12,6 +12,7 @@ import Rating from "react-rating";
 import { useDispatch } from "react-redux";
 import { addItemToCart } from "../..//..//slices/cartSlice.js";
 import Newsletter from "../../Newsletter/Newsletter";
+import Loading from "../../Loading/Loading";
 
 function Product() {
   const { id } = useParams();
@@ -145,11 +146,7 @@ function Product() {
       </>
     );
   } else {
-    return (
-      <div className="carousel-div d-flex align-items-center justify-content-center">
-        <img src="/img/Spinner-1s-200px.svg" className="loading" alt="" />
-      </div>
-    );
+    return <Loading />;
   }
 }
 

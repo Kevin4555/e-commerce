@@ -5,6 +5,8 @@ import axios from "axios";
 import PageNavbar from "../../navbar/PageNavbar";
 import ProductMini from "../../ProductMini/ProductMini";
 import Carousel from "react-bootstrap/Carousel";
+import Newsletter from "../../Newsletter/Newsletter";
+import Footer from "../../Footer/Footer";
 
 function Category() {
   const [products, setProducts] = useState([]);
@@ -34,6 +36,7 @@ function Category() {
     };
     getProducts();
   }, []);
+
   const productsFromCategory1 = products.filter((product) => product.categoryId === 1);
   const productsFromCategory2 = products.filter((product) => product.categoryId === 2);
   const productsFromCategory3 = products.filter((product) => product.categoryId === 3);
@@ -178,7 +181,6 @@ function Category() {
                 className="col-2"
                 onClick={() => {
                   setProductsFromSelectedCategory(productsFromCategory5);
-
                   setCategoryTitle("Decoraciones");
                   scrollToCategory("products");
                 }}
@@ -223,6 +225,8 @@ function Category() {
             {showProducts(productsFromSelectedCategory)}
           </div>
         </main>
+        <Newsletter />
+        <Footer />
       </>
     );
 }

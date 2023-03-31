@@ -10,6 +10,7 @@
 
 .carousel-item > * > img {
   object-fit: cover;
+  background-position: right;
 }
 
 .carouselCaption {
@@ -98,6 +99,7 @@
   flex-direction: row;
   justify-content: space-between;
   margin: 3rem 0px;
+  max-width: 100vw;
 }
 
 .displayOffer {
