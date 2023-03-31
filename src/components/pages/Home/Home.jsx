@@ -54,7 +54,7 @@ function Home() {
     });
   }
 
-  if (products[0])
+  if (products.length > 0)
     return (
       <>
         <PageNavbar />
