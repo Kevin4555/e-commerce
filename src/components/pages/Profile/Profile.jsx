@@ -45,6 +45,7 @@ function Profile() {
       <>
         <PageNavbar />
         <main>
+          <h1>a</h1>
           <div className="container-fluid py-5 d-flex align-item-center justify-content-center flex-column">
             <h1 className="fs-2 fw-bold text-light text-center">Mi Perfil</h1>
             <small className="fs-6 fw-semibold text-light text-center">Home</small>
