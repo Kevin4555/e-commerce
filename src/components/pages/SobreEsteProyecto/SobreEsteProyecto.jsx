@@ -11,12 +11,13 @@ function SobreEsteProyecto() {
           <div className="profile col-12 col-md-6 col-lg-3">
             <h4>Nicolás Ross</h4>
             <div className="icons">
-              <a href="https://github.com/nicoroke" target="_blank">
+              <a href="https://github.com/nicoroke" target="_blank" rel="noreferrer">
                 <i className="profileIcon bi bi-github"></i>
               </a>
               <a
                 href="https://www.linkedin.com/in/nicol%C3%A1s-ross-kegel-1a968414b/"
                 target="_blank"
+                rel="noreferrer"
               >
                 <i className="profileIcon bi bi-linkedin"></i>
               </a>

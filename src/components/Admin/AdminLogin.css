@@ -21,9 +21,8 @@
   color: var(--accent);
 }
 
-#background {
+#backgroundAdminLogin {
   padding: 0;
-  /* background-image: url(/public/img/topBanner.jpg); */
-  /* height: 88.1vh; */
-  /* background-size: 100vw; */
+  background-image: url(/public/img/topBanner.jpg);
+  background-size: cover;
 }

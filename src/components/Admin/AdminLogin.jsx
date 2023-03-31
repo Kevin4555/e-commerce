@@ -38,7 +38,7 @@ export default function AdminLogin() {
 
   return (
     <>
-      <Container fluid id="background">
+      <Container fluid id="backgroundAdminLogin">
         <Row id="content" className="d-flex justify-content-center align-items-center">
           <Col xs={11} sm={8} md={6} xl={4}>
             <Card className=" px-4">
