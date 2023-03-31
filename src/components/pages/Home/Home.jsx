@@ -144,7 +144,6 @@ function Home() {
                 <h5 className="mt-3">Decoraciones</h5>
               </div>
             </div>
-
             <section id="display">
               <div className="displayOffer">
                 <img src="/img/subBanner.webp" alt="" />
