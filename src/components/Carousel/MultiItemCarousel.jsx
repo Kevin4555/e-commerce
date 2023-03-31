@@ -29,7 +29,7 @@ const Carousel = ({ products, productsPerPage }) => {
       }); */
     }
   };
-
+  console.log();
   return (
     <div>
       <div className=" justify-content-center position-relative">
