@@ -8,17 +8,10 @@ import ProductMini from "../../ProductMini/ProductMini";
 import Carousel from "react-bootstrap/Carousel";
 import Footer from "../../Footer/Footer";
 import Newsletter from "../../Newsletter/Newsletter";
+import Loading from "../../Loading/Loading";
 
 function Home() {
   const [products, setProducts] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    // Simulate loading time
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 750);
-  }, []);
 
   useEffect(() => {
     const getProducts = async () => {
@@ -60,13 +53,7 @@ function Home() {
     });
   }
 
-  if (isLoading)
-    return (
-      <div className="screen">
-        <div className="spinner"></div>
-      </div>
-    );
-  else
+  if (products[0])
     return (
       <>
         <PageNavbar />
@@ -217,6 +204,7 @@ function Home() {
         <Footer />
       </>
     );
+  else return <Loading />;
 }
 
 export default Home;

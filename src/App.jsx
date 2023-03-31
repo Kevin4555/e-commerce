@@ -11,6 +11,7 @@ import CartInformation from "./components/pages/Cart/CartInformation/CartInforma
 import CartPayment from "./components/pages/Cart/CartPayment/CartPayment";
 import Profile from "./components/pages/Profile/Profile";
 import Login from "./components/pages/Login/Login";
+import AdminLogin from "./components/pages/Login/AdminLogin";
 import SignUp from "./components/pages/SignUp/SignUp";
 import React from "react";
 import AdminProducts from "./components/Admin/AdminProducts";
@@ -26,6 +27,7 @@ function App() {
   return (
     <Routes>
       <Route path="/login" element={<Login />} />
+      <Route path="/admin/login" element={<AdminLogin />} />
       <Route path="/signup" element={<SignUp />} />
       <Route path="/" element={<Home />} />
       <Route path="/product/:id" element={<Product />} />
