@@ -31,6 +31,7 @@ function Home() {
   const productsFromCategory2 = products.filter((product) => product.categoryId === 2);
   const productsFromCategory3 = products.filter((product) => product.categoryId === 3);
   const productsFromCategory4 = products.filter((product) => product.categoryId === 4);
+  const productsFromCategory5 = products.filter((product) => product.categoryId === 5);
 
   function showProducts(arrayProducts) {
     return (
@@ -92,7 +93,7 @@ function Home() {
             <div className="row rounded" id="categoryDisplay">
               <div
                 className="col-12 col-sm-6 col-md-4 col-xl-2"
-                onClick={() => scrollToCategory("maderas")}
+                onClick={() => scrollToCategory("pinturas")}
               >
                 <img
                   src={
@@ -103,7 +104,10 @@ function Home() {
                 />
                 <h5 className="mt-3">Pinturas</h5>
               </div>
-              <div className="col-12 col-sm-6 col-md-4 col-xl-2">
+              <div
+                className="col-12 col-sm-6 col-md-4 col-xl-2"
+                onClick={() => scrollToCategory("ceramicas")}
+              >
                 <img
                   src={
                     process.env.REACT_APP_API_BASE_URL + `/img/${productsFromCategory2[1].img.img1}`
@@ -113,7 +117,10 @@ function Home() {
                 />
                 <h5 className="mt-3">Cerámicas</h5>
               </div>
-              <div className="col-12 col-sm-6 col-md-4 col-xl-2">
+              <div
+                className="col-12 col-sm-6 col-md-4 col-xl-2"
+                onClick={() => scrollToCategory("maderas")}
+              >
                 <img
                   src={
                     process.env.REACT_APP_API_BASE_URL + `/img/${productsFromCategory3[0].img.img1}`
@@ -123,7 +130,10 @@ function Home() {
                 />
                 <h5 className="mt-3">Maderas</h5>
               </div>
-              <div className="col-12 col-sm-6 col-md-4 col-xl-2">
+              <div
+                className="col-12 col-sm-6 col-md-4 col-xl-2"
+                onClick={() => scrollToCategory("tejidos")}
+              >
                 <img
                   src={
                     process.env.REACT_APP_API_BASE_URL + `/img/${productsFromCategory4[0].img.img1}`
@@ -133,7 +143,10 @@ function Home() {
                 />
                 <h5 className="mt-3">Tejidos</h5>
               </div>
-              <div className="col-12 col-sm-6 col-md-4 col-xl-2">
+              <div
+                className="col-12 col-sm-6 col-md-4 col-xl-2"
+                onClick={() => scrollToCategory("decoraciones")}
+              >
                 <img
                   src={
                     process.env.REACT_APP_API_BASE_URL + `/img/${productsFromCategory2[3].img.img1}`
@@ -174,29 +187,47 @@ function Home() {
               <h3 className="pt-5 pb-4 d-inline fs-2" id="pinturas">
                 Pinturas
               </h3>
-              <Link to={"/"} className="categoryLink">
+              <Link to={"/categories"} className="categoryLink">
                 ver todos <i className="bi bi-arrow-right-short"></i>
               </Link>
             </div>
             {showProducts(productsFromCategory1)}
             <div className="mt-5 mb-5 ms-2">
               <h3 className="pt-5 pb-4 d-inline fs-2" id="ceramicas">
-                Cerámicas & Decoraciones
+                Cerámicas
               </h3>
-              <Link to={"/"} className="categoryLink">
+              <Link to={"/categories"} className="categoryLink">
                 ver todos <i className="bi bi-arrow-right-short"></i>
               </Link>
             </div>
             {showProducts(productsFromCategory2)}
             <div className="mt-5 mb-5 ms-2">
-              <h3 className="pt-5 pb-4 d-inline fs-2" id="muebles">
-                Muebles & Carpintería
+              <h3 className="pt-5 pb-4 d-inline fs-2" id="maderas">
+                Maderas
               </h3>
-              <Link to={"/"} className="categoryLink">
+              <Link to={"/categories"} className="categoryLink">
                 ver todos <i className="bi bi-arrow-right-short"></i>
               </Link>
             </div>
             {showProducts(productsFromCategory3)}
+            <div className="mt-5 mb-5 ms-2">
+              <h3 className="pt-5 pb-4 d-inline fs-2" id="tejidos">
+                Tejidos
+              </h3>
+              <Link to={"/categories"} className="categoryLink">
+                ver todos <i className="bi bi-arrow-right-short"></i>
+              </Link>
+            </div>
+            {showProducts(productsFromCategory4)}
+            <div className="mt-5 mb-5 ms-2">
+              <h3 className="pt-5 pb-4 d-inline fs-2" id="decoraciones">
+                Decoraciones
+              </h3>
+              <Link to={"/categories"} className="categoryLink">
+                ver todos <i className="bi bi-arrow-right-short"></i>
+              </Link>
+            </div>
+            {showProducts(productsFromCategory5)}
           </div>
         </main>
         <Newsletter />
