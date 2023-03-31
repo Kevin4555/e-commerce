@@ -24,5 +24,6 @@ a {
   padding: 0;
   background-image: url(/public/img/topBanner.jpg);
   height: 88.1vh;
-  background-size: 100vw;
+  background-size: cover !important;
+  background-repeat: no-repeat;
 }

@@ -49,11 +49,11 @@ export default function SignUp() {
                 </Alert>
               )}
               <Card.Body>
-                <div className="mb-3">
+                <div className="mb-2">
                   <h2 className="mb-2 text-center ">Registro</h2>
-                  <div className="mb-3">
+                  <div className="mb-2">
                     <Form onSubmit={handleSignUp}>
-                      <Form.Group controlId="formFile" className="mb-3">
+                      <Form.Group controlId="formFile" className="mb-2">
                         <Form.Label>Adjuntar Foto</Form.Label>
                         <Form.Control
                           type="file"
@@ -63,7 +63,7 @@ export default function SignUp() {
                         />
                       </Form.Group>
 
-                      <Form.Group className="mb-3" controlId="FirstName">
+                      <Form.Group className="mb-2" controlId="FirstName">
                         <Form.Label className="text-center">Nombre</Form.Label>
                         <Form.Control
                           type="text"
@@ -74,7 +74,7 @@ export default function SignUp() {
                         />
                       </Form.Group>
 
-                      <Form.Group className="mb-3" controlId="LastName">
+                      <Form.Group className="mb-2" controlId="LastName">
                         <Form.Label>Apellido</Form.Label>
                         <Form.Control
                           type="text"
@@ -85,7 +85,7 @@ export default function SignUp() {
                         />
                       </Form.Group>
 
-                      <Form.Group className="mb-3" controlId="email">
+                      <Form.Group className="mb-2" controlId="email">
                         <Form.Label className="text-center">Email</Form.Label>
                         <Form.Control
                           type="email"
@@ -95,7 +95,7 @@ export default function SignUp() {
                           placeholder="juan@gmail.com"
                         />
                       </Form.Group>
-                      <Form.Group className="mb-3" controlId="phone">
+                      <Form.Group className="mb-2" controlId="phone">
                         <Form.Label className="text-center">Celular</Form.Label>
                         <Form.Control
                           type="text"
@@ -105,7 +105,7 @@ export default function SignUp() {
                           placeholder="09*******"
                         />
                       </Form.Group>
-                      <Form.Group className="mb-3" controlId="address">
+                      <Form.Group className="mb-2" controlId="address">
                         <Form.Label className="text-center">Dirección</Form.Label>
                         <Form.Control
                           type="text"
@@ -115,7 +115,7 @@ export default function SignUp() {
                           placeholder="2023 Calle Cielo, Maldonado, Uruguay"
                         />
                       </Form.Group>
-                      <Form.Group className="mb-3" controlId="password">
+                      <Form.Group className="mb-2" controlId="password">
                         <Form.Label className="text-center">Contraseña</Form.Label>
                         <Form.Control
                           type="password"
@@ -125,7 +125,7 @@ export default function SignUp() {
                           placeholder="Ingrese contraseña"
                         />
                       </Form.Group>
-                      <Form.Group className="mb-3" controlId="buttonsubmit">
+                      <Form.Group className="mb-2" controlId="buttonsubmit">
                         <div className="d-grid">
                           <Button type="submit" id="button">
                             Create Account
@@ -133,7 +133,7 @@ export default function SignUp() {
                         </div>
                       </Form.Group>
 
-                      <div className="mt-3">
+                      <div className="mt-2">
                         <p className="mb-0  text-center">
                           Already have an account?{" "}
                           <a href="/login" className="">
