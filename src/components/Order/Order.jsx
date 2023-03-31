@@ -7,7 +7,7 @@ function Order() {
       <div className="container ps-0">
         <div className="border rounded my-4 ">
           <div className="row">
-            <div className="col-6 d-flex justify-content-between px-4 pt-4">
+            <div className="col-6 d-flex justify-content-between px-4 pt-4 mx-auto">
               <div className="d-flex flex-column">
                 <small className="fs-6 fw-semibold">Order id</small>
                 <small>1</small>
@@ -21,7 +21,7 @@ function Order() {
                 <small className="fw-medium">USD 195.00</small>
               </div>
             </div>
-            <div className="col-6 text-end mt-auto px-4 pt-4">
+            <div className="col-6 text-end mt-auto px-4 pt-4 mx-auto">
               <button className="btn border me-1">Ver Pedido</button>
               <button className="btn border">Ver Factura</button>
             </div>
@@ -29,10 +29,14 @@ function Order() {
           <hr className="mb-0" />
           <div className="row">
             <div className="col-12 px-4 pb-4">
-              <div className="d-flex">
-                <img src="/img/tom-crew-YA2E3d7a9Wo-unsplash.jpg" alt="" className="product-img" />
+              <div className="d-flex flex-column flex-md-row">
+                <img
+                  src="/img/tom-crew-YA2E3d7a9Wo-unsplash.jpg"
+                  alt=""
+                  className="product-img mx-auto"
+                />
                 <div className="my-auto ms-3">
-                  <div className="d-flex justify-content-between mb-2 ">
+                  <div className="d-flex justify-content-between mb-2">
                     <small className="fs-6 fw-semibold">Product Name</small>
                     <small className="fs-6 fw-semibold">USD 195.00</small>
                   </div>
@@ -58,7 +62,7 @@ function Order() {
         </div>
         <div className="border rounded my-4">
           <div className="row">
-            <div className="col-6 d-flex justify-content-between px-4 pt-4">
+            <div className="col-6 d-flex justify-content-between px-4 pt-4 mx-auto">
               <div className="d-flex flex-column">
                 <small className="fs-6 fw-semibold">Order id</small>
                 <small>1</small>
@@ -72,7 +76,7 @@ function Order() {
                 <small className="fw-medium">USD 195.00</small>
               </div>
             </div>
-            <div className="col-6 text-end mt-auto px-4 pt-4">
+            <div className="col-6 text-end mt-auto px-4 pt-4 mx-auto">
               <button className="btn border me-1">Ver Pedido</button>
               <button className="btn border">Ver Factura</button>
             </div>
@@ -80,10 +84,14 @@ function Order() {
           <hr className="mb-0" />
           <div className="row">
             <div className="col-12 px-4 pb-4">
-              <div className="d-flex">
-                <img src="/img/tom-crew-YA2E3d7a9Wo-unsplash.jpg" alt="" className="product-img" />
+              <div className="d-flex flex-column flex-md-row">
+                <img
+                  src="/img/tom-crew-YA2E3d7a9Wo-unsplash.jpg"
+                  alt=""
+                  className="product-img mx-auto"
+                />
                 <div className="my-auto ms-3">
-                  <div className="d-flex justify-content-between mb-2 ">
+                  <div className="d-flex justify-content-between mb-2">
                     <small className="fs-6 fw-semibold">Product Name</small>
                     <small className="fs-6 fw-semibold">USD 195.00</small>
                   </div>
