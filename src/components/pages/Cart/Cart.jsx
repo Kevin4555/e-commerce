@@ -1,5 +1,6 @@
 import "./Cart.css";
 import PageNavbar from "../../navbar/PageNavbar";
+import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import { useSelector } from "react-redux";
 import CartItem from "./CartItem/CartItem";
@@ -38,9 +39,9 @@ function Cart() {
 
           <hr />
           <div className="col-12 mb-4 mt-2">
-            <button className="btn text-white" id="btn-continue-buying">
+            <Link to="/" className="btn text-white" id="btn-continue-buying">
               Seguir comprando
-            </button>
+            </Link>
           </div>
           <div className="col-6 mt-4">
             <div>
@@ -59,7 +60,9 @@ function Cart() {
               <small className="fs-6">Iva y costos de envio calculados en el Check Out</small>
             </div>
             <div className="text-end mt-5">
-              <button className="btn btn-dark w-75">Check Out</button>
+              <Link to="/cart/information" className="btn btn-dark w-75">
+                Check Out
+              </Link>
             </div>
           </div>
         </div>
