@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Col, Button, Row, Container, Card, Form, Alert } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.css"; // or include from a CDN
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import "../pages/SignUp/SignUp.css";
+import "../../pages/SignUp/SignUp.css";
+import { useParams } from "react-router-dom";
 
 export default function EditUser() {
   const [firstName, setFirstName] = useState("");
@@ -14,6 +15,23 @@ export default function EditUser() {
   //   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const [user, setUser] = useState(null);
+  const { id } = useParams();
+
+  useEffect(() => {
+    const getUser = async () => {
+      try {
+        const response = await axios({
+          method: "get",
+          url: `${process.env.REACT_APP_API_BASE_URL}/users/${id}`,
+        });
+        setUser(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getUser();
+  }, []);
 
   const handleEditUser = async (event) => {
     event.preventDefault();

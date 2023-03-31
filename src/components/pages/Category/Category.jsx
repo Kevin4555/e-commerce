@@ -7,19 +7,12 @@ import ProductMini from "../../ProductMini/ProductMini";
 import Carousel from "react-bootstrap/Carousel";
 import Newsletter from "../../Newsletter/Newsletter";
 import Footer from "../../Footer/Footer";
+import Loading from "../../Loading/Loading";
 
 function Category() {
   const [products, setProducts] = useState([]);
   const [productsFromSelectedCategory, setProductsFromSelectedCategory] = useState(products);
   const [categoryTitle, setCategoryTitle] = useState("Todos nuestros productos");
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    // Simulate loading time
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 750);
-  }, []);
 
   useEffect(() => {
     const getProducts = async () => {
@@ -64,49 +57,14 @@ function Category() {
     );
   }
 
-  if (isLoading)
-    return (
-      <div className="screen">
-        <div className="spinner"></div>
-      </div>
-    );
-  else
+  if (products[0]) {
     return (
       <>
         <PageNavbar />
         <main>
-          <Carousel className="carousel">
-            <Carousel.Item>
-              <img
-                className="d-block w-100"
-                src="/img/mainBanner.webp"
-                alt="First slide"
-                draggable="false"
-              />
-              <Carousel.Caption className="carouselCaption">
-                <p>Lo más vendido</p>
-                <h2>Colección Madera Moderna</h2>
-                <button className="btn bannerBtn">Comprar ahora</button>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-              <img
-                className="d-block w-100"
-                src="/img/mainBanner2.webp"
-                alt="Second slide"
-                draggable="false"
-              />
-
-              <Carousel.Caption className="carouselCaption">
-                <p>Los mejores productos hechos a mano</p>
-                <h2>Nueva Colección Handmade</h2>
-                <button className="btn bannerBtn">Comprar ahora</button>
-              </Carousel.Caption>
-            </Carousel.Item>
-          </Carousel>
           <div className="container">
-            <h3 className="fs-2 mt-5 text-center">Categorías</h3>
-            <div className="row rounded" id="categoryDisplay">
+            <h3 className="fs-1 mt-4 text-center">Categorías</h3>
+            <div className="row rounded border-bottom" id="categoryDisplay">
               <div
                 className="col-2"
                 onClick={() => {
@@ -195,25 +153,6 @@ function Category() {
                 <h5 className="mt-3">Decoraciones</h5>
               </div>
             </div>
-            <section id="display">
-              <div className="displayOffer">
-                <img src="/img/subBanner.webp" alt="" />
-                <div>
-                  <p className="fs-5 mb-2">35% off</p>
-                  <h3>Especial Nórdico Matte</h3>
-                  <button className="btn bannerBtn">Comprar ahora</button>
-                </div>
-              </div>
-              <div className="displayOffer">
-                <img src="/img/subBanner2.webp" alt="" />
-                <div>
-                  <p className="fs-5 mb-2">25% off</p>
-                  <h3>Terra Punto Cotta</h3>
-                  <button className="btn bannerBtn">Comprar ahora</button>
-                </div>
-              </div>
-            </section>
-
             <div className="mt-5 mb-5 ms-2">
               <h3 className="pt-5 pb-4 d-inline fs-2" id="products">
                 {categoryTitle}
@@ -222,13 +161,16 @@ function Category() {
                 ver todos <i className="bi bi-arrow-right-short"></i>
               </Link> */}
             </div>
-            {showProducts(productsFromSelectedCategory)}
+            {showProducts(productsFromSelectedCategory)} artículos
           </div>
         </main>
         <Newsletter />
         <Footer />
       </>
     );
+  } else {
+    return <Loading />;
+  }
 }
 
 export default Category;
