@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function Order() {
   return (
     <>
-      <div className="container">
+      <div className="container ps-0">
         <div className="border rounded my-4 ">
           <div className="row">
             <div className="col-6 d-flex justify-content-between px-4 pt-4">
