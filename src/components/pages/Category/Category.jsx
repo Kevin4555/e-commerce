@@ -11,7 +11,7 @@ import Loading from "../../Loading/Loading";
 
 function Category() {
   const [products, setProducts] = useState([]);
-  const [productsFromSelectedCategory, setProductsFromSelectedCategory] = useState(products);
+  const [productsToShow, setProductsToShow] = useState([]);
   const [categoryTitle, setCategoryTitle] = useState("Todos nuestros productos");
 
   useEffect(() => {
@@ -22,7 +22,7 @@ function Category() {
           url: `${process.env.REACT_APP_API_BASE_URL}/products`,
         });
         setProducts(response.data);
-        setProductsFromSelectedCategory(products);
+        setProductsToShow(response.data);
       } catch (error) {
         console.log(error);
       }
@@ -68,7 +68,7 @@ function Category() {
               <div
                 className="col-2"
                 onClick={() => {
-                  setProductsFromSelectedCategory(productsFromCategory1);
+                  setProductsToShow(productsFromCategory1);
                   setCategoryTitle("Pinturas");
                   scrollToCategory("products");
                 }}
@@ -85,7 +85,7 @@ function Category() {
               <div
                 className="col-2"
                 onClick={() => {
-                  setProductsFromSelectedCategory(productsFromCategory2);
+                  setProductsToShow(productsFromCategory2);
                   setCategoryTitle("Cerámicas");
                   scrollToCategory("products");
                 }}
@@ -102,8 +102,7 @@ function Category() {
               <div
                 className="col-2"
                 onClick={() => {
-                  setProductsFromSelectedCategory(productsFromCategory3);
-
+                  setProductsToShow(productsFromCategory3);
                   setCategoryTitle("Maderas");
                   scrollToCategory("products");
                 }}
@@ -120,8 +119,7 @@ function Category() {
               <div
                 className="col-2"
                 onClick={() => {
-                  setProductsFromSelectedCategory(productsFromCategory4);
-
+                  setProductsToShow(productsFromCategory4);
                   setCategoryTitle("Tejidos");
                   scrollToCategory("products");
                 }}
@@ -138,7 +136,7 @@ function Category() {
               <div
                 className="col-2"
                 onClick={() => {
-                  setProductsFromSelectedCategory(productsFromCategory5);
+                  setProductsToShow(productsFromCategory5);
                   setCategoryTitle("Decoraciones");
                   scrollToCategory("products");
                 }}
@@ -157,11 +155,19 @@ function Category() {
               <h3 className="pt-5 pb-4 d-inline fs-2" id="products">
                 {categoryTitle}
               </h3>
-              {/* <Link to={"/"} className="categoryLink">
+              <small
+                className="categoryLink"
+                id="categoryLink"
+                onClick={() => {
+                  setProductsToShow(products);
+                  setCategoryTitle("Todos nuestros productos");
+                  scrollToCategory("products");
+                }}
+              >
                 ver todos <i className="bi bi-arrow-right-short"></i>
-              </Link> */}
+              </small>
             </div>
-            {showProducts(productsFromSelectedCategory)} artículos
+            {showProducts(productsToShow)} artículos
           </div>
         </main>
         <Newsletter />
