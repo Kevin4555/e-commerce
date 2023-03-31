@@ -3,9 +3,9 @@ import { Col, Button, Row, Container, Card, Form, Alert } from "react-bootstrap"
 import "bootstrap/dist/css/bootstrap.css"; // or include from a CDN
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import "../pages/SignUp/SignUp.css";
+import "../../pages/SignUp/SignUp.css";
 
-export default function EditProduct() {
+export default function CreateProduct() {
   const [productTitle, setproductTitle] = useState("");
   const [productDescription, setproductDescription] = useState("");
   const [productPrice, setproductPrice] = useState("");
@@ -16,7 +16,7 @@ export default function EditProduct() {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const handleEditProduct = async (event) => {
+  const handleCreateProduct = async (event) => {
     event.preventDefault();
     let formdata = new FormData(event.target);
     try {
@@ -24,11 +24,11 @@ export default function EditProduct() {
         headers: {
           "Content-Type": "multipart/form-data",
         },
-        method: "patch", // revisar que metodo corresponde. Si el endpoint es patch, tengo que armarlo con patch
-        url: `${process.env.REACT_APP_API_BASE_URL}/product-patch`, //poner el endpoint que usamos
+        method: "post", // revisar que metodo corresponde. Si el endpoint es patch, tengo que armarlo con patch
+        url: `${process.env.REACT_APP_API_BASE_URL}/product-post`, //poner el endpoint que usamos
         data: formdata,
       });
-      navigate("/admin/editProduct");
+      navigate("/admin/CreateProduct");
     } catch (err) {
       console.log(err);
       setError(true);
@@ -50,7 +50,7 @@ export default function EditProduct() {
                 <div className="mb-3">
                   <h2 className="mb-2 text-center ">Edit Product</h2>
                   <div className="mb-3">
-                    <Form onSubmit={handleEditProduct}>
+                    <Form onSubmit={handleCreateProduct}>
                       <Form.Group className="mb-3" controlId="productTitle">
                         <Form.Label className="text-center">Nombre producto</Form.Label>
                         <Form.Control

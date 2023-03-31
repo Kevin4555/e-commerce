@@ -3,7 +3,7 @@ import { Col, Button, Row, Container, Card, Form, Alert } from "react-bootstrap"
 import "bootstrap/dist/css/bootstrap.css"; // or include from a CDN
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import "../pages/SignUp/SignUp.css";
+import "../../pages/SignUp/SignUp.css";
 
 export default function EditCategoryId() {
   const [categoryId, setCategoryId] = useState("");
