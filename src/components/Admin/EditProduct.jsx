@@ -6,7 +6,13 @@ import axios from "axios";
 import "../pages/SignUp/SignUp.css";
 
 export default function EditProduct() {
+  const [productTitle, setproductTitle] = useState("");
   const [productDescription, setproductDescription] = useState("");
+  const [productPrice, setproductPrice] = useState("");
+  const [productImg, setproductImg] = useState("");
+  const [productStock, setproductStock] = useState("");
+  const [productCategoryId, setproductCategoryId] = useState("");
+
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
@@ -19,10 +25,10 @@ export default function EditProduct() {
           "Content-Type": "multipart/form-data",
         },
         method: "patch", // revisar que metodo corresponde. Si el endpoint es patch, tengo que armarlo con patch
-        url: `${process.env.REACT_APP_API_BASE_URL}/user-patch`, //poner el endpoint que usamos
+        url: `${process.env.REACT_APP_API_BASE_URL}/product-patch`, //poner el endpoint que usamos
         data: formdata,
       });
-      navigate("/login");
+      navigate("/admin/editProduct");
     } catch (err) {
       console.log(err);
       setError(true);
@@ -51,7 +57,7 @@ export default function EditProduct() {
                           type="text"
                           value={productTitle}
                           name="productTitle"
-                          onChange={(event) => setProductTitle(event.target.value)}
+                          onChange={(event) => setproductTitle(event.target.value)}
                           placeholder="Jarron de ceramica"
                         />
                       </Form.Group>
@@ -62,8 +68,52 @@ export default function EditProduct() {
                           type="text"
                           value={productDescription}
                           name="productDescription"
-                          onChange={(event) => setProductDescription(event.target.value)}
+                          onChange={(event) => setproductDescription(event.target.value)}
                           placeholder="Jarron de ceramica modelado color beige..."
+                        />
+                      </Form.Group>
+
+                      <Form.Group className="mb-3" controlId="productPrice">
+                        <Form.Label className="text-center">Precio</Form.Label>
+                        <Form.Control
+                          type="number"
+                          value={productPrice}
+                          name="productPrice"
+                          onChange={(event) => setproductPrice(event.target.value)}
+                          placeholder="USD"
+                        />
+                      </Form.Group>
+
+                      <Form.Group className="mb-3" controlId="productImgformFile">
+                        <Form.Label className="text-center">Seleccionar Imagenes</Form.Label>
+                        <Form.Control
+                          type="file"
+                          value={productImg}
+                          name="productImg"
+                          onChange={(event) => setproductImg(event.target.value)}
+                          placeholder="Seleccionar imagenes"
+                        />
+                      </Form.Group>
+
+                      <Form.Group className="mb-3" controlId="productStock">
+                        <Form.Label className="text-center">Definir Stock</Form.Label>
+                        <Form.Control
+                          type="number"
+                          value={productStock}
+                          name="productStock"
+                          onChange={(event) => setproductStock(event.target.value)}
+                          placeholder="Definir stock remanente"
+                        />
+                      </Form.Group>
+
+                      <Form.Group className="mb-3" controlId="productCategoryId">
+                        <Form.Label className="text-center">Definir Category Id</Form.Label>
+                        <Form.Control
+                          type="number"
+                          value={productCategoryId}
+                          name="productCategoryId"
+                          onChange={(event) => setproductCategoryId(event.target.value)}
+                          placeholder="Definir categoria de producto"
                         />
                       </Form.Group>
 
@@ -71,14 +121,6 @@ export default function EditProduct() {
                         <div className="d-grid">
                           <Button type="submit" id="button">
                             Confirm{" "}
-                          </Button>
-                        </div>
-                      </Form.Group>
-
-                      <Form.Group className="mb-3" controlId="buttonsubmit">
-                        <div className="d-grid">
-                          <Button type="submit" id="button">
-                            Reset password{" "}
                           </Button>
                         </div>
                       </Form.Group>
