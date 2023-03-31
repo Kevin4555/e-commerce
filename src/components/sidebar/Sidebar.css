@@ -1,0 +1,7 @@
+.boton-admin {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1040;
+  display: inline-block;
+}

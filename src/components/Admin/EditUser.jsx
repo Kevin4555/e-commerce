@@ -15,7 +15,7 @@ export default function EditUser() {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const handleSignUp = async (event) => {
+  const handleEditUser = async (event) => {
     event.preventDefault();
     let formdata = new FormData(event.target);
     try {
@@ -23,11 +23,11 @@ export default function EditUser() {
         headers: {
           "Content-Type": "multipart/form-data",
         },
-        method: "patch", // revisar que metodo corresponde. Si el endpoint es patch, tengo que armarlo con patch
-        url: `${process.env.REACT_APP_API_BASE_URL}/user-patch`, //poner el endpoint que usamos
+        method: "patch",
+        url: `${process.env.REACT_APP_API_BASE_URL}/users/:id`,
         data: formdata,
       });
-      navigate("/login");
+      navigate("/admin/users");
     } catch (err) {
       console.log(err);
       setError(true);
@@ -49,7 +49,7 @@ export default function EditUser() {
                 <div className="mb-3">
                   <h2 className="mb-2 text-center ">Edit User</h2>
                   <div className="mb-3">
-                    <Form onSubmit={handleSignUp}>
+                    <Form onSubmit={handleEditUser}>
                       <Form.Group className="mb-3" controlId="FirstName">
                         <Form.Label className="text-center">Nombre</Form.Label>
                         <Form.Control
