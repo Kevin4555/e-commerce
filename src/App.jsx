@@ -12,6 +12,7 @@ import CartPayment from "./components/pages/Cart/CartPayment/CartPayment";
 import Profile from "./components/pages/Profile/Profile";
 import Login from "./components/pages/Login/Login";
 import SignUp from "./components/pages/SignUp/SignUp";
+import Category from "./components/pages/Category/Category";
 import React from "react";
 import AdminProducts from "./components/Admin/AdminProducts";
 import AdminUsers from "./components/Admin/AdminUsers";
@@ -37,6 +38,7 @@ function App() {
       <Route path="/cart/shipping" element={<CartShipping />} />
       <Route path="/cart/payment" element={<CartPayment />} />
       <Route path="/profile" element={<Profile />} />
+      <Route path="/categories" element={<Category />} />
       <Route path="/admin/users" element={<AdminUsers />} />
       <Route path="/admin/categories" element={<AdminCategories />} />
       <Route path="/admin/products" element={<AdminProducts />} />
