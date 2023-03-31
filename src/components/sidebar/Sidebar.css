@@ -24,6 +24,7 @@
 
 .admin-bottons {
   color: black;
+  margin-top: 1rem;
 }
 
 .admin-bottons:hover {
