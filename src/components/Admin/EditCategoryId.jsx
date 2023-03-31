@@ -76,14 +76,6 @@ export default function EditCategoryId() {
                           </Button>
                         </div>
                       </Form.Group>
-
-                      <Form.Group className="mb-3" controlId="buttonsubmit">
-                        <div className="d-grid">
-                          <Button type="submit" id="button">
-                            Reset password{" "}
-                          </Button>
-                        </div>
-                      </Form.Group>
                     </Form>
                   </div>
                 </div>
