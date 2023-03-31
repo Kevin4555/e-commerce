@@ -1,19 +1,17 @@
 import React, { useState } from "react";
 import { Col, Button, Row, Container, Card, Form, Alert } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.css"; // or include from a CDN
-import PageNavbar from "../../navbar/PageNavbar";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import "./SignUp.css";
+import "../pages/SignUp/SignUp.css";
 
-export default function SignUp() {
+export default function EditUser() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
-  const [avatar, setAvatar] = useState("");
   const [address, setAddress] = useState("");
   const [phone, setPhone] = useState("");
-  const [password, setPassword] = useState("");
+  //   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
@@ -25,8 +23,8 @@ export default function SignUp() {
         headers: {
           "Content-Type": "multipart/form-data",
         },
-        method: "post",
-        url: `${process.env.REACT_APP_API_BASE_URL}/users`,
+        method: "patch", // revisar que metodo corresponde. Si el endpoint es patch, tengo que armarlo con patch
+        url: `${process.env.REACT_APP_API_BASE_URL}/user-patch`, //poner el endpoint que usamos
         data: formdata,
       });
       navigate("/login");
@@ -38,7 +36,6 @@ export default function SignUp() {
 
   return (
     <>
-      <PageNavbar />
       <Container fluid id="background">
         <Row id="content" className="py-3 d-flex justify-content-center align-items-center">
           <Col xs={11} sm={8} md={6} xl={4}>
@@ -49,21 +46,11 @@ export default function SignUp() {
                 </Alert>
               )}
               <Card.Body>
-                <div className="mb-2">
-                  <h2 className="mb-2 text-center ">Registro</h2>
-                  <div className="mb-2">
+                <div className="mb-3">
+                  <h2 className="mb-2 text-center ">Edit User</h2>
+                  <div className="mb-3">
                     <Form onSubmit={handleSignUp}>
-                      <Form.Group controlId="formFile" className="mb-2">
-                        <Form.Label>Adjuntar Foto</Form.Label>
-                        <Form.Control
-                          type="file"
-                          value={avatar}
-                          name="avatar"
-                          onChange={(event) => setAvatar(event.target.value)}
-                        />
-                      </Form.Group>
-
-                      <Form.Group className="mb-2" controlId="FirstName">
+                      <Form.Group className="mb-3" controlId="FirstName">
                         <Form.Label className="text-center">Nombre</Form.Label>
                         <Form.Control
                           type="text"
@@ -74,7 +61,7 @@ export default function SignUp() {
                         />
                       </Form.Group>
 
-                      <Form.Group className="mb-2" controlId="LastName">
+                      <Form.Group className="mb-3" controlId="LastName">
                         <Form.Label>Apellido</Form.Label>
                         <Form.Control
                           type="text"
@@ -85,7 +72,7 @@ export default function SignUp() {
                         />
                       </Form.Group>
 
-                      <Form.Group className="mb-2" controlId="email">
+                      <Form.Group className="mb-3" controlId="email">
                         <Form.Label className="text-center">Email</Form.Label>
                         <Form.Control
                           type="email"
@@ -95,7 +82,7 @@ export default function SignUp() {
                           placeholder="juan@gmail.com"
                         />
                       </Form.Group>
-                      <Form.Group className="mb-2" controlId="phone">
+                      <Form.Group className="mb-3" controlId="phone">
                         <Form.Label className="text-center">Celular</Form.Label>
                         <Form.Control
                           type="text"
@@ -105,7 +92,7 @@ export default function SignUp() {
                           placeholder="09*******"
                         />
                       </Form.Group>
-                      <Form.Group className="mb-2" controlId="address">
+                      <Form.Group className="mb-3" controlId="address">
                         <Form.Label className="text-center">Dirección</Form.Label>
                         <Form.Control
                           type="text"
@@ -115,32 +102,22 @@ export default function SignUp() {
                           placeholder="2023 Calle Cielo, Maldonado, Uruguay"
                         />
                       </Form.Group>
-                      <Form.Group className="mb-2" controlId="password">
-                        <Form.Label className="text-center">Contraseña</Form.Label>
-                        <Form.Control
-                          type="password"
-                          value={password}
-                          name="password"
-                          onChange={(event) => setPassword(event.target.value)}
-                          placeholder="Ingrese contraseña"
-                        />
-                      </Form.Group>
-                      <Form.Group className="mb-2" controlId="buttonsubmit">
+
+                      <Form.Group className="mb-3" controlId="buttonsubmit">
                         <div className="d-grid">
                           <Button type="submit" id="button">
-                            Create Account
+                            Confirm{" "}
                           </Button>
                         </div>
                       </Form.Group>
 
-                      <div className="mt-2">
-                        <p className="mb-0  text-center">
-                          Already have an account?{" "}
-                          <a href="/login" className="">
-                            Sign In
-                          </a>
-                        </p>
-                      </div>
+                      <Form.Group className="mb-3" controlId="buttonsubmit">
+                        <div className="d-grid">
+                          <Button type="submit" id="button">
+                            Reset password{" "}
+                          </Button>
+                        </div>
+                      </Form.Group>
                       {/*   </Form.Group>
                 </Form.Group>
               </Form.Group> */}

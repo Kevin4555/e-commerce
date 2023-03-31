@@ -11,10 +11,13 @@ function SobreEsteProyecto() {
           <div className="profile col-12 col-md-6 col-lg-3">
             <h4>Nicolás Ross</h4>
             <div className="icons">
-              <a href="https://github.com/nicoroke">
+              <a href="https://github.com/nicoroke" target="_blank">
                 <i className="profileIcon bi bi-github"></i>
               </a>
-              <a href="https://www.linkedin.com/in/nicol%C3%A1s-ross-kegel-1a968414b/">
+              <a
+                href="https://www.linkedin.com/in/nicol%C3%A1s-ross-kegel-1a968414b/"
+                target="_blank"
+              >
                 <i className="profileIcon bi bi-linkedin"></i>
               </a>
             </div>
@@ -22,10 +25,10 @@ function SobreEsteProyecto() {
           <div className="profile col-12 col-md-6 col-lg-3">
             <h4>Kevin Lapizaga</h4>
             <div className="icons">
-              <a href="github.com/kevin4555">
+              <a href="https://github.com/kevin4555" target="_blank">
                 <i className="profileIcon bi bi-github"></i>
               </a>
-              <a href="linkedin.com/in/kevin-lapizaga/">
+              <a href="https://linkedin.com/in/kevin-lapizaga/" target="_blank">
                 <i className="profileIcon bi bi-linkedin"></i>
               </a>
             </div>
@@ -33,10 +36,10 @@ function SobreEsteProyecto() {
           <div className="profile col-12 col-md-6 col-lg-3">
             <h4>Maia Chamorro</h4>
             <div className="icons">
-              <a href="https://github.com/lemilegram">
+              <a href="https://github.com/lemilegram" target="_blank">
                 <i className="profileIcon bi bi-github"></i>
               </a>
-              <a href="https://www.linkedin.com/in/maia-chamorro/">
+              <a href="https://www.linkedin.com/in/maia-chamorro/" target="_blank">
                 <i className="profileIcon bi bi-linkedin"></i>
               </a>
             </div>
@@ -44,10 +47,10 @@ function SobreEsteProyecto() {
           <div className="profile col-12 col-md-6 col-lg-3">
             <h4>Sebastián Wajshan</h4>
             <div className="icons">
-              <a href="">
+              <a href="https://github.com/sebawaj" target="_blank">
                 <i className="profileIcon bi bi-github"></i>
               </a>
-              <a href="">
+              <a href="https://www.linkedin.com/in/sebastian-wajshan" target="_blank">
                 <i className="profileIcon bi bi-linkedin"></i>
               </a>
             </div>
