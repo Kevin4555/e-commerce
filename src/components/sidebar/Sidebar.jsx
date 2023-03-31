@@ -21,24 +21,27 @@ function Sidebar() {
           <Offcanvas.Title>Vista de Admins</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          <Link to="/admin/categories" className="d-block">
-            Admin Categories
-          </Link>
-          <Link to="/admin/orders" className="d-block">
-            Admin Orders
-          </Link>
-          <Link to="/admin/reviews" className="d-block">
-            Admin Reviews
-          </Link>
-          <Link to="/admin/products" className="d-block">
-            Admin Products
-          </Link>
-          <Link to="/admin/users" className="d-block">
-            Admin Users
-          </Link>
-          <Link to="/admin/users" className="d-block">
-            Volver al sitio
-          </Link>
+          <div className="admin-bottons">
+            <Link to="/admin/categories" className="d-block admin-bottons">
+              Admin Categories
+            </Link>
+            <Link to="/admin/orders" className="d-block admin-bottons">
+              Admin Orders
+            </Link>
+            <Link to="/admin/reviews" className="d-block admin-bottons">
+              Admin Reviews
+            </Link>
+            <Link to="/admin/products" className="d-block admin-bottons">
+              Admin Products
+            </Link>
+            <Link to="/admin/users" className="d-block admin-bottons">
+              Admin Users
+            </Link>
+            <hr className="hr" />
+            <Link to="/" className="d-block volver">
+              Volver al sitio
+            </Link>
+          </div>
         </Offcanvas.Body>
       </Offcanvas>
     </>

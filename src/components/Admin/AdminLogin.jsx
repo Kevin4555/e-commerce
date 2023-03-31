@@ -21,7 +21,6 @@ export default function AdminLogin() {
     try {
       const response = await axios({
         method: "post",
-        // Necesitamos endpoint del logueo de admin
         url: `${process.env.REACT_APP_API_BASE_URL}/admin/tokens`,
         data: {
           email,
@@ -30,7 +29,7 @@ export default function AdminLogin() {
       });
       console.log(response.data);
       dispatch(setUser(response.data));
-      navigate("/");
+      navigate("/admin/products");
     } catch (err) {
       console.log(err);
       setError(true);

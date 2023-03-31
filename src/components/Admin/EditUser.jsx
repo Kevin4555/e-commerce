@@ -50,7 +50,7 @@ export default function EditUser() {
                   <h2 className="mb-2 text-center ">Edit User</h2>
                   <div className="mb-3">
                     <Form onSubmit={handleEditUser}>
-                      <Form.Group className="mb-3" controlId="FirstName">
+                      <Form.Group className="mb-3" controlId="EditUser">
                         <Form.Label className="text-center">Nombre</Form.Label>
                         <Form.Control
                           type="text"
