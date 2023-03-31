@@ -1,5 +1,6 @@
 import "./Cart.css";
 import PageNavbar from "../../navbar/PageNavbar";
+import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 
 function Cart() {
@@ -7,9 +8,7 @@ function Cart() {
     <main>
       <PageNavbar />
       <div className="container-fluid py-5 d-flex align-item-center justify-content-center flex-column">
-        <h1 className="fs-3 fw-bold text-light text-center">
-          Your Shopping Cart
-        </h1>
+        <h1 className="fs-3 fw-bold text-light text-center">Your Shopping Cart</h1>
         <small className="fs-6 fw-semibold text-light text-center">Home</small>
       </div>
       <div className="container mt-5">
@@ -28,11 +27,7 @@ function Cart() {
           </div>
           <hr className="my-3" />
           <div className="col-2 my-4">
-            <img
-              src="/img/pexels-rodnae-productions-6806697.jpg"
-              alt=""
-              className="product-img"
-            />
+            <img src="/img/pexels-rodnae-productions-6806697.jpg" alt="" className="product-img" />
           </div>
           <div className="col-4 my-4">
             <div className="row">
@@ -59,11 +54,7 @@ function Cart() {
           </div>
           <hr />
           <div className="col-2 my-4">
-            <img
-              src="/img/pexels-rodnae-productions-6806697.jpg"
-              alt=""
-              className="product-img"
-            />
+            <img src="/img/pexels-rodnae-productions-6806697.jpg" alt="" className="product-img" />
           </div>
           <div className="col-4 my-4">
             <div className="row my-auto mx-0">
@@ -90,22 +81,16 @@ function Cart() {
           </div>
           <hr />
           <div className="col-12 mb-4 mt-2">
-            <button className="btn text-white" id="btn-continue-buying">
+            <Link to="/" className="btn text-white" id="btn-continue-buying">
               Seguir comprando
-            </button>
+            </Link>
           </div>
           <div className="col-6 mt-4">
             <div>
               <label htmlFor="note" className="fs-6 mb-3">
                 Instrucciones especiales para el pedido
               </label>
-              <textarea
-                name="note"
-                id="note"
-                cols="30"
-                rows="5"
-                className="w-75"
-              ></textarea>
+              <textarea name="note" id="note" cols="30" rows="5" className="w-75"></textarea>
             </div>
           </div>
           <div className="col-6 mt-4">
@@ -114,12 +99,12 @@ function Cart() {
               <small className="fs-6 ms-2">$1,110.00</small>
             </div>
             <div className="text-end my-4">
-              <small className="fs-6">
-                Iva y costos de envio calculados en el Check Out
-              </small>
+              <small className="fs-6">Iva y costos de envio calculados en el Check Out</small>
             </div>
             <div className="text-end mt-5">
-              <button className="btn btn-dark w-75">Check Out</button>
+              <Link to="/cart/information" className="btn btn-dark w-75">
+                Check Out
+              </Link>
             </div>
           </div>
         </div>
