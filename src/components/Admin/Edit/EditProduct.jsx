@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Col, Button, Row, Container, Card, Form, Alert } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.css"; // or include from a CDN
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import "../pages/SignUp/SignUp.css";
+import "../../pages/SignUp/SignUp.css";
+import { useParams } from "react-router-dom";
 
 export default function EditProduct() {
   const [productTitle, setproductTitle] = useState("");
@@ -15,6 +16,24 @@ export default function EditProduct() {
 
   const [error, setError] = useState("");
   const navigate = useNavigate();
+
+  const [product, setProduct] = useState(null);
+  const { id } = useParams();
+
+  useEffect(() => {
+    const getProducts = async () => {
+      try {
+        const response = await axios({
+          method: "get",
+          url: `${process.env.REACT_APP_API_BASE_URL}/products/${id}`,
+        });
+        setProduct(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getProducts();
+  }, []);
 
   const handleEditProduct = async (event) => {
     event.preventDefault();
