@@ -4,9 +4,14 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Carousel from "react-bootstrap/Carousel";
 import Container from "react-bootstrap/Container";
+import Footer from "../../Footer/Footer";
 
 import PageNavbar from "../../navbar/PageNavbar";
 import Rating from "react-rating";
+
+import { useDispatch } from "react-redux";
+import { addItemToCart } from "../..//..//slices/cartSlice.js";
+import Newsletter from "../../Newsletter/Newsletter";
 
 function Product() {
   const { id } = useParams();
@@ -42,6 +47,12 @@ function Product() {
     };
     getProduct();
   }, [id]);
+
+  const dispatch = useDispatch();
+
+  const handleAddToCart = () => {
+    dispatch(addItemToCart(product));
+  };
 
   if (product) {
     return (
@@ -89,7 +100,7 @@ function Product() {
               )}
               <p className="mt-4 w-75">{product.description}</p>
               <div className="d-flex align-items-center mt-5">
-                <button className="btn fw-semibold" id="btn">
+                <button className="btn fw-semibold" id="btn" onClick={handleAddToCart}>
                   Añadir al carrito
                 </button>
 
@@ -129,6 +140,8 @@ function Product() {
             </p>
           </div>
         </Container>
+        <Newsletter />
+        <Footer />
       </>
     );
   } else {

@@ -13,16 +13,20 @@ import storage from "redux-persist/lib/storage";
 import { combineReducers } from "redux";
 //Slices
 import usersSlice from "../slices/usersSlice";
+import cartReducer from "../slices/cartSlice";
 
 const rootReducer = combineReducers({
   user: usersSlice,
+  cart: cartReducer,
 });
 
 const persistConfig = { key: "root", storage };
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const store = configureStore({
-  reducer: persistedReducer,
+  reducer: {
+    persistedReducer,
+  },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {

@@ -1,27 +1,12 @@
-:root {
-  --dark: #2b2d42;
-  --platinum: #eaeaea;
-  --white: #ffffff;
-  --gray: #8d99ae;
-  --green: #a7f1dc;
-  --salmon: #ff858d;
-  --orange: #e9c46a;
-  --orange-hover: #e6b740;
-}
 * {
   font-size: 14px;
 }
-.product-img {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
+
+.product-image {
+  width: 8rem;
+  height: 8rem;
 }
-.btn.border {
-  background-color: var(--orange);
-}
-.btn.border:hover {
-  background-color: var(--orange-hover);
-}
+
 #btn-continue-buying {
   background-color: #9ea190;
 }
