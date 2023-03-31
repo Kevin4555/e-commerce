@@ -20,6 +20,8 @@ import AdminReviews from "./components/Admin/AdminReviews";
 import AdminOrders from "./components/Admin/AdminOrders";
 import AdminLogin from "./components/Admin/AdminLogin";
 import EditUser from "./components/Admin/EditUser";
+import EditProduct from "./components/Admin/EditProduct";
+import EditCategoryId from "./components/Admin/EditCategoryId";
 /* import Busqueda from "./components/pages/Busqueda/Busqueda"; */
 
 function App() {
@@ -42,6 +44,8 @@ function App() {
       <Route path="/admin/orders" element={<AdminOrders />} />
       <Route path="/admin/login" element={<AdminLogin />} />
       <Route path="/admin/editUser" element={<EditUser />} />
+      <Route path="/admin/editProduct" element={<EditProduct />} />
+      <Route path="/admin/editCategoryId" element={<EditCategoryId />} />
 
       {/* <Route path="/admin" element={<Admin />} /> */}
     </Routes>
