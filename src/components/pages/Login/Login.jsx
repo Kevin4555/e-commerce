@@ -59,6 +59,7 @@ export default function Login() {
                         type="email"
                         value={email}
                         onChange={(event) => setEmail(event.target.value)}
+                        className="form-control"
                       />
                     </Form.Group>
                     <Form.Group className="mb-3">
@@ -67,6 +68,7 @@ export default function Login() {
                         type="password"
                         value={password}
                         onChange={(event) => setPassword(event.target.value)}
+                        className="form-control"
                       />
                     </Form.Group>
 
