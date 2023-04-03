@@ -95,6 +95,7 @@ function Home() {
                 className="col-12 col-sm-6 col-md-4 col-xl-2"
                 onClick={() => scrollToCategory("pinturas")}
               >
+                {console.log(products)}
                 {console.log(productsFromCategory1)}
                 <img
                   src={
