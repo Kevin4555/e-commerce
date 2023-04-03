@@ -8,6 +8,7 @@ import store from "./redux/storeConfig";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistor } from "./redux/storeConfig";
 import reportWebVitals from "./reportWebVitals";
+import "bootstrap/dist/css/bootstrap.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
