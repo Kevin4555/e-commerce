@@ -27,11 +27,6 @@ function Home() {
     };
     getProducts();
   }, []);
-  const productsFromCategory1 = products.filter((product) => product.categoryId === 1);
-  const productsFromCategory2 = products.filter((product) => product.categoryId === 2);
-  const productsFromCategory3 = products.filter((product) => product.categoryId === 3);
-  const productsFromCategory4 = products.filter((product) => product.categoryId === 4);
-  const productsFromCategory5 = products.filter((product) => product.categoryId === 5);
 
   function showProducts(arrayProducts) {
     return (
@@ -54,7 +49,12 @@ function Home() {
     });
   }
 
-  if (products.length > 0)
+  if (products.length > 0) {
+    const productsFromCategory1 = products.filter((product) => product.categoryId === 1);
+    const productsFromCategory2 = products.filter((product) => product.categoryId === 2);
+    const productsFromCategory3 = products.filter((product) => product.categoryId === 3);
+    const productsFromCategory4 = products.filter((product) => product.categoryId === 4);
+    const productsFromCategory5 = products.filter((product) => product.categoryId === 5);
     return (
       <>
         <PageNavbar />
@@ -96,6 +96,7 @@ function Home() {
                 onClick={() => scrollToCategory("pinturas")}
               >
                 {console.log(products)}
+                {console.log(productsFromCategory1)}
                 <img
                   src={
                     process.env.REACT_APP_API_BASE_IMG_URL + `/${productsFromCategory1[2].img.img1}`
@@ -235,7 +236,7 @@ function Home() {
         <Footer />
       </>
     );
-  else return <Loading />;
+  } else return <Loading />;
 }
 
 export default Home;
