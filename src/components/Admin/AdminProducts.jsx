@@ -33,7 +33,7 @@ const AdminProducts = () => {
         </header>
       </div>
       <Container fluid>
-        <h2>Admin Products</h2>
+        <h2>Panel de Products</h2>
 
         {/* Cambiar segun excalidraw */}
         <div className="text-end">

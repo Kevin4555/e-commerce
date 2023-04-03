@@ -39,7 +39,7 @@ const AdminUsers = () => {
         </header>
       </div>
       <Container fluid>
-        <h2>Admin Users</h2>
+        <h2>Panel de Users</h2>
 
         {/* Cambiar segun excalidraw */}
         <div className="text-end">

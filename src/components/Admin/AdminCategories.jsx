@@ -7,6 +7,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Sidebar from "../sidebar/Sidebar";
+import { Button } from "react-bootstrap";
 
 const AdminCategories = () => {
   const [categories, setCategories] = useState([]);
@@ -34,7 +35,11 @@ const AdminCategories = () => {
         </header>
       </div>
       <Container>
-        <h2>Agregar nueva categoria</h2>
+        <h2>Panel de Categories</h2>
+
+        <div className="text-end">
+          <Button variant="success">Agregar nueva Category</Button>
+        </div>
         <Table striped bordered hover>
           <thead>
             <tr>
