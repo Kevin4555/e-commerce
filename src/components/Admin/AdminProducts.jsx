@@ -33,7 +33,7 @@ const AdminProducts = () => {
         </header>
       </div>
       <Container fluid>
-        <h2>Admin Products</h2>
+        <h2>Panel de Products</h2>
 
         {/* Cambiar segun excalidraw */}
         <div className="text-end">
@@ -69,7 +69,7 @@ const AdminProducts = () => {
                   <td>
                     {
                       <img
-                        src={process.env.REACT_APP_API_BASE_URL + `/img/${product.img.img1}`}
+                        src={process.env.REACT_APP_API_BASE_IMG_URL + `/${product.img.img1}`}
                         alt=""
                         className="categories-img"
                       />
@@ -77,7 +77,7 @@ const AdminProducts = () => {
                   </td>
                   <td>
                     <img
-                      src={process.env.REACT_APP_API_BASE_URL + `/img/${product.img.img2}`}
+                      src={process.env.REACT_APP_API_BASE_IMG_URL + `/${product.img.img2}`}
                       alt=""
                       className="categories-img"
                     />

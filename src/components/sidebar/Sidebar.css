@@ -1,13 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap");
+
+:root {
+  -blanco: #e0e0e0;
+  -azul-opacidad: #184463;
+  -bg-menu: #003053;
+  -bg-body: #c7e1ff;
+}
+
+body {
+  font-family: "Quicksand", sans-serif;
+  color: var(-blanco);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Quicksand", sans-serif;
+  font-size: medium;
+  color: black;
+}
+
+.menu-dashboard {
+  max-width: 100px;
+  height: 100vh;
+  background-color: var(-bg-menu);
+  padding: 20px;
+  transition: max-width 0.3s ease;
+}
+.titulo-sidebar {
+  color: azure;
+  font-size: x-large;
+  margin-top: 2rem;
+}
+
+.top-menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100px;
+}
+
 .boton-admin {
   position: fixed;
   left: 0;
   top: 0;
   z-index: 1040;
   display: inline-block;
+  font-family: "Quicksand", sans-serif;
+  width: 100px;
 }
 
 .volver {
-  color: blue;
+  color: beige;
+  margin-top: 4rem;
+  font-size: large;
 }
 
 .hr {
@@ -19,15 +66,66 @@
 
 .volver:hover {
   text-decoration: none;
-  color: red;
+  color: #e0e0e0;
 }
 
-.admin-bottons {
+.admin-botton {
+  margin-left: 1rem;
   color: black;
-  margin-top: 1rem;
+  margin-top: 3rem;
+  font-family: "Quicksand", sans-serif;
+  color: whitesmoke;
+  font-size: large;
+  cursor: pointer;
 }
 
-.admin-bottons:hover {
+.admin-botton:hover {
   text-decoration: none;
-  color: red;
+  background-color: #003053;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  width: 210px;
+  background-size: cover;
+  color: #e0e0e0;
+  text-shadow: beige;
+  text-decoration: double;
+  text-shadow: #c7e1ff;
+  cursor: pointer;
+  font-size: 20px;
+  transition: all 0.3s ease;
+}
+
+#menu {
+  background-color: #184463;
+  border-color: wheat;
+}
+
+#menu i {
+  margin-right: 20px;
+  font-size: 25px;
+}
+
+#menu span {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.menu-.menu-dashboard.open span {
+  display: block;
+  transition: opacity 0.3s ease;
+  width: auto;
+}
+
+#menu:hover {
+  transform: scale(1.01);
+  text-emphasis-color: blue;
+}
+
+.toggle {
+  size: 2rem;
+}
+
+.iconos {
+  margin-right: 1rem;
 }

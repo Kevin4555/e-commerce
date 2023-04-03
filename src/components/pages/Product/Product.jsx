@@ -67,14 +67,14 @@ function Product() {
                   <Carousel.Item className="h-100">
                     <img
                       className="d-block w-100 h-100 object-fit-cover carousel-image"
-                      src={process.env.REACT_APP_API_BASE_URL + `/img/${product.img.img1}`}
+                      src={process.env.REACT_APP_API_BASE_IMG_URL + `/${product.img.img1}`}
                       alt="First slide"
                     />
                   </Carousel.Item>
                   <Carousel.Item className="h-100">
                     <img
                       className="d-block w-100 h-100 object-fit-cover carousel-image"
-                      src={process.env.REACT_APP_API_BASE_URL + `/img/${product.img.img2}`}
+                      src={process.env.REACT_APP_API_BASE_IMG_URL + `/${product.img.img2}`}
                       alt="Second slide"
                     />
                   </Carousel.Item>

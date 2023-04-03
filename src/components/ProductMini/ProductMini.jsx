@@ -8,7 +8,7 @@ function ProductMini({ product }) {
         <div className="img-container">
           <Link to={`/product/${product.id}`} className="text-decoration-none">
             <img
-              src={process.env.REACT_APP_API_BASE_URL + `/img/${product.img.img1}`}
+              src={process.env.REACT_APP_API_BASE_IMG_URL + `/${product.img.img1}`}
               alt=""
               className="destacados-img w-100 rounded-top"
               draggable="false"

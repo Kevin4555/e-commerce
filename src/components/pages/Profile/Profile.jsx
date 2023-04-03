@@ -68,7 +68,7 @@ function Profile() {
           </div>
           <div className="container mt-5">
             <div className="row">
-              <div className="d-lg-none d-block">
+              <div className="col-12 col-lg-4 order-lg-2 mb-3">
                 <div className="text-center bg-secondary-subtle p-4 rounded vh-100">
                   <img
                     src="/img/default-avatar.jpg"
@@ -107,7 +107,7 @@ function Profile() {
                   </div>
                 </div>
               </div>
-              <div className="col-12 col-lg-8">
+              <div className="col-12 col-lg-8 order-lg-1">
                 <h2 className="fs-3">Historial de pedidos</h2>
                 {ordersFromLoggedUser.map((order) => (
                   <Order order={order} />
@@ -156,8 +156,6 @@ function Profile() {
                   </div>
                 </div>
               </div>
-              {/*           <h2 className="fs-3 mt-5">Historial de pedidos</h2>
-            <Order /> */}
             </div>
           </div>
         </main>

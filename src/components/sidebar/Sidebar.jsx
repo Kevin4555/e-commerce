@@ -12,38 +12,61 @@ function Sidebar() {
 
   return (
     <>
-      <Button className="boton-admin" variant="primary" onClick={handleShow}>
-        Vistas Admin
-      </Button>
-
-      <Offcanvas show={show} onHide={handleClose}>
-        <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Vista de Admins</Offcanvas.Title>
-        </Offcanvas.Header>
-        <Offcanvas.Body>
-          <div className="admin-bottons">
-            <Link to="/admin/categories" className="d-block admin-bottons">
-              Admin Categories
-            </Link>
-            <Link to="/admin/orders" className="d-block admin-bottons">
-              Admin Orders
-            </Link>
-            <Link to="/admin/reviews" className="d-block admin-bottons">
-              Admin Reviews
-            </Link>
-            <Link to="/admin/products" className="d-block admin-bottons">
-              Admin Products
-            </Link>
-            <Link to="/admin/users" className="d-block admin-bottons">
-              Admin Users
-            </Link>
-            <hr className="hr" />
-            <Link to="/" className="d-block volver">
-              Volver al sitio
-            </Link>
+      <div id="menu-dashboard">
+        <div className="top-menu">
+          <div className="logo">
+            <img src="../../logo.svg" alt="" />
           </div>
-        </Offcanvas.Body>
-      </Offcanvas>
+        </div>
+
+        <div className="toggle">
+          <Button className="boton-admin" variant="primary" onClick={handleShow}>
+            <i class="bi bi-list"></i>
+          </Button>
+        </div>
+      </div>
+
+      {
+        <Offcanvas show={show} onHide={handleClose} id="menu">
+          <div>
+            <Button className="boton-admin" variant="primary" onClick={handleShow}>
+              <i class="bi bi-list"></i>
+            </Button>
+          </div>
+          <Offcanvas.Header closeButton>
+            <Offcanvas.Title className="titulo-sidebar">Vista de Admins</Offcanvas.Title>
+          </Offcanvas.Header>
+          <Offcanvas.Body>
+            <div className="admin-bottons ">
+              <Link to="/admin/categories" className="d-block admin-botton">
+                <i class="bi bi-card-checklist iconos"></i>
+                Admin Categories
+              </Link>
+              <Link to="/admin/orders" className="d-block admin-botton">
+                <i class="bi bi-receipt iconos"></i>
+                Admin Orders
+              </Link>
+              <Link to="/admin/reviews" className="d-block admin-botton">
+                <i class="bi bi-chat-left-quote iconos"></i>
+                Admin Reviews
+              </Link>
+              <Link to="/admin/products" className="d-block admin-botton">
+                <i class="bi bi-shop iconos"></i>
+                Admin Products
+              </Link>
+              <Link to="/admin/users" className="d-block admin-botton">
+                <i class="bi bi-people iconos"></i>
+                Admin Users
+              </Link>
+              <hr className="hr" />
+              <Link to="/" className="d-block volver">
+                <i class="bi bi-house iconos"></i>
+                Volver al sitio
+              </Link>
+            </div>
+          </Offcanvas.Body>
+        </Offcanvas>
+      }
     </>
   );
 }

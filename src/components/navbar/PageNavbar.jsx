@@ -2,18 +2,21 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import "./PageNavbar.css";
+import { useSelector } from "react-redux";
 
 function PageNavbar() {
+  let user = useSelector((state) => state.persistedReducer.user);
   return (
     <>
       <Navbar bg="white" variant="light" className="flex-column border-bottom shadow" sticky="top">
         <Container id="mainBar">
-          <Navbar.Brand as={Link} to={"/"}>
-            <img src="../logo.png" alt="logo Manos Creativas" width="200" className="mt-2" />
+          <Navbar.Brand as={Link} to={"/"} className="col-2 d-flex justify-content-center">
+            <img src="../logo.png" alt="logo Manos Creativas" className="mt-2 nav-logo" />
           </Navbar.Brand>
-          <Form id="form" className="d-flex px-2 position-relative">
+          <Form id="form" className="d-flex px-2 position-relative col-8">
             <i className="bi bi-search position-absolute"></i>
             <Form.Control
               type="search"
@@ -23,13 +26,21 @@ function PageNavbar() {
               id="search"
             />
           </Form>
-          <Nav className="ms-auto fs-4">
-            <Nav.Link as={Link} to={"/"}>
-              <i className="bi bi-person-circle"></i>
-            </Nav.Link>
+          <Nav className="fs-4 col-2">
             <Nav.Link as={Link} to={"/cart"}>
-              <i className="bi bi-cart"></i>
+              <i className="bi bi-cart fs-3 icon"></i>
             </Nav.Link>
+            {user.token ? (
+              <Nav.Link as={Link} to={"/profile"}>
+                <i className="bi bi-person-circle fs-3 icon ms-2"></i>
+              </Nav.Link>
+            ) : (
+              <Nav.Link as={Link} to={"/login"}>
+                <Button id="button" className="ms-2">
+                  Iniciar Sesión
+                </Button>
+              </Nav.Link>
+            )}
           </Nav>
         </Container>
         <Container id="categoryBar">

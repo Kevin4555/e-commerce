@@ -7,6 +7,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Sidebar from "../sidebar/Sidebar";
+import Button from "react-bootstrap/Button";
 
 const AdminReviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -34,7 +35,12 @@ const AdminReviews = () => {
         </header>
       </div>
       <Container fluid>
-        <h2>Agregar nueva categoria</h2>
+        <h2>Panel de Reviews</h2>
+
+        <div className="text-end">
+          <Button variant="success">Agregar Review</Button>
+        </div>
+
         <Table striped bordered hover>
           <thead>
             <tr>

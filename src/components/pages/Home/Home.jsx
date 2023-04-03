@@ -27,11 +27,6 @@ function Home() {
     };
     getProducts();
   }, []);
-  const productsFromCategory1 = products.filter((product) => product.categoryId === 1);
-  const productsFromCategory2 = products.filter((product) => product.categoryId === 2);
-  const productsFromCategory3 = products.filter((product) => product.categoryId === 3);
-  const productsFromCategory4 = products.filter((product) => product.categoryId === 4);
-  const productsFromCategory5 = products.filter((product) => product.categoryId === 5);
 
   function showProducts(arrayProducts) {
     return (
@@ -54,7 +49,13 @@ function Home() {
     });
   }
 
-  if (products[0])
+  if (products.length > 0) {
+    const productsFromCategory1 = products.filter((product) => parseInt(product.categoryId) === 1);
+    const productsFromCategory2 = products.filter((product) => parseInt(product.categoryId) === 2);
+    const productsFromCategory3 = products.filter((product) => parseInt(product.categoryId) === 3);
+    const productsFromCategory4 = products.filter((product) => parseInt(product.categoryId) === 4);
+    const productsFromCategory5 = products.filter((product) => parseInt(product.categoryId) === 5);
+
     return (
       <>
         <PageNavbar />
@@ -95,9 +96,11 @@ function Home() {
                 className="col-12 col-sm-6 col-md-4 col-xl-2"
                 onClick={() => scrollToCategory("pinturas")}
               >
+                {console.log("products:", products)}
+                {console.log("productsFromCategory1:", productsFromCategory1)}
                 <img
                   src={
-                    process.env.REACT_APP_API_BASE_URL + `/img/${productsFromCategory1[2].img.img1}`
+                    process.env.REACT_APP_API_BASE_IMG_URL + `/${productsFromCategory1[2].img.img1}`
                   }
                   alt=""
                   className="categories-img"
@@ -110,7 +113,7 @@ function Home() {
               >
                 <img
                   src={
-                    process.env.REACT_APP_API_BASE_URL + `/img/${productsFromCategory2[1].img.img1}`
+                    process.env.REACT_APP_API_BASE_IMG_URL + `/${productsFromCategory2[1].img.img1}`
                   }
                   alt=""
                   className="categories-img"
@@ -123,7 +126,7 @@ function Home() {
               >
                 <img
                   src={
-                    process.env.REACT_APP_API_BASE_URL + `/img/${productsFromCategory3[0].img.img1}`
+                    process.env.REACT_APP_API_BASE_IMG_URL + `/${productsFromCategory3[0].img.img1}`
                   }
                   className="categories-img"
                   alt=""
@@ -136,7 +139,7 @@ function Home() {
               >
                 <img
                   src={
-                    process.env.REACT_APP_API_BASE_URL + `/img/${productsFromCategory4[0].img.img1}`
+                    process.env.REACT_APP_API_BASE_IMG_URL + `/${productsFromCategory4[0].img.img1}`
                   }
                   className="categories-img"
                   alt=""
@@ -149,7 +152,7 @@ function Home() {
               >
                 <img
                   src={
-                    process.env.REACT_APP_API_BASE_URL + `/img/${productsFromCategory2[3].img.img1}`
+                    process.env.REACT_APP_API_BASE_IMG_URL + `/${productsFromCategory2[3].img.img1}`
                   }
                   className="categories-img"
                   alt=""
@@ -234,7 +237,7 @@ function Home() {
         <Footer />
       </>
     );
-  else return <Loading />;
+  } else return <Loading />;
 }
 
 export default Home;
