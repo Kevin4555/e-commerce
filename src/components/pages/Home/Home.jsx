@@ -50,19 +50,11 @@ function Home() {
   }
 
   if (products.length > 0) {
-    let productsFromCategory1;
-    let productsFromCategory2;
-    let productsFromCategory3;
-    let productsFromCategory4;
-    let productsFromCategory5;
-    setTimeout(() => {
-      productsFromCategory1 = products.filter((product) => product.categoryId === 1);
-      productsFromCategory2 = products.filter((product) => product.categoryId === 2);
-      productsFromCategory3 = products.filter((product) => product.categoryId === 3);
-      productsFromCategory4 = products.filter((product) => product.categoryId === 4);
-      productsFromCategory5 = products.filter((product) => product.categoryId === 5);
-      console.log(productsFromCategory1);
-    }, 750);
+    const productsFromCategory1 = products.filter((product) => product.categoryId === 1);
+    const productsFromCategory2 = products.filter((product) => product.categoryId === 2);
+    const productsFromCategory3 = products.filter((product) => product.categoryId === 3);
+    const productsFromCategory4 = products.filter((product) => product.categoryId === 4);
+    const productsFromCategory5 = products.filter((product) => product.categoryId === 5);
 
     return (
       <>
