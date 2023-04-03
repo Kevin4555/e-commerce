@@ -95,8 +95,8 @@ function Home() {
                 className="col-12 col-sm-6 col-md-4 col-xl-2"
                 onClick={() => scrollToCategory("pinturas")}
               >
-                {console.log(products)}
-                {console.log(productsFromCategory1)}
+                {console.log("products:", products)}
+                {console.log("productsFromCategory1:", productsFromCategory1)}
                 <img
                   src={
                     process.env.REACT_APP_API_BASE_IMG_URL + `/${productsFromCategory1[2].img.img1}`
