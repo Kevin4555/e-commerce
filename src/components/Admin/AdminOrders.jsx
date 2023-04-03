@@ -33,8 +33,11 @@ const AdminOrders = () => {
         </header>
       </div>
       <Container fluid>
-        <h2>Agregar nueva categoria</h2>
-        <div className="text-end"></div>
+        <h2>Panel de Orders</h2>
+        <div className="text-end">
+          <Button variant="success">Agregar nueva Orden</Button>
+        </div>
+
         <Table>
           <thead>
             <tr>
