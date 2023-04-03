@@ -52,7 +52,7 @@ function Product() {
   const dispatch = useDispatch();
 
   const handleAddToCart = () => {
-    dispatch(addItemToCart(product));
+    dispatch(addItemToCart({ ...product, quantity: 1 }));
   };
 
   if (product) {

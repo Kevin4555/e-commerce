@@ -1,15 +1,14 @@
 import "./Cart.css";
 import PageNavbar from "../../navbar/PageNavbar";
 import { Link } from "react-router-dom";
-import Form from "react-bootstrap/Form";
 import { useSelector } from "react-redux";
 import CartItem from "./CartItem/CartItem";
 
 function Cart() {
   const cart = useSelector((state) => state.persistedReducer.cart.items);
   const totalPrice = useSelector((state) => state.persistedReducer.cart.totalPrice);
-
   console.log(cart);
+
   return (
     <main>
       <PageNavbar />
@@ -37,7 +36,6 @@ function Cart() {
             return <CartItem key={item.id} item={item} />;
           })}
 
-          <hr />
           <div className="col-12 mb-4 mt-2">
             <Link to="/" className="btn text-white" id="btn-continue-buying">
               Seguir comprando

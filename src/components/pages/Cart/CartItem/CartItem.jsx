@@ -1,6 +1,17 @@
 import "../Cart.css";
+import { useDispatch, useSelector } from "react-redux";
+import { addItemToCart, removeItemFromCart } from "../../../../slices/cartSlice";
 
 function CartItem({ item }) {
+  let cart = useSelector((state) => state.persistedReducer.cart);
+  const cartItem = cart.items.find((cartItem) => cartItem.id === item.id);
+  const dispatch = useDispatch();
+  const handleAddToCart = () => {
+    dispatch(addItemToCart({ ...cartItem, quantity: 1 }));
+  };
+  const handleRemoveItemFromCart = () => {
+    dispatch(removeItemFromCart(cartItem));
+  };
   return (
     <>
       <div className="col-2 my-4 d-flex justify-content-center">
@@ -20,16 +31,20 @@ function CartItem({ item }) {
       </div>
       <div className="col-2 my-4">
         <div className="d-inline border p-2">
-          <button className="btn fw-semibold">-</button>{" "}
-          <small className=" fw-semibold">cantidad</small>{" "}
-          <button className="btn fw-semibold">+</button>
+          <button className="btn fw-semibold" onClick={handleRemoveItemFromCart}>
+            -
+          </button>{" "}
+          <small className=" fw-semibold">{cartItem.quantity}</small>{" "}
+          <button className="btn fw-semibold" onClick={handleAddToCart}>
+            +
+          </button>
         </div>
         <button className="btn">
           <i class="bi bi-trash3"></i>
         </button>
       </div>
       <div className="col-2 my-4">
-        <small className="fs-6 fw-semibold">$740.00</small>
+        <small className="fs-6 fw-semibold">${item.price * item.quantity}</small>
       </div>
       <hr />
     </>

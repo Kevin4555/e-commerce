@@ -1,9 +1,34 @@
 import "./CartPayment.css";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import PageNavbar from "../../../navbar/PageNavbar";
 import Form from "react-bootstrap/Form";
+import CartInformationItem from "../CartInformationItem/CartInformationItem";
+import axios from "axios";
 
 function CartPayment() {
+  const navigate = useNavigate();
+  const [error, setError] = useState("");
+  const userId = useSelector((state) => state.persistedReducer.user.id);
+  const cart = useSelector((state) => state.persistedReducer.cart);
+  const totalPrice = useSelector((state) => state.persistedReducer.cart.totalPrice);
+
+  const handleCreateOrder = async (event) => {
+    event.preventDefault();
+    try {
+      await axios({
+        method: "post",
+        url: `${process.env.REACT_APP_API_BASE_URL}/orders`,
+        data: { cart, userId },
+      });
+      navigate("#");
+    } catch (err) {
+      console.log(err);
+      setError(true);
+    }
+  };
   return (
     <main>
       <PageNavbar />
@@ -41,9 +66,7 @@ function CartPayment() {
                     <small className="fs-6 text-secondary">Envío a</small>
                   </div>
                   <div className="col-8 d-flex justify-content-between align-items-center">
-                    <small className="fs-6 ps-3">
-                      Br. Artigas 9999, Montevideo 11800, Uruguay
-                    </small>
+                    <small className="fs-6 ps-3">Br. Artigas 9999, Montevideo 11800, Uruguay</small>
                   </div>
                   <div className="col-2 text-end d-flex justify-content-between align-items-center">
                     <button className="btn">Editar</button>
@@ -63,37 +86,16 @@ function CartPayment() {
                 <hr className="m-0" />
                 <Form>
                   <div className="row p-3 bg-secondary-subtle">
-                    <Form.Group
-                      className="mb-3 col-12 px-0"
-                      controlId="formBasicEmail"
-                    >
-                      <Form.Control
-                        type="number"
-                        placeholder="Número de tarjeta"
-                      />
+                    <Form.Group className="mb-3 col-12 px-0" controlId="formBasicEmail">
+                      <Form.Control type="number" placeholder="Número de tarjeta" />
                     </Form.Group>
-                    <Form.Group
-                      className="mb-3 col-12 px-0"
-                      controlId="formBasicEmail"
-                    >
-                      <Form.Control
-                        type="text"
-                        placeholder="Nombre del titular"
-                      />
+                    <Form.Group className="mb-3 col-12 px-0" controlId="formBasicEmail">
+                      <Form.Control type="text" placeholder="Nombre del titular" />
                     </Form.Group>
-                    <Form.Group
-                      className="mb-3 col-6 ps-0"
-                      controlId="formBasicEmail"
-                    >
-                      <Form.Control
-                        type="date"
-                        placeholder="Fecha de expiracón (MM / YY)"
-                      />
+                    <Form.Group className="mb-3 col-6 ps-0" controlId="formBasicEmail">
+                      <Form.Control type="date" placeholder="Fecha de expiracón (MM / YY)" />
                     </Form.Group>
-                    <Form.Group
-                      className="mb-3 col-6 pe-0"
-                      controlId="formBasicEmail"
-                    >
+                    <Form.Group className="mb-3 col-6 pe-0" controlId="formBasicEmail">
                       <Form.Control type="text" placeholder="CVV" />
                     </Form.Group>
                   </div>
@@ -101,18 +103,12 @@ function CartPayment() {
               </div>
 
               <div className="col-6 d-inline">
-                <Link
-                  to="/cart/shipping"
-                  className="btn ps-0 py-3 px-5 fw-semibold"
-                >
+                <Link to="/cart/shipping" className="btn ps-0 py-3 px-5 fw-semibold">
                   ← Volver a envío
                 </Link>
               </div>
               <div className="col-6 d-inline text-end">
-                <button
-                  className="btn py-3 px-5 fw-semibold text-white"
-                  id="continue-btn"
-                >
+                <button className="btn py-3 px-5 fw-semibold text-white" id="continue-btn">
                   Realizar el pago
                 </button>
               </div>
@@ -123,53 +119,12 @@ function CartPayment() {
             </small>
           </div>
           <div className="col-5 ps-5 pe-9 py-5 bg-secondary-subtle border-start">
-            <div className="d-flex justify-content-between align-items-center">
-              <div className="d-flex justify-content-between align-items-center ">
-                <div className="position-relative">
-                  <img
-                    src="/img/tom-crew-YA2E3d7a9Wo-unsplash.jpg"
-                    alt=""
-                    className="product-img rounded me-2"
-                  />
-                  <small className="position-absolute top-0 end-0 rounded-pill bg-secondary text-white px-2">
-                    2
-                  </small>
-                </div>
-
-                <small className="fs-6">
-                  Plus Woman Cotton Solid Soft Light
-                </small>
-              </div>
-              <div>
-                <small className="fs-6 fw-semibold">$740.00</small>
-              </div>
-            </div>
-            <div className="d-flex justify-content-between align-items-center my-4">
-              <div className="d-flex justify-content-between align-items-center">
-                <div className="position-relative">
-                  <img
-                    src="/img/tom-crew-YA2E3d7a9Wo-unsplash.jpg"
-                    alt=""
-                    className="product-img rounded me-2"
-                  />
-                  <small className="position-absolute top-0 end-0 rounded-pill bg-secondary text-white px-2">
-                    2
-                  </small>
-                </div>
-                <div>
-                  <small className="fs-6">
-                    Plus Woman Cotton Solid Soft Light
-                  </small>
-                </div>
-              </div>
-              <div className="d-inline">
-                <small className="fs-6 fw-semibold">$740.00</small>
-              </div>
-            </div>
-            <hr />
+            {cart.items.map((item) => (
+              <CartInformationItem key={item.id} item={item} />
+            ))}
             <div className="d-flex justify-content-between">
               <small className="fs-6 my-3">Subtotal</small>
-              <small className="fs-6 fw-semibold  my-3">$1,110.00</small>
+              <small className="fs-6 fw-semibold  my-3">${totalPrice}</small>
             </div>
             <div className="d-flex justify-content-between">
               <small className="fs-6 mb-3">Envío</small>
@@ -179,7 +134,7 @@ function CartPayment() {
             <div className="d-flex justify-content-between">
               <small className="fs-6">Total</small>
               <small className="fw-semibold">
-                USD<span className="fs-5 ms-2">$1,128.25</span>
+                USD<span className="fs-5 ms-2">${totalPrice + 18.25}</span>
               </small>
             </div>
           </div>

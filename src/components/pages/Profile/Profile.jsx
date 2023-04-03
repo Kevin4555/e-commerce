@@ -10,8 +10,8 @@ import axios from "axios";
 function Profile() {
   let user = useSelector((state) => state.persistedReducer.user);
   const [products, setProducts] = useState([]);
+  const [orders, setOrders] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  console.log("user", user);
   useEffect(() => {
     // Simulate loading time
     setTimeout(() => {
@@ -34,6 +34,22 @@ function Profile() {
     getProducts();
   }, []);
 
+  useEffect(() => {
+    const getOrders = async () => {
+      try {
+        const response = await axios({
+          method: "get",
+          url: `${process.env.REACT_APP_API_BASE_URL}/orders`,
+        });
+        setOrders(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getOrders();
+  }, []);
+  console.log(orders);
+  const ordersFromLoggedUser = orders.filter((order) => order.userId === user.id);
   if (isLoading)
     return (
       <div className="screen">
@@ -93,7 +109,9 @@ function Profile() {
               </div>
               <div className="col-12 col-lg-8">
                 <h2 className="fs-3">Historial de pedidos</h2>
-                <Order />
+                {ordersFromLoggedUser.map((order) => (
+                  <Order order={order} />
+                ))}
                 {/* <h2 className="fs-4">Favoritos</h2>
               {products && (
                 <MultiItemCarousel products={products} productsPerPage={4} className="" />
