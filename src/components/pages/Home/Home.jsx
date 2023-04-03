@@ -55,193 +55,187 @@ function Home() {
     const productsFromCategory3 = products.filter((product) => product.categoryId === 3);
     const productsFromCategory4 = products.filter((product) => product.categoryId === 4);
     const productsFromCategory5 = products.filter((product) => product.categoryId === 5);
-    if (productsFromCategory1.length > 0)
-      return (
-        <>
-          <PageNavbar />
-          <main>
-            <Carousel className="carousel">
-              <Carousel.Item>
-                <img
-                  className="d-block"
-                  src="/img/mainBanner.webp"
-                  alt="First slide"
-                  draggable="false"
-                />
-                <Carousel.Caption className="carouselCaption">
-                  <p>Lo más vendido</p>
-                  <h2>Colección Madera Moderna</h2>
-                  <button className="btn bannerBtn">Comprar ahora</button>
-                </Carousel.Caption>
-              </Carousel.Item>
-              <Carousel.Item>
-                <img
-                  className="d-block"
-                  src="/img/mainBanner2.webp"
-                  alt="Second slide"
-                  draggable="false"
-                />
+    return (
+      <>
+        <PageNavbar />
+        <main>
+          <Carousel className="carousel">
+            <Carousel.Item>
+              <img
+                className="d-block"
+                src="/img/mainBanner.webp"
+                alt="First slide"
+                draggable="false"
+              />
+              <Carousel.Caption className="carouselCaption">
+                <p>Lo más vendido</p>
+                <h2>Colección Madera Moderna</h2>
+                <button className="btn bannerBtn">Comprar ahora</button>
+              </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item>
+              <img
+                className="d-block"
+                src="/img/mainBanner2.webp"
+                alt="Second slide"
+                draggable="false"
+              />
 
-                <Carousel.Caption className="carouselCaption">
-                  <p>Los mejores productos hechos a mano</p>
-                  <h2>Nueva Colección Handmade</h2>
-                  <button className="btn bannerBtn">Comprar ahora</button>
-                </Carousel.Caption>
-              </Carousel.Item>
-            </Carousel>
-            <div className="container">
-              <h3 className="fs-2 mt-5 text-center">Categorías</h3>
-              <div className="row rounded" id="categoryDisplay">
-                <div
-                  className="col-12 col-sm-6 col-md-4 col-xl-2"
-                  onClick={() => scrollToCategory("pinturas")}
-                >
-                  {console.log("products:", products)}
-                  {console.log("productsFromCategory1:", productsFromCategory1)}
-                  <img
-                    src={
-                      process.env.REACT_APP_API_BASE_IMG_URL +
-                      `/${productsFromCategory1[2].img.img1}`
-                    }
-                    alt=""
-                    className="categories-img"
-                  />
-                  <h5 className="mt-3">Pinturas</h5>
-                </div>
-                <div
-                  className="col-12 col-sm-6 col-md-4 col-xl-2"
-                  onClick={() => scrollToCategory("ceramicas")}
-                >
-                  <img
-                    src={
-                      process.env.REACT_APP_API_BASE_IMG_URL +
-                      `/${productsFromCategory2[1].img.img1}`
-                    }
-                    alt=""
-                    className="categories-img"
-                  />
-                  <h5 className="mt-3">Cerámicas</h5>
-                </div>
-                <div
-                  className="col-12 col-sm-6 col-md-4 col-xl-2"
-                  onClick={() => scrollToCategory("maderas")}
-                >
-                  <img
-                    src={
-                      process.env.REACT_APP_API_BASE_IMG_URL +
-                      `/${productsFromCategory3[0].img.img1}`
-                    }
-                    className="categories-img"
-                    alt=""
-                  />
-                  <h5 className="mt-3">Maderas</h5>
-                </div>
-                <div
-                  className="col-12 col-sm-6 col-md-4 col-xl-2"
-                  onClick={() => scrollToCategory("tejidos")}
-                >
-                  <img
-                    src={
-                      process.env.REACT_APP_API_BASE_IMG_URL +
-                      `/${productsFromCategory4[0].img.img1}`
-                    }
-                    className="categories-img"
-                    alt=""
-                  />
-                  <h5 className="mt-3">Tejidos</h5>
-                </div>
-                <div
-                  className="col-12 col-sm-6 col-md-4 col-xl-2"
-                  onClick={() => scrollToCategory("decoraciones")}
-                >
-                  <img
-                    src={
-                      process.env.REACT_APP_API_BASE_IMG_URL +
-                      `/${productsFromCategory2[3].img.img1}`
-                    }
-                    className="categories-img"
-                    alt=""
-                  />
-                  <h5 className="mt-3">Decoraciones</h5>
-                </div>
+              <Carousel.Caption className="carouselCaption">
+                <p>Los mejores productos hechos a mano</p>
+                <h2>Nueva Colección Handmade</h2>
+                <button className="btn bannerBtn">Comprar ahora</button>
+              </Carousel.Caption>
+            </Carousel.Item>
+          </Carousel>
+          <div className="container">
+            <h3 className="fs-2 mt-5 text-center">Categorías</h3>
+            <div className="row rounded" id="categoryDisplay">
+              <div
+                className="col-12 col-sm-6 col-md-4 col-xl-2"
+                onClick={() => scrollToCategory("pinturas")}
+              >
+                {console.log("products:", products)}
+                {console.log("productsFromCategory1:", productsFromCategory1)}
+                <img
+                  src={
+                    process.env.REACT_APP_API_BASE_IMG_URL + `/${productsFromCategory1[2].img.img1}`
+                  }
+                  alt=""
+                  className="categories-img"
+                />
+                <h5 className="mt-3">Pinturas</h5>
               </div>
-              <section id="display">
-                <div className="displayOffer">
-                  <img src="/img/subBanner.webp" alt="" />
-                  <div>
-                    <p className="fs-5 mb-2">35% off</p>
-                    <h3>Especial Nórdico Matte</h3>
-                    <button className="btn bannerBtn">Comprar ahora</button>
-                  </div>
-                </div>
-                <div className="displayOffer">
-                  <img src="/img/subBanner2.webp" alt="" />
-                  <div>
-                    <p className="fs-5 mb-2">25% off</p>
-                    <h3>Terra Punto Cotta</h3>
-                    <button className="btn bannerBtn">Comprar ahora</button>
-                  </div>
-                </div>
-              </section>
-              <h2 className="pb-4">Destacados</h2>
-              {products && (
-                <MultiItemCarousel
-                  products={products.filter((product) => (product.rating = 5))}
-                  productsPerPage={4}
-                ></MultiItemCarousel>
-              )}
-
-              <div className="mt-5 mb-5 ms-2">
-                <h3 className="pt-5 pb-4 d-inline fs-2" id="pinturas">
-                  Pinturas
-                </h3>
-                <Link to={"/categories"} className="categoryLink">
-                  ver todos <i className="bi bi-arrow-right-short"></i>
-                </Link>
+              <div
+                className="col-12 col-sm-6 col-md-4 col-xl-2"
+                onClick={() => scrollToCategory("ceramicas")}
+              >
+                <img
+                  src={
+                    process.env.REACT_APP_API_BASE_IMG_URL + `/${productsFromCategory2[1].img.img1}`
+                  }
+                  alt=""
+                  className="categories-img"
+                />
+                <h5 className="mt-3">Cerámicas</h5>
               </div>
-              {showProducts(productsFromCategory1)}
-              <div className="mt-5 mb-5 ms-2">
-                <h3 className="pt-5 pb-4 d-inline fs-2" id="ceramicas">
-                  Cerámicas
-                </h3>
-                <Link to={"/categories"} className="categoryLink">
-                  ver todos <i className="bi bi-arrow-right-short"></i>
-                </Link>
+              <div
+                className="col-12 col-sm-6 col-md-4 col-xl-2"
+                onClick={() => scrollToCategory("maderas")}
+              >
+                <img
+                  src={
+                    process.env.REACT_APP_API_BASE_IMG_URL + `/${productsFromCategory3[0].img.img1}`
+                  }
+                  className="categories-img"
+                  alt=""
+                />
+                <h5 className="mt-3">Maderas</h5>
               </div>
-              {showProducts(productsFromCategory2)}
-              <div className="mt-5 mb-5 ms-2">
-                <h3 className="pt-5 pb-4 d-inline fs-2" id="maderas">
-                  Maderas
-                </h3>
-                <Link to={"/categories"} className="categoryLink">
-                  ver todos <i className="bi bi-arrow-right-short"></i>
-                </Link>
+              <div
+                className="col-12 col-sm-6 col-md-4 col-xl-2"
+                onClick={() => scrollToCategory("tejidos")}
+              >
+                <img
+                  src={
+                    process.env.REACT_APP_API_BASE_IMG_URL + `/${productsFromCategory4[0].img.img1}`
+                  }
+                  className="categories-img"
+                  alt=""
+                />
+                <h5 className="mt-3">Tejidos</h5>
               </div>
-              {showProducts(productsFromCategory3)}
-              <div className="mt-5 mb-5 ms-2">
-                <h3 className="pt-5 pb-4 d-inline fs-2" id="tejidos">
-                  Tejidos
-                </h3>
-                <Link to={"/categories"} className="categoryLink">
-                  ver todos <i className="bi bi-arrow-right-short"></i>
-                </Link>
+              <div
+                className="col-12 col-sm-6 col-md-4 col-xl-2"
+                onClick={() => scrollToCategory("decoraciones")}
+              >
+                <img
+                  src={
+                    process.env.REACT_APP_API_BASE_IMG_URL + `/${productsFromCategory2[3].img.img1}`
+                  }
+                  className="categories-img"
+                  alt=""
+                />
+                <h5 className="mt-3">Decoraciones</h5>
               </div>
-              {showProducts(productsFromCategory4)}
-              <div className="mt-5 mb-5 ms-2">
-                <h3 className="pt-5 pb-4 d-inline fs-2" id="decoraciones">
-                  Decoraciones
-                </h3>
-                <Link to={"/categories"} className="categoryLink">
-                  ver todos <i className="bi bi-arrow-right-short"></i>
-                </Link>
-              </div>
-              {showProducts(productsFromCategory5)}
             </div>
-          </main>
-          <Newsletter />
-          <Footer />
-        </>
-      );
+            <section id="display">
+              <div className="displayOffer">
+                <img src="/img/subBanner.webp" alt="" />
+                <div>
+                  <p className="fs-5 mb-2">35% off</p>
+                  <h3>Especial Nórdico Matte</h3>
+                  <button className="btn bannerBtn">Comprar ahora</button>
+                </div>
+              </div>
+              <div className="displayOffer">
+                <img src="/img/subBanner2.webp" alt="" />
+                <div>
+                  <p className="fs-5 mb-2">25% off</p>
+                  <h3>Terra Punto Cotta</h3>
+                  <button className="btn bannerBtn">Comprar ahora</button>
+                </div>
+              </div>
+            </section>
+            <h2 className="pb-4">Destacados</h2>
+            {products && (
+              <MultiItemCarousel
+                products={products.filter((product) => (product.rating = 5))}
+                productsPerPage={4}
+              ></MultiItemCarousel>
+            )}
+
+            <div className="mt-5 mb-5 ms-2">
+              <h3 className="pt-5 pb-4 d-inline fs-2" id="pinturas">
+                Pinturas
+              </h3>
+              <Link to={"/categories"} className="categoryLink">
+                ver todos <i className="bi bi-arrow-right-short"></i>
+              </Link>
+            </div>
+            {showProducts(productsFromCategory1)}
+            <div className="mt-5 mb-5 ms-2">
+              <h3 className="pt-5 pb-4 d-inline fs-2" id="ceramicas">
+                Cerámicas
+              </h3>
+              <Link to={"/categories"} className="categoryLink">
+                ver todos <i className="bi bi-arrow-right-short"></i>
+              </Link>
+            </div>
+            {showProducts(productsFromCategory2)}
+            <div className="mt-5 mb-5 ms-2">
+              <h3 className="pt-5 pb-4 d-inline fs-2" id="maderas">
+                Maderas
+              </h3>
+              <Link to={"/categories"} className="categoryLink">
+                ver todos <i className="bi bi-arrow-right-short"></i>
+              </Link>
+            </div>
+            {showProducts(productsFromCategory3)}
+            <div className="mt-5 mb-5 ms-2">
+              <h3 className="pt-5 pb-4 d-inline fs-2" id="tejidos">
+                Tejidos
+              </h3>
+              <Link to={"/categories"} className="categoryLink">
+                ver todos <i className="bi bi-arrow-right-short"></i>
+              </Link>
+            </div>
+            {showProducts(productsFromCategory4)}
+            <div className="mt-5 mb-5 ms-2">
+              <h3 className="pt-5 pb-4 d-inline fs-2" id="decoraciones">
+                Decoraciones
+              </h3>
+              <Link to={"/categories"} className="categoryLink">
+                ver todos <i className="bi bi-arrow-right-short"></i>
+              </Link>
+            </div>
+            {showProducts(productsFromCategory5)}
+          </div>
+        </main>
+        <Newsletter />
+        <Footer />
+      </>
+    );
   } else return <Loading />;
 }
 
