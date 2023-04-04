@@ -17,6 +17,7 @@ export default function EditUser() {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const { id } = useParams();
+  // const [modoEdicion, setmodoEdicion]= useState(initialState:false)
 
   useEffect(() => {
     const getUser = async () => {

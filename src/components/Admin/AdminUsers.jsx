@@ -43,7 +43,7 @@ const AdminUsers = () => {
 
         {/* Cambiar segun excalidraw */}
         <div className="text-end">
-          <Button variant="success">Agregar usuario</Button>
+          <Button variant="success">Agregar Usuario</Button>
         </div>
 
         <Table className="table" striped bordered hover>

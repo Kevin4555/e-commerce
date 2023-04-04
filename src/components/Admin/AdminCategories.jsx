@@ -48,6 +48,8 @@ const AdminCategories = () => {
             <tr>
               <th>#</th>
               <th>Name</th>
+              <th>Edit</th>
+              <th>Delete</th>
             </tr>
           </thead>
           <tbody>
@@ -56,6 +58,14 @@ const AdminCategories = () => {
                 <tr>
                   <td>{category.id}</td>
                   <td>{category.name}</td>
+                  <td>
+                    {" "}
+                    <Button variant="warning">Editar categoria</Button>
+                  </td>
+                  <td>
+                    {" "}
+                    <Button variant="danger">Eliminar categoria</Button>
+                  </td>
                 </tr>
               );
             })}

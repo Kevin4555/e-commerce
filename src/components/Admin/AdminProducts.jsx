@@ -64,8 +64,8 @@ const AdminProducts = () => {
 
         {/* Cambiar segun excalidraw */}
         <div className="text-end">
-          <Link to="/admin/createProduct" variant="success">
-            Agregar nuevo producto
+          <Link to="/admin/createProduct">
+            <Button variant="success"> Agregar nuevo producto </Button>
           </Link>
         </div>
 
