@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { setUser } from "../../../slices/usersSlice";
 import axios from "axios";
 import PageNavbar from "../../navbar/PageNavbar";
-import "./Login.css";
+import css from "./Login.module.css";
 
 //import { GoogleOAuthProvider } from "@react-oauth/google";
 
@@ -40,7 +40,7 @@ export default function Login() {
   return (
     <>
       <PageNavbar />
-      <Container fluid id="background">
+      <Container fluid id={css["background"]}>
         <Row id="content" className="d-flex justify-content-center align-items-center">
           <Col xs={11} sm={8} md={6} xl={4}>
             <Card className=" px-4">
@@ -73,15 +73,15 @@ export default function Login() {
                     </Form.Group>
 
                     <div className="mt-3 d-grid">
-                      <Button id="button" type="submit">
+                      <Button id={css["button"]} type="submit">
                         Login
                       </Button>
                     </div>
                   </form>
                   <div className="mt-3">
-                    <p className="mb-0  text-center">
+                    <p className="mb-0 text-center">
                       Todavía no tienes una cuenta?
-                      <Link to="/signup" className="link">
+                      <Link to="/signup" className={css.link}>
                         Regístrate
                       </Link>
                     </p>
