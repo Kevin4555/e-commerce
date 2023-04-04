@@ -6,7 +6,6 @@ import axios from "axios";
 import { Container, Button } from "react-bootstrap";
 import Sidebar from "../Sidebar/Sidebar";
 import { Link } from "react-router-dom";
-import { Button } from "react-bootstrap";
 
 const AdminCategories = () => {
   const [categories, setCategories] = useState([]);
