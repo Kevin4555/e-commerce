@@ -36,6 +36,7 @@ input[type="search"]::-webkit-search-results-decoration {
 
 * {
   font-family: "Lora", serif !important;
+  color: var(--dark);
 }
 
 .screen {

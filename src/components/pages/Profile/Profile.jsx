@@ -124,13 +124,9 @@ function Profile() {
                 {ordersFromLoggedUser.map((order) => (
                   <Order order={order} />
                 ))}
-                {/* <h2 className="fs-4">Favoritos</h2>
-              {products && (
-                <MultiItemCarousel products={products} productsPerPage={4} className="" />
-              )} */}
               </div>
               <div className="d-none d-lg-block col-lg-4">
-                <div className="text-center bg-secondary-subtle p-4 rounded vh-100">
+                <div id={css["userProfile"]} className="shadow text-center p-4 rounded mb-5">
                   <img
                     src="/img/default-avatar.jpg"
                     alt="Profile"
@@ -140,7 +136,7 @@ function Profile() {
                     {user.firstname} {user.lastname}
                   </h2>
                   <small>{user.email}</small>
-                  <div className="row mt-5 bg-white p-5 p-lg-2">
+                  <div className="row mt-3 bg-white p-5 p-lg-2 rounded shadow">
                     <div className="col-6 d-lg-flex flex-lg-column text-start my-2">
                       <small className="fw-bold fs-6">Firstname: </small>
                       <small className="fs-6">{user.firstname}</small>
@@ -152,10 +148,6 @@ function Profile() {
                     <div className="col-6 d-lg-flex flex-lg-column text-start my-2">
                       <small className="fs-6 fw-bold">Phone: </small>
                       <small className="fs-6">{user.phone}</small>
-                    </div>
-                    <div className="col-12 d-lg-flex flex-lg-column text-start my-2">
-                      <small className="fw-bold fs-6">Avatar: </small>
-                      <small className="fs-6">{user.avatar}</small>
                     </div>
                     <div className="col-12 d-lg-flex flex-lg-column text-start my-2">
                       <small className="fw-bold fs-6">Email: </small>

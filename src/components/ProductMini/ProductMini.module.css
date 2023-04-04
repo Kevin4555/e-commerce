@@ -1,4 +1,4 @@
-#product-mini {
+#productMini {
   height: 25rem;
 }
 
@@ -59,7 +59,29 @@
   text-decoration: line-through;
 }
 
-#productTitle {
-  font-size: large;
-  margin: 0.5rem;
+.iconoBtn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 5px;
+  border: none;
+  background-color: transparent;
+}
+
+.heartIcon {
+  font-size: 20px;
+}
+
+.title {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+#product {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }

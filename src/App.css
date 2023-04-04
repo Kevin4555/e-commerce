@@ -1,0 +1,10 @@
+.carousel,
+.carousel-inner,
+.carousel-item {
+  height: 70vh !important;
+}
+
+.carousel-item > * > img {
+  object-fit: cover;
+  background-position: right;
+}

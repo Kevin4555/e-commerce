@@ -1,14 +1,3 @@
-.carousel,
-.carousel-inner,
-.carousel-item {
-  height: 70vh !important;
-}
-
-.carousel-item > * > img {
-  object-fit: cover;
-  background-position: right;
-}
-
 .carouselCaption {
   width: 35rem;
   text-align: left !important;
@@ -38,37 +27,26 @@
   background-color: var(--accent) !important;
 }
 
-.categories-img {
+.categoriesImg {
   object-fit: cover;
   height: 15rem;
   width: 15rem;
   border-radius: 3rem;
 }
 
-.destacados-img {
+.destacadosImg {
   object-fit: cover;
   height: 200px;
 }
 
-.h-100px {
+.h100px {
   height: 100px;
 }
 
-.img-container {
+.imgContainer {
   position: relative;
 }
 
-.icono-btn {
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 5px;
-  border: none;
-  background-color: transparent;
-}
-.heart-icon {
-  font-size: 20px;
-}
 .d-block.fs-5.fw-semibold.btn:hover {
   background-color: var(--gray);
 }

@@ -1,4 +1,4 @@
-import "../Cart.css";
+import css from "../Cart.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { addItemToCart, removeItemFromCart } from "../../../../slices/cartSlice";
 
@@ -18,7 +18,7 @@ function CartItem({ item }) {
         <img
           src={process.env.REACT_APP_API_BASE_IMG_URL + `/${item.img.img1}`}
           alt=""
-          className="product-image"
+          className={css.productImage}
         />
       </div>
       <div className="col-4 my-4">

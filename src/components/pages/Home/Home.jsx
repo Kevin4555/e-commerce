@@ -72,7 +72,7 @@ function Home() {
               <Carousel.Caption className={css.carouselCaption}>
                 <p>Lo más vendido</p>
                 <h2>Colección Madera Moderna</h2>
-                <button className={`${css.btn} ${css.bannerBtn}`}>Comprar ahora</button>
+                <button className={`btn ${css.bannerBtn}`}>Comprar ahora</button>
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
@@ -86,7 +86,7 @@ function Home() {
               <Carousel.Caption className={css.carouselCaption}>
                 <p>Los mejores productos hechos a mano</p>
                 <h2>Nueva Colección Handmade</h2>
-                <button className={`${css.btn} ${css.bannerBtn}`}>Comprar ahora</button>
+                <button className={`btn ${css.bannerBtn}`}>Comprar ahora</button>
               </Carousel.Caption>
             </Carousel.Item>
           </Carousel>
@@ -97,8 +97,6 @@ function Home() {
                 className="col-12 col-sm-6 col-md-4 col-xl-2"
                 onClick={() => scrollToCategory("pinturas")}
               >
-                {console.log("products:", products)}
-                {console.log("productsFromCategory1:", productsFromCategory1)}
                 <img
                   src={
                     process.env.REACT_APP_API_BASE_IMG_URL + `/${productsFromCategory1[2].img.img1}`
@@ -167,7 +165,7 @@ function Home() {
                 <div>
                   <p className="fs-5 mb-2">35% off</p>
                   <h3>Especial Nórdico Matte</h3>
-                  <button className={`${css.btn} ${css.bannerBtn}`}>Comprar ahora</button>
+                  <button className={`btn ${css.bannerBtn}`}>Comprar ahora</button>
                 </div>
               </div>
               <div className={css.displayOffer}>
@@ -175,7 +173,7 @@ function Home() {
                 <div>
                   <p className="fs-5 mb-2">25% off</p>
                   <h3>Terra Punto Cotta</h3>
-                  <button className={`${css.btn} ${css.bannerBtn}`}>Comprar ahora</button>
+                  <button className={`btn ${css.bannerBtn}`}>Comprar ahora</button>
                 </div>
               </div>
             </section>
