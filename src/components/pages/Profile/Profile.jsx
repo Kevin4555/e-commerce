@@ -1,23 +1,34 @@
 import css from "./Profile.module.css";
-import PageNavbar from "../../navbar/PageNavbar";
+import PageNavbar from "../../Navbar/PageNavbar";
 import Order from "../../Order/Order";
 import Newsletter from "../../Newsletter/Newsletter";
 import Footer from "../../Footer/Footer";
 import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { removeUser } from "../../../slices/usersSlice";
 import axios from "axios";
 
 function Profile() {
   let user = useSelector((state) => state.persistedReducer.user);
+  window.document.title = `${user.firstname} ${user.lastname}`;
   const [products, setProducts] = useState([]);
   const [orders, setOrders] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  console.log("user", user);
   useEffect(() => {
     // Simulate loading time
     setTimeout(() => {
       setIsLoading(false);
     }, 750);
   }, []);
+
+  function handleLogOut() {
+    dispatch(removeUser());
+    navigate("/");
+  }
 
   useEffect(() => {
     const getProducts = async () => {
@@ -95,10 +106,6 @@ function Profile() {
                       <small className="fs-6">{user.phone}</small>
                     </div>
                     <div className="col-12 d-lg-flex flex-lg-column text-start my-2">
-                      <small className="fw-bold fs-6">Avatar: </small>
-                      <small className="fs-6">{user.avatar}</small>
-                    </div>
-                    <div className="col-12 d-lg-flex flex-lg-column text-start my-2">
                       <small className="fw-bold fs-6">Email: </small>
                       <small className="fs-6">{user.email}</small>
                     </div>
@@ -106,6 +113,9 @@ function Profile() {
                       <small className="fw-bold fs-6">Address: </small>
                       <small className="fs-6">{user.address}</small>
                     </div>
+                    <button className="btn btn-danger" onClick={handleLogOut}>
+                      Cerrar sesión
+                    </button>
                   </div>
                 </div>
               </div>

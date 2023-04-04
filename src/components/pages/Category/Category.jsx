@@ -2,7 +2,7 @@ import "./Category.css";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import PageNavbar from "../../navbar/PageNavbar";
+import PageNavbar from "../../Navbar/PageNavbar";
 import ProductMini from "../../ProductMini/ProductMini";
 import Carousel from "react-bootstrap/Carousel";
 import Newsletter from "../../Newsletter/Newsletter";

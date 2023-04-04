@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../../slices/usersSlice";
 import axios from "axios";
-import PageNavbar from "../../navbar/PageNavbar";
+import PageNavbar from "../../Navbar/PageNavbar";
 import "./Login.css";
 
 //import { GoogleOAuthProvider } from "@react-oauth/google";
@@ -28,8 +28,7 @@ export default function Login() {
           password,
         },
       });
-      console.log(response.data);
-      dispatch(setUser(response.data));
+      dispatch(setUser({ token: response.data.token, ...response.data.user }));
       navigate("/");
     } catch (err) {
       console.log(err);
