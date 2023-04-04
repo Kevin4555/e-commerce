@@ -40,7 +40,7 @@ function PageNavbar() {
               <Nav.Link as={Link} to={"/cart"}>
                 <i className="bi bi-cart fs-3 icon"></i>
               </Nav.Link>
-              {user.token ? (
+              {user ? (
                 <Nav.Link as={Link} to={"/profile"}>
                   <i className="bi bi-person-circle fs-3 icon ms-2"></i>
                 </Nav.Link>
