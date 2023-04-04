@@ -1,5 +1,5 @@
 import "./Cart.css";
-import PageNavbar from "../../Navbar/PageNavbar";
+import PageNavbar from "../../Navbar2/PageNavbar";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import CartItem from "./CartItem/CartItem";
