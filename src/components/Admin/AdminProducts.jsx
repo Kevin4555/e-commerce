@@ -6,6 +6,7 @@ import axios from "axios";
 import Container from "react-bootstrap/Container";
 import Sidebar from "../sidebar/Sidebar";
 import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
 
 const AdminProducts = () => {
   const [products, setProducts] = useState([]);
@@ -37,7 +38,9 @@ const AdminProducts = () => {
 
         {/* Cambiar segun excalidraw */}
         <div className="text-end">
-          <Button variant="success">Agregar nuevo producto</Button>
+          <Link to="/admin/createProduct" variant="success">
+            Agregar nuevo producto
+          </Link>
         </div>
 
         <Table striped bordered hover>

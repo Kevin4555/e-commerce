@@ -14,17 +14,13 @@ export default function CreateCategory() {
 
   const handleCreateCategory = async (event) => {
     event.preventDefault();
-    let formdata = new FormData(event.target);
     try {
       await axios({
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-        method: "post", // revisar que metodo corresponde. Si el endpoint es patch, tengo que armarlo con patch
-        url: `${process.env.REACT_APP_API_BASE_URL}/product-post`, //poner el endpoint que usamos
-        data: formdata,
+        method: "post",
+        url: `${process.env.REACT_APP_API_BASE_URL}/categories`,
+        data: { categoryName },
       });
-      navigate("/admin/editProduct");
+      navigate("/admin/categories");
     } catch (err) {
       console.log(err);
       setError(true);

@@ -6,12 +6,12 @@ import axios from "axios";
 import "../../pages/SignUp/SignUp.css";
 
 export default function CreateProduct() {
-  const [productTitle, setproductTitle] = useState("");
-  const [productDescription, setproductDescription] = useState("");
-  const [productPrice, setproductPrice] = useState("");
-  const [productImg, setproductImg] = useState("");
-  const [productStock, setproductStock] = useState("");
-  const [productCategoryId, setproductCategoryId] = useState("");
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [price, setPrice] = useState("");
+  const [img, setImg] = useState("");
+  const [stock, setStock] = useState("");
+  const [categoryId, setCategoryId] = useState("");
 
   const [error, setError] = useState("");
   const navigate = useNavigate();
@@ -19,22 +19,22 @@ export default function CreateProduct() {
   const handleCreateProduct = async (event) => {
     event.preventDefault();
     let formdata = new FormData(event.target);
+    console.log("form", formdata);
     try {
       await axios({
         headers: {
           "Content-Type": "multipart/form-data",
         },
         method: "post", // revisar que metodo corresponde. Si el endpoint es patch, tengo que armarlo con patch
-        url: `${process.env.REACT_APP_API_BASE_URL}/product-post`, //poner el endpoint que usamos
+        url: `${process.env.REACT_APP_API_BASE_URL}/products`, //poner el endpoint que usamos
         data: formdata,
       });
-      navigate("/admin/CreateProduct");
+      navigate("/admin/products");
     } catch (err) {
       console.log(err);
       setError(true);
     }
   };
-
   return (
     <>
       <Container fluid id="background">
@@ -48,71 +48,71 @@ export default function CreateProduct() {
               )}
               <Card.Body>
                 <div className="mb-3">
-                  <h2 className="mb-2 text-center ">Edit Product</h2>
+                  <h2 className="mb-2 text-center ">Create Product</h2>
                   <div className="mb-3">
                     <Form onSubmit={handleCreateProduct}>
-                      <Form.Group className="mb-3" controlId="productTitle">
+                      <Form.Group className="mb-3" controlId="title">
                         <Form.Label className="text-center">Nombre producto</Form.Label>
                         <Form.Control
                           type="text"
-                          value={productTitle}
-                          name="productTitle"
-                          onChange={(event) => setproductTitle(event.target.value)}
+                          value={title}
+                          name="title"
+                          onChange={(event) => setTitle(event.target.value)}
                           placeholder="Jarron de ceramica"
                         />
                       </Form.Group>
 
-                      <Form.Group className="mb-3" controlId="productDescription">
+                      <Form.Group className="mb-3" controlId="description">
                         <Form.Label className="text-center">Descripcion</Form.Label>
                         <Form.Control
                           type="text"
-                          value={productDescription}
-                          name="productDescription"
-                          onChange={(event) => setproductDescription(event.target.value)}
+                          value={description}
+                          name="description"
+                          onChange={(event) => setDescription(event.target.value)}
                           placeholder="Jarron de ceramica modelado color beige..."
                         />
                       </Form.Group>
 
-                      <Form.Group className="mb-3" controlId="productPrice">
+                      <Form.Group className="mb-3" controlId="price">
                         <Form.Label className="text-center">Precio</Form.Label>
                         <Form.Control
                           type="number"
-                          value={productPrice}
-                          name="productPrice"
-                          onChange={(event) => setproductPrice(event.target.value)}
+                          value={price}
+                          name="price"
+                          onChange={(event) => setPrice(event.target.value)}
                           placeholder="USD"
                         />
                       </Form.Group>
 
-                      <Form.Group className="mb-3" controlId="productImgformFile">
+                      <Form.Group className="mb-3" controlId="imgformFile">
                         <Form.Label className="text-center">Seleccionar Imagenes</Form.Label>
                         <Form.Control
                           type="file"
-                          value={productImg}
-                          name="productImg"
-                          onChange={(event) => setproductImg(event.target.value)}
+                          value={img}
+                          name="img"
+                          onChange={(event) => setImg(event.target.value)}
                           placeholder="Seleccionar imagenes"
                         />
                       </Form.Group>
 
-                      <Form.Group className="mb-3" controlId="productStock">
+                      <Form.Group className="mb-3" controlId="stock">
                         <Form.Label className="text-center">Definir Stock</Form.Label>
                         <Form.Control
                           type="number"
-                          value={productStock}
-                          name="productStock"
-                          onChange={(event) => setproductStock(event.target.value)}
+                          value={stock}
+                          name="stock"
+                          onChange={(event) => setStock(event.target.value)}
                           placeholder="Definir stock remanente"
                         />
                       </Form.Group>
 
-                      <Form.Group className="mb-3" controlId="productCategoryId">
+                      <Form.Group className="mb-3" controlId="categoryId">
                         <Form.Label className="text-center">Definir Category Id</Form.Label>
                         <Form.Control
                           type="number"
-                          value={productCategoryId}
-                          name="productCategoryId"
-                          onChange={(event) => setproductCategoryId(event.target.value)}
+                          value={categoryId}
+                          name="categoryId"
+                          onChange={(event) => setCategoryId(event.target.value)}
                           placeholder="Definir categoria de producto"
                         />
                       </Form.Group>

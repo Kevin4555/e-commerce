@@ -8,6 +8,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Sidebar from "../sidebar/Sidebar";
 import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const AdminCategories = () => {
   const [categories, setCategories] = useState([]);
@@ -38,7 +39,9 @@ const AdminCategories = () => {
         <h2>Panel de Categories</h2>
 
         <div className="text-end">
-          <Button variant="success">Agregar nueva Category</Button>
+          <Link to="/admin/createCategory" variant="success">
+            Agregar nueva Category
+          </Link>
         </div>
         <Table striped bordered hover>
           <thead>
