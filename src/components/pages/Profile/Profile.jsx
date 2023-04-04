@@ -80,92 +80,51 @@ function Profile() {
             <small className="fs-6 fw-semibold text-light text-center">Home</small>
           </div>
           <div className="container mt-5">
-            <div className="row">
-              <div className="d-block d-lg-none col-12 col-lg-4 order-lg-2 mb-3">
-                <div className="text-center bg-secondary-subtle p-4 rounded vh-100">
-                  <img
-                    src="/img/default-avatar.jpg"
-                    alt="Profile"
-                    className={`${css.profileImg} rounded-pill`}
-                  />
-                  <h2 className="mb-0 mt-3">
-                    {user.firstname} {user.lastname}
-                  </h2>
-                  <small>{user.email}</small>
-                  <div className="row mt-5 bg-white p-5 p-lg-2">
-                    <div className="col-6 d-lg-flex flex-lg-column text-start my-2">
-                      <small className="fw-bold fs-6">Firstname: </small>
-                      <small className="fs-6">{user.firstname}</small>
-                    </div>
-                    <div className="col-6 d-lg-flex flex-lg-column text-start my-2">
-                      <small className="fw-bold fs-6">Lastname: </small>
-                      <small className="fs-6">{user.lastname}</small>
-                    </div>
-                    <div className="col-6 d-lg-flex flex-lg-column text-start my-2">
-                      <small className="fs-6 fw-bold">Phone: </small>
-                      <small className="fs-6">{user.phone}</small>
-                    </div>
-                    <div className="col-12 d-lg-flex flex-lg-column text-start my-2">
-                      <small className="fw-bold fs-6">Email: </small>
-                      <small className="fs-6">{user.email}</small>
-                    </div>
-                    <div className="col-12 d-lg-flex flex-lg-column text-start my-2">
-                      <small className="fw-bold fs-6">Address: </small>
-                      <small className="fs-6">{user.address}</small>
-                    </div>
-                    <button className="btn btn-danger" onClick={handleLogOut}>
-                      Cerrar sesión
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div className="col-12 col-lg-8 order-lg-1">
-                <h2 className="fs-3">Historial de pedidos</h2>
-                {ordersFromLoggedUser.map((order) => (
-                  <Order order={order} />
-                ))}
-                {/* <h2 className="fs-4">Favoritos</h2>
+            <div className="col-12 col-lg-8 order-lg-1">
+              <h2 className="fs-3">Historial de pedidos</h2>
+              {ordersFromLoggedUser.map((order) => (
+                <Order order={order} />
+              ))}
+              {/* <h2 className="fs-4">Favoritos</h2>
               {products && (
                 <MultiItemCarousel products={products} productsPerPage={4} className="" />
               )} */}
-              </div>
-              <div className="d-none d-lg-block col-lg-4">
-                <div className="text-center bg-secondary-subtle p-4 rounded vh-100">
-                  <img
-                    src="/img/default-avatar.jpg"
-                    alt="Profile"
-                    className={`${css.profileImg} rounded-pill`}
-                  />
-                  <h2 className="mb-0 mt-3">
-                    {user.firstname} {user.lastname}
-                  </h2>
-                  <small>{user.email}</small>
-                  <div className="row mt-5 bg-white p-5 p-lg-2">
-                    <div className="col-6 d-lg-flex flex-lg-column text-start my-2">
-                      <small className="fw-bold fs-6">Firstname: </small>
-                      <small className="fs-6">{user.firstname}</small>
-                    </div>
-                    <div className="col-6 d-lg-flex flex-lg-column text-start my-2">
-                      <small className="fw-bold fs-6">Lastname: </small>
-                      <small className="fs-6">{user.lastname}</small>
-                    </div>
-                    <div className="col-6 d-lg-flex flex-lg-column text-start my-2">
-                      <small className="fs-6 fw-bold">Phone: </small>
-                      <small className="fs-6">{user.phone}</small>
-                    </div>
-                    <div className="col-12 d-lg-flex flex-lg-column text-start my-2">
-                      <small className="fw-bold fs-6">Avatar: </small>
-                      <small className="fs-6">{user.avatar}</small>
-                    </div>
-                    <div className="col-12 d-lg-flex flex-lg-column text-start my-2">
-                      <small className="fw-bold fs-6">Email: </small>
-                      <small className="fs-6">{user.email}</small>
-                    </div>
-                    <div className="col-12 d-lg-flex flex-lg-column text-start my-2">
-                      <small className="fw-bold fs-6">Address: </small>
-                      <small className="fs-6">{user.address}</small>
-                    </div>
+            </div>
+            <div className="d-none d-lg-block col-lg-4">
+              <div className="text-center bg-secondary-subtle p-4 rounded vh-100">
+                <img
+                  src="/img/default-avatar.jpg"
+                  alt="Profile"
+                  className={`${css.profileImg} rounded-pill`}
+                />
+                <h2 className="mb-0 mt-3">
+                  {user.firstname} {user.lastname}
+                </h2>
+                <small>{user.email}</small>
+                <div className="row mt-5 bg-white p-5 p-lg-2">
+                  <div className="col-6 d-lg-flex flex-lg-column text-start my-2">
+                    <small className="fw-bold fs-6">Firstname: </small>
+                    <small className="fs-6">{user.firstname}</small>
                   </div>
+                  <div className="col-6 d-lg-flex flex-lg-column text-start my-2">
+                    <small className="fw-bold fs-6">Lastname: </small>
+                    <small className="fs-6">{user.lastname}</small>
+                  </div>
+                  <div className="col-6 d-lg-flex flex-lg-column text-start my-2">
+                    <small className="fs-6 fw-bold">Phone: </small>
+                    <small className="fs-6">{user.phone}</small>
+                  </div>
+                  <div className="col-12 d-lg-flex flex-lg-column text-start my-2">
+                    <small className="fw-bold fs-6">Email: </small>
+                    <small className="fs-6">{user.email}</small>
+                  </div>
+                  <div className="col-12 d-lg-flex flex-lg-column text-start my-2">
+                    <small className="fw-bold fs-6">Address: </small>
+                    <small className="fs-6">{user.address}</small>
+                  </div>
+                  <button className="btn btn-danger" onClick={handleLogOut}>
+                    Cerrar sesión
+                  </button>
                 </div>
               </div>
             </div>
