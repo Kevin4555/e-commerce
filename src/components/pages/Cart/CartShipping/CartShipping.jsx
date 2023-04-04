@@ -1,7 +1,7 @@
 import "./CartShipping.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import PageNavbar from "../../../Navbar2/PageNavbar";
+import PageNavbar from "../../../Navbar/PageNavbar";
 import CartInformationItem from "../CartInformationItem/CartInformationItem";
 import Form from "react-bootstrap/Form";
 

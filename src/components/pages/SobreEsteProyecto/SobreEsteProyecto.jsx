@@ -1,6 +1,6 @@
 import css from "./SobreEsteProyecto.module.css";
 import { Container } from "react-bootstrap";
-import PageNavbar from "../../Navbar2/PageNavbar";
+import PageNavbar from "../../Navbar/PageNavbar";
 
 function SobreEsteProyecto() {
   return (

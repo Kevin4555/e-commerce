@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Col, Button, Row, Container, Card, Form, Alert } from "react-bootstrap";
-import PageNavbar from "../../Navbar2/PageNavbar";
+import PageNavbar from "../../Navbar/PageNavbar";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useDispatch } from "react-redux";
