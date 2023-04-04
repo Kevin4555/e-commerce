@@ -12,6 +12,12 @@ export default function CreateProduct() {
   const [img, setImg] = useState("");
   const [stock, setStock] = useState("");
   const [categoryId, setCategoryId] = useState("");
+  const [productTitle, setProductTitle] = useState("");
+  const [productDescription, setProductDescription] = useState("");
+  const [productPrice, setProductPrice] = useState("");
+  const [productImg, setProductImg] = useState("");
+  const [productStock, setProductStock] = useState("");
+  const [productCategoryId, setProductCategoryId] = useState("");
 
   const [error, setError] = useState("");
   const navigate = useNavigate();
@@ -19,6 +25,11 @@ export default function CreateProduct() {
   const handleCreateProduct = async (event) => {
     event.preventDefault();
     let formdata = new FormData(event.target);
+    console.log(formdata);
+
+    for (const [key, value] of formdata) {
+      console.log(key, ":", value);
+    }
     console.log("form", formdata);
     try {
       await axios({

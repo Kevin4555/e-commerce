@@ -7,6 +7,7 @@ import Container from "react-bootstrap/Container";
 import Sidebar from "../sidebar/Sidebar";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const AdminProducts = () => {
   const [products, setProducts] = useState([]);
@@ -25,6 +26,7 @@ const AdminProducts = () => {
     };
     getProducts();
   }, []);
+
   return (
     <>
       <Sidebar />
@@ -92,11 +94,11 @@ const AdminProducts = () => {
                   <td>{product.categoryId}</td>
                   <td>
                     {" "}
-                    <Button variant="warning">Editar categoria</Button>
+                    <Button variant="warning">Editar </Button>
                   </td>
                   <td>
                     {" "}
-                    <Button variant="danger">Eliminar categoria</Button>
+                    <Button variant="danger">Eliminar </Button>
                   </td>
                 </tr>
               );

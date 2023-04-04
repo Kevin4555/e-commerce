@@ -58,5 +58,6 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/nicoroke/e-commerce/issues"
-  }
+  },
+  "devDependencies": {}
 }

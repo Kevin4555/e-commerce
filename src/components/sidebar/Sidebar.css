@@ -1,24 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap");
-
-:root {
-  -blanco: #e0e0e0;
-  -azul-opacidad: #184463;
-  -bg-menu: #003053;
-  -bg-body: #c7e1ff;
-}
-
-body {
-  font-family: "Quicksand", sans-serif;
-  color: var(-blanco);
-}
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Quicksand", sans-serif;
   font-size: medium;
-  color: black;
+  color: var(--primary);
 }
 
 .menu-dashboard {
@@ -81,7 +67,7 @@ body {
 
 .admin-botton:hover {
   text-decoration: none;
-  background-color: #003053;
+  background-color: var(--tertiary);
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -97,8 +83,8 @@ body {
 }
 
 #menu {
-  background-color: #184463;
-  border-color: wheat;
+  background-color: #848c7c;
+  border-color: #9ea190;
 }
 
 #menu i {
