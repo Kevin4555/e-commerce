@@ -30,19 +30,15 @@ export default function EditCategoryId() {
     getCategories();
   }, []);
 
-  const handleEditProduct = async (event) => {
+  const handleEditCategory = async (event) => {
     event.preventDefault();
-    let formdata = new FormData(event.target);
     try {
       await axios({
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-        method: "patch", // revisar que metodo corresponde. Si el endpoint es patch, tengo que armarlo con patch
-        url: `${process.env.REACT_APP_API_BASE_URL}/product-patch`, //poner el endpoint que usamos
-        data: formdata,
+        method: "patch",
+        url: `${process.env.REACT_APP_API_BASE_URL}/categories/${category.id}`,
+        data: { categoryName },
       });
-      navigate("/admin/editProduct");
+      navigate("/admin/categories");
     } catch (err) {
       console.log(err);
       setError(true);
@@ -62,9 +58,9 @@ export default function EditCategoryId() {
               )}
               <Card.Body>
                 <div className="mb-3">
-                  <h2 className="mb-2 text-center ">Edit Product</h2>
+                  <h2 className="mb-2 text-center ">Edit Category</h2>
                   <div className="mb-3">
-                    <Form onSubmit={handleEditProduct}>
+                    <Form onSubmit={handleEditCategory}>
                       <Form.Group className="mb-3" controlId="categoryId">
                         <Form.Label className="text-center">Definir Category Id</Form.Label>
                         <Form.Control

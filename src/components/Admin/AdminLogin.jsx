@@ -26,7 +26,6 @@ export default function AdminLogin() {
           password,
         },
       });
-      console.log(response.data);
       dispatch(setUser(response.data));
       navigate("/admin/products");
     } catch (err) {

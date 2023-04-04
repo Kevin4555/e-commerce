@@ -6,8 +6,8 @@ import CartInformationItem from "../CartInformationItem/CartInformationItem";
 import Form from "react-bootstrap/Form";
 
 function CartShipping() {
-  const cart = useSelector((state) => state.persistedReducer.cart.items);
-  const totalPrice = useSelector((state) => state.persistedReducer.cart.totalPrice);
+  const { items, totalPrice, address } = useSelector((state) => state.persistedReducer.cart);
+  const user = useSelector((state) => state.persistedReducer.user);
   return (
     <main>
       <PageNavbar />
@@ -33,7 +33,7 @@ function CartShipping() {
                     <small className="fs-6 text-secondary">Contact</small>
                   </div>
                   <div className="col-8 d-flex justify-content-between align-items-center">
-                    <small className="fs-6 ps-3">pepe@gmai.com</small>
+                    <small className="fs-6 ps-3">{user.email}</small>
                   </div>
                   <div className="col-2 text-end d-flex justify-content-between align-items-center">
                     <button className="btn">Editar</button>
@@ -45,7 +45,9 @@ function CartShipping() {
                     <small className="fs-6 text-secondary">Envío a</small>
                   </div>
                   <div className="col-8 d-flex justify-content-between align-items-center">
-                    <small className="fs-6 ps-3">Br. Artigas 9999, Montevideo 11800, Uruguay</small>
+                    <small className="fs-6 ps-3">
+                      {address.direccion}, {address.ciudad} {address.codigoPostal}, {address.pais}
+                    </small>
                   </div>
                   <div className="col-2 text-end d-flex justify-content-between align-items-center">
                     <button className="btn">Editar</button>
@@ -53,8 +55,8 @@ function CartShipping() {
                 </div>
               </div>
               <div className="col-6 d-inline">
-                <Link to="/cart" className="btn ps-0 py-3 px-5 fw-semibold">
-                  ← Volver al carrito
+                <Link to="/cart/information" className="btn ps-0 py-3 px-5 fw-semibold">
+                  ← Volver a Información
                 </Link>
               </div>
               <div className="col-6 d-inline text-end">
@@ -71,7 +73,7 @@ function CartShipping() {
             </small>
           </div>
           <div className="col-5 ps-5 pe-9 py-5 bg-secondary-subtle border-start">
-            {cart.map((item) => (
+            {items.map((item) => (
               <CartInformationItem key={item.id} item={item} />
             ))}
             <div className="d-flex justify-content-between">

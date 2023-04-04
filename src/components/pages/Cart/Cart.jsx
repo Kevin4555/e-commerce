@@ -8,7 +8,6 @@ function Cart() {
   window.document.title = "Carrito";
   const cart = useSelector((state) => state.persistedReducer.cart.items);
   const totalPrice = useSelector((state) => state.persistedReducer.cart.totalPrice);
-  console.log(cart);
 
   return (
     <main>

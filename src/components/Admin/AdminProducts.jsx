@@ -40,17 +40,6 @@ const AdminProducts = () => {
     }
   };
 
-  const handleEditProduct = async (product) => {
-    try {
-      await axios({
-        method: "patch",
-        url: `${process.env.REACT_APP_API_BASE_URL}/products/${product.id}`,
-      });
-    } catch (err) {
-      console.log(err);
-      setError(true);
-    }
-  };
   return (
     <>
       <Sidebar />
@@ -119,13 +108,13 @@ const AdminProducts = () => {
                   <td>
                     {" "}
                     <Link to={`/admin/editProduct/${product.id}`} variant="warning">
-                      Editar categoria
+                      Editar Producto
                     </Link>
                   </td>
                   <td>
                     {" "}
                     <Button variant="danger" onClick={() => handleDeleteProduct(product)}>
-                      Eliminar categoria
+                      Eliminar Producto
                     </Button>
                   </td>
                 </tr>

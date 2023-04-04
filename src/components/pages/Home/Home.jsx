@@ -180,7 +180,7 @@ function Home() {
             <h2 className="pb-4">Destacados</h2>
             {products && (
               <MultiItemCarousel
-                products={products.filter((product) => (product.rating = 5))}
+                products={products.filter((product) => Number(product.rating) === 5)}
                 productsPerPage={4}
               ></MultiItemCarousel>
             )}
