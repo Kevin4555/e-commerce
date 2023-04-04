@@ -2,7 +2,7 @@ import css from "./Category.module.css";
 import cssHome from "../Home/Home.module.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import PageNavbar from "../../navbar/PageNavbar";
+import PageNavbar from "../../Navbar/PageNavbar";
 import ProductMini from "../../ProductMini/ProductMini";
 import Newsletter from "../../Newsletter/Newsletter";
 import Footer from "../../Footer/Footer";
