@@ -119,13 +119,13 @@ const AdminProducts = () => {
                   <td>
                     {" "}
                     <Link to={`/admin/editProduct/${product.id}`} variant="warning">
-                      Editar categoria
+                      Editar Producto
                     </Link>
                   </td>
                   <td>
                     {" "}
                     <Button variant="danger" onClick={() => handleDeleteProduct(product)}>
-                      Eliminar categoria
+                      Eliminar Producto
                     </Button>
                   </td>
                 </tr>

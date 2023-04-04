@@ -48,7 +48,7 @@ function App() {
       <Route path="/admin/login" element={<AdminLogin />} />
       <Route path="/admin/editUser" element={<EditUser />} />
       <Route path="/admin/editProduct/:id" element={<EditProduct />} />
-      <Route path="/admin/editCategoryId" element={<EditCategoryId />} />
+      <Route path="/admin/editCategoryId/:id" element={<EditCategoryId />} />
       <Route path="/admin/createCategory" element={<CreateCategory />} />
       <Route path="/admin/createProduct" element={<CreateProduct />} />
     </Routes>
