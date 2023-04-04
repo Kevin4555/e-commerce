@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import PageNavbar from "../../../navbar/PageNavbar";
+import PageNavbar from "../../../Navbar/PageNavbar";
 import Form from "react-bootstrap/Form";
 import CartInformationItem from "../CartInformationItem/CartInformationItem";
 import axios from "axios";

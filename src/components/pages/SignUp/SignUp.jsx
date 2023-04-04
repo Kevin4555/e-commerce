@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { Col, Button, Row, Container, Card, Form, Alert } from "react-bootstrap";
-import PageNavbar from "../../navbar/PageNavbar";
+import PageNavbar from "../../Navbar/PageNavbar";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import css from "./SignUp.module.css";
+import { useDispatch } from "react-redux";
+import { setUser } from "../../../slices/usersSlice";
 
 export default function SignUp() {
+  window.document.title = "Registro";
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -15,12 +17,13 @@ export default function SignUp() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleSignUp = async (event) => {
     event.preventDefault();
     let formdata = new FormData(event.target);
     try {
-      await axios({
+      const response = await axios({
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -28,7 +31,8 @@ export default function SignUp() {
         url: `${process.env.REACT_APP_API_BASE_URL}/users`,
         data: formdata,
       });
-      navigate("/login");
+      dispatch(setUser({ token: response.data.token, ...response.data.user }));
+      navigate("/");
     } catch (err) {
       console.log(err);
       setError(true);

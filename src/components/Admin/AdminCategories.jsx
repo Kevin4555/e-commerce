@@ -3,7 +3,7 @@ import css from "./Admin.module.css";
 import Table from "react-bootstrap/Table";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Container from "react-bootstrap/Container";
+import { Container, Button } from "react-bootstrap";
 import Sidebar from "../Sidebar/Sidebar";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
