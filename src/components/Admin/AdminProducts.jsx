@@ -40,17 +40,6 @@ const AdminProducts = () => {
     }
   };
 
-  const handleEditProduct = async (product) => {
-    try {
-      await axios({
-        method: "patch",
-        url: `${process.env.REACT_APP_API_BASE_URL}/products/${product.id}`,
-      });
-    } catch (err) {
-      console.log(err);
-      setError(true);
-    }
-  };
   return (
     <>
       <Sidebar />

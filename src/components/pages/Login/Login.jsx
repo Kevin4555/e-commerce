@@ -28,7 +28,6 @@ export default function Login() {
           password,
         },
       });
-      console.log(response.data);
       dispatch(setUser(response.data));
       navigate("/");
     } catch (err) {

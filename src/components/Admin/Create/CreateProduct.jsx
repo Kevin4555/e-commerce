@@ -19,7 +19,6 @@ export default function CreateProduct() {
   const handleCreateProduct = async (event) => {
     event.preventDefault();
     let formdata = new FormData(event.target);
-    console.log("form", formdata);
     try {
       await axios({
         headers: {

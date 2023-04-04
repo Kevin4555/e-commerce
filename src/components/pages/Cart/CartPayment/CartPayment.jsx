@@ -1,19 +1,21 @@
 import "./CartPayment.css";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { clearCart } from "../../../../slices/cartSlice";
 import PageNavbar from "../../../navbar/PageNavbar";
 import Form from "react-bootstrap/Form";
 import CartInformationItem from "../CartInformationItem/CartInformationItem";
 import axios from "axios";
 
 function CartPayment() {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [error, setError] = useState("");
-  const userId = useSelector((state) => state.persistedReducer.user.id);
-  const cart = useSelector((state) => state.persistedReducer.cart);
-  const totalPrice = useSelector((state) => state.persistedReducer.cart.totalPrice);
+  const user = useSelector((state) => state.persistedReducer.user);
+  const userId = user.id;
+  const { items, totalPrice, address } = useSelector((state) => state.persistedReducer.cart);
 
   const handleCreateOrder = async (event) => {
     event.preventDefault();
@@ -21,14 +23,15 @@ function CartPayment() {
       await axios({
         method: "post",
         url: `${process.env.REACT_APP_API_BASE_URL}/orders`,
-        data: { cart, userId },
+        data: { items, totalPrice, address, userId },
       });
-      navigate("#");
+      dispatch(clearCart());
     } catch (err) {
       console.log(err);
       setError(true);
     }
   };
+
   return (
     <main>
       <PageNavbar />
@@ -43,9 +46,9 @@ function CartPayment() {
               <small className="fw-bold fs-6"> > </small>
               <small className="">Información</small>
               <small className="fw-bold fs-6"> > </small>
-              <small className="fw-semibold">Envío</small>
+              <small className="">Envío</small>
               <small className="fw-bold fs-6"> > </small>
-              <small className="text-secondary">Pago</small>
+              <small className="fw-semibold">Pago</small>
             </div>
             <div className="row">
               <div className="col-12 border rounded px-3 py-2 mb-5">
@@ -54,7 +57,7 @@ function CartPayment() {
                     <small className="fs-6 text-secondary">Contact</small>
                   </div>
                   <div className="col-8 d-flex justify-content-between align-items-center">
-                    <small className="fs-6 ps-3">pepe@gmai.com</small>
+                    <small className="fs-6 ps-3">{user.email}</small>
                   </div>
                   <div className="col-2 text-end d-flex justify-content-between align-items-center">
                     <button className="btn">Editar</button>
@@ -66,7 +69,9 @@ function CartPayment() {
                     <small className="fs-6 text-secondary">Envío a</small>
                   </div>
                   <div className="col-8 d-flex justify-content-between align-items-center">
-                    <small className="fs-6 ps-3">Br. Artigas 9999, Montevideo 11800, Uruguay</small>
+                    <small className="fs-6 ps-3">
+                      {address.direccion}, {address.ciudad} {address.codigoPostal}, {address.pais}
+                    </small>
                   </div>
                   <div className="col-2 text-end d-flex justify-content-between align-items-center">
                     <button className="btn">Editar</button>
@@ -108,7 +113,11 @@ function CartPayment() {
                 </Link>
               </div>
               <div className="col-6 d-inline text-end">
-                <button className="btn py-3 px-5 fw-semibold text-white" id="continue-btn">
+                <button
+                  className="btn py-3 px-5 fw-semibold text-white"
+                  id="continue-btn"
+                  onClick={handleCreateOrder}
+                >
                   Realizar el pago
                 </button>
               </div>
@@ -119,7 +128,7 @@ function CartPayment() {
             </small>
           </div>
           <div className="col-5 ps-5 pe-9 py-5 bg-secondary-subtle border-start">
-            {cart.items.map((item) => (
+            {items.map((item) => (
               <CartInformationItem key={item.id} item={item} />
             ))}
             <div className="d-flex justify-content-between">

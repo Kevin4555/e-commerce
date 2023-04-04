@@ -61,14 +61,13 @@ function Profile() {
       <>
         <PageNavbar />
         <main>
-          <h1>a</h1>
           <div className="container-fluid py-5 d-flex align-item-center justify-content-center flex-column">
             <h1 className="fs-2 fw-bold text-light text-center">Mi Perfil</h1>
             <small className="fs-6 fw-semibold text-light text-center">Home</small>
           </div>
           <div className="container mt-5">
             <div className="row">
-              <div className="col-12 col-lg-4 order-lg-2 mb-3">
+              <div className="col-12 col-lg-4 order-lg-2 mb-3 d-lg-none">
                 <div className="text-center bg-secondary-subtle p-4 rounded vh-100">
                   <img
                     src="/img/default-avatar.jpg"
