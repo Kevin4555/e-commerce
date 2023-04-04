@@ -7,10 +7,12 @@ import Container from "react-bootstrap/Container";
 import Sidebar from "../sidebar/Sidebar";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const AdminProducts = () => {
   const [products, setProducts] = useState([]);
-
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
   useEffect(() => {
     const getProducts = async () => {
       try {
@@ -25,6 +27,30 @@ const AdminProducts = () => {
     };
     getProducts();
   }, []);
+
+  const handleDeleteProduct = async (product) => {
+    try {
+      await axios({
+        method: "delete",
+        url: `${process.env.REACT_APP_API_BASE_URL}/products/${product.id}`,
+      });
+    } catch (err) {
+      console.log(err);
+      setError(true);
+    }
+  };
+
+  const handleEditProduct = async (product) => {
+    try {
+      await axios({
+        method: "patch",
+        url: `${process.env.REACT_APP_API_BASE_URL}/products/${product.id}`,
+      });
+    } catch (err) {
+      console.log(err);
+      setError(true);
+    }
+  };
   return (
     <>
       <Sidebar />
@@ -92,11 +118,15 @@ const AdminProducts = () => {
                   <td>{product.categoryId}</td>
                   <td>
                     {" "}
-                    <Button variant="warning">Editar categoria</Button>
+                    <Link to={`/admin/editProduct/${product.id}`} variant="warning">
+                      Editar categoria
+                    </Link>
                   </td>
                   <td>
                     {" "}
-                    <Button variant="danger">Eliminar categoria</Button>
+                    <Button variant="danger" onClick={() => handleDeleteProduct(product)}>
+                      Eliminar categoria
+                    </Button>
                   </td>
                 </tr>
               );

@@ -21,7 +21,7 @@ function Sidebar() {
 
         <div className="toggle">
           <Button className="boton-admin" variant="primary" onClick={handleShow}>
-            <i class="bi bi-list"></i>
+            <i className="bi bi-list"></i>
           </Button>
         </div>
       </div>
@@ -30,7 +30,7 @@ function Sidebar() {
         <Offcanvas show={show} onHide={handleClose} id="menu">
           <div>
             <Button className="boton-admin" variant="primary" onClick={handleShow}>
-              <i class="bi bi-list"></i>
+              <i className="bi bi-list"></i>
             </Button>
           </div>
           <Offcanvas.Header closeButton>
@@ -39,28 +39,28 @@ function Sidebar() {
           <Offcanvas.Body>
             <div className="admin-bottons ">
               <Link to="/admin/categories" className="d-block admin-botton">
-                <i class="bi bi-card-checklist iconos"></i>
+                <i className="bi bi-card-checklist iconos"></i>
                 Admin Categories
               </Link>
               <Link to="/admin/orders" className="d-block admin-botton">
-                <i class="bi bi-receipt iconos"></i>
+                <i className="bi bi-receipt iconos"></i>
                 Admin Orders
               </Link>
               <Link to="/admin/reviews" className="d-block admin-botton">
-                <i class="bi bi-chat-left-quote iconos"></i>
+                <i className="bi bi-chat-left-quote iconos"></i>
                 Admin Reviews
               </Link>
               <Link to="/admin/products" className="d-block admin-botton">
-                <i class="bi bi-shop iconos"></i>
+                <i className="bi bi-shop iconos"></i>
                 Admin Products
               </Link>
               <Link to="/admin/users" className="d-block admin-botton">
-                <i class="bi bi-people iconos"></i>
+                <i className="bi bi-people iconos"></i>
                 Admin Users
               </Link>
               <hr className="hr" />
               <Link to="/" className="d-block volver">
-                <i class="bi bi-house iconos"></i>
+                <i className="bi bi-house iconos"></i>
                 Volver al sitio
               </Link>
             </div>
