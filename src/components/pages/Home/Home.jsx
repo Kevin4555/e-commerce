@@ -97,8 +97,6 @@ function Home() {
                 className="col-12 col-sm-6 col-md-4 col-xl-2"
                 onClick={() => scrollToCategory("pinturas")}
               >
-                {console.log("products:", products)}
-                {console.log("productsFromCategory1:", productsFromCategory1)}
                 <img
                   src={
                     process.env.REACT_APP_API_BASE_IMG_URL + `/${productsFromCategory1[2].img.img1}`
@@ -182,7 +180,7 @@ function Home() {
             <h2 className="pb-4">Destacados</h2>
             {products && (
               <MultiItemCarousel
-                products={products.filter((product) => (product.rating = 5))}
+                products={products.filter((product) => Number(product.rating) === 5)}
                 productsPerPage={4}
               ></MultiItemCarousel>
             )}
