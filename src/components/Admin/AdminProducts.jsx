@@ -7,7 +7,6 @@ import Container from "react-bootstrap/Container";
 import Sidebar from "../sidebar/Sidebar";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
-import { Link } from "react-router-dom";
 
 const AdminProducts = () => {
   const [products, setProducts] = useState([]);
@@ -26,7 +25,6 @@ const AdminProducts = () => {
     };
     getProducts();
   }, []);
-
   return (
     <>
       <Sidebar />
@@ -40,8 +38,8 @@ const AdminProducts = () => {
 
         {/* Cambiar segun excalidraw */}
         <div className="text-end">
-          <Link to="/admin/createProduct" variant="success">
-            Agregar nuevo producto
+          <Link to="/admin/createProduct">
+            <Button variant="success"> Agregar nuevo producto </Button>
           </Link>
         </div>
 
@@ -94,11 +92,11 @@ const AdminProducts = () => {
                   <td>{product.categoryId}</td>
                   <td>
                     {" "}
-                    <Button variant="warning">Editar </Button>
+                    <Button variant="warning">Editar categoria</Button>
                   </td>
                   <td>
                     {" "}
-                    <Button variant="danger">Eliminar </Button>
+                    <Button variant="danger">Eliminar categoria</Button>
                   </td>
                 </tr>
               );
