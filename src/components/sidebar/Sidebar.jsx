@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { Link } from "react-router-dom";
-import "./Sidebar.css";
+import css from "./Sidebar.module.css";
 
 function Sidebar() {
   const [show, setShow] = useState(false);
@@ -12,55 +12,55 @@ function Sidebar() {
 
   return (
     <>
-      <div id="menu-dashboard">
-        <div className="top-menu">
-          <div className="logo">
+      <div id={css["menuDashboard"]}>
+        <div className={css.topMenu}>
+          <div className={css.logo}>
             <img src="../../logo.svg" alt="" />
           </div>
         </div>
 
         <div className="toggle">
-          <Button className="boton-admin" variant="primary" onClick={handleShow}>
+          <Button className={css.botonAdmin} variant="primary" onClick={handleShow}>
             <i class="bi bi-list"></i>
           </Button>
         </div>
       </div>
 
       {
-        <Offcanvas show={show} onHide={handleClose} id="menu">
+        <Offcanvas show={show} onHide={handleClose} id={css["menu"]}>
           <div>
-            <Button className="boton-admin" variant="primary" onClick={handleShow}>
+            <Button className={css.botonAdmin} variant="primary" onClick={handleShow}>
               <i class="bi bi-list"></i>
             </Button>
           </div>
           <Offcanvas.Header closeButton>
-            <Offcanvas.Title className="titulo-sidebar">Vista de Admins</Offcanvas.Title>
+            <Offcanvas.Title className={css.tituloSidebar}>Vista de Admins</Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body>
-            <div className="admin-bottons ">
-              <Link to="/admin/categories" className="d-block admin-botton">
-                <i class="bi bi-card-checklist iconos"></i>
+            <div className={css.adminButton}>
+              <Link to="/admin/categories" className={`d-block ${css.adminButton}`}>
+                <i className={`bi bi-card-checklist ${css.iconos}`}></i>
                 Admin Categories
               </Link>
-              <Link to="/admin/orders" className="d-block admin-botton">
-                <i class="bi bi-receipt iconos"></i>
+              <Link to="/admin/orders" className="d-block adminButton">
+                <i className={`bi bi-receipt ${css.iconos}`}></i>
                 Admin Orders
               </Link>
-              <Link to="/admin/reviews" className="d-block admin-botton">
-                <i class="bi bi-chat-left-quote iconos"></i>
+              <Link to="/admin/reviews" className={`d-block ${css.adminButton}`}>
+                <i className={`bi bi-chat-left-quote ${css.iconos}`}></i>
                 Admin Reviews
               </Link>
-              <Link to="/admin/products" className="d-block admin-botton">
-                <i class="bi bi-shop iconos"></i>
+              <Link to="/admin/products" className={`d-block ${css.adminButton}`}>
+                <i className={`bi bi-shop ${css.iconos}`}></i>
                 Admin Products
               </Link>
-              <Link to="/admin/users" className="d-block admin-botton">
-                <i class="bi bi-people iconos"></i>
+              <Link to="/admin/users" className={`d-block ${css.adminButton}`}>
+                <i className={`bi bi-people ${css.iconos}`}></i>
                 Admin Users
               </Link>
               <hr className="hr" />
-              <Link to="/" className="d-block volver">
-                <i class="bi bi-house iconos"></i>
+              <Link to="/" className={`d-block ${css.volver}`}>
+                <i className={`bi bi-house ${css.iconos}`}></i>
                 Volver al sitio
               </Link>
             </div>

@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { Col, Button, Row, Container, Card, Form, Alert } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.css"; // or include from a CDN
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import "../../pages/SignUp/SignUp.css";
+import css from "../../pages/SignUp/SignUp.module.css";
 
 export default function CreateProduct() {
   const [title, setTitle] = useState("");
@@ -12,12 +11,6 @@ export default function CreateProduct() {
   const [img, setImg] = useState("");
   const [stock, setStock] = useState("");
   const [categoryId, setCategoryId] = useState("");
-  const [productTitle, setProductTitle] = useState("");
-  const [productDescription, setProductDescription] = useState("");
-  const [productPrice, setProductPrice] = useState("");
-  const [productImg, setProductImg] = useState("");
-  const [productStock, setProductStock] = useState("");
-  const [productCategoryId, setProductCategoryId] = useState("");
 
   const [error, setError] = useState("");
   const navigate = useNavigate();
@@ -25,12 +18,6 @@ export default function CreateProduct() {
   const handleCreateProduct = async (event) => {
     event.preventDefault();
     let formdata = new FormData(event.target);
-    console.log(formdata);
-
-    for (const [key, value] of formdata) {
-      console.log(key, ":", value);
-    }
-    console.log("form", formdata);
     try {
       await axios({
         headers: {
@@ -48,8 +35,8 @@ export default function CreateProduct() {
   };
   return (
     <>
-      <Container fluid id="background">
-        <Row id="content" className="py-3 d-flex justify-content-center align-items-center">
+      <Container fluid id={css["background"]}>
+        <Row id={css["content"]} className="py-3 d-flex justify-content-center align-items-center">
           <Col xs={11} sm={8} md={6} xl={4}>
             <Card className="px-4">
               {error && (
@@ -59,7 +46,7 @@ export default function CreateProduct() {
               )}
               <Card.Body>
                 <div className="mb-3">
-                  <h2 className="mb-2 text-center ">Create Product</h2>
+                  <h2 className="mb-2 text-center">Create Product</h2>
                   <div className="mb-3">
                     <Form onSubmit={handleCreateProduct}>
                       <Form.Group className="mb-3" controlId="title">
@@ -69,7 +56,7 @@ export default function CreateProduct() {
                           value={title}
                           name="title"
                           onChange={(event) => setTitle(event.target.value)}
-                          placeholder="Jarron de ceramica"
+                          placeholder="Ingrese el nombre del producto"
                         />
                       </Form.Group>
 
@@ -80,7 +67,7 @@ export default function CreateProduct() {
                           value={description}
                           name="description"
                           onChange={(event) => setDescription(event.target.value)}
-                          placeholder="Jarron de ceramica modelado color beige..."
+                          placeholder="Ingrese descripción"
                         />
                       </Form.Group>
 

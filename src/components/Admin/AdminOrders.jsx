@@ -1,10 +1,10 @@
 import React from "react";
-import "../Admin/Admin.css";
+import css from "./Admin.module.css";
 import Table from "react-bootstrap/Table";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Container from "react-bootstrap/Container";
-import Sidebar from "../sidebar/Sidebar";
+import Sidebar from "../Sidebar/Sidebar";
 import Button from "react-bootstrap/Button";
 
 const AdminOrders = () => {

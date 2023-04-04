@@ -1,4 +1,4 @@
-import "./Product.css";
+import css from "./Product.module.css";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -61,19 +61,19 @@ function Product() {
         <PageNavbar />
         <div className="container mt-5 p-3">
           <div className="row">
-            <div className="col-12 col-md-6" id="producto">
-              <div className="carousel-div me-5 text-end">
+            <div className="col-12 col-md-6" id={css["producto"]}>
+              <div className="me-5 text-end">
                 <Carousel className="rounded">
                   <Carousel.Item className="h-100">
                     <img
-                      className="d-block w-100 h-100 object-fit-cover carousel-image"
+                      className={`d-block w-100 h-100 object-fit-cover ${css.carouselImage}`}
                       src={process.env.REACT_APP_API_BASE_IMG_URL + `/${product.img.img1}`}
                       alt="First slide"
                     />
                   </Carousel.Item>
                   <Carousel.Item className="h-100">
                     <img
-                      className="d-block w-100 h-100 object-fit-cover carousel-image"
+                      className={`d-block w-100 h-100 object-fit-cover ${css.carouselImage}`}
                       src={process.env.REACT_APP_API_BASE_IMG_URL + `/${product.img.img2}`}
                       alt="Second slide"
                     />
@@ -81,27 +81,28 @@ function Product() {
                 </Carousel>
               </div>
             </div>
-
             <div className="col-12 col-md-6 p-3">
               <Rating
                 className="d-block my-3 mb-1"
                 emptySymbol="bi bi-star"
-                fullSymbol="bi bi-star-fill stars"
+                fullSymbol={`bi bi-star-fill ${css.stars}`}
                 initialRating={product.rating}
               />
               <h1 className="">{product.title}</h1>
               <h3 className="d-inline">${product.price} USD</h3>
-              <span className="priceBefore ms-2">${Math.floor(product.price * 1.2)} USD</span>
+              <span className={`${css.priceBefore} ms-2`}>
+                ${Math.floor(product.price * 1.2)} USD
+              </span>
               {product.stock === 0 ? (
-                <span className="badge ms-3 bg-red">FUERA DE STOCK</span>
+                <span className={`${css.badge} ms-3 bg-red`}>FUERA DE STOCK</span>
               ) : (
-                <span className="badge ms-3">
+                <span className={`${css.badge} ms-3`}>
                   {product.stock === 1 ? `Queda una unidad` : `Quedan ${product.stock} unidades!`}
                 </span>
               )}
               <p className="mt-4 w-75">{product.description}</p>
               <div className="d-flex align-items-center mt-5">
-                <button className="btn fw-semibold" id="btn" onClick={handleAddToCart}>
+                <button className="btn fw-semibold" id={css["btn"]} onClick={handleAddToCart}>
                   Añadir al carrito
                 </button>
 
@@ -120,7 +121,7 @@ function Product() {
               <img
                 src="/img/default-avatar.jpg"
                 alt="User img"
-                className="user-avatar rounded-pill "
+                className={`${css.userAvatar} rounded-pill`}
               />
               <small className="mx-2 mfw-semibold">Pepe Rodriguez</small>
               <small>
@@ -130,7 +131,7 @@ function Product() {
             <Rating
               className="d-block"
               emptySymbol="bi bi-star"
-              fullSymbol="bi bi-star-fill stars"
+              fullSymbol={`bi bi-star-fill ${css.stars}`}
               readonly="true"
               initialRating="5"
             />

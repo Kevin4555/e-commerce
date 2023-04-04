@@ -7,6 +7,28 @@
   width: 50vw;
 }
 
+@media (max-width: 991px) {
+  #mainBar {
+    height: 5rem;
+  }
+
+  #mainBar > * > img {
+    padding-left: 2.5rem;
+  }
+
+  #categoryBar {
+    border-top: 1px solid rgba(143, 143, 143, 0.3);
+    width: 100vw;
+    height: 13rem;
+    margin-top: 1rem;
+  }
+
+  #categoryBar > * > * {
+    border-bottom: 1px solid rgba(174, 174, 174, 0.297);
+    width: 90vw;
+  }
+}
+
 #categoryBar > div {
   justify-content: space-evenly !important;
 }
@@ -29,6 +51,10 @@
 
 #search {
   margin-right: 2rem;
+}
+
+#form {
+  width: 100%;
 }
 
 .bi-search {

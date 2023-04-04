@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { Col, Button, Row, Container, Card, Form, Alert } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.css"; // or include from a CDN
 import PageNavbar from "../../navbar/PageNavbar";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import "./SignUp.css";
+import css from "./SignUp.module.css";
 
 export default function SignUp() {
   const [firstName, setFirstName] = useState("");

@@ -1,39 +1,27 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Quicksand", sans-serif;
-  font-size: medium;
-  color: var(--primary);
-}
-
-.menu-dashboard {
+.menuDashboard {
   max-width: 100px;
   height: 100vh;
-  background-color: var(-bg-menu);
   padding: 20px;
-  transition: max-width 0.3s ease;
 }
-.titulo-sidebar {
+.tituloSidebar {
   color: azure;
   font-size: x-large;
   margin-top: 2rem;
 }
 
-.top-menu {
+.topMenu {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100px;
 }
 
-.boton-admin {
+.botonAdmin {
   position: fixed;
   left: 0;
   top: 0;
   z-index: 1040;
   display: inline-block;
-  font-family: "Quicksand", sans-serif;
   width: 100px;
 }
 
@@ -55,17 +43,16 @@
   color: #e0e0e0;
 }
 
-.admin-botton {
+.adminButton {
   margin-left: 1rem;
   color: black;
   margin-top: 3rem;
-  font-family: "Quicksand", sans-serif;
   color: whitesmoke;
   font-size: large;
   cursor: pointer;
 }
 
-.admin-botton:hover {
+.adminButton:hover {
   text-decoration: none;
   background-color: var(--tertiary);
   border-radius: 8px;
@@ -97,7 +84,7 @@
   transition: opacity 0.3s ease;
 }
 
-.menu-.menu-dashboard.open span {
+.menu .menuDashboard .open span {
   display: block;
   transition: opacity 0.3s ease;
   width: auto;

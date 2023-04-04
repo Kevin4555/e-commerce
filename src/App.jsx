@@ -1,6 +1,5 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import { useState } from "react";
 
 import SobreEsteProyecto from "./components/pages/SobreEsteProyecto/SobreEsteProyecto";
 import Product from "./components/pages/Product/Product";
@@ -23,7 +22,6 @@ import AdminLogin from "./components/Admin/AdminLogin";
 import EditUser from "./components/Admin/Edit/EditUser";
 import EditProduct from "./components/Admin/Edit/EditProduct";
 import EditCategoryId from "./components/Admin/Edit/EditCategoryId";
-import CreateUser from "./components/Admin/Create/CreateUser";
 import CreateProduct from "./components/Admin/Create/CreateProduct";
 import CreateCategory from "./components/Admin/Create/CreateCategory";
 /* import Busqueda from "./components/pages/Busqueda/Busqueda"; */
@@ -51,11 +49,8 @@ function App() {
       <Route path="/admin/editUser" element={<EditUser />} />
       <Route path="/admin/editProduct" element={<EditProduct />} />
       <Route path="/admin/editCategoryId" element={<EditCategoryId />} />
-      <Route path="/admin/createUser" element={<CreateUser />} />
       <Route path="/admin/createCategory" element={<CreateCategory />} />
       <Route path="/admin/createProduct" element={<CreateProduct />} />
-
-      {/* <Route path="/admin" element={<Admin />} /> */}
     </Routes>
 
     /* ,

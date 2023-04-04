@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { Col, Button, Row, Container, Card, Form, Alert } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.css"; // or include from a CDN
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import "../../pages/SignUp/SignUp.css";
+import css from "../../pages/SignUp/SignUp.module.css";
 
 export default function CreateCategory() {
   const [categoryId, setCategoryId] = useState("");
@@ -29,8 +28,8 @@ export default function CreateCategory() {
 
   return (
     <>
-      <Container fluid id="background">
-        <Row id="content" className="py-3 d-flex justify-content-center align-items-center">
+      <Container fluid id={css["background"]}>
+        <Row id={css["content"]} className="py-3 d-flex justify-content-center align-items-center">
           <Col xs={11} sm={8} md={6} xl={4}>
             <Card className="px-4">
               {error && (
@@ -67,7 +66,7 @@ export default function CreateCategory() {
 
                       <Form.Group className="mb-3" controlId="buttonsubmit">
                         <div className="d-grid">
-                          <Button type="submit" id="button">
+                          <Button type="submit" id={css["button"]}>
                             Confirm{" "}
                           </Button>
                         </div>
