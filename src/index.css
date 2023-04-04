@@ -35,7 +35,7 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 * {
-  font-family: "Lora", serif;
+  font-family: "Lora", serif !important;
 }
 
 .screen {

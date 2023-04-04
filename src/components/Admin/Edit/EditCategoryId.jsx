@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Col, Button, Row, Container, Card, Form, Alert } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.css"; // or include from a CDN
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import "../../pages/SignUp/SignUp.css";
+import css from "../../pages/SignUp/SignUp.module.css";
 import { useParams } from "react-router-dom";
 
 export default function EditCategoryId() {
@@ -31,19 +30,15 @@ export default function EditCategoryId() {
     getCategories();
   }, []);
 
-  const handleEditProduct = async (event) => {
+  const handleEditCategory = async (event) => {
     event.preventDefault();
-    let formdata = new FormData(event.target);
     try {
       await axios({
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-        method: "patch", // revisar que metodo corresponde. Si el endpoint es patch, tengo que armarlo con patch
-        url: `${process.env.REACT_APP_API_BASE_URL}/product-patch`, //poner el endpoint que usamos
-        data: formdata,
+        method: "patch",
+        url: `${process.env.REACT_APP_API_BASE_URL}/categories/${category.id}`,
+        data: categoryName,
       });
-      navigate("/admin/editProduct");
+      navigate("/admin/categories");
     } catch (err) {
       console.log(err);
       setError(true);
@@ -52,8 +47,8 @@ export default function EditCategoryId() {
 
   return (
     <>
-      <Container fluid id="background">
-        <Row id="content" className="py-3 d-flex justify-content-center align-items-center">
+      <Container fluid id={css["background"]}>
+        <Row id={css["content"]} className="py-3 d-flex justify-content-center align-items-center">
           <Col xs={11} sm={8} md={6} xl={4}>
             <Card className="px-4">
               {error && (
@@ -63,9 +58,9 @@ export default function EditCategoryId() {
               )}
               <Card.Body>
                 <div className="mb-3">
-                  <h2 className="mb-2 text-center ">Edit Product</h2>
+                  <h2 className="mb-2 text-center ">Edit Category</h2>
                   <div className="mb-3">
-                    <Form onSubmit={handleEditProduct}>
+                    <Form onSubmit={handleEditCategory}>
                       <Form.Group className="mb-3" controlId="categoryId">
                         <Form.Label className="text-center">Definir Category Id</Form.Label>
                         <Form.Control
@@ -90,7 +85,7 @@ export default function EditCategoryId() {
 
                       <Form.Group className="mb-3" controlId="buttonsubmit">
                         <div className="d-grid">
-                          <Button type="submit" id="button">
+                          <Button type="submit" id={css["button"]}>
                             Confirm{" "}
                           </Button>
                         </div>

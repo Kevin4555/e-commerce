@@ -11,29 +11,25 @@ const Carousel = ({ products, productsPerPage }) => {
   const endIndex = startIndex + productsPerPage;
 
   const handlePrevClick = () => {
-    if (activePage > 1) {
-      setActivePage(activePage - 1);
-      /* const carouselItems = document.querySelectorAll("ProductMini");
-      carouselItems.forEach((item) => {
-        item.style.transform = `translateX(${100 / productsPerPage}%)`;
-      }); */
+    let newActivePage = activePage - 1;
+    if (newActivePage < 1) {
+      newActivePage = totalPages;
     }
+    setActivePage(newActivePage);
   };
 
   const handleNextClick = () => {
-    if (activePage < totalPages) {
-      setActivePage(activePage + 1);
-      /* const carouselItems = document.querySelectorAll("ProductMini");
-      carouselItems.forEach((item) => {
-        item.style.transform = `translateX(-${100 / productsPerPage}%)`;
-      }); */
+    let newActivePage = activePage + 1;
+    if (newActivePage > totalPages) {
+      newActivePage = 1;
     }
+    setActivePage(newActivePage);
   };
   console.log();
   return (
     <div>
       <div className=" justify-content-center position-relative">
-        <div className="row ">
+        <div className="row">
           {products.slice(startIndex, endIndex).map((product, index) => (
             <ProductMini product={product} key={index} />
           ))}

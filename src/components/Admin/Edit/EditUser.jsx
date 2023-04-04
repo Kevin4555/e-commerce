@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Col, Button, Row, Container, Card, Form, Alert } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.css"; // or include from a CDN
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import "../../pages/SignUp/SignUp.css";
+import css from "../../pages/SignUp/SignUp.module.css";
 import { useParams } from "react-router-dom";
 
 export default function EditUser() {
@@ -12,12 +11,10 @@ export default function EditUser() {
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");
   const [phone, setPhone] = useState("");
-  //   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const { id } = useParams();
-  // const [modoEdicion, setmodoEdicion]= useState(initialState:false)
 
   useEffect(() => {
     const getUser = async () => {
@@ -55,7 +52,7 @@ export default function EditUser() {
 
   return (
     <>
-      <Container fluid id="background">
+      <Container fluid id={css["background"]}>
         <Row id="content" className="py-3 d-flex justify-content-center align-items-center">
           <Col xs={11} sm={8} md={6} xl={4}>
             <Card className="px-4">
@@ -124,7 +121,7 @@ export default function EditUser() {
 
                       <Form.Group className="mb-3" controlId="buttonsubmit">
                         <div className="d-grid">
-                          <Button type="submit" id="button">
+                          <Button type="submit" id={css["button"]}>
                             Confirm{" "}
                           </Button>
                         </div>
@@ -132,7 +129,7 @@ export default function EditUser() {
 
                       <Form.Group className="mb-3" controlId="buttonsubmit">
                         <div className="d-grid">
-                          <Button type="submit" id="button">
+                          <Button type="submit" id={css["button"]}>
                             Reset password{" "}
                           </Button>
                         </div>

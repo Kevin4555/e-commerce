@@ -5,9 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../slices/usersSlice";
 import axios from "axios";
-import "../Admin/AdminLogin.css";
-
-//import { GoogleOAuthProvider } from "@react-oauth/google";
+import css from "./Admin.module.css";
+import cssLogin from "./AdminLogin.module.css";
 
 export default function AdminLogin() {
   const [email, setEmail] = useState("");
@@ -37,10 +36,10 @@ export default function AdminLogin() {
 
   return (
     <>
-      <Container fluid id="backgroundAdminLogin">
-        <Row id="content" className="d-flex justify-content-center align-items-center">
+      <Container fluid id={cssLogin["backgroundAdminLogin"]}>
+        <Row id={cssLogin["content"]} className="d-flex justify-content-center align-items-center">
           <Col xs={11} sm={8} md={6} xl={4}>
-            <Card className=" px-4">
+            <Card className="px-4">
               {error && (
                 <Alert variant="danger" onClose={() => setError(false)} dismissible>
                   <p>No tiene permisos para acceder a Admin</p>
@@ -48,7 +47,7 @@ export default function AdminLogin() {
               )}
               <Card.Body>
                 <div>
-                  <h2 className="mb-3 text-center ">Iniciar Sesión</h2>
+                  <h2 className="mb-3 text-center">Iniciar Sesión</h2>
                   <form className="mb-3" onSubmit={handleLogin}>
                     <Form.Group className="mb-3">
                       <Form.Label className="text-center">Correo electrónico</Form.Label>
@@ -68,7 +67,7 @@ export default function AdminLogin() {
                     </Form.Group>
 
                     <div className="mt-3 d-grid">
-                      <Button id="button" type="submit">
+                      <Button id={cssLogin["button"]} type="submit">
                         Login
                       </Button>
                     </div>

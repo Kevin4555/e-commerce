@@ -1,23 +1,34 @@
-import "./Profile.css";
-import PageNavbar from "../../navbar/PageNavbar";
+import css from "./Profile.module.css";
+import PageNavbar from "../../Navbar/PageNavbar";
 import Order from "../../Order/Order";
 import Newsletter from "../../Newsletter/Newsletter";
 import Footer from "../../Footer/Footer";
 import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { removeUser } from "../../../slices/usersSlice";
 import axios from "axios";
 
 function Profile() {
   let user = useSelector((state) => state.persistedReducer.user);
+  window.document.title = `${user.firstname} ${user.lastname}`;
   const [products, setProducts] = useState([]);
   const [orders, setOrders] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  console.log("user", user);
   useEffect(() => {
     // Simulate loading time
     setTimeout(() => {
       setIsLoading(false);
     }, 750);
   }, []);
+
+  function handleLogOut() {
+    dispatch(removeUser());
+    navigate("/");
+  }
 
   useEffect(() => {
     const getProducts = async () => {
@@ -61,18 +72,21 @@ function Profile() {
       <>
         <PageNavbar />
         <main>
-          <div className="container-fluid py-5 d-flex align-item-center justify-content-center flex-column">
+          <div
+            id={css["topBanner"]}
+            className="container-fluid py-5 d-flex align-item-center justify-content-center flex-column"
+          >
             <h1 className="fs-2 fw-bold text-light text-center">Mi Perfil</h1>
             <small className="fs-6 fw-semibold text-light text-center">Home</small>
           </div>
           <div className="container mt-5">
             <div className="row">
-              <div className="col-12 col-lg-4 order-lg-2 mb-3 d-lg-none">
+              <div className="d-block d-lg-none col-12 col-lg-4 order-lg-2 mb-3">
                 <div className="text-center bg-secondary-subtle p-4 rounded vh-100">
                   <img
                     src="/img/default-avatar.jpg"
                     alt="Profile"
-                    className="profile-img rounded-pill"
+                    className={`${css.profileImg} rounded-pill`}
                   />
                   <h2 className="mb-0 mt-3">
                     {user.firstname} {user.lastname}
@@ -92,10 +106,6 @@ function Profile() {
                       <small className="fs-6">{user.phone}</small>
                     </div>
                     <div className="col-12 d-lg-flex flex-lg-column text-start my-2">
-                      <small className="fw-bold fs-6">Avatar: </small>
-                      <small className="fs-6">{user.avatar}</small>
-                    </div>
-                    <div className="col-12 d-lg-flex flex-lg-column text-start my-2">
                       <small className="fw-bold fs-6">Email: </small>
                       <small className="fs-6">{user.email}</small>
                     </div>
@@ -103,6 +113,9 @@ function Profile() {
                       <small className="fw-bold fs-6">Address: </small>
                       <small className="fs-6">{user.address}</small>
                     </div>
+                    <button className="btn btn-danger" onClick={handleLogOut}>
+                      Cerrar sesión
+                    </button>
                   </div>
                 </div>
               </div>
@@ -121,7 +134,7 @@ function Profile() {
                   <img
                     src="/img/default-avatar.jpg"
                     alt="Profile"
-                    className="profile-img rounded-pill"
+                    className={`${css.profileImg} rounded-pill`}
                   />
                   <h2 className="mb-0 mt-3">
                     {user.firstname} {user.lastname}

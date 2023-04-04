@@ -1,17 +1,15 @@
 import React from "react";
-import "../Admin/Admin.css";
+import css from "./Admin.module.css";
 import Table from "react-bootstrap/Table";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Sidebar from "../sidebar/Sidebar";
-import { Button } from "react-bootstrap";
+import { Container, Button } from "react-bootstrap";
+import Sidebar from "../Sidebar/Sidebar";
 import { Link } from "react-router-dom";
 
 const AdminCategories = () => {
   const [categories, setCategories] = useState([]);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     const getCategories = async () => {
@@ -27,6 +25,19 @@ const AdminCategories = () => {
     };
     getCategories();
   }, []);
+
+  const handleDeleteCategory = async (category) => {
+    try {
+      await axios({
+        method: "delete",
+        url: `${process.env.REACT_APP_API_BASE_URL}/categories/${category.id}`,
+      });
+    } catch (err) {
+      console.log(err);
+      setError(true);
+    }
+  };
+
   return (
     <>
       <Sidebar />
@@ -60,11 +71,15 @@ const AdminCategories = () => {
                   <td>{category.name}</td>
                   <td>
                     {" "}
-                    <Button variant="warning">Editar categoria</Button>
+                    <Link to={`/admin/editCategoryId/${category.id}`} variant="warning">
+                      Editar categoria
+                    </Link>
                   </td>
                   <td>
                     {" "}
-                    <Button variant="danger">Eliminar categoria</Button>
+                    <Button variant="danger" onClick={() => handleDeleteCategory(category)}>
+                      Eliminar categoria
+                    </Button>
                   </td>
                 </tr>
               );

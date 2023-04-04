@@ -1,14 +1,6 @@
-table {
-  /* margin: 2rem; */
-}
-
 .text-end {
   margin-right: 3rem;
   margin-bottom: 2rem;
-}
-
-* {
-  color: var(--dark);
 }
 
 .bannerBtn {

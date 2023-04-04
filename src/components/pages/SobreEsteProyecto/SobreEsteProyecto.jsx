@@ -1,68 +1,68 @@
-import "./SobreEsteProyecto.css";
+import css from "./SobreEsteProyecto.module.css";
 import { Container } from "react-bootstrap";
-import PageNavbar from "../../navbar/PageNavbar";
+import PageNavbar from "../../Navbar/PageNavbar";
 
 function SobreEsteProyecto() {
   return (
     <>
       <PageNavbar />
       <Container fluid className="p-0">
-        <section className="darkSection row">
-          <div className="profile col-12 col-md-6 col-lg-3">
+        <section className={`${css.darkSection} row`}>
+          <div className={`${css.profile} col-12 col-md-6 col-lg-3`}>
             <h4>Nicolás Ross</h4>
-            <div className="icons">
+            <div className={css.icons}>
               <a href="https://github.com/nicoroke" target="_blank" rel="noreferrer">
-                <i className="profileIcon bi bi-github"></i>
+                <i className={`${css.profileIcon} bi bi-github`}></i>
               </a>
               <a
                 href="https://www.linkedin.com/in/nicol%C3%A1s-ross-kegel-1a968414b/"
                 target="_blank"
                 rel="noreferrer"
               >
-                <i className="profileIcon bi bi-linkedin"></i>
+                <i className={`${css.profileIcon} bi bi-linkedin`}></i>
               </a>
             </div>
           </div>
-          <div className="profile col-12 col-md-6 col-lg-3">
+          <div className={`${css.profile} col-12 col-md-6 col-lg-3`}>
             <h4>Kevin Lapizaga</h4>
-            <div className="icons">
+            <div className={css.icons}>
               <a href="https://github.com/kevin4555" target="_blank">
-                <i className="profileIcon bi bi-github"></i>
+                <i className={`${css.profileIcon} bi bi-github`}></i>
               </a>
               <a href="https://linkedin.com/in/kevin-lapizaga/" target="_blank">
-                <i className="profileIcon bi bi-linkedin"></i>
+                <i className={`${css.profileIcon} bi bi-linkedin`}></i>
               </a>
             </div>
           </div>
-          <div className="profile col-12 col-md-6 col-lg-3">
+          <div className={`${css.profile} col-12 col-md-6 col-lg-3`}>
             <h4>Maia Chamorro</h4>
-            <div className="icons">
+            <div className={css.icons}>
               <a href="https://github.com/lemilegram" target="_blank">
-                <i className="profileIcon bi bi-github"></i>
+                <i className={`${css.profileIcon} bi bi-github`}></i>
               </a>
               <a href="https://www.linkedin.com/in/maia-chamorro/" target="_blank">
-                <i className="profileIcon bi bi-linkedin"></i>
+                <i className={`${css.profileIcon} bi bi-linkedin`}></i>
               </a>
             </div>
           </div>
-          <div className="profile col-12 col-md-6 col-lg-3">
+          <div className={`${css.profile} col-12 col-md-6 col-lg-3`}>
             <h4>Sebastián Wajshan</h4>
-            <div className="icons">
+            <div className={css.icons}>
               <a href="https://github.com/sebawaj" target="_blank">
-                <i className="profileIcon bi bi-github"></i>
+                <i className={`${css.profileIcon} bi bi-github`}></i>
               </a>
               <a href="https://www.linkedin.com/in/sebastian-wajshan" target="_blank">
-                <i className="profileIcon bi bi-linkedin"></i>
+                <i className={`${css.profileIcon} bi bi-linkedin`}></i>
               </a>
             </div>
           </div>
         </section>
-        <section className="greenSection">
+        <section className={css.greenSection}>
           <h1>eCommerce</h1>
           <h2>Proyecto Final Bootcamp</h2>
         </section>
-        <section className="platinumSection" id="infoSection">
-          <div id="infoProyecto" className="container d-flex w-50 align-items-center">
+        <section className={css.platinumSection} id={css["infoSection"]}>
+          <div id={css["infoProyecto"]} className="container d-flex w-50 align-items-center">
             <a href="https://ha.dev">
               <img src="ha_logo.png" alt="" />
             </a>
@@ -77,9 +77,9 @@ function SobreEsteProyecto() {
             </p>
           </div>
         </section>
-        <section className="platinumSection">
+        <section className={css.platinumSection}>
           <h3>Tecnologías Utilizadas</h3>
-          <div className="row" id="iconList">
+          <div className="row" id={css["iconList"]}>
             <div className="col-3">
               <div>
                 <img src="icons/icons8-bootstrap-32.png" alt="" />

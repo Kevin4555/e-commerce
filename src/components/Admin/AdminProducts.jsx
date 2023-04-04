@@ -1,10 +1,10 @@
 import React from "react";
-import "../Admin/Admin.css";
+import css from "./Admin.module.css";
 import Table from "react-bootstrap/Table";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Container from "react-bootstrap/Container";
-import Sidebar from "../sidebar/Sidebar";
+import Sidebar from "../Sidebar/Sidebar";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -89,7 +89,7 @@ const AdminProducts = () => {
                       <img
                         src={process.env.REACT_APP_API_BASE_IMG_URL + `/${product.img.img1}`}
                         alt=""
-                        className="categories-img"
+                        className={css.categoriesimg}
                       />
                     }
                   </td>
@@ -97,7 +97,7 @@ const AdminProducts = () => {
                     <img
                       src={process.env.REACT_APP_API_BASE_IMG_URL + `/${product.img.img2}`}
                       alt=""
-                      className="categories-img"
+                      className={css.categoriesimg}
                     />
                   </td>
                   <td>{product.stock}</td>
@@ -108,13 +108,13 @@ const AdminProducts = () => {
                   <td>
                     {" "}
                     <Link to={`/admin/editProduct/${product.id}`} variant="warning">
-                      Editar categoria
+                      Editar Producto
                     </Link>
                   </td>
                   <td>
                     {" "}
                     <Button variant="danger" onClick={() => handleDeleteProduct(product)}>
-                      Eliminar categoria
+                      Eliminar Producto
                     </Button>
                   </td>
                 </tr>

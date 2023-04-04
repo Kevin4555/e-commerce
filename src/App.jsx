@@ -1,6 +1,5 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import { useState } from "react";
 
 import SobreEsteProyecto from "./components/pages/SobreEsteProyecto/SobreEsteProyecto";
 import Product from "./components/pages/Product/Product";
@@ -23,9 +22,9 @@ import AdminLogin from "./components/Admin/AdminLogin";
 import EditUser from "./components/Admin/Edit/EditUser";
 import EditProduct from "./components/Admin/Edit/EditProduct";
 import EditCategoryId from "./components/Admin/Edit/EditCategoryId";
-import CreateUser from "./components/Admin/Create/CreateUser";
 import CreateProduct from "./components/Admin/Create/CreateProduct";
 import CreateCategory from "./components/Admin/Create/CreateCategory";
+import Aoth from "./components/Aoth";
 /* import Busqueda from "./components/pages/Busqueda/Busqueda"; */
 
 function App() {
@@ -39,8 +38,10 @@ function App() {
       <Route path="/cart" element={<Cart />} />
       <Route path="/cart/information" element={<CartInformation />} />
       <Route path="/cart/shipping" element={<CartShipping />} />
-      <Route path="/cart/payment" element={<CartPayment />} />
-      <Route path="/profile" element={<Profile />} />
+      <Route element={<Aoth />}>
+        <Route path="/cart/payment" element={<CartPayment />} />
+        <Route path="/profile" element={<Profile />} />
+      </Route>
       <Route path="/categories" element={<Category />} />
       <Route path="/admin/users" element={<AdminUsers />} />
       <Route path="/admin/categories" element={<AdminCategories />} />
@@ -50,12 +51,9 @@ function App() {
       <Route path="/admin/login" element={<AdminLogin />} />
       <Route path="/admin/editUser" element={<EditUser />} />
       <Route path="/admin/editProduct/:id" element={<EditProduct />} />
-      <Route path="/admin/editCategoryId" element={<EditCategoryId />} />
-      <Route path="/admin/createUser" element={<CreateUser />} />
+      <Route path="/admin/editCategoryId/:id" element={<EditCategoryId />} />
       <Route path="/admin/createCategory" element={<CreateCategory />} />
       <Route path="/admin/createProduct" element={<CreateProduct />} />
-
-      {/* <Route path="/admin" element={<Admin />} /> */}
     </Routes>
 
     /* ,

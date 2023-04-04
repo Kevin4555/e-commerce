@@ -1,10 +1,9 @@
-import "./Category.css";
-import { Link } from "react-router-dom";
+import css from "./Category.module.css";
+import cssHome from "../Home/Home.module.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import PageNavbar from "../../navbar/PageNavbar";
+import PageNavbar from "../../Navbar/PageNavbar";
 import ProductMini from "../../ProductMini/ProductMini";
-import Carousel from "react-bootstrap/Carousel";
 import Newsletter from "../../Newsletter/Newsletter";
 import Footer from "../../Footer/Footer";
 import Loading from "../../Loading/Loading";
@@ -64,7 +63,7 @@ function Category() {
         <main>
           <div className="container">
             <h3 className="fs-1 mt-4 text-center">Categorías</h3>
-            <div className="row rounded border-bottom" id="categoryDisplay">
+            <div className="row rounded border-bottom" id={cssHome["categoryDisplay"]}>
               <div
                 className="col-2"
                 onClick={() => {
@@ -78,7 +77,7 @@ function Category() {
                     process.env.REACT_APP_API_BASE_IMG_URL + `/${productsFromCategory1[2].img.img1}`
                   }
                   alt=""
-                  className="categories-img"
+                  className={css.categoriesImg}
                 />
                 <h5 className="mt-3">Pinturas</h5>
               </div>
@@ -95,7 +94,7 @@ function Category() {
                     process.env.REACT_APP_API_BASE_IMG_URL + `/${productsFromCategory2[1].img.img1}`
                   }
                   alt=""
-                  className="categories-img"
+                  className={css.categoriesImg}
                 />
                 <h5 className="mt-3">Cerámicas</h5>
               </div>
@@ -111,7 +110,7 @@ function Category() {
                   src={
                     process.env.REACT_APP_API_BASE_IMG_URL + `/${productsFromCategory3[0].img.img1}`
                   }
-                  className="categories-img"
+                  className={css.categoriesImg}
                   alt=""
                 />
                 <h5 className="mt-3">Maderas</h5>
@@ -128,7 +127,7 @@ function Category() {
                   src={
                     process.env.REACT_APP_API_BASE_IMG_URL + `/${productsFromCategory4[0].img.img1}`
                   }
-                  className="categories-img"
+                  className={css.categoriesImg}
                   alt=""
                 />
                 <h5 className="mt-3">Tejidos</h5>
@@ -145,7 +144,7 @@ function Category() {
                   src={
                     process.env.REACT_APP_API_BASE_IMG_URL + `/${productsFromCategory2[3].img.img1}`
                   }
-                  className="categories-img"
+                  className={css.categoriesImg}
                   alt=""
                 />
                 <h5 className="mt-3">Decoraciones</h5>
@@ -157,7 +156,6 @@ function Category() {
               </h3>
               <small
                 className="categoryLink"
-                id="categoryLink"
                 onClick={() => {
                   setProductsToShow(products);
                   setCategoryTitle("Todos nuestros productos");

@@ -1,8 +1,8 @@
-import "./Home.css";
+import css from "./Home.module.css";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import PageNavbar from "../../navbar/PageNavbar";
+import PageNavbar from "../../Navbar/PageNavbar";
 import MultiItemCarousel from "../../Carousel/MultiItemCarousel";
 import ProductMini from "../../ProductMini/ProductMini";
 import Carousel from "react-bootstrap/Carousel";
@@ -11,6 +11,7 @@ import Newsletter from "../../Newsletter/Newsletter";
 import Loading from "../../Loading/Loading";
 
 function Home() {
+  window.document.title = "Manos Creativas";
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -60,7 +61,7 @@ function Home() {
       <>
         <PageNavbar />
         <main>
-          <Carousel className="carousel">
+          <Carousel className={css.carousel}>
             <Carousel.Item>
               <img
                 className="d-block"
@@ -68,10 +69,10 @@ function Home() {
                 alt="First slide"
                 draggable="false"
               />
-              <Carousel.Caption className="carouselCaption">
+              <Carousel.Caption className={css.carouselCaption}>
                 <p>Lo más vendido</p>
                 <h2>Colección Madera Moderna</h2>
-                <button className="btn bannerBtn">Comprar ahora</button>
+                <button className={`${css.btn} ${css.bannerBtn}`}>Comprar ahora</button>
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
@@ -82,16 +83,16 @@ function Home() {
                 draggable="false"
               />
 
-              <Carousel.Caption className="carouselCaption">
+              <Carousel.Caption className={css.carouselCaption}>
                 <p>Los mejores productos hechos a mano</p>
                 <h2>Nueva Colección Handmade</h2>
-                <button className="btn bannerBtn">Comprar ahora</button>
+                <button className={`${css.btn} ${css.bannerBtn}`}>Comprar ahora</button>
               </Carousel.Caption>
             </Carousel.Item>
           </Carousel>
           <div className="container">
             <h3 className="fs-2 mt-5 text-center">Categorías</h3>
-            <div className="row rounded" id="categoryDisplay">
+            <div className="row rounded" id={css["categoryDisplay"]}>
               <div
                 className="col-12 col-sm-6 col-md-4 col-xl-2"
                 onClick={() => scrollToCategory("pinturas")}
@@ -101,7 +102,7 @@ function Home() {
                     process.env.REACT_APP_API_BASE_IMG_URL + `/${productsFromCategory1[2].img.img1}`
                   }
                   alt=""
-                  className="categories-img"
+                  className={css.categoriesImg}
                 />
                 <h5 className="mt-3">Pinturas</h5>
               </div>
@@ -114,7 +115,7 @@ function Home() {
                     process.env.REACT_APP_API_BASE_IMG_URL + `/${productsFromCategory2[1].img.img1}`
                   }
                   alt=""
-                  className="categories-img"
+                  className={css.categoriesImg}
                 />
                 <h5 className="mt-3">Cerámicas</h5>
               </div>
@@ -126,7 +127,7 @@ function Home() {
                   src={
                     process.env.REACT_APP_API_BASE_IMG_URL + `/${productsFromCategory3[0].img.img1}`
                   }
-                  className="categories-img"
+                  className={css.categoriesImg}
                   alt=""
                 />
                 <h5 className="mt-3">Maderas</h5>
@@ -139,7 +140,7 @@ function Home() {
                   src={
                     process.env.REACT_APP_API_BASE_IMG_URL + `/${productsFromCategory4[0].img.img1}`
                   }
-                  className="categories-img"
+                  className={css.categoriesImg}
                   alt=""
                 />
                 <h5 className="mt-3">Tejidos</h5>
@@ -152,34 +153,34 @@ function Home() {
                   src={
                     process.env.REACT_APP_API_BASE_IMG_URL + `/${productsFromCategory2[3].img.img1}`
                   }
-                  className="categories-img"
+                  className={css.categoriesImg}
                   alt=""
                 />
                 <h5 className="mt-3">Decoraciones</h5>
               </div>
             </div>
-            <section id="display">
-              <div className="displayOffer">
+            <section id={css["display"]}>
+              <div className={css.displayOffer}>
                 <img src="/img/subBanner.webp" alt="" />
                 <div>
                   <p className="fs-5 mb-2">35% off</p>
                   <h3>Especial Nórdico Matte</h3>
-                  <button className="btn bannerBtn">Comprar ahora</button>
+                  <button className={`${css.btn} ${css.bannerBtn}`}>Comprar ahora</button>
                 </div>
               </div>
-              <div className="displayOffer">
+              <div className={css.displayOffer}>
                 <img src="/img/subBanner2.webp" alt="" />
                 <div>
                   <p className="fs-5 mb-2">25% off</p>
                   <h3>Terra Punto Cotta</h3>
-                  <button className="btn bannerBtn">Comprar ahora</button>
+                  <button className={`${css.btn} ${css.bannerBtn}`}>Comprar ahora</button>
                 </div>
               </div>
             </section>
             <h2 className="pb-4">Destacados</h2>
             {products && (
               <MultiItemCarousel
-                products={products.filter((product) => (product.rating = 5))}
+                products={products.filter((product) => Number(product.rating) === 5)}
                 productsPerPage={4}
               ></MultiItemCarousel>
             )}
@@ -188,7 +189,7 @@ function Home() {
               <h3 className="pt-5 pb-4 d-inline fs-2" id="pinturas">
                 Pinturas
               </h3>
-              <Link to={"/categories"} className="categoryLink">
+              <Link to={"/categories"} className={css.categoryLink}>
                 ver todos <i className="bi bi-arrow-right-short"></i>
               </Link>
             </div>
@@ -197,7 +198,7 @@ function Home() {
               <h3 className="pt-5 pb-4 d-inline fs-2" id="ceramicas">
                 Cerámicas
               </h3>
-              <Link to={"/categories"} className="categoryLink">
+              <Link to={"/categories"} className={css.categoryLink}>
                 ver todos <i className="bi bi-arrow-right-short"></i>
               </Link>
             </div>
@@ -206,7 +207,7 @@ function Home() {
               <h3 className="pt-5 pb-4 d-inline fs-2" id="maderas">
                 Maderas
               </h3>
-              <Link to={"/categories"} className="categoryLink">
+              <Link to={"/categories"} className={css.categoryLink}>
                 ver todos <i className="bi bi-arrow-right-short"></i>
               </Link>
             </div>
@@ -215,7 +216,7 @@ function Home() {
               <h3 className="pt-5 pb-4 d-inline fs-2" id="tejidos">
                 Tejidos
               </h3>
-              <Link to={"/categories"} className="categoryLink">
+              <Link to={"/categories"} className={css.categoryLink}>
                 ver todos <i className="bi bi-arrow-right-short"></i>
               </Link>
             </div>
@@ -224,7 +225,7 @@ function Home() {
               <h3 className="pt-5 pb-4 d-inline fs-2" id="decoraciones">
                 Decoraciones
               </h3>
-              <Link to={"/categories"} className="categoryLink">
+              <Link to={"/categories"} className={css.categoryLink}>
                 ver todos <i className="bi bi-arrow-right-short"></i>
               </Link>
             </div>
