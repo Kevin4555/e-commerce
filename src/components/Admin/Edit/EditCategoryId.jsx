@@ -36,7 +36,7 @@ export default function EditCategoryId() {
       await axios({
         method: "patch",
         url: `${process.env.REACT_APP_API_BASE_URL}/categories/${category.id}`,
-        data: categoryName,
+        data: { categoryName },
       });
       navigate("/admin/categories");
     } catch (err) {
