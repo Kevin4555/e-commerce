@@ -21,7 +21,7 @@ function OrderItem({ item }) {
         </div>
         <div className="d-flex justify-content-between">
           <small className="fs-6 mt-auto">
-            Status: <i class="bi bi-arrow-repeat"></i> Procesando
+            Status: <i className="bi bi-arrow-repeat"></i> Procesando
           </small>
           <div>
             <Link className="text-decoration-none">Ver producto</Link>

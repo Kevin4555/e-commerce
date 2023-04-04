@@ -7,10 +7,12 @@ import Container from "react-bootstrap/Container";
 import Sidebar from "../Sidebar/Sidebar";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const AdminProducts = () => {
   const [products, setProducts] = useState([]);
-
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
   useEffect(() => {
     const getProducts = async () => {
       try {
@@ -26,6 +28,29 @@ const AdminProducts = () => {
     getProducts();
   }, []);
 
+  const handleDeleteProduct = async (product) => {
+    try {
+      await axios({
+        method: "delete",
+        url: `${process.env.REACT_APP_API_BASE_URL}/products/${product.id}`,
+      });
+    } catch (err) {
+      console.log(err);
+      setError(true);
+    }
+  };
+
+  const handleEditProduct = async (product) => {
+    try {
+      await axios({
+        method: "patch",
+        url: `${process.env.REACT_APP_API_BASE_URL}/products/${product.id}`,
+      });
+    } catch (err) {
+      console.log(err);
+      setError(true);
+    }
+  };
   return (
     <>
       <Sidebar />
@@ -39,8 +64,8 @@ const AdminProducts = () => {
 
         {/* Cambiar segun excalidraw */}
         <div className="text-end">
-          <Link to="/admin/createProduct" variant="success">
-            Agregar nuevo producto
+          <Link to="/admin/createProduct">
+            <Button variant="success"> Agregar nuevo producto </Button>
           </Link>
         </div>
 
@@ -93,11 +118,15 @@ const AdminProducts = () => {
                   <td>{product.categoryId}</td>
                   <td>
                     {" "}
-                    <Button variant="warning">Editar </Button>
+                    <Link to={`/admin/editProduct/${product.id}`} variant="warning">
+                      Editar categoria
+                    </Link>
                   </td>
                   <td>
                     {" "}
-                    <Button variant="danger">Eliminar </Button>
+                    <Button variant="danger" onClick={() => handleDeleteProduct(product)}>
+                      Eliminar categoria
+                    </Button>
                   </td>
                 </tr>
               );

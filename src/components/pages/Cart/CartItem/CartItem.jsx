@@ -40,7 +40,7 @@ function CartItem({ item }) {
           </button>
         </div>
         <button className="btn">
-          <i class="bi bi-trash3"></i>
+          <i className="bi bi-trash3"></i>
         </button>
       </div>
       <div className="col-2 my-4">
