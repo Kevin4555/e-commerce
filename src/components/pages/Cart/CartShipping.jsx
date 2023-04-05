@@ -1,9 +1,8 @@
-import "./CartShipping.css";
+import css from "./Cart.module.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import PageNavbar from "../../../Navbar/PageNavbar";
-import CartInformationItem from "../CartInformationItem/CartInformationItem";
-import Form from "react-bootstrap/Form";
+import PageNavbar from "../../PageNavbar/PageNavbar";
+import CartInformationItem from "./CartInformationItem";
 
 function CartShipping() {
   const { items, totalPrice, address } = useSelector((state) => state.persistedReducer.cart);
@@ -13,17 +12,17 @@ function CartShipping() {
       <PageNavbar />
       <div className="container-fluid p-0">
         <div className="row">
-          <div className="col-7 ps-9 py-5">
+          <div className={`col-7 ${css.ps9} py-5`}>
             <h1 className="fs-2">Manos Creativas - Tienda de Artesanias</h1>
             <div className="fs-6 my-5">
               <Link to="#" className="text-decoration-none text-dark">
                 Cart
               </Link>
-              <small className="fw-bold fs-6"> > </small>
+              <small className="fw-bold fs-6"> {">"} </small>
               <small className="">Información</small>
-              <small className="fw-bold fs-6"> > </small>
+              <small className="fw-bold fs-6"> {">"}</small>
               <small className="fw-semibold">Envío</small>
-              <small className="fw-bold fs-6"> > </small>
+              <small className="fw-bold fs-6"> {">"} </small>
               <small className="text-secondary">Pago</small>
             </div>
             <div className="row">
@@ -61,7 +60,7 @@ function CartShipping() {
               </div>
               <div className="col-6 d-inline text-end">
                 <Link to="/cart/payment">
-                  <button className="btn py-3 px-5 fw-semibold text-white" id="continue-btn">
+                  <button className="btn py-3 px-5 fw-semibold text-white" id={css["continue-btn"]}>
                     Continuar al pago
                   </button>
                 </Link>
@@ -72,7 +71,7 @@ function CartShipping() {
               All rights reserved Artistic - Art & Craft Store
             </small>
           </div>
-          <div className="col-5 ps-5 pe-9 py-5 bg-secondary-subtle border-start">
+          <div className={`col-5 ps-5 ${css.pe9} py-5 bg-secondary-subtle border-start`}>
             {items.map((item) => (
               <CartInformationItem key={item.id} item={item} />
             ))}

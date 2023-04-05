@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ProductMini from "../../components/ProductMini/ProductMini";
 
-import "./MultiItemCarousel.css";
+import css from "./MultiItemCarousel.module.css";
 
 const Carousel = ({ products, productsPerPage }) => {
   const [activePage, setActivePage] = useState(1);
@@ -38,14 +38,14 @@ const Carousel = ({ products, productsPerPage }) => {
           <button
             type="button"
             onClick={handlePrevClick}
-            className="btn btn-outline-dark position-absolute top-50 start-0 translate-middle rounded-circle bg-light"
+            className={` ${css.btn} btn btn-outline-dark position-absolute top-50 start-0 translate-middle rounded-circle bg-light`}
           >
             <i className="bi bi-arrow-left h1"></i>
           </button>
           <button
             type="button"
             onClick={handleNextClick}
-            className="btn btn-outline-dark position-absolute top-50 start-100 translate-middle rounded-circle bg-light"
+            className={`${css.btn} btn btn-outline-dark position-absolute top-50 start-100 translate-middle rounded-circle bg-light`}
           >
             <i className="bi bi-arrow-right h1"></i>
           </button>

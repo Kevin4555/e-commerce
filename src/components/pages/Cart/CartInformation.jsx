@@ -1,10 +1,10 @@
-import "./CartInformation.css";
+import css from "./Cart.module.css";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import PageNavbar from "../../../Navbar/PageNavbar";
+import PageNavbar from "../../PageNavbar/PageNavbar";
 import Form from "react-bootstrap/Form";
-import CartInformationItem from "../CartInformationItem/CartInformationItem";
-import { addAddressToCart } from "../../../../slices/cartSlice";
+import CartInformationItem from "./CartInformationItem";
+import { addAddressToCart } from "../../../slices/cartSlice";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
@@ -31,17 +31,17 @@ function CartInformation() {
       <PageNavbar />
       <div className="container-fluid p-0">
         <div className="row">
-          <div className="col-7 ps-9 py-5">
+          <div className={`col-7 ${css.ps9} py-5`}>
             <h1 className="fs-2">Manos Creativas - Tienda de Artesanias</h1>
             <div className="fs-6 my-5">
               <Link to="#" className="text-decoration-none text-dark">
                 Cart
               </Link>
-              <small className="fw-bold fs-6"> > </small>
+              <small className="fw-bold fs-6"> {">"} </small>
               <small className="fw-semibold">Información</small>
-              <small className="fw-bold fs-6"> > </small>
+              <small className="fw-bold fs-6"> {">"} </small>
               <small className="text-secondary">Envío</small>
-              <small className="fw-bold fs-6"> > </small>
+              <small className="fw-bold fs-6"> {">"} </small>
               <small className="text-secondary">Pago</small>
             </div>
             <div>
@@ -114,7 +114,7 @@ function CartInformation() {
                   </Link>
                 </div>
                 <div className="col-6 d-inline text-end">
-                  <button className="btn py-3 px-5 fw-semibold text-white" id="continue-btn">
+                  <button className="btn py-3 px-5 fw-semibold text-white" id={css["continue-btn"]}>
                     Continuar al envío
                   </button>
                 </div>
@@ -125,13 +125,13 @@ function CartInformation() {
               All rights reserved Artistic - Art & Craft Store
             </small>
           </div>
-          <div className="col-5 ps-5 pe-9 py-5 bg-secondary-subtle border-start">
+          <div className={`col-5 ps-5 ${css.pe9} py-5 bg-secondary-subtle border-start`}>
             {cart.map((item) => (
               <CartInformationItem key={item.id} item={item} />
             ))}
             <div className="d-flex justify-content-between">
               <small className="fs-6 my-3">Subtotal</small>
-              <small className="fs-6 fw-semibold  my-3">${totalPrice}</small>
+              <small className="fs-6 fw-semibold my-3">${totalPrice}</small>
             </div>
             <div className="d-flex justify-content-between">
               <small className="fs-6 mb-3">Envío</small>

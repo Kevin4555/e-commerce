@@ -1,6 +1,6 @@
-import css from "../Cart.module.css";
+import css from "./Cart.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { addItemToCart, removeItemFromCart } from "../../../../slices/cartSlice";
+import { addItemToCart, removeItemFromCart } from "../../../slices/cartSlice";
 
 function CartItem({ item }) {
   let cart = useSelector((state) => state.persistedReducer.cart);

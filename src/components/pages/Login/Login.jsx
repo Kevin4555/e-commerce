@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../../slices/usersSlice";
 import axios from "axios";
-import PageNavbar from "../../Navbar/PageNavbar";
+import PageNavbar from "../../PageNavbar/PageNavbar";
 import css from "./Login.module.css";
 
 //import { GoogleOAuthProvider } from "@react-oauth/google";

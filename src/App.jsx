@@ -5,9 +5,9 @@ import SobreEsteProyecto from "./components/pages/SobreEsteProyecto/SobreEstePro
 import Product from "./components/pages/Product/Product";
 import Home from "./components/pages/Home/Home";
 import Cart from "./components/pages/Cart/Cart";
-import CartShipping from "./components/pages/Cart/CartShipping/CartShipping";
-import CartInformation from "./components/pages/Cart/CartInformation/CartInformation";
-import CartPayment from "./components/pages/Cart/CartPayment/CartPayment";
+import CartShipping from "./components/pages/Cart/CartShipping";
+import CartInformation from "./components/pages/Cart/CartInformation";
+import CartPayment from "./components/pages/Cart/CartPayment";
 import Profile from "./components/pages/Profile/Profile";
 import Login from "./components/pages/Login/Login";
 import SignUp from "./components/pages/SignUp/SignUp";

@@ -6,7 +6,7 @@ import Carousel from "react-bootstrap/Carousel";
 import Container from "react-bootstrap/Container";
 import Footer from "../../Footer/Footer";
 
-import PageNavbar from "../../Navbar/PageNavbar";
+import PageNavbar from "../../PageNavbar/PageNavbar";
 import Rating from "react-rating";
 
 import { useDispatch } from "react-redux";

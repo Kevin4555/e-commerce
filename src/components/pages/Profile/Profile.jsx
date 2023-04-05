@@ -1,5 +1,5 @@
 import css from "./Profile.module.css";
-import PageNavbar from "../../Navbar/PageNavbar";
+import PageNavbar from "../../PageNavbar/PageNavbar";
 import Order from "../../Order/Order";
 import Newsletter from "../../Newsletter/Newsletter";
 import Footer from "../../Footer/Footer";

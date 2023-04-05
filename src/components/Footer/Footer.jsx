@@ -1,9 +1,9 @@
-import "./Footer.css";
+import css from "./Footer.module.css";
 
 function Footer() {
   return (
     <>
-      <footer className="container py-4" id="text-footer">
+      <footer className="container py-4" id={css["text-footer"]}>
         <nav className="row">
           <div className="col-12 col-md-3">
             <h4>Nuestra Información</h4>
@@ -17,11 +17,11 @@ function Footer() {
               <li>
                 <i className="bi bi-envelope"></i> fake@manoscreativas.com
               </li>
-              <li className="socials">
-                <i className="bi bi-instagram" />
-                <i className="bi bi-facebook" />
-                <i className="bi bi-twitter" />
-                <i className="bi bi-youtube" />
+              <li className={`${css.socials}`}>
+                <i className={`bi bi-instagram ${css.bi}`} />
+                <i className={`bi bi-facebook ${css.bi}`} />
+                <i className={`bi bi-twitter ${css.bi}`} />
+                <i className={`bi bi-youtube ${css.bi}`} />
               </li>
             </ul>
           </div>

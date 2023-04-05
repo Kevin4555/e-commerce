@@ -1,12 +1,12 @@
-import "./CartPayment.css";
+import css from "./Cart.module.css";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { clearCart } from "../../../../slices/cartSlice";
-import PageNavbar from "../../../Navbar/PageNavbar";
+import { clearCart } from "../../../slices/cartSlice";
+import PageNavbar from "../../PageNavbar/PageNavbar";
 import Form from "react-bootstrap/Form";
-import CartInformationItem from "../CartInformationItem/CartInformationItem";
+import CartInformationItem from "./CartInformationItem";
 import axios from "axios";
 
 function CartPayment() {
@@ -37,17 +37,17 @@ function CartPayment() {
       <PageNavbar />
       <div className="container-fluid p-0">
         <div className="row">
-          <div className="col-7 ps-9 py-5">
+          <div className={`col-7 ${css.ps9} py-5`}>
             <h1 className="fs-2">Manos Creativas - Tienda de Artesanias</h1>
             <div className="fs-6 my-5">
               <Link to="#" className="text-decoration-none text-dark">
                 Cart
               </Link>
-              <small className="fw-bold fs-6"> > </small>
+              <small className="fw-bold fs-6"> {">"} </small>
               <small className="">Información</small>
-              <small className="fw-bold fs-6"> > </small>
+              <small className="fw-bold fs-6"> {">"} </small>
               <small className="">Envío</small>
-              <small className="fw-bold fs-6"> > </small>
+              <small className="fw-bold fs-6"> {">"} </small>
               <small className="fw-semibold">Pago</small>
             </div>
             <div className="row">
@@ -115,7 +115,7 @@ function CartPayment() {
               <div className="col-6 d-inline text-end">
                 <button
                   className="btn py-3 px-5 fw-semibold text-white"
-                  id="continue-btn"
+                  id={css["continue-btn"]}
                   onClick={handleCreateOrder}
                 >
                   Realizar el pago
@@ -127,13 +127,13 @@ function CartPayment() {
               All rights reserved Artistic - Art & Craft Store
             </small>
           </div>
-          <div className="col-5 ps-5 pe-9 py-5 bg-secondary-subtle border-start">
+          <div className={`col-5 ps-5 ${css.pe9} py-5 bg-secondary-subtle border-start`}>
             {items.map((item) => (
               <CartInformationItem key={item.id} item={item} />
             ))}
             <div className="d-flex justify-content-between">
               <small className="fs-6 my-3">Subtotal</small>
-              <small className="fs-6 fw-semibold  my-3">${totalPrice}</small>
+              <small className="fs-6 fw-semibold my-3">${totalPrice}</small>
             </div>
             <div className="d-flex justify-content-between">
               <small className="fs-6 mb-3">Envío</small>
