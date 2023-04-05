@@ -25,12 +25,12 @@
 }
 
 #rating {
-  width: 4rem;
+  width: 4.5rem;
   height: 2rem;
   background-color: var(--accent);
   position: absolute;
   bottom: 1rem;
-  right: -2rem;
+  right: -2.3rem;
   transform: translate(-50%, 50%);
   border-radius: 1rem 0px 0.5rem 0px;
   color: white;

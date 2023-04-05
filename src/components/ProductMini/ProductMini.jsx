@@ -33,7 +33,7 @@ function ProductMini({ product }) {
               <small id={css["price"]} className="fw-bold">
                 {product.price} USD
               </small>
-              <small id={css["rating"]} className="col-6 text-end">
+              <small id={css["rating"]} className="col-6">
                 <i className="bi bi-star-fill text-warning"></i> {product.rating}
               </small>
             </div>
