@@ -1,4 +1,4 @@
-import "./Cart.css";
+import css from "./Cart.module.css";
 import PageNavbar from "../../Navbar/PageNavbar";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -12,7 +12,10 @@ function Cart() {
   return (
     <main>
       <PageNavbar />
-      <div className="container-fluid py-5 d-flex align-item-center justify-content-center flex-column">
+      <div
+        id={css["topBanner"]}
+        className="container-fluid py-5 d-flex align-item-center justify-content-center flex-column"
+      >
         <h1 className="fs-3 fw-bold text-light text-center">Your Shopping Cart</h1>
         <small className="fs-6 fw-semibold text-light text-center">Home</small>
       </div>

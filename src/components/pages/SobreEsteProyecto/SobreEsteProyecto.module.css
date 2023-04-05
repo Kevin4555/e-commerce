@@ -63,8 +63,8 @@
 }
 
 #infoSection {
-  background-image: url("/public/img/mainBanner.webp");
-  background-size: cover;
+  background-image: url("/public/img/mainBanner2.webp");
+  background-position: left top;
 }
 
 #infoProyecto {
@@ -85,8 +85,4 @@
   padding: 2rem;
   align-items: center;
   gap: 0.5rem;
-}
-
-Container {
-  padding: 0;
 }

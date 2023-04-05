@@ -152,20 +152,11 @@ function Category() {
             </div>
             <div className="mt-5 mb-5 ms-2">
               <h3 className="pt-5 pb-4 d-inline fs-2" id="products">
-                {categoryTitle}
+                {categoryTitle}{" "}
+                <small className="fs-6 fw-lighter"> {productsToShow.length} artículos</small>
               </h3>
-              <small
-                className="categoryLink"
-                onClick={() => {
-                  setProductsToShow(products);
-                  setCategoryTitle("Todos nuestros productos");
-                  scrollToCategory("products");
-                }}
-              >
-                ver todos <i className="bi bi-arrow-right-short"></i>
-              </small>
             </div>
-            {showProducts(productsToShow)} artículos
+            {showProducts(productsToShow)}
           </div>
         </main>
         <Newsletter />

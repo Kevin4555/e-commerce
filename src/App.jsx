@@ -24,7 +24,7 @@ import EditProduct from "./components/Admin/Edit/EditProduct";
 import EditCategoryId from "./components/Admin/Edit/EditCategoryId";
 import CreateProduct from "./components/Admin/Create/CreateProduct";
 import CreateCategory from "./components/Admin/Create/CreateCategory";
-import Aoth from "./components/Aoth";
+import Auth from "./components/Auth";
 /* import Busqueda from "./components/pages/Busqueda/Busqueda"; */
 
 function App() {
@@ -38,7 +38,7 @@ function App() {
       <Route path="/cart" element={<Cart />} />
       <Route path="/cart/information" element={<CartInformation />} />
       <Route path="/cart/shipping" element={<CartShipping />} />
-      <Route element={<Aoth />}>
+      <Route element={<Auth />}>
         <Route path="/cart/payment" element={<CartPayment />} />
         <Route path="/profile" element={<Profile />} />
       </Route>

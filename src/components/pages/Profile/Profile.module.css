@@ -11,3 +11,7 @@
   background-repeat: no-repeat;
   height: 13rem;
 }
+
+#userProfile {
+  background-color: var(--tertiary);
+}
