@@ -40,7 +40,7 @@ function Cart() {
           })}
 
           <div className="col-12 mb-4 mt-2">
-            <Link to="/" className="btn text-white" id={css["btn-continue-buying"]}>
+            <Link to="/" className="btn text-white" id="btn-continue-buying">
               Seguir comprando
             </Link>
           </div>
