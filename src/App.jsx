@@ -25,6 +25,7 @@ import EditCategoryId from "./components/Admin/Edit/EditCategoryId";
 import CreateProduct from "./components/Admin/Create/CreateProduct";
 import CreateCategory from "./components/Admin/Create/CreateCategory";
 import Auth from "./components/Auth";
+import AdminDashboard from "./components/Admin/AdminDashboard";
 /* import Busqueda from "./components/pages/Busqueda/Busqueda"; */
 
 function App() {
@@ -33,7 +34,7 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<SignUp />} />
       <Route path="/" element={<Home />} />
-      <Route path="/product/:id" element={<Product />} />
+      <Route path="/product/:slug" element={<Product />} />
       <Route path="/about-us" element={<SobreEsteProyecto />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="/cart/information" element={<CartInformation />} />
@@ -48,12 +49,13 @@ function App() {
       <Route path="/admin/products" element={<AdminProducts />} />
       <Route path="/admin/reviews" element={<AdminReviews />} />
       <Route path="/admin/orders" element={<AdminOrders />} />
-      <Route path="/admin/login" element={<AdminLogin />} />
+      <Route path="/admin" element={<AdminLogin />} />
       <Route path="/admin/editUser/:id" element={<EditUser />} />
       <Route path="/admin/editProduct/:id" element={<EditProduct />} />
       <Route path="/admin/editCategoryId/:id" element={<EditCategoryId />} />
       <Route path="/admin/createCategory" element={<CreateCategory />} />
       <Route path="/admin/createProduct" element={<CreateProduct />} />
+      <Route path="/admin/dashboard" element={<AdminDashboard />} />
     </Routes>
 
     /* ,

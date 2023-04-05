@@ -28,33 +28,34 @@ function Sidebar() {
 
       {
         <Offcanvas show={show} onHide={handleClose} id={css["menu"]}>
+          <Offcanvas.Header closeButton></Offcanvas.Header>
           <div>
             <Button className={css.botonAdmin} variant="primary" onClick={handleShow}>
               <i class="bi bi-list"></i>
             </Button>
           </div>
-          <Offcanvas.Header closeButton>
-            <Offcanvas.Title className={css.tituloSidebar}>Vista de Admins</Offcanvas.Title>
-          </Offcanvas.Header>
           <Offcanvas.Body>
+            <Offcanvas.Title className={`d-block ${css.tituloSidebar}`}>
+              Vista de Admins
+            </Offcanvas.Title>
             <div className={css.adminButton}>
-              <Link to="/admin/categories" className={`d-block ${css.adminButton}`}>
+              <Link to="/admin/categories" className={`d-block ${css.adminButtons}`}>
                 <i className={`bi bi-card-checklist ${css.iconos}`}></i>
                 Admin Categories
               </Link>
-              <Link to="/admin/orders" className="d-block adminButton">
+              <Link to="/admin/orders" className={`d-block ${css.adminButtons}`}>
                 <i className={`bi bi-receipt ${css.iconos}`}></i>
                 Admin Orders
               </Link>
-              <Link to="/admin/reviews" className={`d-block ${css.adminButton}`}>
+              <Link to="/admin/reviews" className={`d-block ${css.adminButtons}`}>
                 <i className={`bi bi-chat-left-quote ${css.iconos}`}></i>
                 Admin Reviews
               </Link>
-              <Link to="/admin/products" className={`d-block ${css.adminButton}`}>
+              <Link to="/admin/products" className={`d-block ${css.adminButtons}`}>
                 <i className={`bi bi-shop ${css.iconos}`}></i>
                 Admin Products
               </Link>
-              <Link to="/admin/users" className={`d-block ${css.adminButton}`}>
+              <Link to="/admin/users" className={`d-block ${css.adminButtons}  ${css.adminButton}`}>
                 <i className={`bi bi-people ${css.iconos}`}></i>
                 Admin Users
               </Link>

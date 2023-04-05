@@ -6,8 +6,12 @@ import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import css from "./PageNavbar.module.css";
 import { useSelector } from "react-redux";
+import { useState } from "react";
 
 function PageNavbar() {
+  const [openNavbar, setOpenNavbar] = useState(false);
+  console.log(openNavbar);
+
   let user = useSelector((state) => state.persistedReducer.user);
   return (
     <>
@@ -18,14 +22,20 @@ function PageNavbar() {
         className="flex-column border-bottom shadow"
         sticky="top"
       >
-        <Container id={css["mainBar"]}>
+        <Container id={css["mainBar"]} className={openNavbar ? css.open : css.close}>
           <Navbar.Brand as={Link} to={"/"} className="col-2 d-flex justify-content-center">
-            <img src="../logo.png" alt="logo Manos Creativas" className={`mt-2 ${css.navLogo}`} />
+            <img src="../logo.png" alt="logo Manos Creativas" className={`${css.navLogo}`} />
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Toggle
+            aria-controls="responsive-navbar-nav"
+            onClick={() => setOpenNavbar(!openNavbar)}
+          />
           <Navbar.Collapse id={css["searchBar"]} className="col-8">
-            <Form id={css["form"]} className="d-flex px-2 position-relative">
-              <i className={`bi bi-search position-absolute ${css.searchIcon}`}></i>
+            <Form
+              id={css["form"]}
+              className={`d-flex px-2 position-relative ${openNavbar ? "" : css.noDisplay}`}
+            >
+              <i className={`bi bi-search position-absolute ${css.searchIcon} `}></i>
               <Form.Control
                 type="search"
                 placeholder="Search"
@@ -36,21 +46,21 @@ function PageNavbar() {
             </Form>
           </Navbar.Collapse>
           <Navbar.Collapse>
-            <Nav className="fs-4 col-2">
-              <Nav.Link as={Link} to={"/cart"}>
-                <i className={`bi bi-cart fs-3 ${css.icon}`}></i>
-              </Nav.Link>
-              {user ? (
-                <Nav.Link as={Link} to={"/profile"}>
-                  <i className={`bi bi-person-circle fs-3 ${css.icon} ms-2`}></i>
+            <Nav className={`fs-4 col-2 ${openNavbar ? "" : css.noDisplay}`} id={css["icons"]}>
+              {user.token ? (
+                <Nav.Link as={Link} to={"/profile"} className={css.profile}>
+                  <i className={`bi bi-person-circle ${css.icon} `}></i>
                 </Nav.Link>
               ) : (
                 <Nav.Link as={Link} to={"/login"}>
-                  <Button id={css["button"]} className="ms-2">
+                  <Button id={css["button"]} className="btn">
                     Iniciar Sesión
                   </Button>
                 </Nav.Link>
               )}
+              <Nav.Link as={Link} to={"/cart"}>
+                <i className={`bi bi-cart ${css.icon}`}></i>
+              </Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
