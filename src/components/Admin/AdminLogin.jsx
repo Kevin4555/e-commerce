@@ -27,7 +27,7 @@ export default function AdminLogin() {
         },
       });
       dispatch(setUser(response.data));
-      navigate("/admin/products");
+      navigate("/admin/dashboard");
     } catch (err) {
       console.log(err);
       setError(true);
