@@ -71,7 +71,9 @@ const AdminUsers = () => {
                   <td>{user.birthdate}</td>
                   <td>
                     {" "}
-                    <Button variant="warning">Editar usuario</Button>
+                    <Link to={`/admin/editUser/${user.id}`} variant="warning">
+                      Editar usuario
+                    </Link>
                   </td>
                   <td>
                     {" "}
