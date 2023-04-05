@@ -14,22 +14,20 @@ function CartItem({ item }) {
   };
   return (
     <>
-      <div className="col-2 my-4 d-flex justify-content-center">
+      <div className="col-3 my-4">
         <img
           src={process.env.REACT_APP_API_BASE_IMG_URL + `/${item.img.img1}`}
           alt=""
           className={css.productImage}
         />
-      </div>
-      <div className="col-4 my-4">
-        <div className="row">
+        <div className="mt-1">
           <small className="fs-6">{item.title}</small>
         </div>
       </div>
-      <div className="col-2 my-4">
+      <div className="col-3 my-4">
         <small className="fs-6 fw-semibold">${item.price}</small>
       </div>
-      <div className="col-2 my-4">
+      <div className="col-3 my-4">
         <div className="d-inline border p-2">
           <button className="btn fw-semibold" onClick={handleRemoveItemFromCart}>
             -
@@ -43,7 +41,7 @@ function CartItem({ item }) {
           <i className="bi bi-trash3"></i>
         </button>
       </div>
-      <div className="col-2 my-4">
+      <div className="col-3 my-4">
         <small className="fs-6 fw-semibold">${item.price * item.quantity}</small>
       </div>
       <hr />

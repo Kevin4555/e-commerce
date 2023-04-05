@@ -5,6 +5,7 @@ import axios from "axios";
 import Container from "react-bootstrap/Container";
 import Sidebar from "../Sidebar/Sidebar";
 import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
 
 const AdminUsers = () => {
   const [users, setUsers] = useState([]);

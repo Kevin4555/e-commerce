@@ -11,9 +11,9 @@ function CartShipping() {
   return (
     <main>
       <PageNavbar />
-      <div className="container-fluid p-0">
+      <div className="container p-0">
         <div className="row">
-          <div className="col-7 ps-9 py-5">
+          <div className="col-12 d-lg-none mt-4">
             <h1 className="fs-2">Manos Creativas - Tienda de Artesanias</h1>
             <div className="fs-6 my-5">
               <Link to="#" className="text-decoration-none text-dark">
@@ -25,6 +25,23 @@ function CartShipping() {
               <small className="fw-semibold">Envío</small>
               <small className="fw-bold fs-6"> > </small>
               <small className="text-secondary">Pago</small>
+            </div>
+          </div>
+          <div className="col-1"></div>
+          <div className="col-12 col-lg-6 py-5 order-1">
+            <div className="d-none d-lg-block">
+              <h1 className="fs-2">Manos Creativas - Tienda de Artesanias</h1>
+              <div className="fs-6 my-5">
+                <Link to="#" className="text-decoration-none text-dark">
+                  Cart
+                </Link>
+                <small className="fw-bold fs-6"> > </small>
+                <small className="">Información</small>
+                <small className="fw-bold fs-6"> > </small>
+                <small className="fw-semibold">Envío</small>
+                <small className="fw-bold fs-6"> > </small>
+                <small className="text-secondary">Pago</small>
+              </div>
             </div>
             <div className="row">
               <div className="col-12 border rounded p-3 mb-5">
@@ -72,7 +89,7 @@ function CartShipping() {
               All rights reserved Artistic - Art & Craft Store
             </small>
           </div>
-          <div className="col-5 ps-5 pe-9 py-5 bg-secondary-subtle border-start">
+          <div className="col-12 col-lg-4 ps-5 py-5 bg-secondary-subtle border-start order-lg-1">
             {items.map((item) => (
               <CartInformationItem key={item.id} item={item} />
             ))}
@@ -92,6 +109,7 @@ function CartShipping() {
               </small>
             </div>
           </div>
+          <div className="col-1 bg-secondary-subtle order-lg-2"></div>
         </div>
       </div>
     </main>

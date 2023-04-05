@@ -21,16 +21,16 @@ function Cart() {
       </div>
       <div className="container mt-5">
         <div className="row">
-          <div className="col-6">
+          <div className="col-3">
             <small className="fs-5 fw-semibold">Product</small>
           </div>
-          <div className="col-2">
+          <div className="col-3">
             <small className="fs-5 fw-semibold">Price</small>
           </div>
-          <div className="col-2">
+          <div className="col-3">
             <small className="fs-5 fw-semibold">Quantity</small>
           </div>
-          <div className="col-2">
+          <div className="col-3">
             <small className="fs-5 fw-semibold">Total</small>
           </div>
           <hr className="my-3" />
