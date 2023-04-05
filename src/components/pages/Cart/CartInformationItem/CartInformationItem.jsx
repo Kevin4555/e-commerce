@@ -1,4 +1,4 @@
-import "../Cart.css";
+/* import "../Cart.css"; */
 
 function CartInformationItem({ item }) {
   return (
