@@ -41,6 +41,7 @@ function Product() {
   };
 
   if (product) {
+    window.document.title = `${product.title}`;
     return (
       <>
         <PageNavbar />

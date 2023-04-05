@@ -1,6 +1,6 @@
 .productImage {
-  width: 8rem;
-  height: 8rem;
+  max-width: 8rem;
+  max-height: 8rem;
 }
 
 #btn-continue-buying {
