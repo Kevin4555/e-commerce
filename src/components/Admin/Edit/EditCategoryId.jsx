@@ -61,7 +61,7 @@ export default function EditCategoryId() {
                   <h2 className="mb-2 text-center ">Edit Category</h2>
                   <div className="mb-3">
                     <Form onSubmit={handleEditCategory}>
-                      <Form.Group className="mb-3" controlId="categoryId">
+                      {/* <Form.Group className="mb-3" controlId="categoryId">
                         <Form.Label className="text-center">Definir Category Id</Form.Label>
                         <Form.Control
                           type="text"
@@ -70,7 +70,7 @@ export default function EditCategoryId() {
                           onChange={(event) => setCategoryId(event.target.value)}
                           placeholder="1-10"
                         />
-                      </Form.Group>
+                      </Form.Group> */}
 
                       <Form.Group className="mb-3" controlId="categoryName">
                         <Form.Label className="text-center">Nombre de Categoria</Form.Label>

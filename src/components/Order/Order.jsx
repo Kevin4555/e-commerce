@@ -1,6 +1,4 @@
-import "./Order.css";
 import OrderItem from "./OrderItem/OrderItem";
-import { Link } from "react-router-dom";
 
 function Order({ order }) {
   return (

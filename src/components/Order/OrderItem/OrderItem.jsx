@@ -1,4 +1,4 @@
-import "./OrderItem.css";
+import css from "./OrderItem.module.css";
 import { Link } from "react-router-dom";
 
 function OrderItem({ item }) {
@@ -9,7 +9,7 @@ function OrderItem({ item }) {
           <img
             src={process.env.REACT_APP_API_BASE_URL + `/img/${item.img.img1}`}
             alt=""
-            className="product-img mx-auto"
+            className={`${css.productImg} mx-auto"`}
           />
           <div className="my-auto ms-3">
             <div className="d-flex justify-content-between mb-2">
@@ -25,7 +25,7 @@ function OrderItem({ item }) {
           </small>
           <div>
             <Link className="text-decoration-none">Ver producto</Link>
-            <hr className="hr d-inline mx-3" />
+            <hr className={`${css.hr} d-inline mx-3`} />
             <Link className="text-decoration-none">Comprar de nuevo</Link>
           </div>
         </div>

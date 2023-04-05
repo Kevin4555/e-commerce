@@ -1,8 +1,8 @@
 import css from "./Cart.module.css";
-import PageNavbar from "../../Navbar/PageNavbar";
+import PageNavbar from "../../PageNavbar/PageNavbar";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import CartItem from "./CartItem/CartItem";
+import CartItem from "./CartItem";
 
 function Cart() {
   window.document.title = "Carrito";
@@ -40,7 +40,7 @@ function Cart() {
           })}
 
           <div className="col-12 mb-4 mt-2">
-            <Link to="/" className="btn text-white" id="btn-continue-buying">
+            <Link to="/" className="btn text-white" id={css["btn-continue-buying"]}>
               Seguir comprando
             </Link>
           </div>
