@@ -15,7 +15,7 @@ import Newsletter from "../../Newsletter/Newsletter";
 import Loading from "../../Loading/Loading";
 
 function Product() {
-  const { id } = useParams();
+  const { slug } = useParams();
   const [product, setProduct] = useState(null);
   const [stock, setStock] = useState(null);
 
@@ -24,7 +24,7 @@ function Product() {
       try {
         const response = await axios({
           method: "get",
-          url: `http://localhost:8000/products/${id}`,
+          url: `${process.env.REACT_APP_API_BASE_URL}/products/${slug}`,
         });
         setProduct(response.data);
       } catch (error) {
@@ -32,22 +32,7 @@ function Product() {
       }
     };
     getProduct();
-  }, [id]);
-
-  useEffect(() => {
-    const getProduct = async () => {
-      try {
-        const response = await axios({
-          method: "get",
-          url: `http://localhost:8000/products/${id}`,
-        });
-        setProduct(response.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getProduct();
-  }, [id]);
+  }, [slug]);
 
   const dispatch = useDispatch();
 

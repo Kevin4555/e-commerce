@@ -7,7 +7,7 @@ function ProductMini({ product }) {
     <div className="col-6 col-md-4 col-lg-3 mb-5 p-relative" id={css["productMini"]}>
       <div id={css["productContainer"]} className="shadow rounded">
         <div className={css.imgContainer}>
-          <Link to={`/product/${product.id}`} className="text-decoration-none">
+          <Link to={`/product/${product.slug}`} className="text-decoration-none">
             <img
               src={process.env.REACT_APP_API_BASE_IMG_URL + `/${product.img.img1}`}
               alt=""
@@ -19,7 +19,7 @@ function ProductMini({ product }) {
             <i className={`bi bi-heart ${css.heartIcon}`}></i>
           </button>
         </div>
-        <Link to={`/product/${product.id}`} className="text-decoration-none">
+        <Link to={`/product/${product.slug}`} className="text-decoration-none">
           <div className="border px-2 rounded-bottom" id={css["infoContainer"]}>
             <div className="row">
               <h5 className={`mt-3 ps-3 ${css.title}`}>{product.title}</h5>
