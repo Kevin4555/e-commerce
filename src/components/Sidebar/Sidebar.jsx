@@ -21,7 +21,7 @@ function Sidebar() {
 
         <div className="toggle">
           <Button className={css.botonAdmin} variant="primary" onClick={handleShow}>
-            <i class="bi bi-list"></i>
+            <i className="bi bi-list"></i>
           </Button>
         </div>
       </div>
@@ -31,7 +31,7 @@ function Sidebar() {
           <Offcanvas.Header closeButton></Offcanvas.Header>
           <div>
             <Button className={css.botonAdmin} variant="primary" onClick={handleShow}>
-              <i class="bi bi-list"></i>
+              <i className="bi bi-list"></i>
             </Button>
           </div>
           <Offcanvas.Body>

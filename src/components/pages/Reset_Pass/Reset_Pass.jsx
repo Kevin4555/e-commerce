@@ -16,11 +16,11 @@ export default function Reset() {
     event.preventDefault();
     setButtonText(
       <span
-        class="spinner-border spinner-border text-white"
+        className="spinner-border spinner-border text-white"
         role="status"
         aria-hidden="true"
       ></span>,
-    ); //londing
+    );
     try {
       await axios({
         method: "post",
@@ -29,7 +29,7 @@ export default function Reset() {
           email,
         },
       });
-      setButtonText(<i class="bi bi-send-check text-white fs-2"></i>);
+      setButtonText(<i className="bi bi-send-check text-white fs-2"></i>);
     } catch (err) {
       console.log(err);
       setAlert({ type: "danger", msg: "Correo incorrecto" });
