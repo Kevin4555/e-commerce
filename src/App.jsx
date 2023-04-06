@@ -26,14 +26,18 @@ import CreateProduct from "./components/Admin/Create/CreateProduct";
 import CreateCategory from "./components/Admin/Create/CreateCategory";
 import Auth from "./components/Auth";
 import AdminDashboard from "./components/Admin/AdminDashboard";
+
+import { useState } from "react";
 /* import Busqueda from "./components/pages/Busqueda/Busqueda"; */
 
 function App() {
+  const [showModal, setShowModal] = useState(true);
+
   return (
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<SignUp />} />
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<Home showModal={showModal} setShowModal={setShowModal} />} />
       <Route path="/product/:slug" element={<Product />} />
       <Route path="/about-us" element={<SobreEsteProyecto />} />
       <Route path="/cart" element={<Cart />} />
