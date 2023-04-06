@@ -15,6 +15,7 @@ import StartModal from "../../StartModal/StartModal";
 function Home({ showModal, setShowModal }) {
   window.document.title = "Manos Creativas";
   const [products, setProducts] = useState([]);
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     const getProducts = async () => {
@@ -29,6 +30,20 @@ function Home({ showModal, setShowModal }) {
       }
     };
     getProducts();
+  }, []);
+  useEffect(() => {
+    const getCategories = async () => {
+      try {
+        const response = await axios({
+          method: "get",
+          url: `${process.env.REACT_APP_API_BASE_URL}/categories`,
+        });
+        setCategories(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getCategories();
   }, []);
 
   function showProducts(arrayProducts) {
@@ -67,7 +82,7 @@ function Home({ showModal, setShowModal }) {
           <Carousel className={css.carousel}>
             <Carousel.Item>
               <img
-                className="d-block"
+                className={`${css.imgPrueba} d-block`}
                 src="/img/mainBanner.webp"
                 alt="First slide"
                 draggable="false"
@@ -93,74 +108,40 @@ function Home({ showModal, setShowModal }) {
               </Carousel.Caption>
             </Carousel.Item>
           </Carousel>
+
           <div className="container">
             <h3 className="fs-2 mt-5 text-center">Categorías</h3>
             <div className="row rounded" id={css["categoryDisplay"]}>
-              <div
-                className="col-12 col-sm-6 col-md-4 col-xl-2"
-                onClick={() => scrollToCategory("pinturas")}
-              >
-                <img
-                  src={
-                    process.env.REACT_APP_API_BASE_IMG_URL + `/${productsFromCategory1[2].img.img1}`
+              {categories.map((category) => (
+                <div
+                  className="col-12 col-sm-6 col-md-4 col-xl-2"
+                  onClick={() =>
+                    scrollToCategory(
+                      category.name.toLowerCase().replace(/[áéíóú]/g, function (match) {
+                        switch (match) {
+                          case "á":
+                            return "a";
+                          case "é":
+                            return "e";
+                          case "í":
+                            return "i";
+                          case "ó":
+                            return "o";
+                          case "ú":
+                            return "u";
+                        }
+                      }),
+                    )
                   }
-                  alt=""
-                  className={css.categoriesImg}
-                />
-                <h5 className="mt-3">Pinturas</h5>
-              </div>
-              <div
-                className="col-12 col-sm-6 col-md-4 col-xl-2"
-                onClick={() => scrollToCategory("ceramicas")}
-              >
-                <img
-                  src={
-                    process.env.REACT_APP_API_BASE_IMG_URL + `/${productsFromCategory2[1].img.img1}`
-                  }
-                  alt=""
-                  className={css.categoriesImg}
-                />
-                <h5 className="mt-3">Cerámicas</h5>
-              </div>
-              <div
-                className="col-12 col-sm-6 col-md-4 col-xl-2"
-                onClick={() => scrollToCategory("maderas")}
-              >
-                <img
-                  src={
-                    process.env.REACT_APP_API_BASE_IMG_URL + `/${productsFromCategory3[0].img.img1}`
-                  }
-                  className={css.categoriesImg}
-                  alt=""
-                />
-                <h5 className="mt-3">Maderas</h5>
-              </div>
-              <div
-                className="col-12 col-sm-6 col-md-4 col-xl-2"
-                onClick={() => scrollToCategory("tejidos")}
-              >
-                <img
-                  src={
-                    process.env.REACT_APP_API_BASE_IMG_URL + `/${productsFromCategory4[0].img.img1}`
-                  }
-                  className={css.categoriesImg}
-                  alt=""
-                />
-                <h5 className="mt-3">Tejidos</h5>
-              </div>
-              <div
-                className="col-12 col-sm-6 col-md-4 col-xl-2"
-                onClick={() => scrollToCategory("decoraciones")}
-              >
-                <img
-                  src={
-                    process.env.REACT_APP_API_BASE_IMG_URL + `/${productsFromCategory2[3].img.img1}`
-                  }
-                  className={css.categoriesImg}
-                  alt=""
-                />
-                <h5 className="mt-3">Decoraciones</h5>
-              </div>
+                >
+                  <img
+                    src={process.env.REACT_APP_API_BASE_IMG_URL + `/${category.img}`}
+                    alt=""
+                    className={css.categoriesImg}
+                  />
+                  <h5 className="mt-3">{category.name}</h5>
+                </div>
+              ))}
             </div>
             <section id={css["display"]}>
               <div className={css.displayOffer}>

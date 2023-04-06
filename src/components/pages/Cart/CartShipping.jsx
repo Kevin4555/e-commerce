@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import PageNavbar from "../../PageNavbar/PageNavbar";
 import CartInformationItem from "./CartInformationItem";
+import Footer from "../../Footer/Footer";
 
 function CartShipping() {
   const { items, totalPrice, address } = useSelector((state) => state.persistedReducer.cart);
@@ -26,8 +27,7 @@ function CartShipping() {
               <small className="text-secondary">Pago</small>
             </div>
           </div>
-          <div className="col-1"></div>
-          <div className="col-12 col-lg-6 py-5 order-1">
+          <div className="col-12 col-lg-7 py-5 order-1">
             <div className="d-none d-lg-block">
               <h1 className="fs-2">Manos Creativas - Tienda de Artesanias</h1>
               <div className="fs-6 my-5">
@@ -77,7 +77,10 @@ function CartShipping() {
               </div>
               <div className="col-6 d-inline text-end">
                 <Link to="/cart/payment">
-                  <button className="btn py-3 px-5 fw-semibold text-white" id="continue-btn">
+                  <button
+                    className="btn py-3 px-5 fw-semibold text-white btn-dark"
+                    id="continue-btn"
+                  >
                     Continuar al pago
                   </button>
                 </Link>
@@ -88,7 +91,7 @@ function CartShipping() {
               All rights reserved Artistic - Art & Craft Store
             </small>
           </div>
-          <div className="col-12 col-lg-4 ps-5 py-5 bg-secondary-subtle border-start order-lg-1">
+          <div className="col-12 col-lg-5 ps-5 py-5 bg-secondary-subtle border-start order-lg-1">
             {items.map((item) => (
               <CartInformationItem key={item.id} item={item} />
             ))}
@@ -108,9 +111,9 @@ function CartShipping() {
               </small>
             </div>
           </div>
-          <div className="col-1 bg-secondary-subtle order-lg-2"></div>
         </div>
       </div>
+      <Footer />
     </main>
   );
 }

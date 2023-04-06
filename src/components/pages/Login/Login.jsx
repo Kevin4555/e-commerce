@@ -39,9 +39,13 @@ export default function Login() {
   return (
     <>
       <PageNavbar />
-      <Container fluid id={css["background"]}>
-        <Row id="content" className="d-flex justify-content-center align-items-center">
-          <Col xs={11} sm={8} md={6} xl={4}>
+      <Container
+        fluid
+        id={css["background"]}
+        className="d-flex justify-content-center align-items-center"
+      >
+        <Row id="content">
+          <Col>
             <Card className=" px-4">
               {error && (
                 <Alert variant="danger" onClose={() => setError(false)} dismissible>
@@ -82,6 +86,13 @@ export default function Login() {
                       Todavía no tienes una cuenta?
                       <Link to="/signup" className={css.link}>
                         Regístrate
+                      </Link>
+                    </p>
+                  </div>
+                  <div className="mt-1">
+                    <p className="mb-0 text-center">
+                      <Link to="/resetpassword" className={css.link}>
+                        Olvidaste tu contraseña?
                       </Link>
                     </p>
                   </div>

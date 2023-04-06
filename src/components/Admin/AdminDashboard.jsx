@@ -46,7 +46,7 @@ const AdminDashboard = () => {
                   {" "}
                   <h5>
                     {" "}
-                    <i class="bi bi-receipt"></i> Monthly Sales (USD)
+                    <i className="bi bi-receipt"></i> Monthly Sales (USD)
                   </h5>
                 </Card.Header>
                 <Card.Body>
@@ -56,7 +56,7 @@ const AdminDashboard = () => {
                     {" "}
                     <h3> USD 1000 </h3>
                     <h6 className="fw-bold text-success">
-                      <i class="bi bi-plus-lg "></i> 10%
+                      <i className="bi bi-plus-lg "></i> 10%
                     </h6>
                   </Card.Text>
                   <Button variant="primary">View all</Button>
@@ -68,7 +68,7 @@ const AdminDashboard = () => {
                 <Card.Header>
                   <h5>
                     {" "}
-                    <i class="bi bi-clipboard2-pulse"></i>Conversion Rate
+                    <i className="bi bi-clipboard2-pulse"></i>Conversion Rate
                   </h5>
                 </Card.Header>
                 <Card.Body>
@@ -77,7 +77,7 @@ const AdminDashboard = () => {
                     {" "}
                     <h3>19,17%</h3>
                     <h6 className="fw-bold text-danger">
-                      <i class="bi bi-dash-circle"></i> 10%
+                      <i className="bi bi-dash-circle"></i> 10%
                     </h6>
                   </Card.Text>
                   <Button variant="primary">View All</Button>
@@ -89,7 +89,7 @@ const AdminDashboard = () => {
                 <Card.Header>
                   {" "}
                   <h5>
-                    <i class="bi bi-clipboard2-pulse-fill"></i>Avg Click Rate{" "}
+                    <i className="bi bi-clipboard2-pulse-fill"></i>Avg Click Rate{" "}
                   </h5>
                 </Card.Header>
                 <Card.Body>
@@ -98,7 +98,7 @@ const AdminDashboard = () => {
                     {" "}
                     <h3>25,4%</h3>
                     <h6 className="fw-bold text-success">
-                      <i class="bi bi-plus-lg"></i> 10%
+                      <i className="bi bi-plus-lg"></i> 10%
                     </h6>
                   </Card.Text>
                   <Button variant="primary">View All</Button>

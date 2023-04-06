@@ -6,13 +6,28 @@ import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import css from "./PageNavbar.module.css";
 import { useSelector } from "react-redux";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 function PageNavbar() {
   const [openNavbar, setOpenNavbar] = useState(false);
-  console.log(openNavbar);
-
   let user = useSelector((state) => state.persistedReducer.user);
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    const getCategories = async () => {
+      try {
+        const response = await axios({
+          method: "get",
+          url: `${process.env.REACT_APP_API_BASE_URL}/categories`,
+        });
+        setCategories(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getCategories();
+  }, []);
   return (
     <>
       <Navbar
@@ -47,7 +62,7 @@ function PageNavbar() {
           </Navbar.Collapse>
           <Navbar.Collapse>
             <Nav className={`fs-4 col-2 ${openNavbar ? "" : css.noDisplay}`} id={css["icons"]}>
-              {user.token ? (
+              {user ? (
                 <Nav.Link as={Link} to={"/profile"} className={css.profile}>
                   <i className={`bi bi-person-circle ${css.icon} `}></i>
                 </Nav.Link>
@@ -67,21 +82,11 @@ function PageNavbar() {
         <Navbar.Collapse>
           <Container id={css["categoryBar"]}>
             <Nav className="fs-6 flex-grow-1">
-              <Nav.Link as={Link} to={"/"}>
-                Pinturas
-              </Nav.Link>
-              <Nav.Link as={Link} to={"/"}>
-                Cerámicas
-              </Nav.Link>
-              <Nav.Link as={Link} to={"/"}>
-                Maderas
-              </Nav.Link>
-              <Nav.Link as={Link} to={"/"}>
-                Tejidos
-              </Nav.Link>
-              <Nav.Link as={Link} to={"/"}>
-                Decoraciones
-              </Nav.Link>
+              {categories.map((category) => (
+                <Nav.Link as={Link} to={"/"}>
+                  {category.name}
+                </Nav.Link>
+              ))}
             </Nav>
           </Container>
         </Navbar.Collapse>

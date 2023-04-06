@@ -11,6 +11,7 @@ import Loading from "../../Loading/Loading";
 function Category() {
   const [products, setProducts] = useState([]);
   const [productsToShow, setProductsToShow] = useState([]);
+  const [categories, setCategories] = useState([]);
   const [categoryTitle, setCategoryTitle] = useState("Todos nuestros productos");
 
   useEffect(() => {
@@ -29,11 +30,20 @@ function Category() {
     getProducts();
   }, []);
 
-  const productsFromCategory1 = products.filter((product) => product.categoryId === 1);
-  const productsFromCategory2 = products.filter((product) => product.categoryId === 2);
-  const productsFromCategory3 = products.filter((product) => product.categoryId === 3);
-  const productsFromCategory4 = products.filter((product) => product.categoryId === 4);
-  const productsFromCategory5 = products.filter((product) => product.categoryId === 5);
+  useEffect(() => {
+    const getCategories = async () => {
+      try {
+        const response = await axios({
+          method: "get",
+          url: `${process.env.REACT_APP_API_BASE_URL}/categories`,
+        });
+        setCategories(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getCategories();
+  }, []);
 
   function scrollToCategory(id) {
     const elemento = document.getElementById(id);
@@ -64,91 +74,26 @@ function Category() {
           <div className="container">
             <h3 className="fs-1 mt-4 text-center">Categorías</h3>
             <div className="row rounded border-bottom" id={cssHome["categoryDisplay"]}>
-              <div
-                className="col-2"
-                onClick={() => {
-                  setProductsToShow(productsFromCategory1);
-                  setCategoryTitle("Pinturas");
-                  scrollToCategory("products");
-                }}
-              >
-                <img
-                  src={
-                    process.env.REACT_APP_API_BASE_IMG_URL + `/${productsFromCategory1[2].img.img1}`
-                  }
-                  alt=""
-                  className={css.categoriesImg}
-                />
-                <h5 className="mt-3">Pinturas</h5>
-              </div>
-              <div
-                className="col-2"
-                onClick={() => {
-                  setProductsToShow(productsFromCategory2);
-                  setCategoryTitle("Cerámicas");
-                  scrollToCategory("products");
-                }}
-              >
-                <img
-                  src={
-                    process.env.REACT_APP_API_BASE_IMG_URL + `/${productsFromCategory2[1].img.img1}`
-                  }
-                  alt=""
-                  className={css.categoriesImg}
-                />
-                <h5 className="mt-3">Cerámicas</h5>
-              </div>
-              <div
-                className="col-2"
-                onClick={() => {
-                  setProductsToShow(productsFromCategory3);
-                  setCategoryTitle("Maderas");
-                  scrollToCategory("products");
-                }}
-              >
-                <img
-                  src={
-                    process.env.REACT_APP_API_BASE_IMG_URL + `/${productsFromCategory3[0].img.img1}`
-                  }
-                  className={css.categoriesImg}
-                  alt=""
-                />
-                <h5 className="mt-3">Maderas</h5>
-              </div>
-              <div
-                className="col-2"
-                onClick={() => {
-                  setProductsToShow(productsFromCategory4);
-                  setCategoryTitle("Tejidos");
-                  scrollToCategory("products");
-                }}
-              >
-                <img
-                  src={
-                    process.env.REACT_APP_API_BASE_IMG_URL + `/${productsFromCategory4[0].img.img1}`
-                  }
-                  className={css.categoriesImg}
-                  alt=""
-                />
-                <h5 className="mt-3">Tejidos</h5>
-              </div>
-              <div
-                className="col-2"
-                onClick={() => {
-                  setProductsToShow(productsFromCategory5);
-                  setCategoryTitle("Decoraciones");
-                  scrollToCategory("products");
-                }}
-              >
-                <img
-                  src={
-                    process.env.REACT_APP_API_BASE_IMG_URL + `/${productsFromCategory2[3].img.img1}`
-                  }
-                  className={css.categoriesImg}
-                  alt=""
-                />
-                <h5 className="mt-3">Decoraciones</h5>
-              </div>
+              {categories.map((category) => (
+                <div
+                  className="col-12 col-sm-6 col-md-4 col-xl-2"
+                  onClick={() => {
+                    const productsFromCategory = products.filter(
+                      (product) => product.categoryId === category.id,
+                    );
+                    setProductsToShow(productsFromCategory);
+                    setCategoryTitle(category.name);
+                    scrollToCategory("products");
+                  }}
+                >
+                  <img
+                    src={process.env.REACT_APP_API_BASE_IMG_URL + `/${category.img}`}
+                    alt=""
+                    className={css.categoriesImg}
+                  />
+                  <h5 className="mt-3">{category.name}</h5>
+                </div>
+              ))}
             </div>
             <div className="mt-5 mb-5 ms-2">
               <h3 className="pt-5 pb-4 d-inline fs-2" id="products">
