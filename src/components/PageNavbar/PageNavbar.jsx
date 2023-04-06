@@ -47,7 +47,7 @@ function PageNavbar() {
           </Navbar.Collapse>
           <Navbar.Collapse>
             <Nav className={`fs-4 col-2 ${openNavbar ? "" : css.noDisplay}`} id={css["icons"]}>
-              {user.token ? (
+              {user ? (
                 <Nav.Link as={Link} to={"/profile"} className={css.profile}>
                   <i className={`bi bi-person-circle ${css.icon} `}></i>
                 </Nav.Link>

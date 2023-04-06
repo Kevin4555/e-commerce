@@ -26,6 +26,8 @@ import CreateProduct from "./components/Admin/Create/CreateProduct";
 import CreateCategory from "./components/Admin/Create/CreateCategory";
 import Auth from "./components/Auth";
 import AdminDashboard from "./components/Admin/AdminDashboard";
+import Reset_Pass from "./components/pages/Reset_Pass/Reset_Pass";
+import Reset_2 from "./components/pages/Reset_Pass_2/Reset_Pass_2";
 /* import Busqueda from "./components/pages/Busqueda/Busqueda"; */
 
 function App() {
@@ -33,6 +35,8 @@ function App() {
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<SignUp />} />
+      <Route path="/resetpassword" element={<Reset_Pass />} />
+      <Route path="/resetpassword/:token" element={<Reset_2 />} />
       <Route path="/" element={<Home />} />
       <Route path="/product/:slug" element={<Product />} />
       <Route path="/about-us" element={<SobreEsteProyecto />} />
