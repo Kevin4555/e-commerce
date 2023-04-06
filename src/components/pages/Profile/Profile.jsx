@@ -89,7 +89,7 @@ function Profile() {
               <div className="col-12 col-lg-4 order-lg-1">
                 <div id={css["userProfile"]} className="shadow text-center p-4 rounded mb-5">
                   <img
-                    src="/img/default-avatar.jpg"
+                    src={`${process.env.REACT_APP_API_BASE_IMG_URL}/${user.avatar}`}
                     alt="Profile"
                     className={`${css.profileImg} rounded-pill`}
                   />

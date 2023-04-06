@@ -91,7 +91,7 @@ export default function Login() {
                   </div>
                   <div className="mt-1">
                     <p className="mb-0 text-center">
-                      <Link to="/reset_password" className={css.link}>
+                      <Link to="/resetpassword" className={css.link}>
                         Olvidaste tu contraseña?
                       </Link>
                     </p>
