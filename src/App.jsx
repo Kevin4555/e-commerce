@@ -30,6 +30,8 @@ import Reset_Pass from "./components/pages/Reset_Pass/Reset_Pass";
 import Reset_2 from "./components/pages/Reset_Pass_2/Reset_Pass_2";
 
 import { useState } from "react";
+import Administrators from "./components/Admin/Administrators";
+import CreateAdmin from "./components/Admin/Create/CreateAdmin";
 /* import Busqueda from "./components/pages/Busqueda/Busqueda"; */
 
 function App() {
@@ -64,6 +66,8 @@ function App() {
       <Route path="/admin/createCategory" element={<CreateCategory />} />
       <Route path="/admin/createProduct" element={<CreateProduct />} />
       <Route path="/admin/dashboard" element={<AdminDashboard />} />
+      <Route path="/admin/administrators" element={<Administrators />} />
+      <Route path="/admin/createAdmin" element={<CreateAdmin />} />
     </Routes>
 
     /* ,

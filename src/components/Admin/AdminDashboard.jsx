@@ -72,10 +72,10 @@ const AdminDashboard = () => {
                   </h5>
                 </Card.Header>
                 <Card.Body>
-                  <Card.Title>Percentage</Card.Title>
+                  <Card.Title>Quantity</Card.Title>
                   <Card.Text>
                     {" "}
-                    <h3>19,17%</h3>
+                    <h3>23.569</h3>
                     <h6 className="fw-bold text-danger">
                       <i className="bi bi-dash-circle"></i> 10%
                     </h6>
@@ -89,14 +89,14 @@ const AdminDashboard = () => {
                 <Card.Header>
                   {" "}
                   <h5>
-                    <i className="bi bi-clipboard2-pulse-fill"></i>Avg Click Rate{" "}
+                    <i class="bi bi-shop"></i> Products{" "}
                   </h5>
                 </Card.Header>
                 <Card.Body>
-                  <Card.Title>Percentage</Card.Title>
+                  <Card.Title>Quantity</Card.Title>
                   <Card.Text>
                     {" "}
-                    <h3>25,4%</h3>
+                    <h3>4.563</h3>
                     <h6 className="fw-bold text-success">
                       <i className="bi bi-plus-lg"></i> 10%
                     </h6>

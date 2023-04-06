@@ -8,6 +8,8 @@ import Sidebar from "../Sidebar/Sidebar";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 const AdminProducts = () => {
   const [products, setProducts] = useState([]);
@@ -43,85 +45,98 @@ const AdminProducts = () => {
   return (
     <>
       <Sidebar />
-      <div className="container-fluid py-5 d-flex align-item-center justify-content-center flex-column">
-        <header>
-          <h1 className="fs-3 fw-bold text-light text-center">Panel de Administracion</h1>
-        </header>
-      </div>
-      <Container fluid>
-        <h2>Panel de Products</h2>
-
-        {/* Cambiar segun excalidraw */}
-        <div className="text-end">
-          <Link to="/admin/createProduct">
-            <Button variant="success"> Agregar nuevo producto </Button>
-          </Link>
+      <div className={css.backgroundTop}>
+        <div className="container-fluid py-5 d-flex align-item-center justify-content-center flex-column">
+          <header>
+            <h1 className={css.titulo}>Panel de Administracion</h1>
+          </header>
         </div>
+      </div>
+      <Container className="p-5" fluid id={css["backgroundAdminLogin"]}>
+        <Row>
+          <Col>
+            <h2 className={css.tituloContainer}>Panel de Products</h2>
 
-        <Table striped bordered hover>
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Title</th>
-              <th>Description</th>
-              <th>Price</th>
-              <th>Image 1</th>
-              <th>Image 2</th>
-              <th>Stock</th>
-              <th>Featured</th>
-              <th>Slug</th>
-              <th>Rating</th>
-              <th>Category Id</th>
-              <th>Edit Category</th>
-              <th>Erase Category</th>
-            </tr>
-          </thead>
-          <tbody>
-            {products.map((product) => {
-              return (
-                <tr>
-                  <td>{product.id}</td>
-                  <td>{product.title}</td>
-                  <td>{product.description}</td>
-                  <td>{product.price}</td>
-                  <td>
-                    {
-                      <img
-                        src={process.env.REACT_APP_API_BASE_IMG_URL + `/${product.img.img1}`}
-                        alt=""
-                        className={css.categoriesimg}
-                      />
-                    }
-                  </td>
-                  <td>
-                    <img
-                      src={process.env.REACT_APP_API_BASE_IMG_URL + `/${product.img.img2}`}
-                      alt=""
-                      className={css.categoriesimg}
-                    />
-                  </td>
-                  <td>{product.stock}</td>
-                  <td>{product.featured}</td>
-                  <td>{product.slug}</td>
-                  <td>{product.rating}</td>
-                  <td>{product.categoryId}</td>
-                  <td>
-                    {" "}
-                    <Link to={`/admin/editProduct/${product.id}`} variant="warning">
-                      Editar Producto
-                    </Link>
-                  </td>
-                  <td>
-                    {" "}
-                    <Button variant="danger" onClick={() => handleDeleteProduct(product)}>
-                      Eliminar Producto
-                    </Button>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </Table>
+            <div className="text-end">
+              <div className={css.botonAgregar}>
+                <Link to="/admin/createProduct">
+                  <Button variant="success"> Agregar producto </Button>
+                </Link>
+              </div>
+            </div>
+
+            <div className={css.tableProducts}>
+              <Table striped bordered hover>
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Titulo</th>
+                    <th>Descripcion</th>
+                    <th>Precio</th>
+                    <th>Imagen 1</th>
+                    <th>Imagen 2</th>
+                    <th>Stock</th>
+                    <th>Featured</th>
+                    <th>Extracto</th>
+                    <th>Rating</th>
+                    <th> Id</th>
+                    <th>Editar </th>
+                    <th>Eliminar </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {products.map((product) => {
+                    return (
+                      <tr>
+                        <td>{product.id}</td>
+                        <td>{product.title}</td>
+                        <td>{product.description}</td>
+                        <td>{product.price}</td>
+                        <td>
+                          {
+                            <img
+                              src={process.env.REACT_APP_API_BASE_IMG_URL + `/${product.img.img1}`}
+                              alt=""
+                              className={css.categoriesimg}
+                            />
+                          }
+                        </td>
+                        <td>
+                          <img
+                            src={process.env.REACT_APP_API_BASE_IMG_URL + `/${product.img.img2}`}
+                            alt=""
+                            className={css.categoriesimg}
+                          />
+                        </td>
+                        <td>{product.stock}</td>
+                        <td>{product.featured}</td>
+                        <td>{product.slug}</td>
+                        <td>{product.rating}</td>
+                        <td>{product.categoryId}</td>
+                        <td>
+                          {" "}
+                          <Button className="buttons" variant="warning">
+                            <Link to={`/admin/editProduct/${product.id}`}> Editar </Link>
+                          </Button>
+                        </td>
+                        <td>
+                          {" "}
+                          <Button
+                            className="buttons"
+                            variant="danger"
+                            onClick={() => handleDeleteProduct(product)}
+                          >
+                            Eliminar
+                          </Button>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </Table>
+            </div>
+          </Col>
+        </Row>
       </Container>
       ;
     </>
