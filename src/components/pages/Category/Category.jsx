@@ -45,12 +45,6 @@ function Category() {
     getCategories();
   }, []);
 
-  const productsFromCategory1 = products.filter((product) => product.categoryId === 1);
-  const productsFromCategory2 = products.filter((product) => product.categoryId === 2);
-  const productsFromCategory3 = products.filter((product) => product.categoryId === 3);
-  const productsFromCategory4 = products.filter((product) => product.categoryId === 4);
-  const productsFromCategory5 = products.filter((product) => product.categoryId === 5);
-
   function scrollToCategory(id) {
     const elemento = document.getElementById(id);
     const posicion = elemento.getBoundingClientRect();
@@ -84,7 +78,10 @@ function Category() {
                 <div
                   className="col-12 col-sm-6 col-md-4 col-xl-2"
                   onClick={() => {
-                    setProductsToShow(productsFromCategory3);
+                    const productsFromCategory = products.filter(
+                      (product) => product.categoryId === category.id,
+                    );
+                    setProductsToShow(productsFromCategory);
                     setCategoryTitle(category.name);
                     scrollToCategory("products");
                   }}
