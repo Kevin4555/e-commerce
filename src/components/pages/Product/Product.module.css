@@ -15,10 +15,7 @@
 #reviewsContainer {
   width: 500px;
 }
-.userAvatar {
-  width: 40px;
-  height: 40px;
-}
+
 .loading {
   width: 30px;
   height: 30px;
@@ -50,4 +47,26 @@
   font-weight: 300 !important;
   background-color: var(--tertiary);
   color: var(--dark) !important;
+}
+#buttonReview {
+  background-color: var(--secondary);
+  width: 10rem;
+  margin-left: auto;
+  margin-right: auto;
+  border: none;
+}
+
+#buttonReview:hover {
+  background-color: var(--primary);
+}
+#buttonLogin {
+  background-color: var(--tertiary) !important;
+  color: white !important;
+  border: none;
+  width: 7rem;
+  font-size: small;
+}
+
+#buttonLogin:hover {
+  background-color: var(--accent) !important;
 }
