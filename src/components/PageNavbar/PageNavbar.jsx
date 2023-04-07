@@ -83,7 +83,11 @@ function PageNavbar() {
           <Container id={css["categoryBar"]}>
             <Nav className="fs-6 flex-grow-1">
               {categories.map((category) => (
-                <Nav.Link key={`${category.name}_${category.id}`} as={Link} to={"/"}>
+                <Nav.Link
+                  key={`${category.name}_${category.id}`}
+                  as={Link}
+                  to={"/categories/" + category.id}
+                >
                   {category.name}
                 </Nav.Link>
               ))}

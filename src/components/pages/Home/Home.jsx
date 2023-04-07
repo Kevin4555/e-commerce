@@ -43,83 +43,38 @@ function Home({ showModal, setShowModal }) {
           method: "get",
           url: `${process.env.REACT_APP_API_BASE_URL}/products?categoryId=1`,
         });
-        setProductsFromCategory1(response.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getProducts();
-  }, []);
-  useEffect(() => {
-    const getProducts = async () => {
-      try {
-        const response = await axios({
+        const response2 = await axios({
           method: "get",
           url: `${process.env.REACT_APP_API_BASE_URL}/products?categoryId=2`,
         });
-        setProductsFromCategory2(response.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getProducts();
-  }, []);
-  useEffect(() => {
-    const getProducts = async () => {
-      try {
-        const response = await axios({
+        const response3 = await axios({
           method: "get",
           url: `${process.env.REACT_APP_API_BASE_URL}/products?categoryId=3`,
         });
-        setProductsFromCategory3(response.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getProducts();
-  }, []);
-  useEffect(() => {
-    const getProducts = async () => {
-      try {
-        const response = await axios({
+        const response4 = await axios({
           method: "get",
           url: `${process.env.REACT_APP_API_BASE_URL}/products?categoryId=4`,
         });
-        setProductsFromCategory4(response.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getProducts();
-  }, []);
-  useEffect(() => {
-    const getProducts = async () => {
-      try {
-        const response = await axios({
+        const response5 = await axios({
           method: "get",
           url: `${process.env.REACT_APP_API_BASE_URL}/products?categoryId=5`,
         });
-        setProductsFromCategory5(response.data);
+        const response6 = await axios({
+          method: "get",
+          url: `${process.env.REACT_APP_API_BASE_URL}/categories`,
+        });
+
+        setProductsFromCategory1(response.data);
+        setProductsFromCategory2(response2.data);
+        setProductsFromCategory3(response3.data);
+        setProductsFromCategory4(response4.data);
+        setProductsFromCategory5(response5.data);
+        setCategories(response6.data);
       } catch (error) {
         console.log(error);
       }
     };
     getProducts();
-  }, []);
-
-  useEffect(() => {
-    const getCategories = async () => {
-      try {
-        const response = await axios({
-          method: "get",
-          url: `${process.env.REACT_APP_API_BASE_URL}/categories`,
-        });
-        setCategories(response.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getCategories();
   }, []);
 
   function showProducts(arrayProducts) {
