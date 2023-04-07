@@ -14,6 +14,11 @@ function Home() {
   window.document.title = "Manos Creativas";
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [productsFromCategory1, setProductsFromCategory1] = useState([]);
+  const [productsFromCategory2, setProductsFromCategory2] = useState([]);
+  const [productsFromCategory3, setProductsFromCategory3] = useState([]);
+  const [productsFromCategory4, setProductsFromCategory4] = useState([]);
+  const [productsFromCategory5, setProductsFromCategory5] = useState([]);
 
   useEffect(() => {
     const getProducts = async () => {
@@ -29,6 +34,77 @@ function Home() {
     };
     getProducts();
   }, []);
+  useEffect(() => {
+    const getProducts = async () => {
+      try {
+        const response = await axios({
+          method: "get",
+          url: `${process.env.REACT_APP_API_BASE_URL}/products?categoryId=1`,
+        });
+        setProductsFromCategory1(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getProducts();
+  }, []);
+  useEffect(() => {
+    const getProducts = async () => {
+      try {
+        const response = await axios({
+          method: "get",
+          url: `${process.env.REACT_APP_API_BASE_URL}/products?categoryId=2`,
+        });
+        setProductsFromCategory2(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getProducts();
+  }, []);
+  useEffect(() => {
+    const getProducts = async () => {
+      try {
+        const response = await axios({
+          method: "get",
+          url: `${process.env.REACT_APP_API_BASE_URL}/products?categoryId=3`,
+        });
+        setProductsFromCategory3(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getProducts();
+  }, []);
+  useEffect(() => {
+    const getProducts = async () => {
+      try {
+        const response = await axios({
+          method: "get",
+          url: `${process.env.REACT_APP_API_BASE_URL}/products?categoryId=4`,
+        });
+        setProductsFromCategory4(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getProducts();
+  }, []);
+  useEffect(() => {
+    const getProducts = async () => {
+      try {
+        const response = await axios({
+          method: "get",
+          url: `${process.env.REACT_APP_API_BASE_URL}/products?categoryId=5`,
+        });
+        setProductsFromCategory5(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getProducts();
+  }, []);
+
   useEffect(() => {
     const getCategories = async () => {
       try {
@@ -66,12 +142,6 @@ function Home() {
   }
 
   if (products.length > 0) {
-    const productsFromCategory1 = products.filter((product) => parseInt(product.categoryId) === 1);
-    const productsFromCategory2 = products.filter((product) => parseInt(product.categoryId) === 2);
-    const productsFromCategory3 = products.filter((product) => parseInt(product.categoryId) === 3);
-    const productsFromCategory4 = products.filter((product) => parseInt(product.categoryId) === 4);
-    const productsFromCategory5 = products.filter((product) => parseInt(product.categoryId) === 5);
-
     return (
       <>
         <PageNavbar />
@@ -111,6 +181,7 @@ function Home() {
             <div className="row rounded" id={css["categoryDisplay"]}>
               {categories.map((category) => (
                 <div
+                  key={`${category.name}_${category.id}`}
                   className="col-12 col-sm-6 col-md-4 col-xl-2"
                   onClick={() =>
                     scrollToCategory(
