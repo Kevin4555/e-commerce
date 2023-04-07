@@ -9,13 +9,14 @@ import { Link } from "react-router-dom";
 
 const Administrators = () => {
   const [admins, setAdmins] = useState([]);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     const getAdmins = async () => {
       try {
         const response = await axios({
           method: "get",
-          url: `${process.env.REACT_APP_API_BASE_URL}/admins`,
+          url: `${process.env.REACT_APP_API_BASE_URL}/admin`,
         });
         setAdmins(response.data);
       } catch (error) {
@@ -24,9 +25,18 @@ const Administrators = () => {
     };
     getAdmins();
   }, []);
-  {
-    console.log(admins);
-  }
+  const handleDeleteAdmin = async (admin) => {
+    try {
+      await axios({
+        method: "delete",
+        url: `${process.env.REACT_APP_API_BASE_URL}/admin/${admin.id}`,
+      });
+    } catch (err) {
+      console.log(err);
+      setError(true);
+    }
+  };
+
   return (
     <>
       <Sidebar />
@@ -80,7 +90,9 @@ const Administrators = () => {
                   </td>
                   <td>
                     {" "}
-                    <Button variant="danger">Eliminar Admin</Button>
+                    <Button variant="danger" onClick={() => handleDeleteAdmin(admin)}>
+                      Eliminar Admin
+                    </Button>
                   </td>
                 </tr>
               );

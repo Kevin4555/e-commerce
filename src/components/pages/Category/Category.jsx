@@ -7,43 +7,33 @@ import ProductMini from "../../ProductMini/ProductMini";
 import Newsletter from "../../Newsletter/Newsletter";
 import Footer from "../../Footer/Footer";
 import Loading from "../../Loading/Loading";
+import { useNavigate, useParams } from "react-router-dom";
 
 function Category() {
-  const [products, setProducts] = useState([]);
-  const [productsToShow, setProductsToShow] = useState([]);
+  const [category, setCategory] = useState(null);
   const [categories, setCategories] = useState([]);
-  const [categoryTitle, setCategoryTitle] = useState("Todos nuestros productos");
+  const { id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const getProducts = async () => {
+    const getCategory = async () => {
       try {
         const response = await axios({
           method: "get",
-          url: `${process.env.REACT_APP_API_BASE_URL}/products`,
+          url: `${process.env.REACT_APP_API_BASE_URL}/categories/${id}`,
         });
-        setProducts(response.data);
-        setProductsToShow(response.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getProducts();
-  }, []);
-
-  useEffect(() => {
-    const getCategories = async () => {
-      try {
-        const response = await axios({
+        const response2 = await axios({
           method: "get",
           url: `${process.env.REACT_APP_API_BASE_URL}/categories`,
         });
-        setCategories(response.data);
+        setCategory(response.data);
+        setCategories(response2.data);
       } catch (error) {
         console.log(error);
       }
     };
-    getCategories();
-  }, []);
+    getCategory();
+  }, [id]);
 
   function scrollToCategory(id) {
     const elemento = document.getElementById(id);
@@ -54,11 +44,11 @@ function Category() {
     });
   }
 
-  function showProducts(arrayProducts) {
+  function showProducts() {
     return (
-      arrayProducts && (
+      category && (
         <div className="row">
-          {arrayProducts.map((product) => {
+          {category.products.map((product) => {
             return <ProductMini product={product} key={`${product.name}_${product.id}`} />;
           })}
         </div>
@@ -66,7 +56,7 @@ function Category() {
     );
   }
 
-  if (products[0]) {
+  if (category) {
     return (
       <>
         <PageNavbar />
@@ -79,11 +69,7 @@ function Category() {
                   key={`${category.name}_${category.id}`}
                   className="col-12 col-sm-6 col-md-4 col-xl-2"
                   onClick={() => {
-                    const productsFromCategory = products.filter(
-                      (product) => product.categoryId === category.id,
-                    );
-                    setProductsToShow(productsFromCategory);
-                    setCategoryTitle(category.name);
+                    navigate("/categories/" + category.id);
                     scrollToCategory("products");
                   }}
                 >
@@ -98,11 +84,11 @@ function Category() {
             </div>
             <div className="mt-5 mb-5 ms-2">
               <h3 className="pt-5 pb-4 d-inline fs-2" id="products">
-                {categoryTitle}{" "}
-                <small className="fs-6 fw-lighter"> {productsToShow.length} artículos</small>
+                {category.name}
+                <small className="fs-6 fw-lighter"> {category.products.length} artículos</small>
               </h3>
             </div>
-            {showProducts(productsToShow)}
+            {showProducts()}
           </div>
         </main>
         <Newsletter />
