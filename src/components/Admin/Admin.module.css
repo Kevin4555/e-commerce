@@ -51,3 +51,47 @@
   justify-content: space-between;
   margin: 3rem 0px;
 }
+
+.botonAgregar {
+  margin-bottom: 2rem;
+  margin-right: 1rem;
+}
+
+.categoriesimg {
+  width: 150px;
+  height: 150px;
+}
+
+.text-end {
+  margin-bottom: 2rem;
+  margin-right: 1rem;
+}
+
+.tableProducts {
+  /* margin-left: 1rem;
+  margin-right: 1rem; */
+}
+
+#backgroundAdminLogin {
+  padding: 0;
+  background-color: var(--tertiary);
+  background-size: cover;
+}
+
+.buttons {
+  text-decoration: none;
+}
+
+.titulo {
+  color: white;
+  text-align: center;
+  background-color: var(--secondary);
+}
+
+.tituloContainer {
+  color: white;
+}
+
+.backgroundTop {
+  background-color: var(--secondary);
+}

@@ -1,22 +1,26 @@
 import css from "./Product.module.css";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Carousel from "react-bootstrap/Carousel";
-import Container from "react-bootstrap/Container";
+import { Container, Carousel, Form, Button } from "react-bootstrap";
 import Footer from "../../Footer/Footer";
 
 import PageNavbar from "../../PageNavbar/PageNavbar";
+import Review from "./Review/Review";
 import Rating from "react-rating";
 
 import { useDispatch } from "react-redux";
 import { addItemToCart } from "../..//..//slices/cartSlice.js";
+import { useSelector } from "react-redux";
 import Newsletter from "../../Newsletter/Newsletter";
 import Loading from "../../Loading/Loading";
 
 function Product() {
+  let user = useSelector((state) => state.persistedReducer.user);
   const { slug } = useParams();
   const [product, setProduct] = useState(null);
+  const [reviews, setReviews] = useState([]);
+  const [reviewtext, setReviewText] = useState("");
   const [stock, setStock] = useState(null);
 
   useEffect(() => {
@@ -35,6 +39,27 @@ function Product() {
   }, [slug]);
 
   const dispatch = useDispatch();
+
+  async function handleReview(event) {
+    event.preventDefault();
+    if (reviewtext !== "") {
+      try {
+        const response = await axios({
+          method: "post",
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+          url: `${process.env.REACT_APP_API_BASE_URL}/reviews`,
+          data: {
+            content: reviewtext,
+            productId: product.id,
+          },
+        });
+        setReviews([...reviews, response.data]);
+        setReviewText("");
+      } catch (error) {}
+    }
+  }
 
   const handleAddToCart = () => {
     dispatch(addItemToCart({ ...product, quantity: 1 }));
@@ -102,31 +127,46 @@ function Product() {
 
         <Container className="mt-5 mx-auto p-3 border">
           <h3 className="m-3 mb-0">Comentarios</h3>
-          <div className="mb-4 p-3">
-            <div>
-              <img
-                src="/img/default-avatar.jpg"
-                alt="User img"
-                className={`${css.userAvatar} rounded-pill`}
-              />
-              <small className="mx-2 mfw-semibold">Pepe Rodriguez</small>
-              <small>
-                <small>21 mar 2023 </small>
-              </small>
+          {user ? (
+            <Form className="m-3 mb-0" onSubmit={handleReview}>
+              <Form.Group className="mb-3" controlId="inputReview">
+                <Form.Label>Deja tu Comentario</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  value={reviewtext}
+                  onChange={(e) => setReviewText(e.target.value)}
+                />
+              </Form.Group>
+              <Button type="submit" id={css["buttonReview"]}>
+                Comentar
+              </Button>
+            </Form>
+          ) : (
+            <div className="m-3 mb-0">
+              <p>
+                Si quieres dejar un comentario debes{" "}
+                <Link className="btn" id={css["buttonLogin"]} to="/login">
+                  Iniciar Sesión
+                </Link>
+              </p>
             </div>
-            <Rating
-              className="d-block"
-              emptySymbol="bi bi-star"
-              fullSymbol={`bi bi-star-fill ${css.stars}`}
-              readonly="true"
-              initialRating="5"
-            />
-            <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad ducimus illum nulla
-              placeat ab, rem excepturi quibusdam distinctio earum. Voluptate facere suscipit ut
-              fugit illo molestias! Ratione, quasi. Doloribus, delectus?
-            </p>
-          </div>
+          )}
+          {reviews.map((review, index) => {
+            return <Review review={review} key={index} />;
+          })}
+          {/* <Review
+            review={{
+              user: {
+                firstname: "Pepe",
+                lastname: "Rodriguez",
+                avatar: "Profile_defaultMale.png",
+              },
+              createdAt: "2022-12-30T14:33:11.268Z",
+              content: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad ducimus illum nulla placeat ab,
+    rem excepturi quibusdam distinctio earum. Voluptate facere suscipit ut fugit illo molestias!
+    Ratione, quasi. Doloribus, delectus?`,
+            }}
+          /> */}
         </Container>
         <Newsletter />
         <Footer />

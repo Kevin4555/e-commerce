@@ -10,7 +10,9 @@ import Footer from "../../Footer/Footer";
 import Newsletter from "../../Newsletter/Newsletter";
 import Loading from "../../Loading/Loading";
 
-function Home() {
+import StartModal from "../../StartModal/StartModal";
+
+function Home({ showModal, setShowModal }) {
   window.document.title = "Manos Creativas";
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -144,6 +146,7 @@ function Home() {
   if (products.length > 0) {
     return (
       <>
+        <StartModal showModal={showModal} setShowModal={setShowModal} />
         <PageNavbar />
         <main>
           <Carousel className={css.carousel}>

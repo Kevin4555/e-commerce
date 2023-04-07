@@ -23,8 +23,6 @@ export default function Reset_2() {
 
   const handleReserPassword = async (event) => {
     event.preventDefault();
-    const form = event.currentTarget;
-
     if (password === "" || password !== password2) {
       setValidated(true);
     } else {

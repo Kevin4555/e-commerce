@@ -28,16 +28,22 @@ import Auth from "./components/Auth";
 import AdminDashboard from "./components/Admin/AdminDashboard";
 import Reset_Pass from "./components/pages/Reset_Pass/Reset_Pass";
 import Reset_2 from "./components/pages/Reset_Pass_2/Reset_Pass_2";
+
+import { useState } from "react";
+import Administrators from "./components/Admin/Administrators";
+import CreateAdmin from "./components/Admin/Create/CreateAdmin";
 /* import Busqueda from "./components/pages/Busqueda/Busqueda"; */
 
 function App() {
+  const [showModal, setShowModal] = useState(true);
+
   return (
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<SignUp />} />
       <Route path="/resetpassword" element={<Reset_Pass />} />
       <Route path="/resetpassword/:token" element={<Reset_2 />} />
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<Home showModal={showModal} setShowModal={setShowModal} />} />
       <Route path="/product/:slug" element={<Product />} />
       <Route path="/about-us" element={<SobreEsteProyecto />} />
       <Route path="/cart" element={<Cart />} />
@@ -60,6 +66,8 @@ function App() {
       <Route path="/admin/createCategory" element={<CreateCategory />} />
       <Route path="/admin/createProduct" element={<CreateProduct />} />
       <Route path="/admin/dashboard" element={<AdminDashboard />} />
+      <Route path="/admin/administrators" element={<Administrators />} />
+      <Route path="/admin/createAdmin" element={<CreateAdmin />} />
     </Routes>
 
     /* ,
