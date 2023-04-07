@@ -76,6 +76,7 @@ function Category() {
             <div className="row rounded border-bottom" id={cssHome["categoryDisplay"]}>
               {categories.map((category) => (
                 <div
+                  key={`${category.name}_${category.id}`}
                   className="col-12 col-sm-6 col-md-4 col-xl-2"
                   onClick={() => {
                     const productsFromCategory = products.filter(
