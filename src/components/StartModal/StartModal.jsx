@@ -5,7 +5,7 @@ import axios from "axios";
 
 import css from "./StartModal.module.css";
 
-function StartModal({ showModal, setShowModal }) {
+function StartModal({ showModal, setShowModal, products }) {
   const handleClose = () => setShowModal(false);
 
   const resetDatabase = async () => {
@@ -70,7 +70,7 @@ function StartModal({ showModal, setShowModal }) {
 
       <Modal.Footer>
         <Button variant="danger" onClick={(handleClose, () => resetDatabase())} className="me-auto">
-          Resetear Base de Datos
+          Resetear Base de Datos{" "}
         </Button>
         <Link to={"/about-us"}>
           <Button className={css.btn} onClick={handleClose}>
