@@ -6,7 +6,6 @@
 }
 
 .productImg {
-  height: 20rem;
-  width: 20rem;
-  object-fit: contain;
+  height: 10rem;
+  width: 10rem;
 }

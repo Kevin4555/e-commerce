@@ -39,7 +39,7 @@ function CartPayment() {
         <PageNavbar />
         <div className="container p-0">
           <div className="row">
-            <div className="col-12 d-lg-none mt-4">
+            <div className="col-12 d-lg-none mt-4 text-center text-sm-start">
               <h1 className="fs-2">Manos Creativas - Tienda de Artesanias</h1>
               <div className="fs-6 my-5">
                 <Link to="#" className="text-decoration-none text-dark">
@@ -71,39 +71,39 @@ function CartPayment() {
               <div className="row p-2">
                 <div className="col-12 border rounded px-3 py-2 mb-5">
                   <div className="row">
-                    <div className="col-2 d-flex justify-content-between align-items-center">
+                    <div className="col-12 col-sm-3 text-center text-sm-start d-block d-sm-flex align-items-sm-center">
                       <small className="fs-6 text-secondary">Contact</small>
                     </div>
-                    <div className="col-8 d-flex justify-content-between align-items-center">
+                    <div className="col-12 col-sm-9 text-center text-sm-start d-block d-sm-flex align-items-sm-center">
                       <small className="fs-6 ps-3">{user.email}</small>
                     </div>
-                    <div className="col-2 text-end d-flex justify-content-between align-items-center">
+                    {/*      <div className="col-2 text-end d-flex justify-content-between align-items-center">
                       <button className="btn">Editar</button>
-                    </div>
+                    </div> */}
 
                     <hr className="my-2" />
 
-                    <div className="col-2 d-flex justify-content-between align-items-center">
+                    <div className="col-12 col-sm-3 text-center text-sm-start d-block d-sm-flex align-items-sm-center">
                       <small className="fs-6 text-secondary">Envío a</small>
                     </div>
-                    <div className="col-8 d-flex justify-content-between align-items-center">
+                    <div className="col-12 col-sm-9 text-center text-sm-start d-block d-sm-flex align-items-sm-center">
                       <small className="fs-6 ps-3">
                         {address.direccion}, {address.ciudad} {address.codigoPostal}, {address.pais}
                       </small>
                     </div>
-                    <div className="col-2 text-end d-flex justify-content-between align-items-center">
+                    {/* <div className="col-2 text-end d-flex justify-content-between align-items-center">
                       <button className="btn">Editar</button>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
 
-                <h3 className="fs-5 p-0">Pago</h3>
+                <h3 className="fs-5 p-0 text-center text-sm-start">Pago</h3>
 
-                <small className="fs-6 p-0 mb-3 mt-2">
+                <small className="fs-6 p-0 mb-3 mt-2 text-center text-sm-start">
                   Todas las transacciones son seguras y encriptadas
                 </small>
                 <div className="col-12 border rounded p-0 mb-5">
-                  <div className="p-3">
+                  <div className="p-3 text-center text-sm-start">
                     <h4 className="fs-6 fw-bold">Tarjeta de crédito</h4>
                   </div>
                   <hr className="m-0" />
@@ -111,16 +111,22 @@ function CartPayment() {
                     <Form>
                       <div className="col-12 p-3 bg-secondary-subtle">
                         <div className="row">
-                          <Form.Group className="mb-3 col-12 px-0" controlId="formBasicEmail">
+                          <Form.Group className="mb-3 col-12 px-sm-0" controlId="formBasicEmail">
                             <Form.Control type="number" placeholder="Número de tarjeta" />
                           </Form.Group>
-                          <Form.Group className="mb-3 col-12 px-0" controlId="formBasicEmail">
+                          <Form.Group className="mb-3 col-12 px-sm-0" controlId="formBasicEmail">
                             <Form.Control type="text" placeholder="Nombre del titular" />
                           </Form.Group>
-                          <Form.Group className="mb-3 col-6 ps-0" controlId="formBasicEmail">
+                          <Form.Group
+                            className="mb-3 col-12 col-sm-6 ps-sm-0"
+                            controlId="formBasicEmail"
+                          >
                             <Form.Control type="date" placeholder="Fecha de expiracón (MM / YY)" />
                           </Form.Group>
-                          <Form.Group className="mb-3 col-6 pe-0" controlId="formBasicEmail">
+                          <Form.Group
+                            className="mb-3 col-12 col-sm-6 pe-sm-0"
+                            controlId="formBasicEmail"
+                          >
                             <Form.Control type="text" placeholder="CVV" />
                           </Form.Group>
                         </div>
@@ -128,20 +134,24 @@ function CartPayment() {
                     </Form>
                   </div>
                 </div>
-
-                <div className="col-6 d-inline">
-                  <Link to="/cart/shipping" className="btn ps-0 py-3 px-5 fw-semibold">
-                    ← Volver a envío
+                <div className="col-12 col-sm-6 d-inline text-center text-sm-start order-2">
+                  <Link to="/cart" className="btn ps-0 py-3 px-5 fw-semibold">
+                    ← Volver al envío
                   </Link>
                 </div>
-                <div className="col-6 d-inline text-end">
-                  <button
-                    className="btn py-3 px-5 fw-semibold text-white btn-dark"
-                    id="continue-btn"
-                    onClick={handleCreateOrder}
-                  >
-                    Realizar el pago
-                  </button>
+                <div className="col-12 col-sm-6 d-inline text-center text-sm-end order-sm-2">
+                  <Link to="/cart/payment">
+                    <button
+                      className="btn py-3 px-5 fw-semibold text-white btn-dark"
+                      id="continue-btn"
+                      onClick={(event) => {
+                        handleCreateOrder(event);
+                        navigate("/profile");
+                      }}
+                    >
+                      Realizar al pago
+                    </button>
+                  </Link>
                 </div>
               </div>
               <hr className="my-5" />
@@ -149,7 +159,7 @@ function CartPayment() {
                 All rights reserved Artistic - Art & Craft Store
               </small>
             </div>
-            <div className="col-12 col-lg-5 ps-5 py-5 bg-secondary-subtle border-start order-lg-1">
+            <div className="col-12 col-lg-5 p-5 bg-secondary-subtle border-start order-lg-1">
               {items.map((item) => (
                 <CartInformationItem key={item.id} item={item} />
               ))}

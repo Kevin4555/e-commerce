@@ -1,4 +1,5 @@
 .infoImgContainer {
-  width: 9rem;
-  height: 9rem;
+  width: 8rem;
+  height: 8rem;
+  object-fit: cover;
 }

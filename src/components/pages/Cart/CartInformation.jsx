@@ -31,9 +31,9 @@ function CartInformation() {
     <>
       <PageNavbar />
       <main>
-        <div className="container p-0">
+        <div className="container">
           <div className="row">
-            <div className="col-12 d-lg-none mt-4">
+            <div className="col-12 d-lg-none mt-4 text-center text-sm-start">
               <h1 className="fs-2">Manos Creativas - Tienda de Artesanias</h1>
               <div>
                 <h2 className="fs-4">Informacón de contacto</h2>
@@ -41,7 +41,7 @@ function CartInformation() {
                   <small className="d-block fs-6 text-body">
                     {user.firstname} {user.lastname} ({user.email})
                   </small>
-                  <button className="btn ps-0">Log out</button>
+                  {/* <button className="btn ps-0">Log out</button> */}
                 </div>
               </div>
             </div>
@@ -59,7 +59,7 @@ function CartInformation() {
                   </div>
                 </div>
               </div>
-              <h2 className="fs-4">Dirección de envío</h2>
+              <h2 className="fs-4 text-center text-sm-start">Dirección de envío</h2>
               <Form
                 className="row"
                 onSubmit={(event) => {
@@ -68,7 +68,7 @@ function CartInformation() {
                   navigate("/cart/shipping");
                 }}
               >
-                <Form.Group className="mb-3 col-6" controlId="formBasicEmail">
+                <Form.Group className="mb-3 col-12 col-sm-6" controlId="formBasicEmail">
                   <Form.Label>Pais</Form.Label>
                   <Form.Control
                     type="text"
@@ -77,7 +77,7 @@ function CartInformation() {
                     onChange={(event) => setPais(event.target.value)}
                   />
                 </Form.Group>
-                <Form.Group className="mb-3 col-6" controlId="formBasicEmail">
+                <Form.Group className="mb-3 col-12 col-sm-6" controlId="formBasicEmail">
                   <Form.Label>Provincia</Form.Label>
                   <Form.Control
                     type="text"
@@ -86,7 +86,7 @@ function CartInformation() {
                     onChange={(event) => setProvincia(event.target.value)}
                   />
                 </Form.Group>
-                <Form.Group className="mb-3 col-6" controlId="formBasicEmail">
+                <Form.Group className="mb-3 col-12 col-sm-6" controlId="formBasicEmail">
                   <Form.Label>Ciudad</Form.Label>
                   <Form.Control
                     type="text"
@@ -95,7 +95,7 @@ function CartInformation() {
                     onChange={(event) => setCiudad(event.target.value)}
                   />
                 </Form.Group>
-                <Form.Group className="mb-3 col-6" controlId="formBasicEmail">
+                <Form.Group className="mb-3 col-12 col-sm-6" controlId="formBasicEmail">
                   <Form.Label>Codigo postal</Form.Label>
                   <Form.Control
                     type="number"
@@ -113,12 +113,12 @@ function CartInformation() {
                     onChange={(event) => setDireccion(event.target.value)}
                   />
                 </Form.Group>
-                <div className="col-6 d-inline">
+                <div className="col-12 col-sm-6 d-inline text-center text-sm-start order-2">
                   <Link to="/cart" className="btn ps-0 py-3 px-5 fw-semibold">
                     ← Volver al carrito
                   </Link>
                 </div>
-                <div className="col-6 d-inline text-end">
+                <div className="col-12 col-sm-6 d-inline text-center text-sm-end order-sm-2">
                   <button
                     className="btn py-3 px-5 fw-semibold text-white btn-dark"
                     id="continue-btn"
@@ -133,7 +133,8 @@ function CartInformation() {
                 All rights reserved Artistic - Art & Craft Store
               </small>
             </div>
-            <div className="col-12 col-lg-5 ps-5 py-5 bg-secondary-subtle border-start order-lg-1">
+            <div className="col-12 col-lg-5 px-5 p-5 bg-secondary-subtle border-start order-lg-1">
+              <h3 className="fs-5 fw-semibold text-center">Cart</h3>
               {cart.map((item) => (
                 <CartInformationItem key={item.id} item={item} />
               ))}
