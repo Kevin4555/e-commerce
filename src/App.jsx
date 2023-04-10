@@ -56,13 +56,14 @@ function App() {
         <Route path="/profile" element={<Profile />} />
       </Route>
       <Route path="/categories/:id" element={<Category />} />
+
+      <Route path="/admin" element={<AdminLogin />} />
       <Route element={<AuthAdmin />}>
         <Route path="/admin/users" element={<AdminUsers />} />
         <Route path="/admin/categories" element={<AdminCategories />} />
         <Route path="/admin/products" element={<AdminProducts />} />
         <Route path="/admin/reviews" element={<AdminReviews />} />
         <Route path="/admin/orders" element={<AdminOrders />} />
-        <Route path="/admin" element={<AdminLogin />} />
         <Route path="/admin/editUser/:id" element={<EditUser />} />
         <Route path="/admin/editProduct/:id" element={<EditProduct />} />
         <Route path="/admin/editCategoryId/:id" element={<EditCategoryId />} />

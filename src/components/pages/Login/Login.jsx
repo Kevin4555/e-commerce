@@ -8,8 +8,6 @@ import axios from "axios";
 import PageNavbar from "../../PageNavbar/PageNavbar";
 import css from "./Login.module.css";
 
-//import { GoogleOAuthProvider } from "@react-oauth/google";
-
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

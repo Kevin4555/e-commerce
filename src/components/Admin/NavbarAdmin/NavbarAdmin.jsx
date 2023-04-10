@@ -20,9 +20,9 @@ function NavbarAdmin() {
       >
         <Container id="mainBar">
           <Navbar.Brand as={Link} to={"/"} className="col-2 d-flex justify-content-center">
-            <img src="../logo.png" alt="logo Manos Creativas" className="mt-2 nav-logo" />
+            <img src="../logo.png" alt="logo Manos Creativas" className="mt-2 nav-logo w-75" />
           </Navbar.Brand>
-          <h3>Administration Panel</h3>
+          <h3 className="fs-5">Administration Panel</h3>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse className="col-4">
             <Form id="form" className="d-flex px-2 position-relative">
