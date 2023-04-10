@@ -20,7 +20,7 @@ function StartModal({ showModal, setShowModal, products }) {
     );
     try {
       await axios({
-        method: "patch",
+        method: "put",
         url: `${process.env.REACT_APP_API_BASE_URL}/reset`,
       });
       setBtnReset(<i class="bi bi-check2 text-white fs-3"></i>);
