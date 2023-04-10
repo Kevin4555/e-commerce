@@ -12,7 +12,7 @@ function StartModal({ showModal, setShowModal }) {
     try {
       await axios({
         method: "patch",
-        url: `${process.env.REACT_APP_API_BASE_URL}/products/reset`,
+        url: `${process.env.REACT_APP_API_BASE_URL}/reset`,
       });
     } catch (error) {
       console.log(error);
