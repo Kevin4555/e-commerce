@@ -26,7 +26,7 @@ export default function AdminLogin() {
           password,
         },
       });
-      dispatch(setUser(response.data));
+      dispatch(setUser({ token: response.data.token, ...response.data.admin }));
       navigate("/admin/dashboard");
     } catch (err) {
       console.log(err);

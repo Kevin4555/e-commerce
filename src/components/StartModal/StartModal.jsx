@@ -1,20 +1,31 @@
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import axios from "axios";
 
 import css from "./StartModal.module.css";
 
-function StartModal({ showModal, setShowModal }) {
+function StartModal({ showModal, setShowModal, products }) {
+  const [btnReset, setBtnReset] = useState("Resetear Base de Datos");
   const handleClose = () => setShowModal(false);
 
   const resetDatabase = async () => {
+    setBtnReset(
+      <span
+        className="spinner-border spinner-border text-white"
+        role="status"
+        aria-hidden="true"
+      ></span>,
+    );
     try {
       await axios({
         method: "patch",
-        url: `${process.env.REACT_APP_API_BASE_URL}/products/reset`,
+        url: `${process.env.REACT_APP_API_BASE_URL}/reset`,
       });
+      setBtnReset(<i class="bi bi-check2 text-white fs-3"></i>);
     } catch (error) {
+      setBtnReset("Resetear Base de Datos");
       console.log(error);
     }
   };
@@ -70,7 +81,7 @@ function StartModal({ showModal, setShowModal }) {
 
       <Modal.Footer>
         <Button variant="danger" onClick={(handleClose, () => resetDatabase())} className="me-auto">
-          Resetear Base de Datos
+          {btnReset}
         </Button>
         <Link to={"/about-us"}>
           <Button className={css.btn} onClick={handleClose}>

@@ -136,7 +136,7 @@ function Home({ showModal, setShowModal }) {
 
           <div className="container">
             <h3 className="fs-2 mt-5 text-center">Categorías</h3>
-            <div className="row rounded" id={css["categoryDisplay"]}>
+            <div className="row rounded g-1" id={css["categoryDisplay"]}>
               {categories.map((category) => (
                 <div
                   key={`${category.name}_${category.id}`}
@@ -160,12 +160,14 @@ function Home({ showModal, setShowModal }) {
                     )
                   }
                 >
-                  <img
-                    src={process.env.REACT_APP_API_BASE_IMG_URL + `/${category.img}`}
-                    alt=""
-                    className={css.categoriesImg}
-                  />
-                  <h5 className="mt-3">{category.name}</h5>
+                  <div>
+                    <img
+                      src={process.env.REACT_APP_API_BASE_IMG_URL + `/${category.img}`}
+                      alt=""
+                      className={css.categoriesImg + " img-fluid"}
+                    />
+                    <h5 className="mt-3">{category.name}</h5>
+                  </div>
                 </div>
               ))}
             </div>
