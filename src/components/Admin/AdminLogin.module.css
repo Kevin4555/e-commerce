@@ -5,6 +5,10 @@
   margin-right: auto;
   border: none;
 }
+#buttonFill {
+  background-color: var(--secondary);
+  border: none;
+}
 
 #button:hover {
   background-color: var(--primary);

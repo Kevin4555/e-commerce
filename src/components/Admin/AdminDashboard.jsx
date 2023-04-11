@@ -32,7 +32,7 @@ const AdminDashboard = () => {
   return (
     <>
       <NavbarAdmin />
-      <Container fluid className="p-0">
+      <Container fluid className="p-0 position-relative">
         <Sidebar />
         <div>
           <h2 className="col-2 d-flex justify-content-center ">Dashboard</h2>
