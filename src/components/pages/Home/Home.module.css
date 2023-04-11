@@ -29,8 +29,7 @@
 
 .categoriesImg {
   object-fit: cover;
-  height: 15rem;
-  width: 15rem;
+  aspect-ratio: 1;
   border-radius: 3rem;
 }
 

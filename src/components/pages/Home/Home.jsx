@@ -160,12 +160,14 @@ function Home({ showModal, setShowModal }) {
                     )
                   }
                 >
-                  <img
-                    src={process.env.REACT_APP_API_BASE_IMG_URL + `/${category.img}`}
-                    alt=""
-                    className={css.categoriesImg}
-                  />
-                  <h5 className="mt-3">{category.name}</h5>
+                  <div>
+                    <img
+                      src={process.env.REACT_APP_API_BASE_IMG_URL + `/${category.img}`}
+                      alt=""
+                      className={css.categoriesImg + " img-fluid"}
+                    />
+                    <h5 className="mt-3">{category.name}</h5>
+                  </div>
                 </div>
               ))}
             </div>

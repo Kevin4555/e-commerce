@@ -31,6 +31,7 @@ function Product() {
           url: `${process.env.REACT_APP_API_BASE_URL}/products/${slug}`,
         });
         setProduct(response.data);
+        setReviews(response.data.reviews);
       } catch (error) {
         console.log(error);
       }
@@ -55,7 +56,9 @@ function Product() {
             productId: product.id,
           },
         });
-        setReviews([...reviews, response.data]);
+        let newreview = response.data;
+        newreview.user = user;
+        setReviews([newreview, ...reviews]);
         setReviewText("");
       } catch (error) {}
     }
@@ -154,19 +157,6 @@ function Product() {
           {reviews.map((review, index) => {
             return <Review review={review} key={index} />;
           })}
-          {/* <Review
-            review={{
-              user: {
-                firstname: "Pepe",
-                lastname: "Rodriguez",
-                avatar: "Profile_defaultMale.png",
-              },
-              createdAt: "2022-12-30T14:33:11.268Z",
-              content: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad ducimus illum nulla placeat ab,
-    rem excepturi quibusdam distinctio earum. Voluptate facere suscipit ut fugit illo molestias!
-    Ratione, quasi. Doloribus, delectus?`,
-            }}
-          /> */}
         </Container>
         <Newsletter />
         <Footer />

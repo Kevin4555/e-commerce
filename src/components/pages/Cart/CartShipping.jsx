@@ -13,7 +13,7 @@ function CartShipping() {
       <PageNavbar />
       <div className="container p-0">
         <div className="row">
-          <div className="col-12 d-lg-none mt-4">
+          <div className="col-12 d-lg-none mt-4 text-center text-sm-start">
             <h1 className="fs-2">Manos Creativas - Tienda de Artesanias</h1>
             <div className="fs-6 my-5">
               <Link to="#" className="text-decoration-none text-dark">
@@ -45,37 +45,37 @@ function CartShipping() {
             <div className="row">
               <div className="col-12 border rounded p-3 mb-5">
                 <div className="row">
-                  <div className="col-2 d-flex justify-content-between align-items-center">
+                  <div className="col-12 col-sm-3 text-center text-sm-start d-block d-sm-flex align-items-sm-center">
                     <small className="fs-6 text-secondary">Contact</small>
                   </div>
-                  <div className="col-8 d-flex justify-content-between align-items-center">
+                  <div className="col-12 col-sm-9 text-center text-sm-start d-block d-sm-flex align-items-sm-center">
                     <small className="fs-6 ps-3">{user.email}</small>
                   </div>
-                  <div className="col-2 text-end d-flex justify-content-between align-items-center">
+                  {/*                   <div className="col-2 text-end d-flex justify-content-between align-items-center">
                     <button className="btn">Editar</button>
-                  </div>
+                  </div> */}
                 </div>
                 <hr />
                 <div className="row">
-                  <div className="col-2 d-flex justify-content-between align-items-center">
+                  <div className="col-12 col-sm-3 text-center text-sm-start d-block d-sm-flex align-items-sm-center">
                     <small className="fs-6 text-secondary">Envío a</small>
                   </div>
-                  <div className="col-8 d-flex justify-content-between align-items-center">
+                  <div className="col-12 col-sm-9 text-center text-sm-start d-block d-sm-flex align-items-sm-center">
                     <small className="fs-6 ps-3">
                       {address.direccion}, {address.ciudad} {address.codigoPostal}, {address.pais}
                     </small>
                   </div>
-                  <div className="col-2 text-end d-flex justify-content-between align-items-center">
+                  {/*                   <div className="col-2 text-end d-flex justify-content-between align-items-center">
                     <button className="btn">Editar</button>
-                  </div>
+                  </div> */}
                 </div>
               </div>
-              <div className="col-6 d-inline">
-                <Link to="/cart/information" className="btn ps-0 py-3 px-5 fw-semibold">
-                  ← Volver a Información
+              <div className="col-12 col-sm-6 d-inline text-center text-sm-start order-2">
+                <Link to="/cart" className="btn ps-0 py-3 px-5 fw-semibold">
+                  ← Volver al carrito
                 </Link>
               </div>
-              <div className="col-6 d-inline text-end">
+              <div className="col-12 col-sm-6 d-inline text-center text-sm-end order-sm-2">
                 <Link to="/cart/payment">
                   <button
                     className="btn py-3 px-5 fw-semibold text-white btn-dark"
@@ -91,7 +91,8 @@ function CartShipping() {
               All rights reserved Artistic - Art & Craft Store
             </small>
           </div>
-          <div className="col-12 col-lg-5 ps-5 py-5 bg-secondary-subtle border-start order-lg-1">
+          <div className="col-12 col-lg-5 p-5 bg-secondary-subtle border-start order-lg-1">
+            <h3 className="fs-5 fw-semibold text-center">Cart</h3>
             {items.map((item) => (
               <CartInformationItem key={item.id} item={item} />
             ))}

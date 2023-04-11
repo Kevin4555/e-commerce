@@ -22,17 +22,20 @@ function Cart() {
           <small className="fs-6 fw-semibold text-light text-center">Home</small>
         </div>
         <div className="container mt-5">
-          <div className="row">
-            <div className="col-3">
+          <div className="row flex-column flex-sm-row text-center text-sm-start">
+            <div className="d-sm-none">
+              <small className="fs-5 fw-semibold">Cart Info</small>
+            </div>
+            <div className="d-none d-sm-block col-3">
               <small className="fs-5 fw-semibold">Product</small>
             </div>
-            <div className="col-3">
+            <div className="d-none d-sm-block col-3">
               <small className="fs-5 fw-semibold">Price</small>
             </div>
-            <div className="col-3">
+            <div className="d-none d-sm-block col-3">
               <small className="fs-5 fw-semibold">Quantity</small>
             </div>
-            <div className="col-3">
+            <div className="d-none d-sm-block col-3">
               <small className="fs-5 fw-semibold">Total</small>
             </div>
             <hr className="my-3" />
@@ -46,7 +49,7 @@ function Cart() {
                 Seguir comprando
               </Link>
             </div>
-            <div className="col-6 mt-4">
+            <div className="col-12 col-sm-6 mt-4">
               <div>
                 <label htmlFor="note" className="fs-6 mb-3">
                   Instrucciones especiales para el pedido
@@ -54,15 +57,15 @@ function Cart() {
                 <textarea name="note" id="note" cols="30" rows="5" className="w-75"></textarea>
               </div>
             </div>
-            <div className="col-6 mt-4">
-              <div className="text-end mb-2">
+            <div className="col-12 col-sm-6 mt-4">
+              <div className="text-sm-end mb-2">
                 <small className="fs-6">Subtotal</small>
                 <small className="fs-6 ms-2">${totalPrice} USD</small>
               </div>
-              <div className="text-end my-4">
+              <div className="text-sm-end my-4">
                 <small className="fs-6">Iva y costos de envio calculados en el Check Out</small>
               </div>
-              <div className="text-end mt-5">
+              <div className="text-sm-end mt-5">
                 <Link to="/cart/information" className="btn btn-dark w-75">
                   Check Out
                 </Link>
