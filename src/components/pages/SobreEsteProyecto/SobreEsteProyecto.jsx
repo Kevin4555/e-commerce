@@ -8,7 +8,7 @@ function SobreEsteProyecto() {
       <PageNavbar />
       <Container fluid className="p-0">
         <section className={`${css.darkSection} row`}>
-          <div className={`${css.profile} col-12 col-md-6 col-lg-3`}>
+          <div className={`col-12 col-md-6 col-lg-3`}>
             <h4>Nicolás Ross</h4>
             <div className={css.icons}>
               <a href="https://github.com/nicoroke" target="_blank" rel="noreferrer">
@@ -61,26 +61,28 @@ function SobreEsteProyecto() {
           <h1>eCommerce</h1>
           <h2>Proyecto Final Bootcamp</h2>
         </section>
-        <section className={css.platinumSection} id={css["infoSection"]}>
-          <div id={css["infoProyecto"]} className="container d-flex w-50 align-items-center">
-            <a href="https://ha.dev">
-              <img src="ha_logo.png" alt="" />
-            </a>
-            <p className="px-3">
-              Esto es <b>Manos Creativas</b>, un <b>eCommerce ficticio</b> realizado por 4
-              compañeros a lo largo de 3 semanas como proyecto final del{" "}
-              <b>bootcamp de Hack Academy</b>. El bootcamp de Full-Stack development de Hack Academy
-              es un curso
-              <b> intensivo</b> de 3 meses con una carga horaria de más de 600 horas. En este
-              aprendemos tecnologías de <b>front-end y back-end</b>, las cuales utilizamos para
-              varios proyectos como este.
-            </p>
+        <section className={`${css.platinumSection}`} id={css["infoSection"]}>
+          <div id={css["infoProyecto"]} className="col-md-9 col-lg-7 col-xl-6 col-xxl-5 mx-auto">
+            <div className="d-flex flex-column flex-md-row align-items-center">
+              <a href="https://ha.dev">
+                <img src="ha_logo.png" alt="" />
+              </a>
+              <p className="px-3">
+                Esto es <b>Manos Creativas</b>, un <b>eCommerce ficticio</b> realizado por 4
+                compañeros a lo largo de 3 semanas como proyecto final del{" "}
+                <b>bootcamp de Hack Academy</b>. El bootcamp de Full-Stack development de Hack
+                Academy es un curso
+                <b> intensivo</b> de 3 meses con una carga horaria de más de 600 horas. En este
+                aprendemos tecnologías de <b>front-end y back-end</b>, las cuales utilizamos para
+                varios proyectos como este.
+              </p>
+            </div>
           </div>
         </section>
-        <section className={css.platinumSection}>
+        <section className={`${css.platinumSection}`}>
           <h3>Tecnologías Utilizadas</h3>
           <div className="row" id={css["iconList"]}>
-            <div className="col-3">
+            <div className="col-sm-6 col-md-3">
               <div>
                 <img src="icons/icons8-bootstrap-32.png" alt="" />
                 <h5>Bootstrap</h5>
@@ -90,7 +92,7 @@ function SobreEsteProyecto() {
                 <h5>Expressjs</h5>
               </div>
             </div>
-            <div className="col-3">
+            <div className="col-sm-6 col-md-3">
               <div>
                 <img src="icons/icons8-react-30.png" alt="" />
                 <h5>React</h5>
@@ -100,7 +102,7 @@ function SobreEsteProyecto() {
                 <h5>Redux</h5>
               </div>
             </div>
-            <div className="col-3">
+            <div className="col-sm-6 col-md-3">
               <div>
                 <img src="icons/icons8-node-js-32.png" alt="" />
                 <h5>Node.js</h5>
@@ -110,7 +112,7 @@ function SobreEsteProyecto() {
                 <h5>GitHub</h5>
               </div>
             </div>
-            <div className="col-3">
+            <div className="col-sm-6 col-md-3">
               <div>
                 <img src="icons/icons8-mysql-logo-30.png" alt="" />
                 <h5>MySQL</h5>
