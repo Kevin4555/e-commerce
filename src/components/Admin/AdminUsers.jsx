@@ -85,9 +85,9 @@ const AdminUsers = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {users.map((user) => {
+                  {users.map((user, index) => {
                     return (
-                      <tr>
+                      <tr key={index}>
                         <td>{user.id}</td>
                         <td>{user.firstname}</td>
                         <td>{user.lastname}</td>

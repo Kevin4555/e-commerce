@@ -57,9 +57,9 @@ const AdminOrders = () => {
               </tr>
             </thead>
             <tbody>
-              {orders.map((order) => {
+              {orders.map((order, index) => {
                 return (
-                  <tr>
+                  <tr key={index}>
                     <td>{order.id}</td>
                     <td>{order.status}</td>
                     <td>{order.address}</td>

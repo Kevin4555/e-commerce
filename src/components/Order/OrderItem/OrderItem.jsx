@@ -2,13 +2,14 @@ import css from "./OrderItem.module.css";
 import { Link } from "react-router-dom";
 
 function OrderItem({ item }) {
+  console.log(item.img.img1);
   return (
     <>
       <div className="col-12 px-4 pb-4">
         <div className="d-flex flex-column flex-md-row">
           <div className={` img-fluid text-center mt-2`}>
             <img
-              src={process.env.REACT_APP_API_BASE_URL + `/img/${item.img.img1}`}
+              src={process.env.REACT_APP_API_BASE_IMG_URL + `/${item.img.img1}`}
               alt=""
               className={`${css.productImg} rounded`}
             />

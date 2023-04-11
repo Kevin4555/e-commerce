@@ -1,4 +1,5 @@
 import OrderItem from "./OrderItem/OrderItem";
+import { format } from "date-fns";
 
 function Order({ order }) {
   return (
@@ -13,7 +14,7 @@ function Order({ order }) {
               </div>
               <div className="d-flex flex-column">
                 <small className="fs-6 fw-semibold">Date placed</small>
-                <small>{order.createdAt}</small>
+                <small>{format(new Date(order.createdAt), "dd-MM-yyyy")}</small>
               </div>
               <div className="d-flex flex-column">
                 <small className="fs-6 fw-semibold">Total amount</small>
@@ -27,8 +28,8 @@ function Order({ order }) {
           </div>
           <hr className="mb-0" />
           <div className="row">
-            {order.products.items.map((item) => (
-              <OrderItem item={item} />
+            {order.products.products.map((item, index) => (
+              <OrderItem item={item} key={index} />
             ))}
           </div>
         </div>

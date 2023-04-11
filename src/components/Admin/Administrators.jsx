@@ -71,9 +71,9 @@ const Administrators = () => {
             </tr>
           </thead>
           <tbody>
-            {admins.map((admin) => {
+            {admins.map((admin, index) => {
               return (
-                <tr>
+                <tr key={index}>
                   <td>{admin.id}</td>
                   <td>{admin.firstname}</td>
                   <td>{admin.lastname}</td>

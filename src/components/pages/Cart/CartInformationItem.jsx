@@ -7,7 +7,7 @@ function CartInformationItem({ item }) {
         <div className="d-flex flex-column flex-sm-row justify-content-sm-between align-items-sm-center">
           <div className={`position-relative ${css.infoImgContainer}`}>
             <img
-              src={process.env.REACT_APP_API_BASE_URL + `/img/${item.img.img1}`}
+              src={process.env.REACT_APP_API_BASE_IMG_URL + `/${item.img.img1}`}
               alt=""
               className={`${css.infoImgContainer} rounded`}
             />

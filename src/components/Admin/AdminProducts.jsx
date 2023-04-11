@@ -85,9 +85,9 @@ const AdminProducts = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {products.map((product) => {
+                  {products.map((product, index) => {
                     return (
-                      <tr>
+                      <tr key={index}>
                         <td>{product.id}</td>
                         <td>{product.title}</td>
                         <td>{product.description}</td>
