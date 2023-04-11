@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import NavbarAdmin from "./NavbarAdmin/NavbarAdmin";
 
 const AdminCategories = () => {
   const [categories, setCategories] = useState([]);
@@ -44,29 +45,23 @@ const AdminCategories = () => {
 
   return (
     <>
-      <Sidebar />
-      <div className={css.backgroundTop}>
-        <div className="container-fluid py-5 d-flex align-item-center justify-content-center flex-column">
-          <header>
-            <h1 className={css.titulo}>Panel de Administracion</h1>
-          </header>
-        </div>
-      </div>
-      <Container className="p-5" fluid id={css["backgroundAdminLogin"]}>
-        <Row>
-          <Col>
-            <h2 className={css.tituloContainer}>Panel de categorias</h2>
-
-            <div className="text-end">
-              <div className={css.botonAgregar}>
-                <Link to="/admin/createCategory">
-                  <Button variant="success"> Agregar categoria </Button>
+      <NavbarAdmin />
+      <Container className="p-0" fluid id={css["backgroundAdminLogin"]}>
+        <Sidebar />
+        <Row className="m-0">
+          <div className="col-2"></div>
+          <div className={`${css.backgroundTop} col-10`}>
+            <div className={css.header}>
+              <h2 className={css.tituloContainer}>Panel de Categorías</h2>
+              <Button variant="success" className="ms-4 mb-2">
+                <Link to="/admin/createCategory" className="text-decoration-none text-light">
+                  Agregar categoria
                 </Link>
-              </div>
+              </Button>
             </div>
 
             <div className={css.tableProducts}>
-              <Table striped bordered hover>
+              <Table striped bordered hover className={css.table}>
                 <thead>
                   <tr>
                     <th>#</th>
@@ -105,7 +100,7 @@ const AdminCategories = () => {
                 </tbody>
               </Table>
             </div>
-          </Col>
+          </div>
         </Row>
       </Container>
       ;

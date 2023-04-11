@@ -7,6 +7,7 @@ import { setUser } from "../../slices/usersSlice";
 import axios from "axios";
 import css from "./Admin.module.css";
 import cssLogin from "./AdminLogin.module.css";
+import PageNavbar from "../PageNavbar/PageNavbar";
 
 export default function AdminLogin() {
   const [email, setEmail] = useState("");
@@ -36,6 +37,7 @@ export default function AdminLogin() {
 
   return (
     <>
+      <PageNavbar />
       <Container fluid id={cssLogin["backgroundAdminLogin"]}>
         <Row id={cssLogin["content"]} className="d-flex justify-content-center align-items-center">
           <Col xs={11} sm={8} md={6} xl={4}>
