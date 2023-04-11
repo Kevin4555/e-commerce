@@ -70,9 +70,9 @@ const AdminCategories = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {categories.map((category) => {
+                  {categories.map((category, index) => {
                     return (
-                      <tr>
+                      <tr key={index}>
                         <td>{category.id}</td>
                         <td>{category.name}</td>
                         <td>

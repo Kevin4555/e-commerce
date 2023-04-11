@@ -5,7 +5,6 @@ import { format } from "date-fns";
 import { es } from "date-fns/locale";
 
 export default function Review({ review }) {
-  console.log(review);
   return (
     <div className="my-2 p-3 border-bottom">
       <div>
@@ -26,7 +25,7 @@ export default function Review({ review }) {
         emptySymbol="bi bi-star"
         fullSymbol={`bi bi-star-fill ${css.stars}`}
         readonly="true"
-        initialRating="5"
+        initialRating={review.rating}
       />
       <p>{review.content}</p>
     </div>

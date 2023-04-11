@@ -21,6 +21,7 @@ function Product() {
   const [product, setProduct] = useState(null);
   const [reviews, setReviews] = useState([]);
   const [reviewtext, setReviewText] = useState("");
+  const [rating, setRating] = useState(0);
   const [stock, setStock] = useState(null);
 
   useEffect(() => {
@@ -54,6 +55,7 @@ function Product() {
           data: {
             content: reviewtext,
             productId: product.id,
+            rating,
           },
         });
         let newreview = response.data;
@@ -68,6 +70,10 @@ function Product() {
     dispatch(addItemToCart({ ...product, quantity: 1 }));
   };
 
+  const handleRatingChange = (newRating) => {
+    setRating(newRating);
+  };
+  console.log(rating);
   if (product) {
     window.document.title = `${product.title}`;
     return (
@@ -134,6 +140,13 @@ function Product() {
             <Form className="m-3 mb-0" onSubmit={handleReview}>
               <Form.Group className="mb-3" controlId="inputReview">
                 <Form.Label>Deja tu Comentario</Form.Label>
+                <Rating
+                  className="d-block mb-1"
+                  emptySymbol="bi bi-star"
+                  fullSymbol={`bi bi-star-fill ${css.stars}`}
+                  initialRating={rating}
+                  onChange={handleRatingChange}
+                />
                 <Form.Control
                   as="textarea"
                   value={reviewtext}

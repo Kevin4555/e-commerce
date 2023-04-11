@@ -201,7 +201,7 @@ function Home({ showModal, setShowModal }) {
               <h3 className="pt-5 pb-4 d-inline fs-2" id="pinturas">
                 Pinturas
               </h3>
-              <Link to={"/categories"} className={css.categoryLink}>
+              <Link to={"/categories/1"} className={css.categoryLink}>
                 ver todos <i className="bi bi-arrow-right-short"></i>
               </Link>
             </div>
@@ -210,7 +210,7 @@ function Home({ showModal, setShowModal }) {
               <h3 className="pt-5 pb-4 d-inline fs-2" id="ceramicas">
                 Cerámicas
               </h3>
-              <Link to={"/categories"} className={css.categoryLink}>
+              <Link to={"/categories/2"} className={css.categoryLink}>
                 ver todos <i className="bi bi-arrow-right-short"></i>
               </Link>
             </div>
@@ -219,7 +219,7 @@ function Home({ showModal, setShowModal }) {
               <h3 className="pt-5 pb-4 d-inline fs-2" id="maderas">
                 Maderas
               </h3>
-              <Link to={"/categories"} className={css.categoryLink}>
+              <Link to={"/categories/3"} className={css.categoryLink}>
                 ver todos <i className="bi bi-arrow-right-short"></i>
               </Link>
             </div>
@@ -228,7 +228,7 @@ function Home({ showModal, setShowModal }) {
               <h3 className="pt-5 pb-4 d-inline fs-2" id="tejidos">
                 Tejidos
               </h3>
-              <Link to={"/categories"} className={css.categoryLink}>
+              <Link to={"/categories/4"} className={css.categoryLink}>
                 ver todos <i className="bi bi-arrow-right-short"></i>
               </Link>
             </div>
@@ -237,7 +237,7 @@ function Home({ showModal, setShowModal }) {
               <h3 className="pt-5 pb-4 d-inline fs-2" id="decoraciones">
                 Decoraciones
               </h3>
-              <Link to={"/categories"} className={css.categoryLink}>
+              <Link to={"/categories/5"} className={css.categoryLink}>
                 ver todos <i className="bi bi-arrow-right-short"></i>
               </Link>
             </div>

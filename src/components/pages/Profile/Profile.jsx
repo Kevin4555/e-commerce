@@ -215,8 +215,8 @@ function Profile() {
               </div>
               <div className="col-12 col-lg-8">
                 <h2 className="fs-3">Historial de pedidos</h2>
-                {ordersFromLoggedUser.map((order) => (
-                  <Order order={order} />
+                {ordersFromLoggedUser.map((order, index) => (
+                  <Order order={order} ket={index} />
                 ))}
               </div>
             </div>

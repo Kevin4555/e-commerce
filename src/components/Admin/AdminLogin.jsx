@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../slices/usersSlice";
 import axios from "axios";
-import css from "./Admin.module.css";
 import cssLogin from "./AdminLogin.module.css";
 import PageNavbar from "../PageNavbar/PageNavbar";
 
@@ -33,6 +32,11 @@ export default function AdminLogin() {
       console.log(err);
       setError(true);
     }
+  };
+
+  const handleFill = async (event) => {
+    setEmail("user@1234.com");
+    setPassword("1234");
   };
 
   return (
@@ -77,9 +81,9 @@ export default function AdminLogin() {
                   <div className="mt-3">
                     <p className="mb-0  text-center">
                       Necesita accesos de Admin?
-                      <Link to="/" className="link">
-                        Volver
-                      </Link>
+                      <Button onClick={handleFill} id={cssLogin["buttonFill"]} className="mx-2">
+                        click aquí
+                      </Button>
                     </p>
                   </div>
                 </div>

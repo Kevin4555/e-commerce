@@ -50,9 +50,9 @@ const AdminReviews = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {reviews.map((review) => {
+                  {reviews.map((review, index) => {
                     return (
-                      <tr>
+                      <tr key={index}>
                         <td>{review.id}</td>
                         <td>{review.content}</td>
                         <td>{review.user.id}</td>
