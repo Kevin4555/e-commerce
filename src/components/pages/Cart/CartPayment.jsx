@@ -38,7 +38,7 @@ function CartPayment() {
       <main>
         <PageNavbar />
         <div className="container p-0">
-          <div className="row">
+          <div className="row g-5">
             <div className="col-12 d-lg-none mt-4 text-center text-sm-start">
               <h1 className="fs-2">Manos Creativas - Tienda de Artesanias</h1>
               <div className="fs-6 my-5">
@@ -68,8 +68,8 @@ function CartPayment() {
                   <small className="fw-semibold">Pago</small>
                 </div>
               </div>
-              <div className="row p-2">
-                <div className="col-12 border rounded px-3 py-2 mb-5">
+              <div className="row">
+                <div className="col-12 border rounded p-3 mb-5">
                   <div className="row">
                     <div className="col-12 col-sm-3 text-center text-sm-start d-block d-sm-flex align-items-sm-center">
                       <small className="fs-6 text-secondary">Contact</small>
@@ -77,12 +77,12 @@ function CartPayment() {
                     <div className="col-12 col-sm-9 text-center text-sm-start d-block d-sm-flex align-items-sm-center">
                       <small className="fs-6 ps-3">{user.email}</small>
                     </div>
-                    {/*      <div className="col-2 text-end d-flex justify-content-between align-items-center">
-                      <button className="btn">Editar</button>
-                    </div> */}
-
-                    <hr className="my-2" />
-
+                    {/*                   <div className="col-2 text-end d-flex justify-content-between align-items-center">
+                    <button className="btn">Editar</button>
+                  </div> */}
+                  </div>
+                  <hr />
+                  <div className="row">
                     <div className="col-12 col-sm-3 text-center text-sm-start d-block d-sm-flex align-items-sm-center">
                       <small className="fs-6 text-secondary">Envío a</small>
                     </div>
@@ -91,9 +91,9 @@ function CartPayment() {
                         {address.direccion}, {address.ciudad} {address.codigoPostal}, {address.pais}
                       </small>
                     </div>
-                    {/* <div className="col-2 text-end d-flex justify-content-between align-items-center">
-                      <button className="btn">Editar</button>
-                    </div> */}
+                    {/*                   <div className="col-2 text-end d-flex justify-content-between align-items-center">
+                    <button className="btn">Editar</button>
+                  </div> */}
                   </div>
                 </div>
 
@@ -135,7 +135,7 @@ function CartPayment() {
                   </div>
                 </div>
                 <div className="col-12 col-sm-6 d-inline text-center text-sm-start order-2">
-                  <Link to="/cart" className="btn ps-0 py-3 px-5 fw-semibold">
+                  <Link to="/cart/shipping" className="btn ps-0 py-3 px-5 fw-semibold">
                     ← Volver al envío
                   </Link>
                 </div>

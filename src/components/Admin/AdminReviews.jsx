@@ -64,7 +64,7 @@ const AdminReviews = () => {
                       <tr key={index}>
                         <td>{review.id}</td>
                         <td>{review.content}</td>
-                        <td>{review.user.id}</td>
+                        <td>{review.userId}</td>
                       </tr>
                     );
                   })}
