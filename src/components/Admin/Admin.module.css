@@ -22,16 +22,28 @@
 .backgroundTop {
   padding: 0;
   background-color: var(--tertiary);
+  min-height: 100vh;
 }
 
 .header {
-  padding: 0.5rem;
   padding-top: 1.5rem;
 }
 
 .table {
   background-color: white;
-  margin: 1rem;
-  margin-top: 0;
-  width: 100%;
+}
+
+.productImg {
+  width: 100px;
+}
+
+.userAvatar {
+  width: 50px;
+}
+
+.description {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }

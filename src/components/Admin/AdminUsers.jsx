@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import NavbarAdmin from "./NavbarAdmin/NavbarAdmin";
 
 const AdminUsers = () => {
   const [users, setUsers] = useState([]);
@@ -47,41 +48,33 @@ const AdminUsers = () => {
 
   return (
     <>
-      <Sidebar />
-      <div className={css.backgroundTop}>
-        <div className="container-fluid py-5 d-flex align-item-center justify-content-center flex-column">
-          <header>
-            <h1 className={css.titulo}>Panel de Administracion</h1>
-          </header>
-        </div>
-      </div>
-      <Container className="p-5" fluid id={css["backgroundAdminLogin"]}>
-        <Row>
-          <Col>
-            <h2 className={css.tituloContainer}>Panel de Usuarios</h2>
+      <NavbarAdmin />
+      <Container className="p-0" fluid id={css["backgroundAdminLogin"]}>
+        <Sidebar />
+        <Row className="m-0">
+          <div className="col-2"></div>
 
-            <div className="text-end">
-              <div className={css.botonAgregar}>
-                <Link to="/admin/createProduct">
-                  <Button variant="success"> Agregar usuario </Button>
-                </Link>
-              </div>
+          <div className={`${css.backgroundTop} col-10 px-4`}>
+            <div className={css.header}>
+              <h2 className={css.tituloContainer}>Panel de Usuarios</h2>
+
+              <Link to="/admin/createProduct">
+                <Button variant="success ms-4 mb-2">Agregar usuario</Button>
+              </Link>
             </div>
 
             <div className={css.tableProducts}>
-              <Table className="table" striped bordered hover>
+              <Table striped bordered hover className={`${css.table} mt-2`}>
                 <thead>
                   <tr>
                     <th>#</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
                     <th>Email</th>
-                    <th>Address</th>
-                    <th>Phone</th>
+                    <th>Dirección</th>
+                    <th>Teléfono</th>
                     <th>Avatar</th>
-                    <th>Birthdate</th>
-                    <th>Edit</th>
-                    <th>Erase User</th>
+                    <th>Acciones</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -94,17 +87,26 @@ const AdminUsers = () => {
                         <td>{user.email}</td>
                         <td>{user.address}</td>
                         <td>{user.phone}</td>
-                        <td>{user.avatar}</td>
-                        <td>{user.birthdate}</td>
+                        <td>
+                          {
+                            <img
+                              src={process.env.REACT_APP_API_BASE_IMG_URL + `/${user.avatar}`}
+                              alt=""
+                              className={css.userAvatar}
+                            />
+                          }
+                        </td>
                         <td>
                           {" "}
                           <Button className="buttons" variant="warning">
                             {" "}
-                            <Link to={`/admin/editUser/${user.id}`}>Editar </Link>
-                          </Button>
-                        </td>
-                        <td>
-                          {" "}
+                            <Link
+                              to={`/admin/editUser/${user.id}`}
+                              className="text-decoration-none text-light"
+                            >
+                              Editar{" "}
+                            </Link>
+                          </Button>{" "}
                           <Button
                             className="buttons"
                             variant="danger"
@@ -119,7 +121,7 @@ const AdminUsers = () => {
                 </tbody>
               </Table>
             </div>
-          </Col>
+          </div>
         </Row>
       </Container>
       ;

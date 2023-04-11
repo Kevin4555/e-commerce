@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import NavbarAdmin from "./NavbarAdmin/NavbarAdmin";
 
 const AdminReviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -30,27 +31,17 @@ const AdminReviews = () => {
   }, []);
   return (
     <>
-      <Sidebar />
-      <div className={css.backgroundTop}>
-        <div className="container-fluid py-5 d-flex align-item-center justify-content-center flex-column">
-          <header>
-            <h1 className={css.titulo}>Panel de Administracion</h1>
-          </header>
-        </div>
-      </div>
-      <Container className="p-5" fluid id={css["backgroundAdminLogin"]}>
-        <Row>
-          <Col>
-            <h2 className={css.tituloContainer}>Panel de Reviews</h2>
-
-            <div className="text-end">
-              <div className={css.botonAgregar}>
-                <Button variant="success">Agregar Review</Button>
-              </div>
+      <NavbarAdmin />
+      <Container className="p-0" fluid id={css["backgroundAdminLogin"]}>
+        <Sidebar />
+        <Row className="m-0">
+          <div className="col-2"></div>
+          <div className={`${css.backgroundTop} col-10 px-4`}>
+            <div className={css.header}>
+              <h2 className={`${css.tituloContainer} `}>Panel de Reviews</h2>
             </div>
-
             <div className={css.tableProducts}>
-              <Table striped bordered hover>
+              <Table striped bordered hover className={`${css.table} mt-2`}>
                 <thead>
                   <tr>
                     <th>#</th>
@@ -71,7 +62,7 @@ const AdminReviews = () => {
                 </tbody>
               </Table>
             </div>
-          </Col>
+          </div>
         </Row>
       </Container>
       ;

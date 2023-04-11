@@ -46,11 +46,11 @@ const AdminCategories = () => {
   return (
     <>
       <NavbarAdmin />
-      <Container className="p-0" fluid id={css["backgroundAdminLogin"]}>
+      <Container className="p-0 m-0" fluid id={css["backgroundAdminLogin"]}>
         <Sidebar />
-        <Row className="m-0">
+        <Row className={`${css.backgroundTop} m-0`}>
           <div className="col-2"></div>
-          <div className={`${css.backgroundTop} col-10`}>
+          <div className={` col-10 px-4`}>
             <div className={css.header}>
               <h2 className={css.tituloContainer}>Panel de Categorías</h2>
               <Button variant="success" className="ms-4 mb-2">
@@ -64,10 +64,9 @@ const AdminCategories = () => {
               <Table striped bordered hover className={css.table}>
                 <thead>
                   <tr>
-                    <th>#</th>
-                    <th>Name</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
+                    <th>ID #</th>
+                    <th>Nombre</th>
+                    <th>Acciones</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -78,16 +77,20 @@ const AdminCategories = () => {
                         <td>{category.name}</td>
                         <td>
                           {" "}
-                          <Button className="buttons" variant="warning">
-                            <Link to={`/admin/editCategoryId/${category.id}`} variant="warning">
+                          <Link
+                            to={`/admin/editCategoryId/${category.id}`}
+                            variant="warning"
+                            className="text-decoration-none text-light"
+                          >
+                            <Button
+                              className="buttons text-light text-decoration-none"
+                              variant="warning"
+                            >
                               Editar
-                            </Link>
-                          </Button>
-                        </td>
-                        <td>
-                          {" "}
+                            </Button>{" "}
+                          </Link>
                           <Button
-                            className="buttons"
+                            className="buttons ms-2"
                             variant="danger"
                             onClick={() => handleDeleteCategory(category)}
                           >
