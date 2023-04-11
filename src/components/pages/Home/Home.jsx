@@ -136,7 +136,7 @@ function Home({ showModal, setShowModal }) {
 
           <div className="container">
             <h3 className="fs-2 mt-5 text-center">Categorías</h3>
-            <div className="row rounded" id={css["categoryDisplay"]}>
+            <div className="row rounded g-1" id={css["categoryDisplay"]}>
               {categories.map((category) => (
                 <div
                   key={`${category.name}_${category.id}`}

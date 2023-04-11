@@ -1,15 +1,3 @@
-.menuDashboard {
-  max-width: 100px;
-  height: 100vh;
-  padding: 20px;
-}
-
-.tituloSidebar {
-  color: azure;
-  font-size: x-large;
-  margin-top: 10rem;
-}
-
 .botonAdmin {
   position: fixed;
   left: 0;
@@ -21,52 +9,32 @@
 
 .volver {
   color: beige;
-  margin-top: 4rem;
+  position: absolute;
+  top: 82vh;
   font-size: large;
   text-decoration: none;
-}
-
-.volver:hover {
-  text-decoration: none;
-  color: #e0e0e0;
-  border-radius: 8px;
-  font-size: 20px;
-  background-color: var(--tertiary);
-  width: 300px;
 }
 
 .adminButtons {
-  margin-left: 1rem;
   color: black;
-  margin-top: 3rem;
+  padding: 1rem;
   color: whitesmoke;
-  font-size: large;
+  font-size: medium;
   cursor: pointer;
   text-decoration: none;
-  width: 300px;
+  width: 100%;
+  height: 100%;
 }
 
 .adminButtons:hover {
-  text-decoration: none;
   background-color: var(--tertiary);
-  border-radius: 8px;
-  align-items: center;
-  width: 300px;
-  background-size: cover;
-  color: #e0e0e0;
-  text-shadow: beige;
-  cursor: pointer;
-  font-size: 20px;
 }
 
 #menu {
   background-color: #848c7c;
   border-color: #9ea190;
-}
-
-#menu i {
-  margin-right: 20px;
-  font-size: 25px;
+  height: 92vh;
+  position: fixed;
 }
 
 #menu span {
@@ -80,15 +48,7 @@
   width: auto;
 }
 
-#menu:hover {
-  transform: scale(1.01);
-  text-emphasis-color: blue;
-}
-
-.toggle {
-  size: 2rem;
-}
-
 .iconos {
-  margin-right: 1rem;
+  margin-right: 0.5rem;
+  color: white;
 }

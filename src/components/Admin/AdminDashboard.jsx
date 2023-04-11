@@ -32,83 +32,82 @@ const AdminDashboard = () => {
   return (
     <>
       <NavbarAdmin />
-      <Sidebar />
-      <div>
-        <h2 className="col-2 d-flex justify-content-center ">Dashboard</h2>
-        <h5 className="col-2 d-flex justify-content-center "> Last 30 days </h5>
-      </div>
-      <div className="tarjetas">
-        <Container>
-          <Row>
-            <Col>
-              <Card>
-                <Card.Header>
-                  {" "}
-                  <h5>
+      <Container fluid className="p-0">
+        <Sidebar />
+        <div>
+          <h2 className="col-2 d-flex justify-content-center ">Dashboard</h2>
+          <h5 className="col-2 d-flex justify-content-center "> Last 30 days </h5>
+        </div>
+        <div className="tarjetas">
+          <Container>
+            <Row>
+              <Col>
+                <Card>
+                  <Card.Header>
                     {" "}
-                    <i className="bi bi-receipt"></i> Monthly Sales (USD)
-                  </h5>
-                </Card.Header>
-                <Card.Body>
-                  <Card.Title>Import</Card.Title>
-
-                  <Card.Text>
+                    <h5>
+                      {" "}
+                      <i className="bi bi-receipt"></i> Monthly Sales (USD)
+                    </h5>
+                  </Card.Header>
+                  <Card.Body>
+                    <Card.Title>Import</Card.Title>
+                    <Card.Text>
+                      {" "}
+                      <h3> USD 1000 </h3>
+                      <h6 className="fw-bold text-success">
+                        <i className="bi bi-plus-lg "></i> 10%
+                      </h6>
+                    </Card.Text>
+                    <Button variant="primary">View all</Button>
+                  </Card.Body>
+                </Card>
+              </Col>
+              <Col>
+                <Card>
+                  <Card.Header>
+                    <h5>
+                      {" "}
+                      <i className="bi bi-clipboard2-pulse"></i>Conversion Rate
+                    </h5>
+                  </Card.Header>
+                  <Card.Body>
+                    <Card.Title>Quantity</Card.Title>
+                    <Card.Text>
+                      {" "}
+                      <h3>23.569</h3>
+                      <h6 className="fw-bold text-danger">
+                        <i className="bi bi-dash-circle"></i> 10%
+                      </h6>
+                    </Card.Text>
+                    <Button variant="primary">View All</Button>
+                  </Card.Body>
+                </Card>
+              </Col>
+              <Col>
+                <Card>
+                  <Card.Header>
                     {" "}
-                    <h3> USD 1000 </h3>
-                    <h6 className="fw-bold text-success">
-                      <i className="bi bi-plus-lg "></i> 10%
-                    </h6>
-                  </Card.Text>
-                  <Button variant="primary">View all</Button>
-                </Card.Body>
-              </Card>
-            </Col>
-            <Col>
-              <Card>
-                <Card.Header>
-                  <h5>
-                    {" "}
-                    <i className="bi bi-clipboard2-pulse"></i>Conversion Rate
-                  </h5>
-                </Card.Header>
-                <Card.Body>
-                  <Card.Title>Quantity</Card.Title>
-                  <Card.Text>
-                    {" "}
-                    <h3>23.569</h3>
-                    <h6 className="fw-bold text-danger">
-                      <i className="bi bi-dash-circle"></i> 10%
-                    </h6>
-                  </Card.Text>
-                  <Button variant="primary">View All</Button>
-                </Card.Body>
-              </Card>
-            </Col>
-            <Col>
-              <Card>
-                <Card.Header>
-                  {" "}
-                  <h5>
-                    <i class="bi bi-shop"></i> Products{" "}
-                  </h5>
-                </Card.Header>
-                <Card.Body>
-                  <Card.Title>Quantity</Card.Title>
-                  <Card.Text>
-                    {" "}
-                    <h3>4.563</h3>
-                    <h6 className="fw-bold text-success">
-                      <i className="bi bi-plus-lg"></i> 10%
-                    </h6>
-                  </Card.Text>
-                  <Button variant="primary">View All</Button>
-                </Card.Body>
-              </Card>
-            </Col>
-          </Row>
-        </Container>
-      </div>
-      <>
+                    <h5>
+                      <i class="bi bi-shop"></i> Products{" "}
+                    </h5>
+                  </Card.Header>
+                  <Card.Body>
+                    <Card.Title>Quantity</Card.Title>
+                    <Card.Text>
+                      {" "}
+                      <h3>4.563</h3>
+                      <h6 className="fw-bold text-success">
+                        <i className="bi bi-plus-lg"></i> 10%
+                      </h6>
+                    </Card.Text>
+                    <Button variant="primary">View All</Button>
+                  </Card.Body>
+                </Card>
+              </Col>
+            </Row>
+          </Container>
+        </div>
         <Container fluid>
           <Row>
             <Col>
@@ -121,7 +120,6 @@ const AdminDashboard = () => {
               </div>
             </Col>
           </Row>
-
           <Row>
             <Col>
               <Table className="table table-bordered table-striped">
@@ -158,8 +156,7 @@ const AdminDashboard = () => {
             </Col>
           </Row>
         </Container>
-        ;
-      </>
+      </Container>
     </>
   );
 };
