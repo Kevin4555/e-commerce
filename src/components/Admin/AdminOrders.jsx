@@ -11,6 +11,8 @@ import { useNavigate } from "react-router-dom";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
+import NavbarAdmin from "./NavbarAdmin/NavbarAdmin";
+
 const AdminOrders = () => {
   const [orders, setOrders] = useState([]);
 
@@ -31,46 +33,44 @@ const AdminOrders = () => {
   }, []);
   return (
     <>
-      <Sidebar />
-      <div className={css.backgroundTop}>
-        <div className="container-fluid py-5 d-flex align-item-center justify-content-center flex-column">
-          <header>
-            <h1 className={css.titulo}>Panel de Administracion</h1>
-          </header>
-        </div>
-      </div>
-      <Container className="p-5" fluid id={css["backgroundAdminLogin"]}>
-        <h2 className={css.tituloContainer}>Panel de Órdenes</h2>
-        <div className="text-end">
-          <Button variant="success">Agregar Órden</Button>
-        </div>
+      <NavbarAdmin />
+      <Container className="p-0" fluid id={css["backgroundAdminLogin"]}>
+        <Sidebar />
+        <Row className="m-0">
+          <div className="col-2"></div>
+          <div className={`${css.backgroundTop} col-10 px-4`}>
+            <div className={css.header}>
+              <h2 className={css.tituloContainer}>Panel de Órdenes</h2>{" "}
+            </div>
 
-        <div className={css.tableProducts}>
-          <Table>
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Estado</th>
-                <th>Dirección</th>
-                <th>Productos</th>
-                <th> Id usuario</th>
-              </tr>
-            </thead>
-            <tbody>
-              {orders.map((order) => {
-                return (
+            <div className={css.tableProducts}>
+              <Table striped bordered hover className={`${css.table} mt-2`}>
+                <thead>
                   <tr>
-                    <td>{order.id}</td>
-                    <td>{order.status}</td>
-                    <td>{order.address}</td>
-                    <td>{order.products}</td>
-                    <td>{order.user.id}</td>
+                    <th>Número de Orden</th>
+                    <th>Estado</th>
+                    <th>Dirección</th>
+                    <th>Productos</th>
+                    <th>ID usuario</th>
                   </tr>
-                );
-              })}
-            </tbody>
-          </Table>
-        </div>
+                </thead>
+                <tbody>
+                  {orders.map((order) => {
+                    return (
+                      <tr>
+                        <td>{order.id}</td>
+                        <td>{order.status}</td>
+                        <td>{order.address}</td>
+                        <td>{order.products}</td>
+                        <td>{order.user.id}</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </Table>
+            </div>
+          </div>
+        </Row>
       </Container>
       ;
     </>

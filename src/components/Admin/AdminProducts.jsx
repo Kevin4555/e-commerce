@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import NavbarAdmin from "./NavbarAdmin/NavbarAdmin";
 
 const AdminProducts = () => {
   const [products, setProducts] = useState([]);
@@ -44,29 +45,26 @@ const AdminProducts = () => {
 
   return (
     <>
-      <Sidebar />
-      <div className={css.backgroundTop}>
-        <div className="container-fluid py-5 d-flex align-item-center justify-content-center flex-column">
-          <header>
-            <h1 className={css.titulo}>Panel de Administracion</h1>
-          </header>
-        </div>
-      </div>
-      <Container className="p-5" fluid id={css["backgroundAdminLogin"]}>
-        <Row>
-          <Col>
-            <h2 className={css.tituloContainer}>Panel de Products</h2>
-
-            <div className="text-end">
-              <div className={css.botonAgregar}>
-                <Link to="/admin/createProduct">
-                  <Button variant="success"> Agregar producto </Button>
+      <NavbarAdmin />
+      <Container className="p-0" fluid id={css["backgroundAdminLogin"]}>
+        <Sidebar />
+        <Row className="m-0">
+          <div className="col-2"></div>
+          <div className={`${css.backgroundTop} col-10 px-4`}>
+            <div className={css.header}>
+              <h2 className={css.tituloContainer}>Panel de Productos</h2>{" "}
+              <Button variant="success" className="ms-4 mb-2">
+                <Link to="/admin/createProduct" className="text-decoration-none text-light">
+                  {" "}
+                  Agregar producto{" "}
                 </Link>
-              </div>
+              </Button>
             </div>
-
+            <div className="text-end">
+              <div className={css.botonAgregar}></div>
+            </div>
             <div className={css.tableProducts}>
-              <Table striped bordered hover>
+              <Table striped bordered hover className={css.table}>
                 <thead>
                   <tr>
                     <th>#</th>
@@ -77,11 +75,9 @@ const AdminProducts = () => {
                     <th>Imagen 2</th>
                     <th>Stock</th>
                     <th>Featured</th>
-                    <th>Extracto</th>
                     <th>Rating</th>
-                    <th> Id</th>
-                    <th>Editar </th>
-                    <th>Eliminar </th>
+                    <th>Categoría</th>
+                    <th>Acciones </th>
                   </tr>
                 </thead>
                 <tbody>
@@ -90,14 +86,16 @@ const AdminProducts = () => {
                       <tr>
                         <td>{product.id}</td>
                         <td>{product.title}</td>
-                        <td>{product.description}</td>
+                        <td>
+                          <p className={css.description}>{product.description}</p>
+                        </td>
                         <td>{product.price}</td>
                         <td>
                           {
                             <img
                               src={process.env.REACT_APP_API_BASE_IMG_URL + `/${product.img.img1}`}
                               alt=""
-                              className={css.categoriesimg}
+                              className={css.productImg}
                             />
                           }
                         </td>
@@ -105,22 +103,24 @@ const AdminProducts = () => {
                           <img
                             src={process.env.REACT_APP_API_BASE_IMG_URL + `/${product.img.img2}`}
                             alt=""
-                            className={css.categoriesimg}
+                            className={css.productImg}
                           />
                         </td>
                         <td>{product.stock}</td>
                         <td>{product.featured}</td>
-                        <td>{product.slug}</td>
                         <td>{product.rating}</td>
                         <td>{product.categoryId}</td>
                         <td>
                           {" "}
                           <Button className="buttons" variant="warning">
-                            <Link to={`/admin/editProduct/${product.id}`}> Editar </Link>
-                          </Button>
-                        </td>
-                        <td>
-                          {" "}
+                            <Link
+                              to={`/admin/editProduct/${product.id}`}
+                              className="text-decoration-none text-light"
+                            >
+                              {" "}
+                              Editar{" "}
+                            </Link>
+                          </Button>{" "}
                           <Button
                             className="buttons"
                             variant="danger"
@@ -135,7 +135,7 @@ const AdminProducts = () => {
                 </tbody>
               </Table>
             </div>
-          </Col>
+          </div>
         </Row>
       </Container>
       ;
