@@ -47,11 +47,10 @@ const AdminOrders = () => {
               <Table striped bordered hover className={`${css.table} mt-2`}>
                 <thead>
                   <tr>
-                    <th>Número de Orden</th>
-                    <th>Estado</th>
-                    <th>Dirección</th>
-                    <th>Productos</th>
-                    <th>ID usuario</th>
+                    <th>#</th>
+                    <th>User Id</th>
+                    <th>Preico Total</th>
+                    <th>Status</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -59,10 +58,9 @@ const AdminOrders = () => {
                     return (
                       <tr>
                         <td>{order.id}</td>
+                        <td>{order.userId}</td>
+                        <td>USD {order.totalPrice}</td>
                         <td>{order.status}</td>
-                        <td>{order.address}</td>
-                        <td>{order.products}</td>
-                        <td>{order.user.id}</td>
                       </tr>
                     );
                   })}
