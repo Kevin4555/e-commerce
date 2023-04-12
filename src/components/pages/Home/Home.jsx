@@ -140,7 +140,7 @@ function Home({ showModal, setShowModal }) {
               {categories.map((category) => (
                 <div
                   key={`${category.name}_${category.id}`}
-                  className="col-5 col-md-4 col-lg-2"
+                  className="col-5 col-md-4 col-lg-2 text-center"
                   onClick={() =>
                     scrollToCategory(
                       category.name.toLowerCase().replace(/[áéíóú]/g, function (match) {
@@ -165,6 +165,7 @@ function Home({ showModal, setShowModal }) {
                       src={process.env.REACT_APP_API_BASE_IMG_URL + `/${category.img}`}
                       alt=""
                       className={css.categoriesImg + " img-fluid"}
+                      draggable="false"
                     />
                     <h5 className="mt-3">{category.name}</h5>
                   </div>
@@ -173,15 +174,15 @@ function Home({ showModal, setShowModal }) {
             </div>
             <section id={css["display"]} className="row g-3">
               <div className={`col-12 col-lg-6 ${css.displayOffer}`}>
-                <img src="/img/subBanner.webp" alt="" className="img-fluid" />
-                <div>
+                <img src="/img/subBanner.webp" alt="" className="img-fluid" draggable="false" />
+                <div className="">
                   <p className="fs-5 mb-2">35% off</p>
                   <h3>Especial Nórdico Matte</h3>
                   <button className={`btn ${css.bannerBtn}`}>Comprar ahora</button>
                 </div>
               </div>
               <div className={`col-12 col-lg-6 ${css.displayOffer}`}>
-                <img src="/img/subBanner2.webp" alt="" className="img-fluid" />
+                <img src="/img/subBanner2.webp" alt="" className="img-fluid" draggable="false" />
                 <div>
                   <p className="fs-5 mb-2">25% off</p>
                   <h3>Terra Punto Cotta</h3>

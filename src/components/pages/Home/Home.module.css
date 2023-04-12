@@ -36,6 +36,7 @@
 .destacadosImg {
   object-fit: cover;
   aspect-ratio: 1;
+  height: 200px;
 }
 
 .h100px {
