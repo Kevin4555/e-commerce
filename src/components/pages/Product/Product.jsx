@@ -62,6 +62,7 @@ function Product() {
         newreview.user = user;
         setReviews([newreview, ...reviews]);
         setReviewText("");
+        setRating(0);
       } catch (error) {}
     }
   }
