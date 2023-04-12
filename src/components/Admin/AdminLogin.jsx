@@ -35,7 +35,7 @@ export default function AdminLogin() {
   };
 
   const handleFill = async (event) => {
-    setEmail("user@1234.com");
+    setEmail("admin@1234.com");
     setPassword("1234");
   };
 
