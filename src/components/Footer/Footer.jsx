@@ -23,7 +23,7 @@ function Footer() {
                 <i className="bi bi-telephone"></i> +59898123456
               </li>
               <li>
-                <i className="bi bi-envelope"></i> fake@manoscreativas.com
+                <i className="bi bi-envelope"></i> manoscreativas.ha@gmail.com
               </li>
             </ul>
           </div>
