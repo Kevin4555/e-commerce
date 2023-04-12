@@ -146,7 +146,7 @@ function CartPayment() {
                       id="continue-btn"
                       onClick={(event) => {
                         handleCreateOrder(event);
-                        navigate("/profile");
+                        navigate("/");
                       }}
                     >
                       Realizar al pago

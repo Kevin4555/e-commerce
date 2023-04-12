@@ -19,6 +19,7 @@ const cartSlice = createSlice({
             return false;
           }
         });
+
         const indexToUpdate = state.items.findIndex((item) => {
           if (itemToUpdate) {
             return item.id === itemToUpdate.id;
@@ -26,7 +27,6 @@ const cartSlice = createSlice({
             return false;
           }
         });
-        itemToUpdate && (itemToUpdate.quantity = itemToUpdate.quantity + 1);
         const itemsWithoutItemToUpdate = state.items.filter((item) => {
           if (item) {
             return item.id !== action.payload.id;
@@ -39,8 +39,21 @@ const cartSlice = createSlice({
           itemToUpdate,
           ...itemsWithoutItemToUpdate.slice(indexToUpdate),
         ];
-        itemToUpdate ? (state.items = updatedItems) : state.items.push(action.payload);
-        state.totalPrice = Number(state.totalPrice) + Number(action.payload.price);
+        if (itemToUpdate) {
+          itemToUpdate.quantity = itemToUpdate.quantity + 1;
+          console.log(itemToUpdate.quantity);
+          console.log(itemToUpdate.stock);
+          if (itemToUpdate.quantity <= itemToUpdate.stock) {
+            state.items = updatedItems;
+            state.totalPrice = Number(state.totalPrice) + Number(action.payload.price);
+          } else {
+            itemToUpdate.quantity = itemToUpdate.quantity - 1;
+            return state;
+          }
+        } else {
+          state.items.push(action.payload);
+          state.totalPrice = Number(state.totalPrice) + Number(action.payload.price);
+        }
       },
       prepare: (product) => {
         if (product.quantity) {

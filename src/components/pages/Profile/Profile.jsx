@@ -3,9 +3,10 @@ import PageNavbar from "../../PageNavbar/PageNavbar";
 import Order from "../../Order/Order";
 import Newsletter from "../../Newsletter/Newsletter";
 import Footer from "../../Footer/Footer";
+import MultiItemCarousel from "../../Carousel/MultiItemCarousel";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { removeUser } from "../../../slices/usersSlice";
 import axios from "axios";
 
@@ -14,6 +15,7 @@ function Profile() {
   window.document.title = `${user.firstname} ${user.lastname}`;
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [products, setProducts] = useState([]);
   const [orders, setOrders] = useState([]);
   const [firstname, setFirstname] = useState(user.firstname);
   const [lastname, setLastname] = useState(user.lastname);
@@ -25,32 +27,32 @@ function Profile() {
   const [none, setNone] = useState("d-none");
   const [error, setError] = useState("");
 
-  useEffect(() => {
-    // Simulate loading time
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 750);
-  }, []);
-
   function handleLogOut() {
     dispatch(removeUser());
     navigate("/");
   }
   useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 750);
     const getOrders = async () => {
       try {
         const response = await axios({
           method: "get",
           url: `${process.env.REACT_APP_API_BASE_URL}/orders`,
         });
+        const response2 = await axios({
+          method: "get",
+          url: `${process.env.REACT_APP_API_BASE_URL}/products`,
+        });
         setOrders(response.data);
+        setProducts(response2.data);
       } catch (error) {
         console.log(error);
       }
     };
     getOrders();
-  }, [document.referrer]);
-
+  }, []);
   const handleEditUser = async (event) => {
     event.preventDefault();
     let formdata = new FormData(event.target);
@@ -92,12 +94,7 @@ function Profile() {
             <small className="fs-6 fw-semibold text-light text-center">Home</small>
           </div>
           <div className="container mt-5">
-            <div className="col-12 col-lg-8 order-lg-1">
-              {/* <h2 className="fs-4">Favoritos</h2>
-              {products && (
-                <MultiItemCarousel products={products} productsPerPage={4} className="" />
-              )} */}
-            </div>
+            <div className="col-12 col-lg-8 order-lg-1"></div>
             <div className="row">
               <div className="col-12 col-lg-4 order-lg-1">
                 <div id={css["userProfile"]} className="shadow text-center p-4 rounded mb-5">
@@ -112,15 +109,15 @@ function Profile() {
                   <small>{user.email}</small>
                   <div className={`row mt-3 bg-white p-5 p-lg-2 rounded shadow ${block}`}>
                     <div className="col-12 col-sm-6 d-lg-flex flex-lg-column text-start my-2">
-                      <small className="fw-bold fs-6">Firstname: </small>
+                      <small className="fw-bold fs-6">Nombre: </small>
                       <small className="fs-6">{user.firstname}</small>
                     </div>
                     <div className="col-12 col-sm-6 d-lg-flex flex-lg-column text-start my-2">
-                      <small className="fw-bold fs-6">Lastname: </small>
+                      <small className="fw-bold fs-6">Apellido: </small>
                       <small className="fs-6">{user.lastname}</small>
                     </div>
                     <div className="col-12 col-sm-6 d-lg-flex flex-lg-column text-start my-2">
-                      <small className="fs-6 fw-bold">Phone: </small>
+                      <small className="fs-6 fw-bold">Teléfono: </small>
                       <small className="fs-6">{user.phone}</small>
                     </div>
                     <div className="col-12 d-lg-flex flex-lg-column text-start my-2">
@@ -128,7 +125,7 @@ function Profile() {
                       <small className="fs-6">{user.email}</small>
                     </div>
                     <div className="col-12 d-lg-flex flex-lg-column text-start my-2">
-                      <small className="fw-bold fs-6">Address: </small>
+                      <small className="fw-bold fs-6">Dirección: </small>
                       <small className="fs-6">{user.address}</small>
                     </div>
                     <button
@@ -198,9 +195,28 @@ function Profile() {
               </div>
               <div className="col-12 col-lg-8">
                 <h2 className="fs-3">Historial de pedidos</h2>
-                {ordersFromLoggedUser.map((order, index) => (
-                  <Order order={order} ket={index} />
-                ))}
+                {ordersFromLoggedUser.length > 0 ? (
+                  ordersFromLoggedUser.map((order, index) => <Order order={order} ket={index} />)
+                ) : (
+                  <div className="mt-4">
+                    <p className="fs-6">
+                      No haz realizado ningún pedido, aún.
+                      <br />
+                      Para ver nuestros productos haz
+                      <Link to="/categories/1" className="ms-1">
+                        Click aqui
+                      </Link>
+                    </p>
+                    <h4>También te recomendamos algunos de nuestros productos</h4>
+
+                    {products && (
+                      <MultiItemCarousel
+                        products={products.filter((product) => Number(product.rating) === 5)}
+                        productsPerPage={4}
+                      ></MultiItemCarousel>
+                    )}
+                  </div>
+                )}
               </div>
             </div>
           </div>
