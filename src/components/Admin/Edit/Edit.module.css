@@ -1,0 +1,21 @@
+#button {
+  background-color: var(--secondary);
+  width: 10rem;
+  margin-left: auto;
+  margin-right: auto;
+  border: none;
+}
+
+#button:hover {
+  background-color: var(--primary);
+}
+
+#content {
+  backdrop-filter: blur(4px);
+}
+
+#background {
+  background-image: url(/public/img/topBanner.jpg);
+  background-size: cover !important;
+  background-repeat: no-repeat;
+}

@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Col, Button, Row, Container, Card, Form, Alert } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import css from "../../pages/SignUp/SignUp.module.css";
 import { useParams } from "react-router-dom";
+import NavbarAdmin from "../NavbarAdmin/NavbarAdmin";
+import Sidebar from "../../Sidebar/Sidebar";
+import css from "./Edit.module.css";
 
 export default function EditUser() {
   const [firstName, setFirstName] = useState("");
@@ -52,6 +54,8 @@ export default function EditUser() {
 
   return (
     <>
+      <NavbarAdmin />
+      <Sidebar />
       <Container fluid id={css["background"]}>
         <Row id="content" className="py-3 d-flex justify-content-center align-items-center">
           <Col xs={11} sm={8} md={6} xl={4}>

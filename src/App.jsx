@@ -1,5 +1,6 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
+import SearchComponent from "./components/SearchComponent";
 
 import SobreEsteProyecto from "./components/pages/SobreEsteProyecto/SobreEsteProyecto";
 import Product from "./components/pages/Product/Product";
@@ -31,6 +32,7 @@ import Reset_Pass from "./components/pages/Reset_Pass/Reset_Pass";
 import Reset_2 from "./components/pages/Reset_Pass_2/Reset_Pass_2";
 import Administrators from "./components/Admin/Administrators";
 import CreateAdmin from "./components/Admin/Create/CreateAdmin";
+import Products from "./components/Products/Products";
 
 import { useState } from "react";
 import { useSelector } from "react-redux";
@@ -56,6 +58,7 @@ function App() {
         <Route path="/profile" element={<Profile />} />
       </Route>
       <Route path="/categories/:id" element={<Category />} />
+      <Route path="/products" element={<Products />} />
 
       <Route path="/admin" element={<AdminLogin />} />
       <Route element={<AuthAdmin />}>

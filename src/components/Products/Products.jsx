@@ -1,18 +1,17 @@
-import css from "./Home.module.css";
+import css from "../pages/Home/Home.module.css";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import PageNavbar from "../../PageNavbar/PageNavbar";
-import MultiItemCarousel from "../../Carousel/MultiItemCarousel";
-import ProductMini from "../../ProductMini/ProductMini";
+import PageNavbar from "..//PageNavbar/PageNavbar";
+import MultiItemCarousel from "../../components/Carousel/MultiItemCarousel";
+import ProductMini from "../../components/ProductMini/ProductMini";
 import Carousel from "react-bootstrap/Carousel";
-import Footer from "../../Footer/Footer";
-import Newsletter from "../../Newsletter/Newsletter";
-import Loading from "../../Loading/Loading";
+import Footer from "../../components/Footer/Footer";
+import Newsletter from "../../components/Newsletter/Newsletter";
+import Loading from "../../components/Loading/Loading";
+import StartModal from "../../components/StartModal/StartModal";
 
-import StartModal from "../../StartModal/StartModal";
-
-function Home({ showModal, setShowModal }) {
+function Products({ showModal, setShowModal }) {
   window.document.title = "Manos Creativas";
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -136,11 +135,11 @@ function Home({ showModal, setShowModal }) {
 
           <div className="container">
             <h3 className="fs-2 mt-5 text-center">Categorías</h3>
-            <div className="row rounded g-3 g-lg-1 " id={css["categoryDisplay"]}>
+            <div className="row rounded g-1" id={css["categoryDisplay"]}>
               {categories.map((category) => (
                 <div
                   key={`${category.name}_${category.id}`}
-                  className="col-5 col-md-4 col-lg-2 text-center"
+                  className="col-12 col-sm-6 col-md-4 col-xl-2"
                   onClick={() =>
                     scrollToCategory(
                       category.name.toLowerCase().replace(/[áéíóú]/g, function (match) {
@@ -165,83 +164,22 @@ function Home({ showModal, setShowModal }) {
                       src={process.env.REACT_APP_API_BASE_IMG_URL + `/${category.img}`}
                       alt=""
                       className={css.categoriesImg + " img-fluid"}
-                      draggable="false"
                     />
                     <h5 className="mt-3">{category.name}</h5>
                   </div>
                 </div>
               ))}
             </div>
-            <section id={css["display"]} className="row g-3">
-              <div className={`col-12 col-lg-6 ${css.displayOffer}`}>
-                <img src="/img/subBanner.webp" alt="" className="img-fluid" draggable="false" />
-                <div className="">
-                  <p className="fs-5 mb-2">35% off</p>
-                  <h3>Especial Nórdico Matte</h3>
-                  <button className={`btn ${css.bannerBtn}`}>Comprar ahora</button>
-                </div>
-              </div>
-              <div className={`col-12 col-lg-6 ${css.displayOffer}`}>
-                <img src="/img/subBanner2.webp" alt="" className="img-fluid" draggable="false" />
-                <div>
-                  <p className="fs-5 mb-2">25% off</p>
-                  <h3>Terra Punto Cotta</h3>
-                  <button className={`btn ${css.bannerBtn}`}>Comprar ahora</button>
-                </div>
-              </div>
-            </section>
-            <h2 className="pb-4">Destacados</h2>
-            {products && (
-              <MultiItemCarousel
-                products={products.filter((product) => Number(product.rating) === 5)}
-                productsPerPage={4}
-              ></MultiItemCarousel>
-            )}
 
             <div className="mt-5 mb-5 ms-2">
-              <h3 className="pt-5 pb-4 d-inline fs-2" id="pinturas">
-                Pinturas
+              <h3 className="pt-5 pb-4 d-inline fs-2" id="todos">
+                Todos los productos
               </h3>
-              <Link to={"/categories/1"} className={css.categoryLink}>
-                ver todos <i className="bi bi-arrow-right-short"></i>
-              </Link>
             </div>
             {showProducts(productsFromCategory1)}
-            <div className="mt-5 mb-5 ms-2">
-              <h3 className="pt-5 pb-4 d-inline fs-2" id="ceramicas">
-                Cerámicas
-              </h3>
-              <Link to={"/categories/2"} className={css.categoryLink}>
-                ver todos <i className="bi bi-arrow-right-short"></i>
-              </Link>
-            </div>
             {showProducts(productsFromCategory2)}
-            <div className="mt-5 mb-5 ms-2">
-              <h3 className="pt-5 pb-4 d-inline fs-2" id="maderas">
-                Maderas
-              </h3>
-              <Link to={"/categories/3"} className={css.categoryLink}>
-                ver todos <i className="bi bi-arrow-right-short"></i>
-              </Link>
-            </div>
             {showProducts(productsFromCategory3)}
-            <div className="mt-5 mb-5 ms-2">
-              <h3 className="pt-5 pb-4 d-inline fs-2" id="tejidos">
-                Tejidos
-              </h3>
-              <Link to={"/categories/4"} className={css.categoryLink}>
-                ver todos <i className="bi bi-arrow-right-short"></i>
-              </Link>
-            </div>
             {showProducts(productsFromCategory4)}
-            <div className="mt-5 mb-5 ms-2">
-              <h3 className="pt-5 pb-4 d-inline fs-2" id="decoraciones">
-                Decoraciones
-              </h3>
-              <Link to={"/categories/5"} className={css.categoryLink}>
-                ver todos <i className="bi bi-arrow-right-short"></i>
-              </Link>
-            </div>
             {showProducts(productsFromCategory5)}
           </div>
         </main>
@@ -252,4 +190,4 @@ function Home({ showModal, setShowModal }) {
   } else return <Loading />;
 }
 
-export default Home;
+export default Products;
