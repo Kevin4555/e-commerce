@@ -64,7 +64,11 @@ function PageNavbar() {
             <Nav className={`fs-4 col-2 ${openNavbar ? "" : css.noDisplay}`} id={css["icons"]}>
               {user ? (
                 <Nav.Link as={Link} to={"/profile"} className={css.profile}>
-                  <i className={`bi bi-person-circle ${css.icon} `}></i>
+                  <img
+                    src={`${process.env.REACT_APP_API_BASE_IMG_URL}/${user.avatar}`}
+                    alt="Profile"
+                    className={`${css.profileImg} rounded-pill`}
+                  />
                 </Nav.Link>
               ) : (
                 <Nav.Link as={Link} to={"/login"}>

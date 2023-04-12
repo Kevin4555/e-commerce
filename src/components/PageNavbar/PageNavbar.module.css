@@ -42,7 +42,8 @@
 
 .icon {
   color: var(--accent);
-  font-size: x-large;
+  font-size: xx-large;
+  padding-bottom: 1rem;
 }
 
 .navLogo {
@@ -107,4 +108,9 @@
   .noDisplay {
     display: none;
   }
+}
+
+.profileImg {
+  width: 2.5rem;
+  border: 3px solid var(--accent);
 }

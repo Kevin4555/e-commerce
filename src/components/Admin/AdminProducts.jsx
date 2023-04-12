@@ -114,7 +114,7 @@ const AdminProducts = () => {
                           {" "}
                           <Button className="buttons" variant="warning">
                             <Link
-                              to={`/admin/editProduct/${product.id}`}
+                              to={`/admin/editProduct/${product.slug}`}
                               className="text-decoration-none text-light"
                             >
                               {" "}

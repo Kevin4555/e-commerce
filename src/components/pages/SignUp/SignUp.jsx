@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../../slices/usersSlice";
+import css from "./SignUp.module.css";
 
 export default function SignUp() {
   window.document.title = "Registro";
@@ -42,7 +43,7 @@ export default function SignUp() {
   return (
     <>
       <PageNavbar />
-      <Container fluid id="background">
+      <Container fluid id={css["background"]}>
         <Row id="content" className="py-3 d-flex justify-content-center align-items-center">
           <Col xs={11} sm={8} md={6} xl={4}>
             <Card className="px-4">
@@ -56,59 +57,51 @@ export default function SignUp() {
                   <h2 className="mb-2 text-center ">Registro</h2>
                   <div className="mb-2">
                     <Form onSubmit={handleSignUp}>
-                      <Form.Group controlId="formFile" className="mb-2">
-                        <Form.Label>Adjuntar Foto</Form.Label>
-                        <Form.Control
-                          type="file"
-                          value={avatar}
-                          name="avatar"
-                          onChange={(event) => setAvatar(event.target.value)}
-                        />
-                      </Form.Group>
-
-                      <Form.Group className="mb-2" controlId="FirstName">
-                        <Form.Label className="text-center">Nombre</Form.Label>
-                        <Form.Control
-                          type="text"
-                          value={firstName}
-                          name="firstname"
-                          onChange={(event) => setFirstName(event.target.value)}
-                          placeholder="Juan"
-                        />
-                      </Form.Group>
-
-                      <Form.Group className="mb-2" controlId="LastName">
-                        <Form.Label>Apellido</Form.Label>
-                        <Form.Control
-                          type="text"
-                          value={lastName}
-                          name="lastname"
-                          onChange={(event) => setLastName(event.target.value)}
-                          placeholder="Pérez"
-                        />
-                      </Form.Group>
-
-                      <Form.Group className="mb-2" controlId="email">
-                        <Form.Label className="text-center">Email</Form.Label>
-                        <Form.Control
-                          type="email"
-                          value={email}
-                          name="email"
-                          onChange={(event) => setEmail(event.target.value)}
-                          placeholder="juan@gmail.com"
-                        />
-                      </Form.Group>
-                      <Form.Group className="mb-2" controlId="phone">
-                        <Form.Label className="text-center">Celular</Form.Label>
-                        <Form.Control
-                          type="text"
-                          value={phone}
-                          name="phone"
-                          onChange={(event) => setPhone(event.target.value)}
-                          placeholder="09*******"
-                        />
-                      </Form.Group>
-                      <Form.Group className="mb-2" controlId="address">
+                      <div className="d-flex">
+                        <Form.Group className={`mb-2 pe-1 w-50 ${css.form}`} controlId="FirstName">
+                          <Form.Label className="text-center">Nombre</Form.Label>
+                          <Form.Control
+                            type="text"
+                            value={firstName}
+                            name="firstname"
+                            onChange={(event) => setFirstName(event.target.value)}
+                            placeholder="Juan"
+                          />
+                        </Form.Group>
+                        <Form.Group className={`mb-2 ps-1 w-50 ${css.form}`} controlId="LastName">
+                          <Form.Label>Apellido</Form.Label>
+                          <Form.Control
+                            type="text"
+                            value={lastName}
+                            name="lastname"
+                            onChange={(event) => setLastName(event.target.value)}
+                            placeholder="Pérez"
+                          />
+                        </Form.Group>
+                      </div>
+                      <div className="d-flex">
+                        <Form.Group className={`mb-2 pe-1 ${css.form}`} controlId="email">
+                          <Form.Label className="text-center">Email</Form.Label>
+                          <Form.Control
+                            type="email"
+                            value={email}
+                            name="email"
+                            onChange={(event) => setEmail(event.target.value)}
+                            placeholder="juan@gmail.com"
+                          />
+                        </Form.Group>
+                        <Form.Group className={`mb-2 ps-1 ${css.form}`} controlId="phone">
+                          <Form.Label className="text-center">Celular</Form.Label>
+                          <Form.Control
+                            type="text"
+                            value={phone}
+                            name="phone"
+                            onChange={(event) => setPhone(event.target.value)}
+                            placeholder="09*******"
+                          />
+                        </Form.Group>
+                      </div>
+                      <Form.Group className={`mb-2 ${css.form}`} controlId="address">
                         <Form.Label className="text-center">Dirección</Form.Label>
                         <Form.Control
                           type="text"
@@ -118,7 +111,7 @@ export default function SignUp() {
                           placeholder="2023 Calle Cielo, Maldonado, Uruguay"
                         />
                       </Form.Group>
-                      <Form.Group className="mb-2" controlId="password">
+                      <Form.Group className={`mb-2 ${css.form}`} controlId="password">
                         <Form.Label className="text-center">Contraseña</Form.Label>
                         <Form.Control
                           type="password"
@@ -128,9 +121,18 @@ export default function SignUp() {
                           placeholder="Ingrese contraseña"
                         />
                       </Form.Group>
-                      <Form.Group className="mb-2" controlId="buttonsubmit">
+                      <Form.Group controlId="formFile" className={`mb-2 ${css.form}`}>
+                        <Form.Label>Adjuntar Foto</Form.Label>
+                        <Form.Control
+                          type="file"
+                          value={avatar}
+                          name="avatar"
+                          onChange={(event) => setAvatar(event.target.value)}
+                        />
+                      </Form.Group>
+                      <Form.Group className={`mb-2`} controlId="buttonsubmit">
                         <div className="d-grid">
-                          <Button type="submit" id="button">
+                          <Button type="submit" id={css["button"]}>
                             Create Account
                           </Button>
                         </div>
