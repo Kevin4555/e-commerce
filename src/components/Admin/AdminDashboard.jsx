@@ -126,10 +126,9 @@ const AdminDashboard = () => {
                 <thead>
                   <tr>
                     <th>#</th>
-                    <th>Status</th>
-                    <th>Address</th>
-                    <th>Products</th>
                     <th>User Id</th>
+                    <th>Preico Total</th>
+                    <th>Status</th>
                     <th></th>
                   </tr>
                 </thead>
@@ -138,10 +137,10 @@ const AdminDashboard = () => {
                     return (
                       <tr key={index}>
                         <td>{order.id}</td>
+                        <td>{order.userId}</td>
+                        <td>USD {order.totalPrice}</td>
                         <td>{order.status}</td>
-                        <td>{order.address}</td>
-                        <td>{order.products}</td>
-                        <td>{order.user.id}</td>
+
                         <td>
                           {" "}
                           <Link to={order} variant="primary">
