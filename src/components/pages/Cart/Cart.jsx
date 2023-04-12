@@ -66,9 +66,15 @@ function Cart() {
                 <small className="fs-6">Iva y costos de envio calculados en el Check Out</small>
               </div>
               <div className="text-sm-end mt-5">
-                <Link to="/cart/information" className="btn btn-dark w-75">
-                  Check Out
-                </Link>
+                {cart.length > 0 ? (
+                  <Link to="/cart/information" className="btn btn-dark w-75">
+                    Check Out
+                  </Link>
+                ) : (
+                  <small className="fs-4 border rounded p-2 bg-danger-subtle">
+                    Debes tener productos en el carrito para poder seguir
+                  </small>
+                )}
               </div>
             </div>
           </div>

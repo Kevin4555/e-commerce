@@ -14,7 +14,6 @@ function Profile() {
   window.document.title = `${user.firstname} ${user.lastname}`;
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [products, setProducts] = useState([]);
   const [orders, setOrders] = useState([]);
   const [firstname, setFirstname] = useState(user.firstname);
   const [lastname, setLastname] = useState(user.lastname);
@@ -37,22 +36,6 @@ function Profile() {
     dispatch(removeUser());
     navigate("/");
   }
-
-  useEffect(() => {
-    const getProducts = async () => {
-      try {
-        const response = await axios({
-          method: "get",
-          url: `${process.env.REACT_APP_API_BASE_URL}/products`,
-        });
-        setProducts(response.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getProducts();
-  }, []);
-
   useEffect(() => {
     const getOrders = async () => {
       try {
@@ -66,7 +49,7 @@ function Profile() {
       }
     };
     getOrders();
-  }, []);
+  }, [document.referrer]);
 
   const handleEditUser = async (event) => {
     event.preventDefault();

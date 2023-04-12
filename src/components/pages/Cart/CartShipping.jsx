@@ -12,7 +12,7 @@ function CartShipping() {
     <main>
       <PageNavbar />
       <div className="container p-0">
-        <div className="row">
+        <div className="row g-5">
           <div className="col-12 d-lg-none mt-4 text-center text-sm-start">
             <h1 className="fs-2">Manos Creativas - Tienda de Artesanias</h1>
             <div className="fs-6 my-5">
@@ -71,8 +71,8 @@ function CartShipping() {
                 </div>
               </div>
               <div className="col-12 col-sm-6 d-inline text-center text-sm-start order-2">
-                <Link to="/cart" className="btn ps-0 py-3 px-5 fw-semibold">
-                  ← Volver al carrito
+                <Link to="/cart/information" className="btn ps-0 py-3 px-5 fw-semibold">
+                  ← Volver a Información
                 </Link>
               </div>
               <div className="col-12 col-sm-6 d-inline text-center text-sm-end order-sm-2">

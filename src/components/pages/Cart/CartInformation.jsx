@@ -13,11 +13,12 @@ function CartInformation() {
   const user = useSelector((state) => state.persistedReducer.user);
   const cart = useSelector((state) => state.persistedReducer.cart.items);
   const totalPrice = useSelector((state) => state.persistedReducer.cart.totalPrice);
-  const [pais, setPais] = useState("");
-  const [provincia, setProvincia] = useState("");
-  const [ciudad, setCiudad] = useState("");
-  const [codigoPostal, setCodigoPostal] = useState("");
-  const [direccion, setDireccion] = useState("");
+  const address = useSelector((state) => state.persistedReducer.cart.address);
+  const [pais, setPais] = useState(address.pais);
+  const [provincia, setProvincia] = useState(address.provincia);
+  const [ciudad, setCiudad] = useState(address.ciudad);
+  const [codigoPostal, setCodigoPostal] = useState(address.codigoPostal);
+  const [direccion, setDireccion] = useState(address.direccion);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const formData = {
@@ -55,7 +56,7 @@ function CartInformation() {
                     <small className="d-block fs-6 text-body">
                       {user.firstname} {user.lastname} ({user.email})
                     </small>
-                    <button className="btn ps-0">Log out</button>
+                    {/* <button className="btn ps-0">Log out</button> */}
                   </div>
                 </div>
               </div>
@@ -74,6 +75,7 @@ function CartInformation() {
                     type="text"
                     value={pais}
                     name="pais"
+                    required
                     onChange={(event) => setPais(event.target.value)}
                   />
                 </Form.Group>
@@ -83,6 +85,7 @@ function CartInformation() {
                     type="text"
                     value={provincia}
                     name="provincia"
+                    required
                     onChange={(event) => setProvincia(event.target.value)}
                   />
                 </Form.Group>
@@ -92,6 +95,7 @@ function CartInformation() {
                     type="text"
                     value={ciudad}
                     name="ciudad"
+                    required
                     onChange={(event) => setCiudad(event.target.value)}
                   />
                 </Form.Group>
@@ -101,6 +105,7 @@ function CartInformation() {
                     type="number"
                     value={codigoPostal}
                     name="codigoPostal"
+                    required
                     onChange={(event) => setCodigoPostal(event.target.value)}
                   />
                 </Form.Group>
@@ -110,6 +115,7 @@ function CartInformation() {
                     type="text"
                     value={direccion}
                     name="direccion"
+                    required
                     onChange={(event) => setDireccion(event.target.value)}
                   />
                 </Form.Group>
