@@ -80,9 +80,9 @@ export default function AdminLogin() {
                   </form>
                   <div className="mt-3">
                     <p className="mb-0  text-center">
-                      Necesita accesos de Admin?
+                      Necesita accesos para probar admin?
                       <Button onClick={handleFill} id={cssLogin["buttonFill"]} className="mx-2">
-                        click aquí
+                        Click aquí
                       </Button>
                     </p>
                   </div>
