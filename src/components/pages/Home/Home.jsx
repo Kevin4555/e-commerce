@@ -115,7 +115,9 @@ function Home({ showModal, setShowModal }) {
               <Carousel.Caption className={css.carouselCaption}>
                 <p>Lo más vendido</p>
                 <h2>Colección Madera Moderna</h2>
-                <button className={`btn ${css.bannerBtn}`}>Comprar ahora</button>
+                <Link to={"product/Cajas-de-Madera-Hexagonales"}>
+                  <button className={`btn ${css.bannerBtn}`}>Comprar ahora</button>
+                </Link>
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
@@ -129,7 +131,9 @@ function Home({ showModal, setShowModal }) {
               <Carousel.Caption className={css.carouselCaption}>
                 <p>Los mejores productos hechos a mano</p>
                 <h2>Nueva Colección Handmade</h2>
-                <button className={`btn ${css.bannerBtn}`}>Comprar ahora</button>
+                <Link to={"product/Carrito-de-Madera"}>
+                  <button className={`btn ${css.bannerBtn}`}>Comprar ahora</button>
+                </Link>
               </Carousel.Caption>
             </Carousel.Item>
           </Carousel>
@@ -178,7 +182,9 @@ function Home({ showModal, setShowModal }) {
                 <div className="">
                   <p className="fs-5 mb-2">35% off</p>
                   <h3>Especial Nórdico Matte</h3>
-                  <button className={`btn ${css.bannerBtn}`}>Comprar ahora</button>
+                  <Link to={"product/Set-de-Madera-Nórdica"}>
+                    <button className={`btn ${css.bannerBtn}`}>Comprar ahora</button>
+                  </Link>
                 </div>
               </div>
               <div className={`col-12 col-lg-6 ${css.displayOffer}`}>
@@ -186,7 +192,9 @@ function Home({ showModal, setShowModal }) {
                 <div>
                   <p className="fs-5 mb-2">25% off</p>
                   <h3>Terra Punto Cotta</h3>
-                  <button className={`btn ${css.bannerBtn}`}>Comprar ahora</button>
+                  <Link to={"product/Terra-Punto-Cotta"}>
+                    <button className={`btn ${css.bannerBtn}`}>Comprar ahora</button>
+                  </Link>
                 </div>
               </div>
             </section>
