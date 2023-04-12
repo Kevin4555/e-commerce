@@ -39,11 +39,6 @@ function CartItem({ item }) {
             +
           </button>
         </div>
-        {/*         <div className="text-md-start d-md-inline">
-          <button className="btn">
-            <i className="bi bi-trash3"></i>
-          </button>
-        </div> */}
       </div>
       <div className="col-12 col-sm-3 my-2 my-sm-auto">
         <small className="fs-6 fw-semibold">

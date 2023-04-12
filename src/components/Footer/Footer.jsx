@@ -1,5 +1,6 @@
 import css from "./Footer.module.css";
 import { Link } from "react-router-dom";
+import logo from "./logo.png";
 
 function Footer() {
   return (
@@ -8,7 +9,7 @@ function Footer() {
         <nav className="row">
           <div className="col-2 d-none d-md-block"></div>
           <div className="col-12 col-md-4">
-            <img src="./logo.png" className="w-50 ms-2" />
+            <img src={logo} className="w-50 ms-2" />
             <div className={`${css.socials} ms-4`}>
               <i className={`bi bi-instagram ${css.bi}`} />
               <i className={`bi bi-facebook ${css.bi}`} />
@@ -23,7 +24,7 @@ function Footer() {
                 <i className="bi bi-telephone"></i> +59898123456
               </li>
               <li>
-                <i className="bi bi-envelope"></i> fake@manoscreativas.com
+                <i className="bi bi-envelope"></i> manoscreativas.ha@gmail.com
               </li>
             </ul>
           </div>

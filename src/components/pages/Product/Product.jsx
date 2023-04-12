@@ -82,7 +82,7 @@ function Product() {
         <div className="container mt-5 p-3">
           <div className="row">
             <div className="col-12 col-md-6" id={css["producto"]}>
-              <div className="me-5 text-end">
+              <div className="me-5">
                 <Carousel className="rounded">
                   <Carousel.Item className="h-100">
                     <img
@@ -101,7 +101,7 @@ function Product() {
                 </Carousel>
               </div>
             </div>
-            <div className="col-12 col-md-6 p-3">
+            <div className="col-12 col-md-6 text-center  text-md-start p-3">
               <Rating
                 className="d-block my-3 mb-1"
                 emptySymbol="bi bi-star"
@@ -120,11 +120,17 @@ function Product() {
                   {product.stock === 1 ? `Queda una unidad` : `Quedan ${product.stock} unidades!`}
                 </span>
               )}
-              <p className="mt-4 w-75">{product.description}</p>
-              <div className="d-flex align-items-center mt-5">
-                <button className="btn fw-semibold" id={css["btn"]} onClick={handleAddToCart}>
-                  Añadir al carrito
-                </button>
+              <p className="mt-4">{product.description}</p>
+              <div className="d-flex align-items-center justify-content-center justify-content-md-start">
+                {product.stock <= 0 ? (
+                  <small className={`${css.badge} fs-6 rounded text-center p-2 fw-semibold`}>
+                    FUERA DE STOCK
+                  </small>
+                ) : (
+                  <button className="btn fw-semibold" id={css["btn"]} onClick={handleAddToCart}>
+                    Añadir al carrito
+                  </button>
+                )}
 
                 <button className="border-0 bg-white ms-3">
                   <i className="bi bi-heart fs-5"></i>
@@ -134,7 +140,7 @@ function Product() {
           </div>
         </div>
 
-        <Container className="mt-5 mx-auto p-3 border">
+        <Container className="my-5 mx-auto p-3 border text-center text-md-start ">
           <h3 className="m-3 mb-0">Comentarios</h3>
           {user ? (
             <Form className="m-3 mb-0" onSubmit={handleReview}>
