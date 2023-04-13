@@ -55,7 +55,7 @@ function App() {
       <Route path="/cart/shipping" element={<CartShipping />} />
       <Route element={<Auth />}>
         <Route path="/cart/payment" element={<CartPayment />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile/:id" element={<Profile />} />
       </Route>
       <Route path="/categories/:id" element={<Category />} />
       <Route path="/products" element={<Products />} />
@@ -77,22 +77,6 @@ function App() {
         <Route path="/admin/createAdmin" element={<CreateAdmin />} />
       </Route>
     </Routes>
-
-    /* ,
-
-const responseMessage = (response) => {
-  console.log(response);
-};
-const errorMessage = (error) => {
-  console.log(error);
-};
-
-  <div>
-    <h2>React Google Login</h2>
-    <br />
-    <br />
-    <GoogleLogin onSuccess={responseMessage} onError={errorMessage} />
-  </div> */
   );
 }
 

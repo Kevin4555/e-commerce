@@ -2,7 +2,6 @@ import css from "./OrderItem.module.css";
 import { Link } from "react-router-dom";
 
 function OrderItem({ item }) {
-  console.log(item.img.img1);
   return (
     <>
       <div className="col-12 px-4 pb-4">

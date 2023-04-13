@@ -41,8 +41,6 @@ const cartSlice = createSlice({
         ];
         if (itemToUpdate) {
           itemToUpdate.quantity = itemToUpdate.quantity + 1;
-          console.log(itemToUpdate.quantity);
-          console.log(itemToUpdate.stock);
           if (itemToUpdate.quantity <= itemToUpdate.stock) {
             state.items = updatedItems;
             state.totalPrice = Number(state.totalPrice) + Number(action.payload.price);

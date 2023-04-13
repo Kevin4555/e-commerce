@@ -11,7 +11,7 @@ function Newsletter() {
     <i className={`bi bi-arrow-right-circle-fill fs-4 ${css.iconsend}`}></i>,
   );
   const [buttonContentUser, setButtonContentUser] = useState(
-    <spam className="text-white">Suscribirse</spam>,
+    <span className="text-white">Suscribirse</span>,
   );
   const handleNewsSend = async (event) => {
     event.preventDefault();

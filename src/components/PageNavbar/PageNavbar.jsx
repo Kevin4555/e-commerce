@@ -63,7 +63,7 @@ function PageNavbar() {
           <Navbar.Collapse>
             <Nav className={`fs-4 col-2 ${openNavbar ? "" : css.noDisplay}`} id={css["icons"]}>
               {user ? (
-                <Nav.Link as={Link} to={"/profile"} className={css.profile}>
+                <Nav.Link as={Link} to={"/profile/" + user.id} className={css.profile}>
                   <img
                     src={`${process.env.REACT_APP_API_BASE_IMG_URL}/${user.avatar}`}
                     alt="Profile"

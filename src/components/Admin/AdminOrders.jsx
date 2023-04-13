@@ -49,7 +49,7 @@ const AdminOrders = () => {
                   <tr>
                     <th>#</th>
                     <th>User Id</th>
-                    <th>Preico Total</th>
+                    <th>Precio Total</th>
                     <th>Status</th>
                   </tr>
                 </thead>
