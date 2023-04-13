@@ -29,7 +29,7 @@ const AdminCategories = () => {
       }
     };
     getCategories();
-  }, []);
+  }, [categories]);
 
   const handleDeleteCategory = async (category) => {
     try {
@@ -53,7 +53,7 @@ const AdminCategories = () => {
           <div className={` col-10 px-4`}>
             <div className={css.header}>
               <h2 className={css.tituloContainer}>Panel de Categorías</h2>
-              <Button variant="success" className="ms-4 mb-2">
+              <Button className={`ms-4 mb-2 ${css.adminButton}`}>
                 <Link to="/admin/createCategory" className="text-decoration-none text-light">
                   Agregar categoria
                 </Link>

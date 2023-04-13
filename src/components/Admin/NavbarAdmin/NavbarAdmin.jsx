@@ -20,7 +20,11 @@ function NavbarAdmin() {
       >
         <Container id={css["mainBar"]}>
           <Navbar.Brand as={Link} to={"/"} className="col-2 d-flex justify-content-center">
-            <img src="../logo.png" alt="logo Manos Creativas" className={`${css.navLogo}`} />
+            <img
+              src={process.env.REACT_APP_API_BASE_IMG_URL + `/logo.png`}
+              alt="logo Manos Creativas"
+              className={`${css.navLogo}`}
+            />
           </Navbar.Brand>
           <h2 className="fs-5 ms-4 fw-light">Panel de Administración</h2>
         </Container>

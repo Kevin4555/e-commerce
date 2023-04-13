@@ -33,19 +33,29 @@ function Footer() {
             <h5>Productos</h5>
             <ul className={`list-unstyled ${css.linkStyle}`}>
               <li>
-                <Link>Cerámicas</Link>
+                <Link>
+                  <i class="bi bi-arrow-right-short"></i>Cerámicas
+                </Link>
               </li>
               <li>
-                <Link>Pinturas</Link>
+                <Link>
+                  <i class="bi bi-arrow-right-short"></i>Pinturas
+                </Link>
               </li>
               <li>
-                <Link>Maderas</Link>
+                <Link>
+                  <i class="bi bi-arrow-right-short"></i>Maderas
+                </Link>
               </li>
               <li>
-                <Link>Tejidos</Link>
+                <Link>
+                  <i class="bi bi-arrow-right-short"></i>Tejidos
+                </Link>
               </li>
               <li>
-                <Link>Decoraciones</Link>
+                <Link>
+                  <i class="bi bi-arrow-right-short"></i>Decoraciones
+                </Link>
               </li>
             </ul>
           </div>

@@ -13,24 +13,28 @@ function Sidebar() {
           Dashboard
         </Link>
         <Link to="/admin/categories" className={`d-block ${css.adminButtons}`}>
-          <i className={`bi bi-card-checklist ${css.iconos}`}></i>
-          Categories
+          <i className={`bi bi-archive ${css.iconos}`}></i>
+          Categorías
         </Link>
         <Link to="/admin/orders" className={`d-block ${css.adminButtons}`}>
-          <i className={`bi bi-receipt ${css.iconos}`}></i>
-          Orders
+          <i className={`bi bi-credit-card ${css.iconos}`}></i>
+          Ordenes
         </Link>
         <Link to="/admin/reviews" className={`d-block ${css.adminButtons}`}>
-          <i className={`bi bi-chat-left-quote ${css.iconos}`}></i>
+          <i className={`bi bi-star ${css.iconos}`}></i>
           Reviews
         </Link>
         <Link to="/admin/products" className={`d-block ${css.adminButtons}`}>
-          <i className={`bi bi-shop ${css.iconos}`}></i>
-          Products
+          <i className={`bi bi-box-seam ${css.iconos}`}></i>
+          Productos
         </Link>
         <Link to="/admin/users" className={`d-block ${css.adminButtons}`}>
-          <i className={`bi bi-people ${css.iconos}`}></i>
-          Users
+          <i className={`bi bi-person ${css.iconos}`}></i>
+          Usuarios
+        </Link>
+        <Link to="/admin/admins" className={`d-block ${css.adminButtons}`}>
+          <i className={`bi bi-person-badge ${css.iconos}`}></i>
+          Administradores
         </Link>
         <Link to="/" className={`d-block ${css.volver} ${css.adminButtons}`}>
           <i className={`bi bi-house ${css.iconos}`}></i>
