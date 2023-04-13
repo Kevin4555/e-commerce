@@ -27,10 +27,10 @@ import CreateProduct from "./components/Admin/Create/CreateProduct";
 import CreateCategory from "./components/Admin/Create/CreateCategory";
 import Auth from "./components/Auth";
 import AuthAdmin from "./components/AuthAdmin";
-import AdminDashboard from "./components/Admin/AdminDashboard";
+import AdminDashboard from "./components/Admin/AdminDashboard/AdminDashboard";
 import Reset_Pass from "./components/pages/Reset_Pass/Reset_Pass";
 import Reset_2 from "./components/pages/Reset_Pass_2/Reset_Pass_2";
-import Administrators from "./components/Admin/Administrators";
+import AdminAdmins from "./components/Admin/AdminAdmins";
 import CreateAdmin from "./components/Admin/Create/CreateAdmin";
 import Products from "./components/Products/Products";
 
@@ -73,7 +73,7 @@ function App() {
         <Route path="/admin/createCategory" element={<CreateCategory />} />
         <Route path="/admin/createProduct" element={<CreateProduct />} />
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
-        <Route path="/admin/administrators" element={<Administrators />} />
+        <Route path="/admin/admins" element={<AdminAdmins />} />
         <Route path="/admin/createAdmin" element={<CreateAdmin />} />
       </Route>
     </Routes>

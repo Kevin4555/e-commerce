@@ -40,7 +40,7 @@ const AdminOrders = () => {
           <div className="col-2"></div>
           <div className={`${css.backgroundTop} col-10 px-4`}>
             <div className={css.header}>
-              <h2 className={css.tituloContainer}>Panel de Órdenes</h2>{" "}
+              <h2 className={css.tituloContainer}>Panel de Ordenes</h2>{" "}
             </div>
 
             <div className={css.tableProducts}>
@@ -48,9 +48,10 @@ const AdminOrders = () => {
                 <thead>
                   <tr>
                     <th>#</th>
-                    <th>User Id</th>
+                    <th>ID Usuario</th>
+                    <th>Productos</th>
                     <th>Precio Total</th>
-                    <th>Status</th>
+                    <th>Estado de la Orden</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -59,6 +60,11 @@ const AdminOrders = () => {
                       <tr>
                         <td>{order.id}</td>
                         <td>{order.userId}</td>
+                        <td>
+                          {order.products.products.map((product) => {
+                            return <p>• {product.title} </p>;
+                          })}
+                        </td>
                         <td>USD {order.totalPrice}</td>
                         <td>{order.status}</td>
                       </tr>

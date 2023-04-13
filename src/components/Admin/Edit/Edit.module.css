@@ -12,6 +12,7 @@
 
 #content {
   backdrop-filter: blur(4px);
+  height: 90.9vh;
 }
 
 #background {
