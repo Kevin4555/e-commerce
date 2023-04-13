@@ -70,3 +70,14 @@
 #buttonLogin:hover {
   background-color: var(--accent) !important;
 }
+
+.barra-filtrar {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  width: 30rem;
+}
+
+.botonLupa {
+  display: none;
+  color: white;
+}
