@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setAdmin } from "../../slices/adminSlice";
+import { removeUser } from "../../slices/usersSlice";
 import axios from "axios";
 import cssLogin from "./AdminLogin.module.css";
 import PageNavbar from "../PageNavbar/PageNavbar";
@@ -27,6 +28,7 @@ export default function AdminLogin() {
         },
       });
       dispatch(setAdmin({ token: response.data.token, ...response.data.admin }));
+      dispatch(removeUser());
       navigate("/admin/dashboard");
     } catch (err) {
       console.log(err);

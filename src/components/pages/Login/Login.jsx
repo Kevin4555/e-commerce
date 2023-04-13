@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../../slices/usersSlice";
+import { removeAdmin } from "../../../slices/adminSlice";
 import axios from "axios";
 import PageNavbar from "../../PageNavbar/PageNavbar";
 import css from "./Login.module.css";
@@ -27,6 +28,7 @@ export default function Login() {
         },
       });
       dispatch(setUser({ token: response.data.token, ...response.data.user }));
+      dispatch(removeAdmin());
       navigate("/");
     } catch (err) {
       console.log(err);
