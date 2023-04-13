@@ -4,6 +4,7 @@ import Order from "../../Order/Order";
 import Newsletter from "../../Newsletter/Newsletter";
 import Footer from "../../Footer/Footer";
 import MultiItemCarousel from "../../Carousel/MultiItemCarousel";
+import { setUser } from "../../../slices/usersSlice";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
@@ -23,10 +24,12 @@ function Profile() {
   const [email, setEmail] = useState(user.email);
   const [address, setAddress] = useState(user.address);
   const [avatar, setAvatar] = useState("");
+  const [userToUpdate, setUserToUpdate] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [block, setBlock] = useState("d-block");
   const [none, setNone] = useState("d-none");
   const [error, setError] = useState("");
+  const [token, setToken] = useState(user.token);
 
   function handleLogOut() {
     dispatch(removeUser());
@@ -71,6 +74,18 @@ function Profile() {
       console.log(err);
       setError(true);
     }
+    dispatch(
+      setUser({
+        token,
+        id: user.id,
+        firstname,
+        lastname,
+        phone,
+        email,
+        address,
+        avatar: avatar.split("\\").pop(),
+      }),
+    );
     setBlock("d-block");
     setNone("d-none");
   };
