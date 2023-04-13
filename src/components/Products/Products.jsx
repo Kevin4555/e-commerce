@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import PageNavbar from "..//PageNavbar/PageNavbar";
-import MultiItemCarousel from "../../components/Carousel/MultiItemCarousel";
 import ProductMini from "../../components/ProductMini/ProductMini";
 import Carousel from "react-bootstrap/Carousel";
 import Footer from "../../components/Footer/Footer";

@@ -75,7 +75,7 @@ function Newsletter() {
         <Form onSubmit={handleNewsSend}>
           <div className="row justify-content-center">
             <div className="col-10 col-sm-8 col-md-5 col-lg-4">
-              <InputGroup className="mb-3" controlId="formBasicEmail">
+              <InputGroup className="mb-3">
                 <Form.Control
                   type="email"
                   placeholder="Email"
