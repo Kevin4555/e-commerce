@@ -29,7 +29,7 @@ const AdminProducts = () => {
       }
     };
     getProducts();
-  }, []);
+  }, [products]);
 
   const handleDeleteProduct = async (product) => {
     try {
@@ -53,10 +53,9 @@ const AdminProducts = () => {
           <div className={`${css.backgroundTop} col-10 px-4`}>
             <div className={css.header}>
               <h2 className={css.tituloContainer}>Panel de Productos</h2>{" "}
-              <Button variant="success" className="ms-4 mb-2">
+              <Button className={`ms-4 mb-2 ${css.adminButton}`}>
                 <Link to="/admin/createProduct" className="text-decoration-none text-light">
-                  {" "}
-                  Agregar producto{" "}
+                  Agregar producto
                 </Link>
               </Button>
             </div>
@@ -74,7 +73,6 @@ const AdminProducts = () => {
                     <th>Imagen 1</th>
                     <th>Imagen 2</th>
                     <th>Stock</th>
-                    <th>Featured</th>
                     <th>Rating</th>
                     <th>Categoría</th>
                     <th>Acciones </th>
@@ -107,12 +105,11 @@ const AdminProducts = () => {
                           />
                         </td>
                         <td>{product.stock}</td>
-                        <td>{product.featured}</td>
                         <td>{product.rating}</td>
                         <td>{product.categoryId}</td>
                         <td>
                           {" "}
-                          <Button className="buttons" variant="warning">
+                          <Button className="buttons mb-1" variant="warning">
                             <Link
                               to={`/admin/editProduct/${product.slug}`}
                               className="text-decoration-none text-light"

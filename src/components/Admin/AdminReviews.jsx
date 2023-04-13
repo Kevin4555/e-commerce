@@ -45,6 +45,7 @@ const AdminReviews = () => {
                 <thead>
                   <tr>
                     <th>#</th>
+                    <th>Rating</th>
                     <th>Content</th>
                     <th>User Id</th>
                   </tr>
@@ -54,6 +55,7 @@ const AdminReviews = () => {
                     return (
                       <tr key={index}>
                         <td>{review.id}</td>
+                        <td>{review.rating}</td>
                         <td>{review.content}</td>
                         <td>{review.userId}</td>
                       </tr>

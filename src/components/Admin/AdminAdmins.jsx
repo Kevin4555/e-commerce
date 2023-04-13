@@ -7,7 +7,7 @@ import Sidebar from "../Sidebar/Sidebar";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 
-const Administrators = () => {
+const AdminAdmins = () => {
   const [admins, setAdmins] = useState([]);
   const [error, setError] = useState("");
 
@@ -105,4 +105,4 @@ const Administrators = () => {
   );
 };
 
-export default Administrators;
+export default AdminAdmins;

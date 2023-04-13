@@ -47,3 +47,13 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+.adminButton {
+  background-color: var(--accent) !important;
+  border-color: var(--accent) !important;
+}
+
+.adminButton:hover {
+  background-color: var(--primary) !important;
+  border-color: var(--primary) !important;
+}
