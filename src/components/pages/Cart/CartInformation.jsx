@@ -11,6 +11,7 @@ import { useState } from "react";
 
 function CartInformation() {
   const user = useSelector((state) => state.persistedReducer.user);
+  const admin = useSelector((state) => state.persistedReducer.admin);
   const cart = useSelector((state) => state.persistedReducer.cart.items);
   const totalPrice = useSelector((state) => state.persistedReducer.cart.totalPrice);
   const address = useSelector((state) => state.persistedReducer.cart.address);
@@ -39,10 +40,15 @@ function CartInformation() {
               <div>
                 <h2 className="fs-4">Informacón de contacto</h2>
                 <div className="my-4 mb-4">
-                  <small className="d-block fs-6 text-body">
-                    {user.firstname} {user.lastname} ({user.email})
-                  </small>
-                  {/* <button className="btn ps-0">Log out</button> */}
+                  {user ? (
+                    <small className="d-block fs-6 text-body">
+                      {user.firstname} {user.lastname} ({user.email})
+                    </small>
+                  ) : (
+                    <small className="d-block fs-6 text-body">
+                      {admin.firstname} {admin.lastname} ({admin.email})
+                    </small>
+                  )}
                 </div>
               </div>
             </div>
@@ -53,10 +59,15 @@ function CartInformation() {
                 <div>
                   <h2 className="fs-4">Información de contacto</h2>
                   <div className="my-4 mb-4">
-                    <small className="d-block fs-6 text-body">
-                      {user.firstname} {user.lastname} ({user.email})
-                    </small>
-                    {/* <button className="btn ps-0">Log out</button> */}
+                    {user ? (
+                      <small className="d-block fs-6 text-body">
+                        {user.firstname} {user.lastname} ({user.email})
+                      </small>
+                    ) : (
+                      <small className="d-block fs-6 text-body">
+                        {admin.firstname} {admin.lastname} ({admin.email})
+                      </small>
+                    )}
                   </div>
                 </div>
               </div>

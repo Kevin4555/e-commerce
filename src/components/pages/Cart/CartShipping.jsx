@@ -8,6 +8,7 @@ import Footer from "../../Footer/Footer";
 function CartShipping() {
   const { items, totalPrice, address } = useSelector((state) => state.persistedReducer.cart);
   const user = useSelector((state) => state.persistedReducer.user);
+  const admin = useSelector((state) => state.persistedReducer.admin);
   return (
     <main>
       <PageNavbar />
@@ -49,11 +50,12 @@ function CartShipping() {
                     <small className="fs-6 text-secondary">Contact</small>
                   </div>
                   <div className="col-12 col-sm-9 text-center text-sm-start d-block d-sm-flex align-items-sm-center">
-                    <small className="fs-6 ps-3">{user.email}</small>
+                    {user ? (
+                      <small className="fs-6 ps-3">{user.email}</small>
+                    ) : (
+                      <small className="fs-6 ps-3">{admin.email}</small>
+                    )}
                   </div>
-                  {/*                   <div className="col-2 text-end d-flex justify-content-between align-items-center">
-                    <button className="btn">Editar</button>
-                  </div> */}
                 </div>
                 <hr />
                 <div className="row">
@@ -65,9 +67,6 @@ function CartShipping() {
                       {address.direccion}, {address.ciudad} {address.codigoPostal}, {address.pais}
                     </small>
                   </div>
-                  {/*                   <div className="col-2 text-end d-flex justify-content-between align-items-center">
-                    <button className="btn">Editar</button>
-                  </div> */}
                 </div>
               </div>
               <div className="col-12 col-sm-6 d-inline text-center text-sm-start order-2">

@@ -3,9 +3,9 @@ import { Navigate, Outlet } from "react-router";
 import { useSelector } from "react-redux";
 
 export default function AuthAdmin() {
-  let user = useSelector((state) => state.persistedReducer.user);
-  if (user) {
+  let admin = useSelector((state) => state.persistedReducer.admin);
+  if (admin) {
     return <Outlet />;
   }
-  return <Navigate to={"/login"} />;
+  return <Navigate to={"/admin"} />;
 }

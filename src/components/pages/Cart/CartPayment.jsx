@@ -15,7 +15,9 @@ function CartPayment() {
   const navigate = useNavigate();
   const [error, setError] = useState("");
   const user = useSelector((state) => state.persistedReducer.user);
-  const userId = user.id;
+  const admin = useSelector((state) => state.persistedReducer.admin);
+  const userId = user ? user.id : "";
+  const adminId = admin ? admin.id : "";
   const { items, totalPrice, address } = useSelector((state) => state.persistedReducer.cart);
 
   const handleCreateOrder = async (event) => {
@@ -24,7 +26,7 @@ function CartPayment() {
       await axios({
         method: "post",
         url: `${process.env.REACT_APP_API_BASE_URL}/orders`,
-        data: { items, totalPrice, address, userId },
+        data: { items, totalPrice, address, userId, adminId },
       });
       dispatch(clearCart());
     } catch (err) {
@@ -75,11 +77,12 @@ function CartPayment() {
                       <small className="fs-6 text-secondary">Contact</small>
                     </div>
                     <div className="col-12 col-sm-9 text-center text-sm-start d-block d-sm-flex align-items-sm-center">
-                      <small className="fs-6 ps-3">{user.email}</small>
+                      {user ? (
+                        <small className="fs-6 ps-3">{user.email}</small>
+                      ) : (
+                        <small className="fs-6 ps-3">{admin.email}</small>
+                      )}
                     </div>
-                    {/*                   <div className="col-2 text-end d-flex justify-content-between align-items-center">
-                    <button className="btn">Editar</button>
-                  </div> */}
                   </div>
                   <hr />
                   <div className="row">

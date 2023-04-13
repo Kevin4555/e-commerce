@@ -12,6 +12,7 @@ import axios from "axios";
 function PageNavbar() {
   const [openNavbar, setOpenNavbar] = useState(false);
   let user = useSelector((state) => state.persistedReducer.user);
+  let admin = useSelector((state) => state.persistedReducer.admin);
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
@@ -66,6 +67,14 @@ function PageNavbar() {
                 <Nav.Link as={Link} to={"/profile/" + user.id} className={css.profile}>
                   <img
                     src={`${process.env.REACT_APP_API_BASE_IMG_URL}/${user.avatar}`}
+                    alt="Profile"
+                    className={`${css.profileImg} rounded-pill`}
+                  />
+                </Nav.Link>
+              ) : admin ? (
+                <Nav.Link as={Link} to={"/profile/" + admin.id} className={css.profile}>
+                  <img
+                    src={`${process.env.REACT_APP_API_BASE_IMG_URL}/Profile_defaultMale.png`}
                     alt="Profile"
                     className={`${css.profileImg} rounded-pill`}
                   />

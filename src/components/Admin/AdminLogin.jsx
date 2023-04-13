@@ -3,7 +3,7 @@ import { Col, Button, Row, Container, Card, Form, Alert } from "react-bootstrap"
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { setUser } from "../../slices/usersSlice";
+import { setAdmin } from "../../slices/adminSlice";
 import axios from "axios";
 import cssLogin from "./AdminLogin.module.css";
 import PageNavbar from "../PageNavbar/PageNavbar";
@@ -26,7 +26,7 @@ export default function AdminLogin() {
           password,
         },
       });
-      dispatch(setUser({ token: response.data.token, ...response.data.admin }));
+      dispatch(setAdmin({ token: response.data.token, ...response.data.admin }));
       navigate("/admin/dashboard");
     } catch (err) {
       console.log(err);

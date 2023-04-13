@@ -14,10 +14,12 @@ import { combineReducers } from "redux";
 //Slices
 import usersSlice from "../slices/usersSlice";
 import cartReducer from "../slices/cartSlice";
+import adminSlice from "../slices/adminSlice";
 
 const rootReducer = combineReducers({
   user: usersSlice,
   cart: cartReducer,
+  admin: adminSlice,
 });
 
 const persistConfig = { key: "root", storage };

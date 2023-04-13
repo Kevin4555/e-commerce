@@ -4,7 +4,8 @@ import { useSelector } from "react-redux";
 
 export default function Auth() {
   let user = useSelector((state) => state.persistedReducer.user);
-  if (user) {
+  let admin = useSelector((state) => state.persistedReducer.admin);
+  if (user || admin) {
     return <Outlet />;
   }
   return <Navigate to={"/login"} />;
