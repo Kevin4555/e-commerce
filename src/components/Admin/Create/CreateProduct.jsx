@@ -27,7 +27,6 @@ export default function CreateProduct() {
           method: "get",
           url: `${process.env.REACT_APP_API_BASE_URL}/categories`,
         });
-        console.log(response.data);
         setCategories(response.data);
       } catch (error) {
         console.log(error);

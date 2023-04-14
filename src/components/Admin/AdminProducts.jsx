@@ -1,22 +1,16 @@
 import React from "react";
 import css from "./Admin.module.css";
-import Table from "react-bootstrap/Table";
+import { Table, Container, Row, Button } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Container from "react-bootstrap/Container";
 import Sidebar from "../Sidebar/Sidebar";
-import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import NavbarAdmin from "./NavbarAdmin/NavbarAdmin";
 import { useSelector } from "react-redux";
 
 const AdminProducts = () => {
   let admin = useSelector((state) => state.persistedReducer.admin);
   const [products, setProducts] = useState([]);
-  const navigate = useNavigate();
   useEffect(() => {
     const getProducts = async () => {
       try {
@@ -49,7 +43,6 @@ const AdminProducts = () => {
 
   return (
     <>
-      {console.log(products[0])}
       <NavbarAdmin />
       <Container className="p-0" fluid id={css["backgroundAdminLogin"]}>
         <Sidebar />

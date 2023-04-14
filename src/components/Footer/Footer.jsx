@@ -1,6 +1,5 @@
 import css from "./Footer.module.css";
 import { Link } from "react-router-dom";
-import logo from "./logo.png";
 
 function Footer() {
   return (
@@ -9,7 +8,11 @@ function Footer() {
         <nav className="row">
           <div className="col-2 d-none d-md-block"></div>
           <div className="col-12 col-md-4">
-            <img src={logo} className="w-50 ms-2" />
+            <img
+              src={`${process.env.REACT_APP_API_BASE_IMG_URL}/logo.png`}
+              alt="Logo"
+              className="w-50 ms-2"
+            />
             <div className={`${css.socials} ms-4`}>
               <i className={`bi bi-instagram ${css.bi}`} />
               <i className={`bi bi-facebook ${css.bi}`} />
@@ -34,27 +37,27 @@ function Footer() {
             <ul className={`list-unstyled ${css.linkStyle}`}>
               <li>
                 <Link>
-                  <i class="bi bi-arrow-right-short"></i>Cerámicas
+                  <i className="bi bi-arrow-right-short"></i>Cerámicas
                 </Link>
               </li>
               <li>
                 <Link>
-                  <i class="bi bi-arrow-right-short"></i>Pinturas
+                  <i className="bi bi-arrow-right-short"></i>Pinturas
                 </Link>
               </li>
               <li>
                 <Link>
-                  <i class="bi bi-arrow-right-short"></i>Maderas
+                  <i className="bi bi-arrow-right-short"></i>Maderas
                 </Link>
               </li>
               <li>
                 <Link>
-                  <i class="bi bi-arrow-right-short"></i>Tejidos
+                  <i className="bi bi-arrow-right-short"></i>Tejidos
                 </Link>
               </li>
               <li>
                 <Link>
-                  <i class="bi bi-arrow-right-short"></i>Decoraciones
+                  <i className="bi bi-arrow-right-short"></i>Decoraciones
                 </Link>
               </li>
             </ul>

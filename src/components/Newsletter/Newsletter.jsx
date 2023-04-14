@@ -31,7 +31,7 @@ function Newsletter() {
       setButtonIcon(<i className={`bi bi-send-check ${css.iconsend} fs-2`}></i>);
       setEmail("");
     } catch (error) {
-      setButtonIcon(<i class="bi bi-x-circle-fill fs-4 text-danger"></i>);
+      setButtonIcon(<i className="bi bi-x-circle-fill fs-4 text-danger"></i>);
     }
   };
 
@@ -51,7 +51,7 @@ function Newsletter() {
       });
       setButtonContentUser(<i className={`bi bi-send-check ${css.iconsend} fs-2`}></i>);
     } catch (error) {
-      setButtonContentUser(<i class="bi bi-x-circle-fill fs-4 text-danger"></i>);
+      setButtonContentUser(<i className="bi bi-x-circle-fill fs-4 text-danger"></i>);
     }
   };
 

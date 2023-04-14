@@ -88,7 +88,6 @@ function Profile() {
         url: `${process.env.REACT_APP_API_BASE_URL}/users/${user.id}`,
         data: formdata,
       });
-      console.log(response.data);
       dispatch(setUser({ token, ...response.data.user }));
       setButtonConfirm("Confirmar");
     } catch (err) {
@@ -292,7 +291,7 @@ function Profile() {
                         </Button>
                         {buttonConfirm === "Confirmar" && (
                           <Button className="btn btn-danger" onClick={handleCancelEdit}>
-                            <i class="bi bi-x-lg text-white"></i>
+                            <i className="bi bi-x-lg text-white"></i>
                           </Button>
                         )}
                       </ButtonGroup>

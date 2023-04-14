@@ -40,7 +40,7 @@ export default function EditUser() {
       }
     };
     getUser();
-  }, []);
+  }, [id]);
 
   const handleEditUser = async (event) => {
     event.preventDefault();
@@ -66,11 +66,11 @@ export default function EditUser() {
       <>
         <NavbarAdmin />
         <Sidebar />
-        <Row>
-          <Col xs={2}></Col>
-          <Col xs={10}>
+        <Row className="p-0">
+          <Col xs={1}></Col>
+          <Col xs={11} className="p-0">
             <Container fluid id={css["background"]}>
-              <Row id="content" className="py-3 d-flex justify-content-center align-items-center">
+              <Row id="content" className=" d-flex justify-content-center align-items-center">
                 <Col xs={11} sm={8} md={6} xl={4}>
                   <Card className="px-4">
                     {error && (

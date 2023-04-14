@@ -1,10 +1,9 @@
 import React from "react";
-import Table from "react-bootstrap/Table";
+import { Table, Button, Container, Row } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Container from "react-bootstrap/Container";
 import Sidebar from "../Sidebar/Sidebar";
-import Button from "react-bootstrap/Button";
+
 import { Link } from "react-router-dom";
 import NavbarAdmin from "./NavbarAdmin/NavbarAdmin";
 import css from "./Admin.module.css";

@@ -29,27 +29,26 @@ import CreateCategory from "./components/Admin/Create/CreateCategory";
 import Auth from "./components/Auth";
 import AuthAdmin from "./components/AuthAdmin";
 import AdminDashboard from "./components/Admin/AdminDashboard/AdminDashboard";
-import Reset_Pass from "./components/pages/Reset_Pass/Reset_Pass";
-import Reset_2 from "./components/pages/Reset_Pass_2/Reset_Pass_2";
+import ResetPass from "./components/pages/Reset_Pass/Reset_Pass";
+import ResetPass2 from "./components/pages/Reset_Pass_2/Reset_Pass_2";
 import AdminAdmins from "./components/Admin/AdminAdmins";
 import CreateAdmin from "./components/Admin/Create/CreateAdmin";
 import Products from "./components/Products/Products";
 
 import { useState } from "react";
-import { useSelector } from "react-redux";
 
 function App() {
   const [showModal, setShowModal] = useState(true);
-  const token = useSelector((state) => state.token);
 
   return (
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<SignUp />} />
-      <Route path="/resetpassword" element={<Reset_Pass />} />
-      <Route path="/resetpassword/:token" element={<Reset_2 />} />
+      <Route path="/resetpassword" element={<ResetPass />} />
+      <Route path="/resetpassword/:token" element={<ResetPass2 />} />
       <Route path="/" element={<Home showModal={showModal} setShowModal={setShowModal} />} />
       <Route path="/product/:slug" element={<Product />} />
+      <Route path="/product/search/:text" element={<SearchComponent />} />
       <Route path="/about-us" element={<SobreEsteProyecto />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="/cart/information" element={<CartInformation />} />
