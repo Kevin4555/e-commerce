@@ -44,7 +44,7 @@ export default function Login() {
         id={css["background"]}
         className="d-flex justify-content-center align-items-center"
       >
-        <Row id="content">
+        <Row id={css["content"]}>
           <Col>
             <Card className=" px-4">
               {error && (

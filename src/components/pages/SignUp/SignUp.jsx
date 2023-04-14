@@ -127,6 +127,7 @@ export default function SignUp() {
                           type="file"
                           value={avatar}
                           name="avatar"
+                          accept="image/*"
                           onChange={(event) => setAvatar(event.target.value)}
                         />
                       </Form.Group>

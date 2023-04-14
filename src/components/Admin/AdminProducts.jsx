@@ -11,10 +11,11 @@ import { useNavigate } from "react-router-dom";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import NavbarAdmin from "./NavbarAdmin/NavbarAdmin";
+import { useSelector } from "react-redux";
 
 const AdminProducts = () => {
+  let admin = useSelector((state) => state.persistedReducer.admin);
   const [products, setProducts] = useState([]);
-  const [error, setError] = useState("");
   const navigate = useNavigate();
   useEffect(() => {
     const getProducts = async () => {
@@ -29,35 +30,40 @@ const AdminProducts = () => {
       }
     };
     getProducts();
-  }, [products]);
+  }, []);
 
   const handleDeleteProduct = async (product) => {
     try {
       await axios({
         method: "delete",
+        headers: {
+          Authorization: `Bearer ${admin.token}`,
+        },
         url: `${process.env.REACT_APP_API_BASE_URL}/products/${product.id}`,
       });
+      setProducts(products.filter((prod) => prod.id !== product.id));
     } catch (err) {
       console.log(err);
-      setError(true);
     }
   };
 
   return (
     <>
+      {console.log(products[0])}
       <NavbarAdmin />
       <Container className="p-0" fluid id={css["backgroundAdminLogin"]}>
         <Sidebar />
         <Row className="m-0">
           <div className="col-2"></div>
-          <div className={`${css.backgroundTop} col-10 px-4`}>
+          <div className={`${css.backgroundTop} col-10 px-1`}>
             <div className={css.header}>
               <h2 className={css.tituloContainer}>Panel de Productos</h2>{" "}
-              <Button className={`ms-4 mb-2 ${css.adminButton}`}>
-                <Link to="/admin/createProduct" className="text-decoration-none text-light">
-                  Agregar producto
-                </Link>
-              </Button>
+              <Link
+                to="/admin/createProduct"
+                className={`text-decoration-none text-light btn ms-4 mb-2 ${css.adminButton}`}
+              >
+                Agregar producto
+              </Link>
             </div>
             <div className="text-end">
               <div className={css.botonAgregar}></div>
@@ -109,15 +115,13 @@ const AdminProducts = () => {
                         <td>{product.categoryId}</td>
                         <td>
                           {" "}
-                          <Button className="buttons mb-1" variant="warning">
-                            <Link
-                              to={`/admin/editProduct/${product.slug}`}
-                              className="text-decoration-none text-light"
-                            >
-                              {" "}
-                              Editar{" "}
-                            </Link>
-                          </Button>{" "}
+                          <Link
+                            to={`/admin/editProduct/${product.slug}`}
+                            className="text-decoration-none text-light buttons mb-1 btn btn-warning"
+                          >
+                            {" "}
+                            Editar{" "}
+                          </Link>
                           <Button
                             className="buttons"
                             variant="danger"
@@ -135,7 +139,6 @@ const AdminProducts = () => {
           </div>
         </Row>
       </Container>
-      ;
     </>
   );
 };

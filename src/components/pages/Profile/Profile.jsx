@@ -279,6 +279,7 @@ function Profile() {
                         <input
                           className="fs-6 rounded"
                           type="file"
+                          accept="image/*"
                           value={avatar}
                           name="avatar"
                           onChange={(event) => setAvatar(event.target.value)}

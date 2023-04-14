@@ -16,7 +16,6 @@
 
 #content {
   backdrop-filter: blur(4px);
-  height: 88.1vh;
 }
 
 .link {
@@ -28,5 +27,7 @@
 #backgroundAdminLogin {
   padding: 0;
   background-image: url(/public/img/topBanner.jpg);
-  background-size: cover;
+  height: calc(100vh - 5rem);
+  background-size: cover !important;
+  background-repeat: no-repeat;
 }

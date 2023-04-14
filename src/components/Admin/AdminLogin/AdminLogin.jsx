@@ -3,11 +3,11 @@ import { Col, Button, Row, Container, Card, Form, Alert } from "react-bootstrap"
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { setAdmin } from "../../slices/adminSlice";
-import { removeUser } from "../../slices/usersSlice";
+import { setAdmin } from "../../../slices/adminSlice";
+import { removeUser } from "../../../slices/usersSlice";
 import axios from "axios";
 import cssLogin from "./AdminLogin.module.css";
-import PageNavbar from "../PageNavbar/PageNavbar";
+import PageNavbar from "../../PageNavbar/PageNavbar";
 
 export default function AdminLogin() {
   const [email, setEmail] = useState("");
@@ -44,9 +44,13 @@ export default function AdminLogin() {
   return (
     <>
       <PageNavbar />
-      <Container fluid id={cssLogin["backgroundAdminLogin"]}>
-        <Row id={cssLogin["content"]} className="d-flex justify-content-center align-items-center">
-          <Col xs={11} sm={8} md={6} xl={4}>
+      <Container
+        fluid
+        id={cssLogin["backgroundAdminLogin"]}
+        className="d-flex justify-content-center align-items-center"
+      >
+        <Row id={cssLogin["content"]}>
+          <Col>
             <Card className="px-4">
               {error && (
                 <Alert variant="danger" onClose={() => setError(false)} dismissible>

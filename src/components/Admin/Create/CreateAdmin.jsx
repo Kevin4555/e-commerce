@@ -59,6 +59,7 @@ export default function CreateAdmin() {
                         <Form.Control
                           type="file"
                           value={avatar}
+                          accept="image/*"
                           name="avatar"
                           onChange={(event) => setAvatar(event.target.value)}
                         />

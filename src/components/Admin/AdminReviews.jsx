@@ -36,7 +36,7 @@ const AdminReviews = () => {
         <Sidebar />
         <Row className="m-0">
           <div className="col-2"></div>
-          <div className={`${css.backgroundTop} col-10 px-4`}>
+          <div className={`${css.backgroundTop} col-10 px-1`}>
             <div className={css.header}>
               <h2 className={`${css.tituloContainer} `}>Panel de Reviews</h2>
             </div>
@@ -67,7 +67,6 @@ const AdminReviews = () => {
           </div>
         </Row>
       </Container>
-      ;
     </>
   );
 };
