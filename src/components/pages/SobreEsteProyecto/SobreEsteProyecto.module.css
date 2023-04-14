@@ -85,3 +85,18 @@
   align-items: center;
   gap: 0.5rem;
 }
+
+.gif {
+  width: 20rem;
+}
+
+.greenSection2 {
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  box-shadow: 0px 6px 25px 0px rgba(0, 0, 0, 0.164);
+  background: var(--accent);
+  background: -webkit-linear-gradient(176deg, var(--accent) 0%, #1c2e29 50%, var(--primary) 100%);
+  background: linear-gradient(176deg, var(--accent) 0%, var(--tertiary) 100%);
+  color: white;
+}

@@ -2,6 +2,7 @@ import css from "./SobreEsteProyecto.module.css";
 import { Container, Row, Col } from "react-bootstrap";
 import PageNavbar from "../../PageNavbar/PageNavbar";
 import Footer from "../../Footer/Footer";
+import { Link } from "react-router-dom";
 
 function SobreEsteProyecto() {
   return (
@@ -143,15 +144,49 @@ function SobreEsteProyecto() {
             </div>
           </div>
         </section>
-        {/* <section className={`${css.greenSection}`}>
+        <section className={`${css.greenSection2}`}>
           <h2>Funcionalidades</h2>
-          <Row>
-            <Col xxl={3}>Panel de Admin</Col>
-            <Col xxl={3}>Crud de cosas </Col>
-            <Col xxl={3}>Cuenta</Col>
-            <Col xxl={3}>Carrito</Col>
+          <Row className="">
+            <Col sm={4} className="bg-white pt-2 rounded">
+              <img
+                src={`${process.env.REACT_APP_API_BASE_IMG_URL}/paneladmin.gif`}
+                alt="Logo"
+                className={`${css.gif} ms-2 mb-4`}
+              />
+              <h4>Panel de Administradores</h4>
+              <p>
+                Diseñamos un panel para administradores, donde se pueden encontrar datos de las
+                entidades del eCommerce. A este panel solo se puede acceder si se está logueado como
+                administrador 🤫
+              </p>
+            </Col>
+            <Col sm={4} className="bg-white pt-2 rounded">
+              <img
+                src={`${process.env.REACT_APP_API_BASE_IMG_URL}/crud.gif`}
+                alt="Logo"
+                className={`${css.gif} ms-2 mb-4`}
+              />
+              <h4>CRUD de Entidades</h4>
+              <p>
+                En el Panel de Administradores se puede hacer CRUD (Create, Read, Update, Delete) de
+                esas entidades! Te invitamos a <Link to={"/admin"}>probarlo</Link> tú mismo
+              </p>
+            </Col>
+            <Col sm={4} className="bg-white pt-2 rounded">
+              <img
+                src={`${process.env.REACT_APP_API_BASE_IMG_URL}/newsletter.gif`}
+                alt="Logo"
+                className={`${css.gif} ms-2 mb-4`}
+              />
+              <h4>Newsletter</h4>
+              <p>
+                Si nos dejas tu email, te podemos enviar más información del proyecto! (Te
+                prometemos que solo lo enviaremos 1 vez). Esto lo logramos con la librería
+                Nodemailer.
+              </p>
+            </Col>
           </Row>
-        </section> */}
+        </section>
       </Container>
       <Footer />
     </>
