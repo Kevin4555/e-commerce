@@ -74,7 +74,6 @@ function Product() {
   const handleRatingChange = (newRating) => {
     setRating(newRating);
   };
-  console.log(rating);
   if (product) {
     window.document.title = `${product.title}`;
     return (
