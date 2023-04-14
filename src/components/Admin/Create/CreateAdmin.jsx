@@ -19,13 +19,12 @@ export default function CreateAdmin() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
-  const handleSignUp = async (event) => {
+  const handleCreateAdmin = async (event) => {
     event.preventDefault();
     let formdata = new FormData(event.target);
     try {
-      const response = await axios({
+      await axios({
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${admin.token}`,
@@ -34,8 +33,7 @@ export default function CreateAdmin() {
         url: `${process.env.REACT_APP_API_BASE_URL}/admin`,
         data: formdata,
       });
-      dispatch(setAdmin({ token: response.data.token, ...response.data.admin }));
-      navigate("/");
+      navigate("/admin/admins");
     } catch (err) {
       console.log(err);
       setError(true);
@@ -62,7 +60,7 @@ export default function CreateAdmin() {
                     <div className="mb-2">
                       <h2 className="mb-2 text-center ">Crear Administrador</h2>
                       <div className="mb-2">
-                        <Form onSubmit={handleSignUp}>
+                        <Form onSubmit={handleCreateAdmin}>
                           <Form.Group className="mb-2" controlId="FirstName">
                             <Form.Label className="text-center">Nombre</Form.Label>
                             <Form.Control
