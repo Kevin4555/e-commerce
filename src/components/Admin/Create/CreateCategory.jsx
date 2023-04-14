@@ -5,8 +5,11 @@ import axios from "axios";
 import css from "../Edit/Edit.module.css";
 import NavbarAdmin from "../NavbarAdmin/NavbarAdmin";
 import Sidebar from "../../Sidebar/Sidebar";
+import { useSelector } from "react-redux";
 
 export default function CreateCategory() {
+  let admin = useSelector((state) => state.persistedReducer.admin);
+
   const [categoryId, setCategoryId] = useState("");
   const [categoryName, setcategoryName] = useState("");
 
@@ -17,6 +20,9 @@ export default function CreateCategory() {
     event.preventDefault();
     try {
       await axios({
+        headers: {
+          Authorization: `Bearer ${admin.token}`,
+        },
         method: "post",
         url: `${process.env.REACT_APP_API_BASE_URL}/categories`,
         data: { categoryName },

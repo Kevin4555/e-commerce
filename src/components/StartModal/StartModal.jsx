@@ -40,7 +40,7 @@ function StartModal({ showModal, setShowModal, products }) {
           Este e-commerce es el proyecto final de 4 estudiantes del Coding Bootcamp de Hack Academy!
         </p>
         <p>
-          Recomendamos fuertemente <b>un reseteo de la base de batos</b> para que tu experiencia sea
+          Recomendamos fuertemente <b>un reseteo de la base de datos</b> para que tu experiencia sea
           mejor.
         </p>
         <p>

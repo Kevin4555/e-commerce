@@ -1,6 +1,7 @@
 import css from "./SobreEsteProyecto.module.css";
-import { Container } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import PageNavbar from "../../PageNavbar/PageNavbar";
+import Footer from "../../Footer/Footer";
 
 function SobreEsteProyecto() {
   return (
@@ -72,15 +73,7 @@ function SobreEsteProyecto() {
                 compañeros a lo largo de 3 semanas como proyecto final del{" "}
                 <b>Bootcamp de Hack Academy</b>. El Bootcamp de Full-Stack development de Hack
                 Academy es un curso
-                <b> intensivo</b> de 3 meses con una carga horaria de más de 600 horas. En este
-                aprendemos tecnologías de <b>front-end y back-end</b>, las cuales utilizamos para
-                varios proyectos como este. A lo largo de este curso, no solo desarrollamos
-                habilidades duras, sino tambien <b>habilidades blandas</b> , ya que trabajamos
-                aspectos como la comunicacion con nuestros pares, con nuestros grupos, la
-                organizacion de tareas, la division de estas, el diálogo y la presentación de
-                nuestros distintos proyectos. Algunas de las tecnologias empleadas en la creaicon de
-                este sitio fueron React, Bootstrsap, JavaScript, CSS, Axios, NodeJS, SupaBase, entre
-                otras.
+                <b> intensivo</b> de 3 meses con una carga horaria de más de 600 horas.
               </p>
             </div>
           </div>
@@ -130,7 +123,17 @@ function SobreEsteProyecto() {
             </div>
           </div>
         </section>
+        <section className={`${css.greenSection}`}>
+          <h2>Funcionalidades</h2>
+          <Row>
+            <Col xxl={3}>Panel de Admin</Col>
+            <Col xxl={3}>Crud de cosas </Col>
+            <Col xxl={3}>Cuenta</Col>
+            <Col xxl={3}>Carrito</Col>
+          </Row>
+        </section>
       </Container>
+      <Footer />
     </>
   );
 }

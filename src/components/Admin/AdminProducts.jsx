@@ -24,7 +24,7 @@ const AdminProducts = () => {
       }
     };
     getProducts();
-  }, []);
+  }, [products]);
 
   const handleDeleteProduct = async (product) => {
     try {
