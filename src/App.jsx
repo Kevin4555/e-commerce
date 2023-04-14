@@ -1,5 +1,6 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
+import { Navigate } from "react-router";
 import SearchComponent from "./components/SearchComponent";
 
 import SobreEsteProyecto from "./components/pages/SobreEsteProyecto/SobreEsteProyecto";
@@ -76,6 +77,7 @@ function App() {
         <Route path="/admin/admins" element={<AdminAdmins />} />
         <Route path="/admin/createAdmin" element={<CreateAdmin />} />
       </Route>
+      <Route path="*" element={<Navigate to={"/"} />} />
     </Routes>
   );
 }
