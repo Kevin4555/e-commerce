@@ -2,7 +2,7 @@ import css from "./Product.module.css";
 import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Container, Carousel, Form, Button } from "react-bootstrap";
+import { Container, Carousel, Form, Button, Row, Col, Toast } from "react-bootstrap";
 import Footer from "../../Footer/Footer";
 
 import PageNavbar from "../../PageNavbar/PageNavbar";
@@ -23,6 +23,7 @@ function Product() {
   const [reviewtext, setReviewText] = useState("");
   const [rating, setRating] = useState(0);
   const [stock, setStock] = useState(null);
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
     const getProduct = async () => {
@@ -79,6 +80,21 @@ function Product() {
     window.document.title = `${product.title}`;
     return (
       <>
+        <Row>
+          <Col xs={6}>
+            <Toast
+              onClose={() => setShow(false)}
+              show={show}
+              delay={3000}
+              autohide
+              className={`position-fixed bg-white ${css.rightBottomZero}`}
+            >
+              <Toast.Body>Lo sentimos pero esta funcionalidad está en desarollo.</Toast.Body>
+              <div className={css.toast}></div>
+            </Toast>
+          </Col>
+        </Row>
+
         <PageNavbar />
         <div className="container mt-5 p-3">
           <div className="row">
@@ -133,7 +149,7 @@ function Product() {
                   </button>
                 )}
 
-                <button className="border-0 bg-white ms-3">
+                <button className="border-0 bg-white ms-3" onClick={() => setShow(true)}>
                   <i className="bi bi-heart fs-5"></i>
                 </button>
               </div>

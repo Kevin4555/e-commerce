@@ -1,5 +1,6 @@
 import css from "./Cart.module.css";
 import PageNavbar from "../../PageNavbar/PageNavbar";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import CartItem from "./CartItem";
@@ -9,7 +10,6 @@ function Cart() {
   window.document.title = "Carrito";
   const cart = useSelector((state) => state.persistedReducer.cart.items);
   const totalPrice = useSelector((state) => state.persistedReducer.cart.totalPrice);
-
   return (
     <>
       <PageNavbar />
