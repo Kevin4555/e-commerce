@@ -7,9 +7,12 @@ import { setAdmin } from "../../../slices/adminSlice";
 import NavbarAdmin from "../NavbarAdmin/NavbarAdmin";
 import Sidebar from "../../Sidebar/Sidebar";
 import css from "../Edit/Edit.module.css";
+import { useSelector } from "react-redux";
 
 export default function CreateAdmin() {
   window.document.title = "Registro";
+  let admin = useSelector((state) => state.persistedReducer.admin);
+
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -25,9 +28,10 @@ export default function CreateAdmin() {
       const response = await axios({
         headers: {
           "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${admin.token}`,
         },
         method: "post",
-        url: `${process.env.REACT_APP_API_BASE_URL}/admins`,
+        url: `${process.env.REACT_APP_API_BASE_URL}/admin`,
         data: formdata,
       });
       dispatch(setAdmin({ token: response.data.token, ...response.data.admin }));
