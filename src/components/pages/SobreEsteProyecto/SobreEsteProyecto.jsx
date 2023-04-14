@@ -9,7 +9,7 @@ function SobreEsteProyecto() {
     <>
       <PageNavbar />
       <Container fluid className="p-0">
-        <section className={`${css.darkSection} row p-0 m-0`}>
+        <section className={`${css.darkSection} row m-0`}>
           <div className={`${css.profile} col-12 col-md-6 col-lg-3 align-items-center`}>
             <img
               src={`${process.env.REACT_APP_API_BASE_IMG_URL}/Foto_Nico.png`}
