@@ -9,7 +9,7 @@ import NavbarAdmin from "./NavbarAdmin/NavbarAdmin";
 import { useSelector } from "react-redux";
 
 const AdminProducts = () => {
-  let admin = useSelector((state) => state.persistedReducer.admin);
+  const admin = useSelector((state) => state.persistedReducer.admin);
   const [products, setProducts] = useState([]);
   useEffect(() => {
     const getProducts = async () => {
