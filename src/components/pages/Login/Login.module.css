@@ -9,6 +9,13 @@
 #button:hover {
   background-color: var(--primary);
 }
+#buttonFill {
+  background-color: var(--secondary);
+  border: none;
+}
+#buttonFill:hover {
+  background-color: var(--primary);
+}
 
 #content {
   backdrop-filter: blur(4px);
