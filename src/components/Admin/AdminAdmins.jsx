@@ -8,8 +8,11 @@ import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import NavbarAdmin from "./NavbarAdmin/NavbarAdmin";
 import css from "./Admin.module.css";
+import { Row } from "react-bootstrap";
+import { useSelector } from "react-redux";
 
 const AdminAdmins = () => {
+  let admin = useSelector((state) => state.persistedReducer.admin);
   const [admins, setAdmins] = useState([]);
   const [error, setError] = useState("");
 
@@ -19,6 +22,9 @@ const AdminAdmins = () => {
         const response = await axios({
           method: "get",
           url: `${process.env.REACT_APP_API_BASE_URL}/admin`,
+          headers: {
+            Authorization: `Bearer ${admin.token}`,
+          },
         });
         setAdmins(response.data);
       } catch (error) {
@@ -33,6 +39,9 @@ const AdminAdmins = () => {
       await axios({
         method: "delete",
         url: `${process.env.REACT_APP_API_BASE_URL}/admin/${admin.id}`,
+        headers: {
+          Authorization: `Bearer ${admin.token}`,
+        },
       });
     } catch (err) {
       console.log(err);
@@ -50,7 +59,13 @@ const AdminAdmins = () => {
 
           <div className={`${css.backgroundTop} col-10 px-4`}>
             <div className={css.header}>
-              <h2 className={css.tituloContainer}>Panel de Usuarios</h2>
+              <h2 className={css.tituloContainer}>Panel de Adminsitradores</h2>
+              <Link
+                to="/admin/createAdmin"
+                className={`text-decoration-none text-light btn ms-4 mb-2 ${css.adminButton}`}
+              >
+                Agregar administrador
+              </Link>
             </div>
 
             <div className={css.tableProducts}>
@@ -61,48 +76,24 @@ const AdminAdmins = () => {
                     <th>Nombre</th>
                     <th>Apellido</th>
                     <th>Email</th>
-                    <th>Dirección</th>
-                    <th>Teléfono</th>
-                    <th>Avatar</th>
                     <th>Acciones</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {users.map((user, index) => {
+                  {admins.map((admin, index) => {
                     return (
                       <tr key={index}>
-                        <td>{user.id}</td>
-                        <td>{user.firstname}</td>
-                        <td>{user.lastname}</td>
-                        <td>{user.email}</td>
-                        <td>{user.address}</td>
-                        <td>{user.phone}</td>
+                        <td>{admin.id}</td>
+                        <td>{admin.firstname}</td>
+                        <td>{admin.lastname}</td>
+                        <td>{admin.email}</td>
                         <td>
-                          {
-                            <img
-                              src={process.env.REACT_APP_API_BASE_IMG_URL + `/${user.avatar}`}
-                              alt=""
-                              className={css.userAvatar}
-                            />
-                          }
-                        </td>
-                        <td>
-                          {" "}
-                          <Button className="buttons" variant="warning">
-                            {" "}
-                            <Link
-                              to={`/admin/editUser/${user.id}`}
-                              className="text-decoration-none text-light"
-                            >
-                              Editar{" "}
-                            </Link>
-                          </Button>{" "}
                           <Button
                             className="buttons"
                             variant="danger"
                             onClick={() => handleDeleteAdmin(admin)}
                           >
-                            Eliminar{" "}
+                            Eliminar
                           </Button>
                         </td>
                       </tr>
