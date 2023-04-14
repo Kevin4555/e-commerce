@@ -22,16 +22,14 @@ export default function CreateAdmin() {
 
   const handleCreateAdmin = async (event) => {
     event.preventDefault();
-    let formdata = new FormData(event.target);
     try {
       await axios({
         headers: {
-          "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${admin.token}`,
         },
         method: "post",
         url: `${process.env.REACT_APP_API_BASE_URL}/admin`,
-        data: formdata,
+        data: { firstname: firstName, lastname: lastName, email, password },
       });
       navigate("/admin/admins");
     } catch (err) {

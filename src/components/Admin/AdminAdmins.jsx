@@ -10,7 +10,7 @@ import css from "./Admin.module.css";
 import { useSelector } from "react-redux";
 
 const AdminAdmins = () => {
-  let admin = useSelector((state) => state.persistedReducer.admin);
+  const Logadmin = useSelector((state) => state.persistedReducer.admin);
   const [admins, setAdmins] = useState([]);
   const [error, setError] = useState("");
 
@@ -21,7 +21,7 @@ const AdminAdmins = () => {
           method: "get",
           url: `${process.env.REACT_APP_API_BASE_URL}/admin`,
           headers: {
-            Authorization: `Bearer ${admin.token}`,
+            Authorization: `Bearer ${Logadmin.token}`,
           },
         });
         setAdmins(response.data);
@@ -38,9 +38,10 @@ const AdminAdmins = () => {
         method: "delete",
         url: `${process.env.REACT_APP_API_BASE_URL}/admin/${admin.id}`,
         headers: {
-          Authorization: `Bearer ${admin.token}`,
+          Authorization: `Bearer ${Logadmin.token}`,
         },
       });
+      setAdmins(admins.filter((adm) => adm.id !== admin.id));
     } catch (err) {
       console.log(err);
       setError(true);
