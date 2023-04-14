@@ -14,12 +14,11 @@ function CartInformation() {
   const admin = useSelector((state) => state.persistedReducer.admin);
   const cart = useSelector((state) => state.persistedReducer.cart.items);
   const totalPrice = useSelector((state) => state.persistedReducer.cart.totalPrice);
-  const address = useSelector((state) => state.persistedReducer.cart.address);
-  const [pais, setPais] = useState(address.pais);
-  const [provincia, setProvincia] = useState(address.provincia);
-  const [ciudad, setCiudad] = useState(address.ciudad);
-  const [codigoPostal, setCodigoPostal] = useState(address.codigoPostal);
-  const [direccion, setDireccion] = useState(address.direccion);
+  const [pais, setPais] = useState("");
+  const [provincia, setProvincia] = useState("");
+  const [ciudad, setCiudad] = useState("");
+  const [codigoPostal, setCodigoPostal] = useState("");
+  const [direccion, setDireccion] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const formData = {

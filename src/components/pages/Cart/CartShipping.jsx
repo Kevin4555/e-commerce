@@ -64,7 +64,7 @@ function CartShipping() {
                   </div>
                   <div className="col-12 col-sm-9 text-center text-sm-start d-block d-sm-flex align-items-sm-center">
                     <small className="fs-6 ps-3">
-                      {address.direccion}, {address.ciudad} {address.codigoPostal}, {address.pais}
+                      {address.direccion}, {address.codigoPostal} {address.ciudad} , {address.pais}
                     </small>
                   </div>
                 </div>
