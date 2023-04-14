@@ -49,7 +49,6 @@ const AdminProducts = () => {
 
   return (
     <>
-      {console.log(products[0])}
       <NavbarAdmin />
       <Container className="p-0" fluid id={css["backgroundAdminLogin"]}>
         <Sidebar />

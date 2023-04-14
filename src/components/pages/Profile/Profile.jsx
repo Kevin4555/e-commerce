@@ -88,7 +88,6 @@ function Profile() {
         url: `${process.env.REACT_APP_API_BASE_URL}/users/${user.id}`,
         data: formdata,
       });
-      console.log(response.data);
       dispatch(setUser({ token, ...response.data.user }));
       setButtonConfirm("Confirmar");
     } catch (err) {

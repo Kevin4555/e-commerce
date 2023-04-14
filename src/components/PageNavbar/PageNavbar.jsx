@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import css from "./PageNavbar.module.css";
 import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function PageNavbar() {
@@ -14,6 +15,8 @@ function PageNavbar() {
   let user = useSelector((state) => state.persistedReducer.user);
   let admin = useSelector((state) => state.persistedReducer.admin);
   const [categories, setCategories] = useState([]);
+  const [searchText, setSearchText] = useState("");
+  const navigator = useNavigate();
 
   useEffect(() => {
     const getCategories = async () => {
@@ -29,6 +32,12 @@ function PageNavbar() {
     };
     getCategories();
   }, []);
+
+  const handleSerch = (event) => {
+    event.preventDefault();
+    navigator("/product/search/" + searchText);
+  };
+
   return (
     <>
       <Navbar
@@ -40,7 +49,11 @@ function PageNavbar() {
       >
         <Container id={css["mainBar"]} className={openNavbar ? css.open : css.close}>
           <Navbar.Brand as={Link} to={"/"} className="col-2 d-flex justify-content-center">
-            <img src="../logo.png" alt="logo Manos Creativas" className={`${css.navLogo}`} />
+            <img
+              src={`${process.env.REACT_APP_API_BASE_IMG_URL}/logo.png`}
+              alt="logo Manos Creativas"
+              className={`${css.navLogo}`}
+            />
           </Navbar.Brand>
           <Navbar.Toggle
             aria-controls="responsive-navbar-nav"
@@ -50,14 +63,17 @@ function PageNavbar() {
             <Form
               id={css["form"]}
               className={`d-flex px-2 position-relative ${openNavbar ? "" : css.noDisplay}`}
+              onSubmit={handleSerch}
             >
               <i className={`bi bi-search position-absolute ${css.searchIcon} `}></i>
               <Form.Control
                 type="search"
                 placeholder="Search"
+                value={searchText}
                 className="flex-grow-1 rounded-pill"
                 aria-label="Search"
                 id={css["search"]}
+                onChange={(e) => setSearchText(e.target.value)}
               />
             </Form>
           </Navbar.Collapse>

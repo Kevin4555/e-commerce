@@ -50,6 +50,7 @@ function App() {
       <Route path="/resetpassword/:token" element={<Reset_2 />} />
       <Route path="/" element={<Home showModal={showModal} setShowModal={setShowModal} />} />
       <Route path="/product/:slug" element={<Product />} />
+      <Route path="/product/search/:text" element={<SearchComponent />} />
       <Route path="/about-us" element={<SobreEsteProyecto />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="/cart/information" element={<CartInformation />} />

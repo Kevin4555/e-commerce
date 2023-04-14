@@ -24,7 +24,6 @@ const AdminOrders = () => {
           url: `${process.env.REACT_APP_API_BASE_URL}/orders`,
         });
         setOrders(response.data);
-        console.log(orders);
       } catch (error) {
         console.log(error);
       }
