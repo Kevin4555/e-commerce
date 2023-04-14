@@ -17,6 +17,7 @@ export default function CreateProduct() {
   const [stock, setStock] = useState("");
   const [categories, setCategories] = useState([]);
   const [categoryId, setCategoryId] = useState("");
+  const [btnConfirm, setBtnConfirm] = useState("Confirmar");
   const [error, setError] = useState("");
 
   const navigate = useNavigate();
@@ -37,9 +38,16 @@ export default function CreateProduct() {
 
   const handleCreateProduct = async (event) => {
     event.preventDefault();
+    setBtnConfirm(
+      <span
+        className="spinner-border spinner-border text-white"
+        role="status"
+        aria-hidden="true"
+      ></span>,
+    );
     let formdata = new FormData(event.target);
     try {
-      await axios({
+      const response = await axios({
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${admin.token}`,
@@ -48,6 +56,7 @@ export default function CreateProduct() {
         url: `${process.env.REACT_APP_API_BASE_URL}/products`,
         data: formdata,
       });
+      console.log(response.data);
       navigate("/admin/products");
     } catch (err) {
       console.log(err);
@@ -155,7 +164,7 @@ export default function CreateProduct() {
                             <Form.Group className="mb-3" controlId="buttonsubmit">
                               <div className="d-grid">
                                 <Button type="submit" className={css.adminButton}>
-                                  Confirm{" "}
+                                  {btnConfirm}
                                 </Button>
                               </div>
                             </Form.Group>
