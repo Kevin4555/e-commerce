@@ -3,7 +3,9 @@ import { Col, Button, Row, Container, Card, Form, Alert } from "react-bootstrap"
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import axios from "axios";
-import css from "../../pages/SignUp/SignUp.module.css";
+import css from "../Edit/Edit.module.css";
+import NavbarAdmin from "../NavbarAdmin/NavbarAdmin";
+import Sidebar from "../../Sidebar/Sidebar";
 import Loading from "../../Loading/Loading";
 
 export default function CreateProduct() {
@@ -53,120 +55,122 @@ export default function CreateProduct() {
       setError(true);
     }
   };
+
   if (categories.length > 0) {
     return (
       <>
-        <Container fluid id={css["background"]}>
-          <Row
-            id={css["content"]}
-            className="py-3 d-flex justify-content-center align-items-center"
-          >
-            <Col xs={11} sm={8} md={6} xl={4}>
-              <Card className="px-4">
-                {error && (
-                  <Alert variant="danger" onClose={() => setError(false)} dismissible>
-                    <p>No se pudo crear el usuario</p>
-                  </Alert>
-                )}
-                <Card.Body>
-                  <div className="mb-3">
-                    <h2 className="mb-2 text-center">Create Product</h2>
-                    <div className="mb-3">
-                      <Form onSubmit={handleCreateProduct}>
-                        <Form.Group className="mb-3" controlId="title">
-                          <Form.Label className="text-center">Nombre producto</Form.Label>
-                          <Form.Control
-                            type="text"
-                            value={title}
-                            name="title"
-                            onChange={(event) => setTitle(event.target.value)}
-                            placeholder="Ingrese el nombre del producto"
-                            required
-                          />
-                        </Form.Group>
-
-                        <Form.Group className="mb-3" controlId="description">
-                          <Form.Label className="text-center">Descripcion</Form.Label>
-                          <Form.Control
-                            type="text"
-                            value={description}
-                            name="description"
-                            onChange={(event) => setDescription(event.target.value)}
-                            required
-                            placeholder="Ingrese descripción"
-                          />
-                        </Form.Group>
-
-                        <Form.Group className="mb-3" controlId="price">
-                          <Form.Label className="text-center">Precio</Form.Label>
-                          <Form.Control
-                            type="number"
-                            value={price}
-                            name="price"
-                            onChange={(event) => setPrice(event.target.value)}
-                            required
-                            min={0}
-                            placeholder="USD"
-                          />
-                        </Form.Group>
-
-                        <Form.Group className="mb-3" controlId="imgformFile">
-                          <Form.Label className="text-center">Seleccionar Imagenes</Form.Label>
-                          <Form.Control
-                            type="file"
-                            value={imgs}
-                            name="imgs"
-                            accept="image/*"
-                            multiple
-                            onChange={(event) => setImgs(event.target.value)}
-                            required
-                            placeholder="Seleccionar imagenes"
-                          />
-                        </Form.Group>
-
-                        <Form.Group className="mb-3" controlId="stock">
-                          <Form.Label className="text-center">Definir Stock</Form.Label>
-                          <Form.Control
-                            type="number"
-                            value={stock}
-                            name="stock"
-                            onChange={(event) => setStock(event.target.value)}
-                            required
-                            min={0}
-                            placeholder="Definir stock remanente"
-                          />
-                        </Form.Group>
-
-                        <Form.Group className="mb-3" controlId="categoryId">
-                          <Form.Label className="text-center">Definir Categoria</Form.Label>
-                          <Form.Select
-                            name="categoryId"
-                            required
-                            value={categoryId}
-                            onChange={(e) => setCategoryId(e.target.value)}
-                          >
-                            {categories.map((category) => {
-                              return <option value={category.id}>{category.name}</option>;
-                            })}
-                          </Form.Select>
-                        </Form.Group>
-
-                        <Form.Group className="mb-3" controlId="buttonsubmit">
-                          <div className="d-grid">
-                            <Button type="submit" id="button">
-                              Confirm{" "}
-                            </Button>
-                          </div>
-                        </Form.Group>
-                      </Form>
-                    </div>
-                  </div>
-                </Card.Body>
-              </Card>
-            </Col>
-          </Row>
-          <Card.Body />
-        </Container>
+        <NavbarAdmin />
+        <Sidebar />
+        <Row className="p-0 m-0">
+          <div className="col-2"></div>
+          <div className="col-10 p-0">
+            <Container fluid id={css["background"]}>
+              <Row
+                id={css["content"]}
+                className="py-3 d-flex justify-content-center align-items-center"
+              >
+                <Col xs={11} sm={8} md={6} xl={4}>
+                  <Card className="px-4">
+                    {error && (
+                      <Alert variant="danger" onClose={() => setError(false)} dismissible>
+                        <p>No se pudo crear el producto</p>
+                      </Alert>
+                    )}
+                    <Card.Body>
+                      <div className="mb-3">
+                        <h2 className="mb-2 text-center">Crear Producto</h2>
+                        <div className="mb-3">
+                          <Form onSubmit={handleCreateProduct}>
+                            <Form.Group className="mb-3" controlId="title">
+                              <Form.Label className="text-center">Nombre producto</Form.Label>
+                              <Form.Control
+                                type="text"
+                                value={title}
+                                name="title"
+                                onChange={(event) => setTitle(event.target.value)}
+                                placeholder="Ingrese el nombre del producto"
+                                required
+                              />
+                            </Form.Group>
+                            <Form.Group className="mb-3" controlId="description">
+                              <Form.Label className="text-center">Descripción</Form.Label>
+                              <Form.Control
+                                type="text"
+                                value={description}
+                                name="description"
+                                onChange={(event) => setDescription(event.target.value)}
+                                placeholder="Ingrese descripción"
+                                required
+                              />
+                            </Form.Group>
+                            <Form.Group className="mb-3" controlId="price">
+                              <Form.Label className="text-center">Precio</Form.Label>
+                              <Form.Control
+                                type="number"
+                                value={price}
+                                name="price"
+                                onChange={(event) => setPrice(event.target.value)}
+                                placeholder="USD"
+                                required
+                                min={0}
+                              />
+                            </Form.Group>
+                            <Form.Group className="mb-3" controlId="imgformFile">
+                              <Form.Label className="text-center">Seleccionar Imagenes</Form.Label>
+                              <Form.Control
+                                type="file"
+                                placeholder="Seleccionar imagenes"
+                                value={imgs}
+                                name="imgs"
+                                accept="image/*"
+                                multiple
+                                onChange={(event) => setImgs(event.target.value)}
+                                required
+                              />
+                            </Form.Group>
+                            <Form.Group className="mb-3" controlId="stock">
+                              <Form.Label className="text-center">Definir Stock</Form.Label>
+                              <Form.Control
+                                type="number"
+                                value={stock}
+                                name="stock"
+                                onChange={(event) => setStock(event.target.value)}
+                                placeholder="Definir stock remanente"
+                                required
+                                min={0}
+                              />
+                            </Form.Group>
+                            <Form.Group className="mb-3" controlId="categoryId">
+                              <Form.Label className="text-center">Definir Category Id</Form.Label>
+                              <Form.Select
+                                name="categoryId"
+                                required
+                                value={categoryId}
+                                onChange={(e) => setCategoryId(e.target.value)}
+                              >
+                                {categories.map((category) => {
+                                  return <option value={category.id}>{category.name}</option>;
+                                })}
+                              </Form.Select>
+                            </Form.Group>
+                            <Form.Group className="mb-3" controlId="buttonsubmit">
+                              <div className="d-grid">
+                                <Button type="submit" className={css.adminButton}>
+                                  Confirm{" "}
+                                </Button>
+                              </div>
+                            </Form.Group>
+                          </Form>
+                        </div>
+                      </div>
+                    </Card.Body>
+                  </Card>
+                </Col>
+              </Row>
+              <Card.Body />
+            </Container>
+          </div>
+        </Row>
       </>
     );
   } else {
