@@ -1,12 +1,12 @@
-/* import "./CartPayment.css"; */
+import css from "./CartPayment.module.css";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { clearCart } from "../../../slices/cartSlice";
+import { Form, Row, Col, Toast } from "react-bootstrap";
 import PageNavbar from "../../PageNavbar/PageNavbar";
 import Footer from "../../Footer/Footer";
-import Form from "react-bootstrap/Form";
 import CartInformationItem from "./CartInformationItem";
 import axios from "axios";
 
@@ -14,6 +14,7 @@ function CartPayment() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [error, setError] = useState("");
+  const [show, setShow] = useState(false);
   const user = useSelector((state) => state.persistedReducer.user);
   const admin = useSelector((state) => state.persistedReducer.admin);
   const userId = user ? user.id : "";
@@ -37,6 +38,20 @@ function CartPayment() {
 
   return (
     <>
+      <Row>
+        <Col xs={6}>
+          <Toast
+            onClose={() => setShow(false)}
+            show={show}
+            delay={3000}
+            autohide
+            className={`position-fixed bg-white ${css.rightBottomZero}`}
+          >
+            <Toast.Body>Felicitaciones tu orden ha sido creada con éxito.</Toast.Body>
+            <div className={css.toast}></div>
+          </Toast>
+        </Col>
+      </Row>
       <main>
         <PageNavbar />
         <div className="container p-0">
@@ -115,22 +130,26 @@ function CartPayment() {
                       <div className="col-12 p-3 bg-secondary-subtle">
                         <div className="row">
                           <Form.Group className="mb-3 col-12 px-sm-0" controlId="formBasicEmail">
-                            <Form.Control type="number" placeholder="Número de tarjeta" />
+                            <Form.Control type="number" placeholder="Número de tarjeta" required />
                           </Form.Group>
                           <Form.Group className="mb-3 col-12 px-sm-0" controlId="formBasicEmail">
-                            <Form.Control type="text" placeholder="Nombre del titular" />
+                            <Form.Control type="text" placeholder="Nombre del titular" required />
                           </Form.Group>
                           <Form.Group
                             className="mb-3 col-12 col-sm-6 ps-sm-0"
                             controlId="formBasicEmail"
                           >
-                            <Form.Control type="date" placeholder="Fecha de expiracón (MM / YY)" />
+                            <Form.Control
+                              type="date"
+                              placeholder="Fecha de expiracón (MM / YY)"
+                              required
+                            />
                           </Form.Group>
                           <Form.Group
                             className="mb-3 col-12 col-sm-6 pe-sm-0"
                             controlId="formBasicEmail"
                           >
-                            <Form.Control type="text" placeholder="CVV" />
+                            <Form.Control type="text" placeholder="CVV" required />
                           </Form.Group>
                         </div>
                       </div>
