@@ -5,10 +5,12 @@ import axios from "axios";
 import NavbarAdmin from "../NavbarAdmin/NavbarAdmin";
 import Sidebar from "../../Sidebar/Sidebar";
 import css from "./Edit.module.css";
+import { useSelector } from "react-redux";
 
 export default function EditCategoryId() {
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  let admin = useSelector((state) => state.persistedReducer.admin);
 
   const [category, setCategory] = useState(null);
   const [categoryName, setCategoryName] = useState("");
@@ -35,6 +37,9 @@ export default function EditCategoryId() {
     try {
       await axios({
         method: "patch",
+        headers: {
+          Authorization: `Bearer ${admin.token}`,
+        },
         url: `${process.env.REACT_APP_API_BASE_URL}/categories/${category.id}`,
         data: { categoryName },
       });
@@ -61,7 +66,7 @@ export default function EditCategoryId() {
                 <Card className="px-4">
                   {error && (
                     <Alert variant="danger" onClose={() => setError(false)} dismissible>
-                      <p>No se pudo crear la categoría</p>
+                      <p>No se pudo editar la categoría</p>
                     </Alert>
                   )}
                   <Card.Body>

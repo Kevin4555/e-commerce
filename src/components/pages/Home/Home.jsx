@@ -107,7 +107,7 @@ function Home({ showModal, setShowModal }) {
             <Carousel.Item>
               <img
                 className={`${css.imgPrueba} d-block`}
-                src="/img/mainBanner.webp"
+                src="/img/mainBanner.png"
                 alt="First slide"
                 draggable="false"
               />
@@ -122,7 +122,7 @@ function Home({ showModal, setShowModal }) {
             <Carousel.Item>
               <img
                 className="d-block"
-                src="/img/mainBanner2.webp"
+                src="/img/mainBanner2.png"
                 alt="Second slide"
                 draggable="false"
               />

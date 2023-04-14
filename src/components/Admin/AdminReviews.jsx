@@ -67,7 +67,6 @@ const AdminReviews = () => {
           </div>
         </Row>
       </Container>
-      ;
     </>
   );
 };

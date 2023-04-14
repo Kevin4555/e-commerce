@@ -10,6 +10,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 import { removeUser } from "../../../slices/usersSlice";
 import { removeAdmin } from "../../../slices/adminSlice";
+import { ButtonGroup, Button } from "react-bootstrap";
 import axios from "axios";
 
 function Profile() {
@@ -35,6 +36,7 @@ function Profile() {
   const [none, setNone] = useState("d-none");
   const [error, setError] = useState("");
   const [token, setToken] = useState(user ? user.token : "");
+  const [buttonConfirm, setButtonConfirm] = useState("Confirmar");
 
   function handleUserLogOut() {
     dispatch(removeUser());
@@ -69,8 +71,15 @@ function Profile() {
   const handleEditUser = async (event) => {
     event.preventDefault();
     let formdata = new FormData(event.target);
+    setButtonConfirm(
+      <span
+        className="spinner-border spinner-border text-white"
+        role="status"
+        aria-hidden="true"
+      ></span>,
+    );
     try {
-      await axios({
+      const response = await axios({
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${user.token}`,
@@ -79,22 +88,24 @@ function Profile() {
         url: `${process.env.REACT_APP_API_BASE_URL}/users/${user.id}`,
         data: formdata,
       });
+      dispatch(setUser({ token, ...response.data.user }));
+      setButtonConfirm("Confirmar");
     } catch (err) {
       console.log(err);
       setError(true);
     }
-    dispatch(
-      setUser({
-        token,
-        id: user.id,
-        firstname,
-        lastname,
-        phone,
-        email,
-        address,
-        avatar: avatar.split("\\").pop(),
-      }),
-    );
+    setBlock("d-block");
+    setNone("d-none");
+  };
+
+  const handleCancelEdit = (event) => {
+    event.preventDefault();
+    setFirstname(user.firstname);
+    setLastname(user.lastname);
+    setEmail(user.email);
+    setAddress(user.address);
+    setPhone(user.phone);
+    setAvatar("");
     setBlock("d-block");
     setNone("d-none");
   };
@@ -267,14 +278,25 @@ function Profile() {
                         <input
                           className="fs-6 rounded"
                           type="file"
+                          accept="image/*"
                           value={avatar}
                           name="avatar"
                           onChange={(event) => setAvatar(event.target.value)}
                         ></input>
                       </div>
 
-                      <button className="btn btn-warning">Confirmar</button>
-                      <button className="btn btn-danger mt-2" onClick={handleUserLogOut}>
+                      <ButtonGroup>
+                        <Button className="btn btn-warning px-5" type="submit">
+                          {buttonConfirm}
+                        </Button>
+                        {buttonConfirm === "Confirmar" && (
+                          <Button className="btn btn-danger" onClick={handleCancelEdit}>
+                            <i className="bi bi-x-lg text-white"></i>
+                          </Button>
+                        )}
+                      </ButtonGroup>
+
+                      <button className="btn btn-danger mt-2 " onClick={handleUserLogOut}>
                         Cerrar sesión
                       </button>
                     </div>
