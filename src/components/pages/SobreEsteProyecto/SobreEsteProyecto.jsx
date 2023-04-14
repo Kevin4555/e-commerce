@@ -9,7 +9,7 @@ function SobreEsteProyecto() {
     <>
       <PageNavbar />
       <Container fluid className="p-0">
-        <section className={`${css.darkSection} row`}>
+        <section className={`${css.darkSection} row p-0 m-0`}>
           <div className={`${css.profile} col-12 col-md-6 col-lg-3 align-items-center`}>
             <img
               src={`${process.env.REACT_APP_API_BASE_IMG_URL}/Foto_Nico.png`}
@@ -146,7 +146,7 @@ function SobreEsteProyecto() {
         </section>
         <section className={`${css.greenSection2}`}>
           <h2>Funcionalidades</h2>
-          <Row className="">
+          <Row className="p-3 gx-2">
             <Col sm={4} className="bg-white pt-2 rounded">
               <img
                 src={`${process.env.REACT_APP_API_BASE_IMG_URL}/paneladmin.gif`}
