@@ -48,9 +48,9 @@ const AdminCategories = () => {
       <NavbarAdmin />
       <Container className="p-0 m-0" fluid id={css["backgroundAdminLogin"]}>
         <Sidebar />
-        <Row className={`${css.backgroundTop} m-0`}>
+        <Row className={` m-0 `}>
           <div className="col-2"></div>
-          <div className={` col-10 px-4`}>
+          <div className={`${css.backgroundTop} col-10 px-1`}>
             <div className={css.header}>
               <h2 className={css.tituloContainer}>Panel de Categorías</h2>
               <Button className={`ms-4 mb-2 ${css.adminButton}`}>
@@ -66,6 +66,7 @@ const AdminCategories = () => {
                   <tr>
                     <th>ID #</th>
                     <th>Nombre</th>
+                    <th>Imagen</th>
                     <th>Acciones</th>
                   </tr>
                 </thead>
@@ -73,8 +74,16 @@ const AdminCategories = () => {
                   {categories.map((category, index) => {
                     return (
                       <tr key={index}>
-                        <td>{category.id}</td>
                         <td>{category.name}</td>
+                        <td>{category.id}</td>
+                        <td className="d-flex justify-content-center">
+                          <img
+                            src={`${process.env.REACT_APP_API_BASE_IMG_URL}/${category.img}`}
+                            alt={category.img}
+                            className={` ${css.categoryImg}`}
+                          />
+                        </td>
+
                         <td>
                           {" "}
                           <Link
@@ -106,7 +115,6 @@ const AdminCategories = () => {
           </div>
         </Row>
       </Container>
-      ;
     </>
   );
 };

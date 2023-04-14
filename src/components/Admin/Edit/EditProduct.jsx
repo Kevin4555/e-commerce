@@ -6,12 +6,14 @@ import css from "./Edit.module.css";
 import { useParams } from "react-router-dom";
 import NavbarAdmin from "../NavbarAdmin/NavbarAdmin";
 import Sidebar from "../../Sidebar/Sidebar";
+import { useSelector } from "react-redux";
 
 export default function EditProduct() {
+  let admin = useSelector((state) => state.persistedReducer.admin);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
-  const [img, setImg] = useState("");
+  const [imgs, setImgs] = useState("");
   const [stock, setStock] = useState("");
   const [CategoryId, setCategoryId] = useState("");
 
@@ -49,6 +51,7 @@ export default function EditProduct() {
       await axios({
         headers: {
           "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${admin.token}`,
         },
         method: "patch",
         url: `${process.env.REACT_APP_API_BASE_URL}/products/${product.id}`,
@@ -77,7 +80,7 @@ export default function EditProduct() {
                 <Card className="px-4">
                   {error && (
                     <Alert variant="danger" onClose={() => setError(false)} dismissible>
-                      <p>No se pudo crear el usuario</p>
+                      <p>No se pudo editar el producto</p>
                     </Alert>
                   )}
                   <Card.Body>
@@ -122,9 +125,11 @@ export default function EditProduct() {
                             <Form.Label className="text-center">Seleccionar Imágenes</Form.Label>
                             <Form.Control
                               type="file"
-                              value={img}
-                              name="img"
-                              onChange={(event) => setImg(event.target.value)}
+                              value={imgs}
+                              name="imgs"
+                              multiple
+                              accept="image/*"
+                              onChange={(event) => setImgs(event.target.value)}
                               placeholder="Seleccionar imagenes"
                             />
                           </Form.Group>

@@ -40,6 +40,10 @@
 .userAvatar {
   width: 50px;
 }
+.categoryImg {
+  width: 5rem;
+  height: 5rem;
+}
 
 .description {
   display: -webkit-box;

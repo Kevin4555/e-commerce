@@ -42,6 +42,7 @@ const AdminUsers = () => {
         },
         url: `${process.env.REACT_APP_API_BASE_URL}/users/${user.id}`,
       });
+      setUsers(users.filter((u) => u.id !== user.id));
     } catch (err) {
       console.log(err);
       setError(true);
@@ -56,13 +57,9 @@ const AdminUsers = () => {
         <Row className="m-0">
           <div className="col-2"></div>
 
-          <div className={`${css.backgroundTop} col-10 px-4`}>
+          <div className={`${css.backgroundTop} col-10 px-1`}>
             <div className={css.header}>
               <h2 className={css.tituloContainer}>Panel de Usuarios</h2>
-
-              <Link to="/admin/createProduct">
-                <Button variant="success ms-4 mb-2">Agregar usuario</Button>
-              </Link>
             </div>
 
             <div className={css.tableProducts}>
@@ -100,15 +97,12 @@ const AdminUsers = () => {
                         </td>
                         <td>
                           {" "}
-                          <Button className="buttons" variant="warning">
-                            {" "}
-                            <Link
-                              to={`/admin/editUser/${user.id}`}
-                              className="text-decoration-none text-light"
-                            >
-                              Editar{" "}
-                            </Link>
-                          </Button>{" "}
+                          <Link
+                            to={`/admin/editUser/${user.id}`}
+                            className="text-decoration-none text-light btn btn-warning"
+                          >
+                            Editar{" "}
+                          </Link>
                           <Button
                             className="buttons"
                             variant="danger"
@@ -126,7 +120,6 @@ const AdminUsers = () => {
           </div>
         </Row>
       </Container>
-      ;
     </>
   );
 };

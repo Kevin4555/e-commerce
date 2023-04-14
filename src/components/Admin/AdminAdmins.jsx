@@ -100,7 +100,6 @@ const AdminAdmins = () => {
           </tbody>
         </Table>
       </Container>
-      ;
     </>
   );
 };
