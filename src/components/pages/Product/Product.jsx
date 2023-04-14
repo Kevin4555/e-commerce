@@ -24,6 +24,7 @@ function Product() {
   const [rating, setRating] = useState(0);
   const [stock, setStock] = useState(null);
   const [show, setShow] = useState(false);
+  const [show2, setShow2] = useState(false);
 
   useEffect(() => {
     const getProduct = async () => {
@@ -70,6 +71,7 @@ function Product() {
 
   const handleAddToCart = () => {
     dispatch(addItemToCart({ ...product, quantity: 1 }));
+    setShow2(true);
   };
 
   const handleRatingChange = (newRating) => {
@@ -89,6 +91,20 @@ function Product() {
               className={`position-fixed bg-white ${css.rightBottomZero}`}
             >
               <Toast.Body>Lo sentimos pero esta funcionalidad está en desarollo.</Toast.Body>
+              <div className={css.toast}></div>
+            </Toast>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={6}>
+            <Toast
+              onClose={() => setShow2(false)}
+              show={show2}
+              delay={3000}
+              autohide
+              className={`position-fixed bg-white ${css.rightBottomZero}`}
+            >
+              <Toast.Body>Tu producto ha sido agregado al carrito.</Toast.Body>
               <div className={css.toast}></div>
             </Toast>
           </Col>

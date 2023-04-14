@@ -20,6 +20,9 @@ export default function CreateCategory() {
     try {
       let formdata = new FormData(event.target);
       await axios({
+        headers: {
+          Authorization: `Bearer ${admin.token}`,
+        },
         method: "post",
         headers: {
           "Content-Type": "multipart/form-data",

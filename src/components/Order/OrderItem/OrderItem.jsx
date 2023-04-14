@@ -1,15 +1,33 @@
 import { addItemToCart } from "../..//..//slices/cartSlice.js";
+import { Row, Col, Toast } from "react-bootstrap";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import css from "./OrderItem.module.css";
 import { Link } from "react-router-dom";
 
 function OrderItem({ item }) {
   const dispatch = useDispatch();
+  const [show, setShow] = useState(false);
   const handleAddToCart = () => {
     dispatch(addItemToCart({ ...item, quantity: 1 }));
+    setShow(true);
   };
   return (
     <>
+      <Row>
+        <Col xs={6}>
+          <Toast
+            onClose={() => setShow(false)}
+            show={show}
+            delay={3000}
+            autohide
+            className={`position-fixed bg-white ${css.rightBottomZero}`}
+          >
+            <Toast.Body>Tu producto ha sido agregado al carrito.</Toast.Body>
+            <div className={css.toast}></div>
+          </Toast>
+        </Col>
+      </Row>
       <div className="col-12 px-4 pb-4">
         <div className="d-flex flex-column flex-md-row">
           <div className={` img-fluid text-center mt-2`}>

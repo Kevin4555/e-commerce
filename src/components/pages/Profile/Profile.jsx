@@ -10,7 +10,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 import { removeUser } from "../../../slices/usersSlice";
 import { removeAdmin } from "../../../slices/adminSlice";
-import { ButtonGroup, Button } from "react-bootstrap";
+import { ButtonGroup, Button, Row, Col, Toast } from "react-bootstrap";
 import axios from "axios";
 
 function Profile() {
@@ -23,7 +23,7 @@ function Profile() {
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [orders, setOrders] = useState([]);
-
+  const [show, setShow] = useState(false);
   const [firstname, setFirstname] = useState(user ? user.firstname : admin.firstname);
   const [lastname, setLastname] = useState(user ? user.lastname : admin.lastname);
   const [phone, setPhone] = useState(user ? user.phone : "");
@@ -121,6 +121,20 @@ function Profile() {
   else
     return (
       <>
+        <Row>
+          <Col xs={6}>
+            <Toast
+              onClose={() => setShow(false)}
+              show={show}
+              delay={3000}
+              autohide
+              className={`position-fixed bg-white ${css.rightBottomZero}`}
+            >
+              <Toast.Body>Tu producto ha sido agregado al carrito.</Toast.Body>
+              <div className={css.toast}></div>
+            </Toast>
+          </Col>
+        </Row>
         <PageNavbar />
         <main>
           <div
