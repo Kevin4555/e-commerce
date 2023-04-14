@@ -35,6 +35,10 @@ export default function Login() {
       setError(true);
     }
   };
+  const handleFill = async (event) => {
+    setEmail("user@1234.com");
+    setPassword("1234");
+  };
 
   return (
     <>
@@ -94,6 +98,14 @@ export default function Login() {
                       <Link to="/resetpassword" className={css.link}>
                         Olvidaste tu contraseña?
                       </Link>
+                    </p>
+                  </div>
+                  <div className="mt-3">
+                    <p className="mb-0  text-center">
+                      Necesitas acceso?
+                      <Button onClick={handleFill} id={css["buttonFill"]} className="mx-2">
+                        Click aquí
+                      </Button>
                     </p>
                   </div>
                 </div>
