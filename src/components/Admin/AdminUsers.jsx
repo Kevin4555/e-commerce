@@ -57,10 +57,6 @@ const AdminUsers = () => {
           <div className={`${css.backgroundTop} col-10 px-4`}>
             <div className={css.header}>
               <h2 className={css.tituloContainer}>Panel de Usuarios</h2>
-
-              <Link to="/admin/createProduct">
-                <Button variant="success ms-4 mb-2">Agregar usuario</Button>
-              </Link>
             </div>
 
             <div className={css.tableProducts}>
