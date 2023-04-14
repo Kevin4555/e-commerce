@@ -5,9 +5,11 @@ import axios from "axios";
 import css from "../Edit/Edit.module.css";
 import NavbarAdmin from "../NavbarAdmin/NavbarAdmin";
 import Sidebar from "../../Sidebar/Sidebar";
+import { useSelector } from "react-redux";
 
 export default function CreateCategory() {
-  const [categoryId, setCategoryId] = useState("");
+  let admin = useSelector((state) => state.persistedReducer.admin);
+  const [categoryImg, setCategoryImg] = useState("");
   const [categoryName, setcategoryName] = useState("");
 
   const [error, setError] = useState("");
@@ -16,10 +18,15 @@ export default function CreateCategory() {
   const handleCreateCategory = async (event) => {
     event.preventDefault();
     try {
+      let formdata = new FormData(event.target);
       await axios({
         method: "post",
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${admin.token}`,
+        },
         url: `${process.env.REACT_APP_API_BASE_URL}/categories`,
-        data: { categoryName },
+        data: formdata,
       });
       navigate("/admin/categories");
     } catch (err) {
@@ -57,9 +64,21 @@ export default function CreateCategory() {
                             <Form.Control
                               type="text"
                               value={categoryName}
-                              name="categoryName"
+                              name="name"
+                              required
                               onChange={(event) => setcategoryName(event.target.value)}
                               placeholder="Maderas"
+                            />
+                          </Form.Group>
+
+                          <Form.Group className="mb-3 py-2" controlId="categoryImg">
+                            <Form.Label className="text-center">Imagen de la categoría</Form.Label>
+                            <Form.Control
+                              type="file"
+                              value={categoryImg}
+                              name="img"
+                              required
+                              onChange={(event) => setCategoryImg(event.target.value)}
                             />
                           </Form.Group>
 

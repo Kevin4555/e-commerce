@@ -14,6 +14,7 @@ export default function EditCategoryId() {
 
   const [category, setCategory] = useState(null);
   const [categoryName, setCategoryName] = useState("");
+  const [categoryImg, setCategoryImg] = useState("");
   const { id } = useParams();
 
   useEffect(() => {
@@ -35,13 +36,15 @@ export default function EditCategoryId() {
   const handleEditCategory = async (event) => {
     event.preventDefault();
     try {
+      let formdata = new FormData(event.target);
       await axios({
         method: "patch",
         headers: {
+          "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${admin.token}`,
         },
         url: `${process.env.REACT_APP_API_BASE_URL}/categories/${category.id}`,
-        data: { categoryName },
+        data: formdata,
       });
       navigate("/admin/categories");
     } catch (err) {
@@ -79,9 +82,18 @@ export default function EditCategoryId() {
                             <Form.Control
                               type="text"
                               value={categoryName}
-                              name="categoryName"
+                              name="name"
                               onChange={(event) => setCategoryName(event.target.value)}
                               placeholder="Nombre categoria"
+                            />
+                          </Form.Group>
+                          <Form.Group className="mb-3 py-2" controlId="categoryImg">
+                            <Form.Label className="text-center">Imagen de la categoría</Form.Label>
+                            <Form.Control
+                              type="file"
+                              value={categoryImg}
+                              name="img"
+                              onChange={(event) => setCategoryImg(event.target.value)}
                             />
                           </Form.Group>
 
