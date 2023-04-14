@@ -72,7 +72,7 @@ function Newsletter() {
           </div>
         </div>
       ) : (
-        <Form onSubmit={handleNewsSend}>
+        <Form onSubmit={handleNewsSend} className="container">
           <div className="row justify-content-center">
             <div className="col-10 col-sm-8 col-md-5 col-lg-4">
               <InputGroup className="mb-3">
