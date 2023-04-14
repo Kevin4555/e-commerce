@@ -33,27 +33,27 @@ function Footer() {
             <ul className={`list-unstyled ${css.linkStyle}`}>
               <li>
                 <Link>
-                  <i class="bi bi-arrow-right-short"></i>Cerámicas
+                  <i className="bi bi-arrow-right-short"></i>Cerámicas
                 </Link>
               </li>
               <li>
                 <Link>
-                  <i class="bi bi-arrow-right-short"></i>Pinturas
+                  <i className="bi bi-arrow-right-short"></i>Pinturas
                 </Link>
               </li>
               <li>
                 <Link>
-                  <i class="bi bi-arrow-right-short"></i>Maderas
+                  <i className="bi bi-arrow-right-short"></i>Maderas
                 </Link>
               </li>
               <li>
                 <Link>
-                  <i class="bi bi-arrow-right-short"></i>Tejidos
+                  <i className="bi bi-arrow-right-short"></i>Tejidos
                 </Link>
               </li>
               <li>
                 <Link>
-                  <i class="bi bi-arrow-right-short"></i>Decoraciones
+                  <i className="bi bi-arrow-right-short"></i>Decoraciones
                 </Link>
               </li>
             </ul>

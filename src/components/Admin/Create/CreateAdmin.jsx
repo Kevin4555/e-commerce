@@ -134,21 +134,14 @@ export default function CreateAdmin() {
                           </Button>
                         </div>
                       </Form.Group>
-
-                      {/*   </Form.Group>
-                </Form.Group>
-              </Form.Group> */}
                     </Form>
                   </div>
                 </div>
               </Card.Body>
             </Card>
           </Col>
-          {/*   
-        </div> */}
         </Row>
         <Card.Body />
-        {/*  </div> */}
       </Container>
     </>
   );

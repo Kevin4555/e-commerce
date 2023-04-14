@@ -292,7 +292,7 @@ function Profile() {
                         </Button>
                         {buttonConfirm === "Confirmar" && (
                           <Button className="btn btn-danger" onClick={handleCancelEdit}>
-                            <i class="bi bi-x-lg text-white"></i>
+                            <i className="bi bi-x-lg text-white"></i>
                           </Button>
                         )}
                       </ButtonGroup>
