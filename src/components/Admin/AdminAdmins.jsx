@@ -1,10 +1,9 @@
 import React from "react";
-import Table from "react-bootstrap/Table";
+import { Table, Button, Container, Row } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Container from "react-bootstrap/Container";
 import Sidebar from "../Sidebar/Sidebar";
-import Button from "react-bootstrap/Button";
+
 import { Link } from "react-router-dom";
 import NavbarAdmin from "./NavbarAdmin/NavbarAdmin";
 import css from "./Admin.module.css";
@@ -68,19 +67,19 @@ const AdminAdmins = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {users.map((user, index) => {
+                  {admins.map((admin, index) => {
                     return (
                       <tr key={index}>
-                        <td>{user.id}</td>
-                        <td>{user.firstname}</td>
-                        <td>{user.lastname}</td>
-                        <td>{user.email}</td>
-                        <td>{user.address}</td>
-                        <td>{user.phone}</td>
+                        <td>{admin.id}</td>
+                        <td>{admin.firstname}</td>
+                        <td>{admin.lastname}</td>
+                        <td>{admin.email}</td>
+                        <td>{admin.address}</td>
+                        <td>{admin.phone}</td>
                         <td>
                           {
                             <img
-                              src={process.env.REACT_APP_API_BASE_IMG_URL + `/${user.avatar}`}
+                              src={process.env.REACT_APP_API_BASE_IMG_URL + `/${admin.avatar}`}
                               alt=""
                               className={css.userAvatar}
                             />
@@ -91,7 +90,7 @@ const AdminAdmins = () => {
                           <Button className="buttons" variant="warning">
                             {" "}
                             <Link
-                              to={`/admin/editUser/${user.id}`}
+                              to={`/admin/editUser/${admin.id}`}
                               className="text-decoration-none text-light"
                             >
                               Editar{" "}
