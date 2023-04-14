@@ -11,8 +11,10 @@ import { useNavigate } from "react-router-dom";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import NavbarAdmin from "./NavbarAdmin/NavbarAdmin";
+import { useSelector } from "react-redux";
 
 const AdminProducts = () => {
+  let admin = useSelector((state) => state.persistedReducer.admin);
   const [products, setProducts] = useState([]);
   const [error, setError] = useState("");
   const navigate = useNavigate();
@@ -35,6 +37,9 @@ const AdminProducts = () => {
     try {
       await axios({
         method: "delete",
+        headers: {
+          Authorization: `Bearer ${admin.token}`,
+        },
         url: `${process.env.REACT_APP_API_BASE_URL}/products/${product.id}`,
       });
     } catch (err) {

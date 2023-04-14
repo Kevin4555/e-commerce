@@ -20,7 +20,7 @@ import AdminUsers from "./components/Admin/AdminUsers";
 import AdminCategories from "./components/Admin/AdminCategories";
 import AdminReviews from "./components/Admin/AdminReviews";
 import AdminOrders from "./components/Admin/AdminOrders";
-import AdminLogin from "./components/Admin/AdminLogin";
+import AdminLogin from "./components/Admin/AdminLogin/AdminLogin";
 import EditUser from "./components/Admin/Edit/EditUser";
 import EditProduct from "./components/Admin/Edit/EditProduct";
 import EditCategoryId from "./components/Admin/Edit/EditCategoryId";
