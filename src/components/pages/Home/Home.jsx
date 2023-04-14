@@ -21,7 +21,6 @@ function Home({ showModal, setShowModal }) {
   const [productsFromCategory3, setProductsFromCategory3] = useState([]);
   const [productsFromCategory4, setProductsFromCategory4] = useState([]);
   const [productsFromCategory5, setProductsFromCategory5] = useState([]);
-
   useEffect(() => {
     const getProducts = async () => {
       try {

@@ -1,7 +1,13 @@
+import { addItemToCart } from "../..//..//slices/cartSlice.js";
+import { useDispatch } from "react-redux";
 import css from "./OrderItem.module.css";
 import { Link } from "react-router-dom";
 
 function OrderItem({ item }) {
+  const dispatch = useDispatch();
+  const handleAddToCart = () => {
+    dispatch(addItemToCart({ ...item, quantity: 1 }));
+  };
   return (
     <>
       <div className="col-12 px-4 pb-4">
@@ -27,7 +33,9 @@ function OrderItem({ item }) {
               Ver producto
             </Link>
             <hr className={`${css.hr} mx-3 d-none d-sm-inline my-auto`} />
-            <Link className="text-decoration-none my-1 my-sm-0">Comprar de nuevo</Link>
+            <Link className="text-decoration-none my-1 my-sm-0" onClick={handleAddToCart}>
+              Comprar de nuevo
+            </Link>
           </div>
           <div className="text-center text-sm-start">
             <small className="fs-6 mt-auto">
