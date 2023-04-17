@@ -129,9 +129,9 @@ function SobreEsteProyecto() {
           </div>
         </section>
         <section className={`${css.greenSection2}`}>
-          <h2>Funcionalidades</h2>
-          <Row className="p-3 gx-5">
-            <Col sm={4} className="bg-white pt-2 rounded">
+          <h2>Algunas Funcionalidades</h2>
+          <Row className={`p-3 mx-3 ${css.funcionalidad}`}>
+            <Col sm={4} className={`pt-2 text-white`}>
               <img
                 src={`${process.env.REACT_APP_API_BASE_IMG_URL}/paneladmin.gif`}
                 alt="Logo"
@@ -144,7 +144,7 @@ function SobreEsteProyecto() {
                 administrador 🤫
               </p>
             </Col>
-            <Col sm={4} className="bg-white pt-2 rounded">
+            <Col sm={4} className={`pt-2`}>
               <img
                 src={`${process.env.REACT_APP_API_BASE_IMG_URL}/crud.gif`}
                 alt="Logo"
@@ -153,10 +153,14 @@ function SobreEsteProyecto() {
               <h4>CRUD de Entidades</h4>
               <p>
                 En el Panel de Administradores se puede hacer CRUD (Create, Read, Update, Delete) de
-                esas entidades! Te invitamos a <Link to={"/admin"}>probarlo</Link> tú mismo
+                esas entidades! Te invitamos a{" "}
+                <Link to={"/admin"} className="text-white">
+                  probarlo
+                </Link>{" "}
+                tú mismo
               </p>
             </Col>
-            <Col sm={4} className="bg-white pt-2 rounded">
+            <Col sm={4} className={`pt-2`}>
               <img
                 src={`${process.env.REACT_APP_API_BASE_IMG_URL}/newsletter.gif`}
                 alt="Logo"

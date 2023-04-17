@@ -96,3 +96,18 @@
   background: linear-gradient(176deg, var(--accent) 0%, var(--tertiary) 100%);
   color: white;
 }
+
+.funcionalidad {
+  background-color: var(--tertiary);
+  border-radius: 1rem;
+  color: white !important;
+}
+
+.funcionalidad > * > * {
+  color: white !important;
+}
+
+.funcionalidad > * > img {
+  border: 5px solid white !important;
+  height: 12rem !important;
+}
