@@ -9,8 +9,8 @@ function SobreEsteProyecto() {
     <>
       <PageNavbar />
       <Container fluid className="p-0">
-        <section className={`${css.darkSection} row m-0`}>
-          <div className={`${css.profile} col-12 col-md-6 col-lg-3 align-items-center`}>
+        <section className={`${css.darkSection} row m-0 px-5`}>
+          <div className={`${css.profile} col-12 col-md-6 col-lg-4 align-items-center`}>
             <img
               src={`${process.env.REACT_APP_API_BASE_IMG_URL}/Foto_Nico.png`}
               alt="Logo"
@@ -30,7 +30,7 @@ function SobreEsteProyecto() {
               </a>
             </div>
           </div>
-          <div className={`${css.profile} col-12 col-md-6 col-lg-3 align-items-center`}>
+          <div className={`${css.profile} col-12 col-md-6 col-lg-4 align-items-center`}>
             <img
               src={`${process.env.REACT_APP_API_BASE_IMG_URL}/Foto_Kevin.png`}
               alt="Logo"
@@ -46,7 +46,7 @@ function SobreEsteProyecto() {
               </a>
             </div>
           </div>
-          <div className={`${css.profile} col-12 col-md-6 col-lg-3 align-items-center`}>
+          <div className={`${css.profile} col-12 col-md-6 col-lg-4 align-items-center`}>
             <img
               src={`${process.env.REACT_APP_API_BASE_IMG_URL}/Foto_Maia.png`}
               alt="Logo"
@@ -58,22 +58,6 @@ function SobreEsteProyecto() {
                 <i className={`${css.profileIcon} bi bi-github`}></i>
               </a>
               <a href="https://www.linkedin.com/in/maia-chamorro/" target="_blank">
-                <i className={`${css.profileIcon} bi bi-linkedin`}></i>
-              </a>
-            </div>
-          </div>
-          <div className={`${css.profile} col-12 col-md-6 col-lg-3 align-items-center`}>
-            <img
-              src={`${process.env.REACT_APP_API_BASE_IMG_URL}/Foto_Seba.png`}
-              alt="Logo"
-              className="w-50 ms-2 mb-4"
-            />
-            <h4>Sebastián Wajshan</h4>
-            <div className={css.icons}>
-              <a href="https://github.com/sebawaj" target="_blank">
-                <i className={`${css.profileIcon} bi bi-github`}></i>
-              </a>
-              <a href="https://www.linkedin.com/in/sebastian-wajshan" target="_blank">
                 <i className={`${css.profileIcon} bi bi-linkedin`}></i>
               </a>
             </div>
@@ -90,7 +74,7 @@ function SobreEsteProyecto() {
                 <img src="ha_logo.png" alt="" />
               </a>
               <p className="px-3">
-                Esto es <b>Manos Creativas</b>, un <b>eCommerce ficticio</b> realizado por 4
+                Esto es <b>Manos Creativas</b>, un <b>eCommerce ficticio</b> realizado por 3
                 compañeros a lo largo de 3 semanas como proyecto final del{" "}
                 <b>Bootcamp de Hack Academy</b>. El Bootcamp de Full-Stack development de Hack
                 Academy es un curso
@@ -146,12 +130,12 @@ function SobreEsteProyecto() {
         </section>
         <section className={`${css.greenSection2}`}>
           <h2>Funcionalidades</h2>
-          <Row className="p-3 gx-2">
+          <Row className="p-3 gx-5">
             <Col sm={4} className="bg-white pt-2 rounded">
               <img
                 src={`${process.env.REACT_APP_API_BASE_IMG_URL}/paneladmin.gif`}
                 alt="Logo"
-                className={`${css.gif} ms-2 mb-4`}
+                className={`img-fluid ms-2 mb-4`}
               />
               <h4>Panel de Administradores</h4>
               <p>
@@ -164,7 +148,7 @@ function SobreEsteProyecto() {
               <img
                 src={`${process.env.REACT_APP_API_BASE_IMG_URL}/crud.gif`}
                 alt="Logo"
-                className={`${css.gif} ms-2 mb-4`}
+                className={`img-fluid ms-2 mb-4`}
               />
               <h4>CRUD de Entidades</h4>
               <p>
@@ -176,7 +160,7 @@ function SobreEsteProyecto() {
               <img
                 src={`${process.env.REACT_APP_API_BASE_IMG_URL}/newsletter.gif`}
                 alt="Logo"
-                className={`${css.gif} ms-2 mb-4`}
+                className={`img-fluid ms-2 mb-4`}
               />
               <h4>Newsletter</h4>
               <p>

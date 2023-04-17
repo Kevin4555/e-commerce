@@ -37,7 +37,7 @@ function StartModal({ showModal, setShowModal, products }) {
       </Modal.Header>
       <Modal.Body className="px-4">
         <p>
-          Este e-commerce es el proyecto final de 4 estudiantes del Coding Bootcamp de Hack Academy!
+          Este e-commerce es el proyecto final de 3 estudiantes del Coding Bootcamp de Hack Academy!
         </p>
         <p>
           Recomendamos fuertemente <b>un reseteo de la base de datos</b> para que tu experiencia sea

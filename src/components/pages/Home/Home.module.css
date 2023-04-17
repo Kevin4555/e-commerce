@@ -7,11 +7,7 @@
   left: 13%;
 }
 
-.carouselCaption > h2 {
-  font-size: 3rem;
-}
 .carouselCaption > p {
-  font-size: 1.5rem;
   font-weight: light !important;
 }
 
@@ -113,5 +109,20 @@
 @media (max-width: 991.99px) {
   #categoryDisplay {
     justify-content: space-evenly;
+  }
+}
+
+.imgPrueba {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .carouselCaption {
+    width: 80vw;
+    position: absolute;
+    top: 1%;
+  }
+  .imgPrueba {
+    width: 100%;
   }
 }

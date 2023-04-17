@@ -97,7 +97,7 @@ function PageNavbar() {
                 </Nav.Link>
               ) : (
                 <Nav.Link as={Link} to={"/login"}>
-                  <Button id={css["button"]} className="btn">
+                  <Button id={css["button"]} className="btn mt-2">
                     Iniciar Sesión
                   </Button>
                 </Nav.Link>

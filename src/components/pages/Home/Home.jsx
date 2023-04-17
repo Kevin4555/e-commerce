@@ -112,8 +112,8 @@ function Home({ showModal, setShowModal }) {
                 draggable="false"
               />
               <Carousel.Caption className={css.carouselCaption}>
-                <p>Lo más vendido</p>
-                <h2>Colección Madera Moderna</h2>
+                <p className="fs-5">Lo más vendido</p>
+                <h2 className="fs-1">Colección Madera Moderna</h2>
                 <Link to={"product/Cajas-de-Madera-Hexagonales"}>
                   <button className={`btn ${css.bannerBtn}`}>Comprar ahora</button>
                 </Link>
@@ -121,15 +121,15 @@ function Home({ showModal, setShowModal }) {
             </Carousel.Item>
             <Carousel.Item>
               <img
-                className="d-block"
+                className={`${css.imgPrueba} d-block`}
                 src="/img/mainBanner2.png"
                 alt="Second slide"
                 draggable="false"
               />
 
               <Carousel.Caption className={css.carouselCaption}>
-                <p>Los mejores productos hechos a mano</p>
-                <h2>Nueva Colección Handmade</h2>
+                <p className="fs-5">Los mejores productos hechos a mano</p>
+                <h2 className="fs-1">Nueva Colección Handmade</h2>
                 <Link to={"product/Carrito-de-Madera"}>
                   <button className={`btn ${css.bannerBtn}`}>Comprar ahora</button>
                 </Link>
