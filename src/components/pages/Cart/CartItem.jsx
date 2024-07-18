@@ -20,8 +20,8 @@ function CartItem({ item }) {
           alt=""
           className={`${css.productImage} rounded`}
         />
-        <div className="mt-1">
-          <small className="fs-6">{item.title}</small>
+        <div className="mt-3">
+          <small className="fs-6 fw-medium">{item.title}</small>
         </div>
       </div>
       <div className="col-12 col-sm-3 my-2 my-sm-auto">

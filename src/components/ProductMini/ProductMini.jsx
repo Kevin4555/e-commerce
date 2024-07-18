@@ -1,4 +1,5 @@
 import css from "./ProductMini.module.css";
+import "aos/dist/aos.css";
 import cssHome from "../pages/Home/Home.module.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -23,7 +24,12 @@ function ProductMini({ product }) {
             </Toast>
           </Col>
         </Row>
-        <div id={css["productContainer"]} className="shadow rounded">
+        <div
+          id={css["productContainer"]}
+          className="shadow rounded"
+          data-aos="fade-up"
+          data-aos-easing="linear"
+        >
           <div className={css.imgContainer}>
             <Link to={`/product/${product.slug}`} className="text-decoration-none">
               <img

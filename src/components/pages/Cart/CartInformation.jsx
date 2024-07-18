@@ -145,12 +145,9 @@ function CartInformation() {
               </Form>
 
               <hr className="my-5" />
-              <small className="text-secondary">
-                All rights reserved Artistic - Art & Craft Store
-              </small>
             </div>
             <div className="col-12 col-lg-5 px-5 p-5 bg-secondary-subtle border-start order-lg-1">
-              <h3 className="fs-5 fw-semibold text-center">Cart</h3>
+              <h3 className="fs-5 fw-semibold text-center">Carrito</h3>
               {cart.map((item) => (
                 <CartInformationItem key={item.id} item={item} />
               ))}

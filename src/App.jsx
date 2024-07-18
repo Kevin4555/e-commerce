@@ -2,6 +2,8 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import { Navigate } from "react-router";
 import SearchComponent from "./components/SearchComponent";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 import SobreEsteProyecto from "./components/pages/SobreEsteProyecto/SobreEsteProyecto";
 import Product from "./components/pages/Product/Product";
@@ -35,10 +37,17 @@ import AdminAdmins from "./components/Admin/AdminAdmins";
 import CreateAdmin from "./components/Admin/Create/CreateAdmin";
 import Products from "./components/Products/Products";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function App() {
   const [showModal, setShowModal] = useState(true);
+
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: true,
+    });
+  }, []);
 
   return (
     <Routes>

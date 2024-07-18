@@ -87,13 +87,17 @@ const AdminAdmins = () => {
                         <td>{admin.lastname}</td>
                         <td>{admin.email}</td>
                         <td>
-                          <Button
-                            className="buttons"
-                            variant="danger"
-                            onClick={() => handleDeleteAdmin(admin)}
-                          >
-                            Eliminar
-                          </Button>
+                          {admin.id === "1" ? (
+                            <span>No se puede eliminar este administrador</span>
+                          ) : (
+                            <Button
+                              className="buttons"
+                              variant="danger"
+                              onClick={() => handleDeleteAdmin(admin)}
+                            >
+                              Eliminar
+                            </Button>
+                          )}
                         </td>
                       </tr>
                     );

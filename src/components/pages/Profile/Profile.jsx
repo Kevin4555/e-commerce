@@ -145,9 +145,8 @@ function Profile() {
             <small className="fs-6 fw-semibold text-light text-center">Home</small>
           </div>
           <div className="container mt-5">
-            <div className="col-12 col-lg-8 order-lg-1"></div>
             <div className="row">
-              <div className="col-12 col-lg-4 order-lg-1">
+              <div className="col-12 col-lg-4">
                 <div id={css["userProfile"]} className="shadow text-center p-4 rounded mb-5">
                   {user ? (
                     <img
@@ -243,7 +242,7 @@ function Profile() {
                   <form onSubmit={handleEditUser}>
                     <div className={`row mt-3 bg-white p-5 p-lg-2 rounded shadow ${none}`}>
                       <div className="col-12 col-sm-6 d-lg-flex flex-lg-column text-start my-2">
-                        <label className="fw-bold fs-6">Firstname: </label>
+                        <label className="fw-bold fs-6">Nombre: </label>
                         <input
                           className="fs-6 rounded"
                           name="firstname"
@@ -252,7 +251,7 @@ function Profile() {
                         ></input>
                       </div>
                       <div className="col-12 col-sm-6 d-lg-flex flex-lg-column text-start my-2">
-                        <label className="fw-bold fs-6">Lastname: </label>
+                        <label className="fw-bold fs-6">Apellido: </label>
                         <input
                           className="fs-6 rounded"
                           name="lastname"
@@ -261,7 +260,7 @@ function Profile() {
                         ></input>
                       </div>
                       <div className="col-12 col-sm-6 d-lg-flex flex-lg-column text-start my-2">
-                        <label className="fw-bold fs-6">Phone: </label>
+                        <label className="fw-bold fs-6">Teléfono: </label>
                         <input
                           className="fs-6 rounded"
                           name="phone"
@@ -279,7 +278,7 @@ function Profile() {
                         ></input>
                       </div>
                       <div className="col-12 d-lg-flex flex-lg-column text-start my-2">
-                        <label className="fw-bold fs-6">Address: </label>
+                        <label className="fw-bold fs-6">Dirección: </label>
                         <input
                           className="fs-6 rounded"
                           name="address"
@@ -331,17 +330,9 @@ function Profile() {
                       <br />
                       Para ver nuestros productos haz
                       <Link to="/categories/1" className="ms-1">
-                        Click aqui
+                        click aquí
                       </Link>
                     </p>
-                    <h4>También te recomendamos algunos de nuestros productos</h4>
-
-                    {products && (
-                      <MultiItemCarousel
-                        products={products.filter((product) => Number(product.rating) === 5)}
-                        productsPerPage={4}
-                      ></MultiItemCarousel>
-                    )}
                   </div>
                 )}
               </div>

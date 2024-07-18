@@ -11,12 +11,12 @@ function CartInformationItem({ item }) {
               alt=""
               className={`${css.infoImgContainer} rounded`}
             />
-            <small className="position-absolute top-0 end-0 rounded-pill bg-secondary text-white px-2">
+            <small className="position-absolute top-0 end-0 rounded-pill bg-secondary text-white px-2 m-1">
               {item.quantity}
             </small>
           </div>
 
-          <small className="fs-6 d-block mt-2 mt-sm-0 ms-sm-2 ">{item.title}</small>
+          <small className="fs-6 d-block mt-2 mt-sm-0 ms-3">{item.title}</small>
         </div>
         <div className="d-inline">
           <small className="fs-6 fw-semibold">${item.price * item.quantity}</small>

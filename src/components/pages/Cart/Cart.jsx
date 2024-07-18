@@ -18,22 +18,21 @@ function Cart() {
           id={css["topBanner"]}
           className="container-fluid py-5 d-flex align-item-center justify-content-center flex-column"
         >
-          <h1 className="fs-3 fw-bold text-light text-center">Your Shopping Cart</h1>
-          <small className="fs-6 fw-semibold text-light text-center">Home</small>
+          <h1 className="fs-3 fw-bold text-light text-center">Tu Carrito</h1>
         </div>
         <div className="container mt-5">
           <div className="row flex-column flex-sm-row text-center text-sm-start">
             <div className="d-sm-none">
-              <small className="fs-5 fw-semibold">Cart Info</small>
+              <small className="fs-5 fw-semibold">Carrito</small>
             </div>
             <div className="d-none d-sm-block col-3">
-              <small className="fs-5 fw-semibold">Product</small>
+              <small className="fs-5 fw-semibold">Producto</small>
             </div>
             <div className="d-none d-sm-block col-3">
-              <small className="fs-5 fw-semibold">Price</small>
+              <small className="fs-5 fw-semibold">Precio</small>
             </div>
             <div className="d-none d-sm-block col-3">
-              <small className="fs-5 fw-semibold">Quantity</small>
+              <small className="fs-5 fw-semibold">Cantidad</small>
             </div>
             <div className="d-none d-sm-block col-3">
               <small className="fs-5 fw-semibold">Total</small>

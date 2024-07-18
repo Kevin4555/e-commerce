@@ -104,7 +104,7 @@ const AdminUsers = () => {
                             Editar{" "}
                           </Link>
                           <Button
-                            className="buttons"
+                            className={`${css.buttons}`}
                             variant="danger"
                             onClick={() => handleDeleteUser(user)}
                           >

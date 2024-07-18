@@ -97,3 +97,50 @@ input[type="search"]::-webkit-search-results-decoration {
   box-shadow: none !important;
   border: 1px solid gray !important;
 }
+
+/* BOOTSTRAP CUSTOM */
+
+.btn-warning {
+  color: #fff;
+  background-color: var(--secondary);
+  border: 2px solid var(--secondary);
+}
+
+.btn-warning:hover {
+  background-color: var(--primary);
+  border: 2px solid var(--primary);
+  color: #fff;
+}
+.btn-warning:active {
+  background-color: var(--primary);
+  border: 2px solid var(--primary);
+  color: #fff;
+}
+
+.btn-warning:focus,
+.btn-warning.focus {
+  box-shadow: 0 0 0 0.2rem var(--primary); /* Custom focus shadow */
+}
+
+.btn-danger {
+  color: #fff;
+  background-color: var(--accent);
+  border: 2px solid var(--accent);
+}
+
+.btn-danger:hover {
+  background-color: var(--tertiary);
+  border: 2px solid var(--tertiary);
+  color: #fff;
+}
+
+.btn-danger:focus,
+.btn-danger.focus {
+  box-shadow: 0 0 0 0.2rem var(--primary); /* Custom focus shadow */
+}
+
+.btn-danger:active {
+  background-color: var(--tertiary);
+  border: 2px solid var(--tertiary);
+  color: #fff;
+}

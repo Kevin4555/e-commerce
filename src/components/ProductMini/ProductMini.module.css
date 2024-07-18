@@ -3,7 +3,6 @@
 }
 
 #productContainer {
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: 0.5rem;
 }
 
@@ -69,7 +68,8 @@
 }
 
 .heartIcon {
-  font-size: 20px;
+  font-size: 30px;
+  color: white;
 }
 
 .title {

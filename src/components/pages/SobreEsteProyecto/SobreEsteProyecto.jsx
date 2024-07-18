@@ -83,7 +83,7 @@ function SobreEsteProyecto() {
             </div>
           </div>
         </section>
-        <section className={`${css.platinumSection}`}>
+        <section className={`${css.platinumSection} ${css.techSection}`}>
           <h3>Tecnologías Utilizadas</h3>
           <div className="row" id={css["iconList"]}>
             <div className="col-sm-6 col-md-3">
