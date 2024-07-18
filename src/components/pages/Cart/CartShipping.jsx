@@ -33,7 +33,7 @@ function CartShipping() {
               <h1 className="fs-2">Manos Creativas - Tienda de Artesanias</h1>
               <div className="fs-6 my-5">
                 <Link to="#" className="text-decoration-none text-dark">
-                  Cart
+                  Carrito
                 </Link>
                 <small className="fw-bold fs-6"> {">"} </small>
                 <small className="">Información</small>
@@ -86,9 +86,6 @@ function CartShipping() {
               </div>
             </div>
             <hr className="my-5" />
-            <small className="text-secondary">
-              All rights reserved Artistic - Art & Craft Store
-            </small>
           </div>
           <div className="col-12 col-lg-5 p-5 bg-secondary-subtle border-start order-lg-1">
             <h3 className="fs-5 fw-semibold text-center">Cart</h3>

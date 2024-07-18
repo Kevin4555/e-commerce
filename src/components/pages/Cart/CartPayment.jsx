@@ -89,7 +89,7 @@ function CartPayment() {
                 <div className="col-12 border rounded p-3 mb-5">
                   <div className="row">
                     <div className="col-12 col-sm-3 text-center text-sm-start d-block d-sm-flex align-items-sm-center">
-                      <small className="fs-6 text-secondary">Contact</small>
+                      <small className="fs-6 text-secondary">Email de Contacto</small>
                     </div>
                     <div className="col-12 col-sm-9 text-center text-sm-start d-block d-sm-flex align-items-sm-center">
                       {user ? (
@@ -141,7 +141,7 @@ function CartPayment() {
                             controlId="formBasicEmail"
                           >
                             <Form.Control
-                              type="date"
+                              type="text"
                               placeholder="Fecha de expiracón (MM / YY)"
                               required
                             />
